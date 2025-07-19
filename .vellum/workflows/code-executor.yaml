@@ -1,0 +1,38 @@
+# .vellum/workflows/code-executor.yaml
+id: code-executor
+name: CodeScribe Code Executor
+description: |
+  1. Run unit tests.
+  2. Analyze diffs + test results with AI.
+  3. Emit JSON with keys: title, body, summary.
+
+steps:
+  - id: run_tests
+    type: shell
+    command: |
+      echo "=== RUNNING UNIT TESTS ==="
+      npm test
+
+  - id: ai_analysis
+    type: ai
+    model: vellum-1.0
+    prompt: |
+      You are an expert developer assistant. Given:
+      - A git diff:
+        {{ inputs.diff }}
+      - Test results:
+        {{ steps.run_tests.output }}
+
+      Generate a single JSON object **only** with these keys:
+      • "title"   – conventional-commit style PR title  
+      • "body"    – detailed PR description in Markdown  
+      • "summary" – one-sentence summary for managers  
+
+      Do **not** wrap it in markdown or extra text.
+
+inputs:
+  - name: diff
+
+outputs:
+  - name: ai_results
+    from: steps.ai_analysis
