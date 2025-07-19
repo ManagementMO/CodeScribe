@@ -31,7 +31,7 @@ app.post('/api/webhook', async (req, res) => {
   console.log('✅ --- Webhook Received! --- ✅');
 
   // 1. A "Guard Clause" to ensure we only run on new PRs
-  if (req.body.action !== 'opened') {
+  if (req.body.action !== 'opened' && req.body.action !== 'reopened') {
     console.log('Webhook was not for a new PR. Ignoring.');
     return res.status(200).send('Event ignored.');
   }
@@ -52,7 +52,7 @@ app.post('/api/webhook', async (req, res) => {
     console.log('Diff content fetched successfully.');
 
     // 4. Call the Gemini API for a summary
-    const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
     const prompt = `You are an expert code reviewer. Summarize the following code changes from a git diff in a single, concise sentence for a project manager. Diff:\n\n${diffContent}`;
     
     const result = await model.generateContent(prompt);
@@ -60,14 +60,13 @@ app.post('/api/webhook', async (req, res) => {
     console.log(`AI Summary: ${summary}`);
 
     // 5. Post the summary to a HARDCODED Linear ticket
-    const hardcodedTicketId = 'TIX-1'; // <-- REPLACE WITH YOUR TEST TICKET ID
+    const hardcodedTicketId = 'COD-5'; // <-- REPLACE WITH YOUR TEST TICKET ID
     
-    await linearClient.commentCreate({
+    await linearClient.comment.create({
       issueId: hardcodedTicketId,
       body: `🤖 AI-Generated Summary from new PR:\n\n> ${summary}`,
     });
-    console.log(`Successfully posted comment to Linear ticket ${hardcodedTicketId}`);
-
+    console.log(`✅ Successfully posted comment to Linear ticket ${hardcodedTicketId}`);
     // 6. Send the final success response
     res.status(200).send('Webhook processed and comment posted to Linear.');
 
