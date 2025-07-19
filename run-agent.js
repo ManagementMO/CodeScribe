@@ -45,7 +45,7 @@ async function runDraftAgent() {
 
     // --- 3. AI Analysis: What should I say about this work? ---
     console.log(chalk.blue('   - Sending code changes to AI for analysis...'));
-    const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
     const prompt = `Analyze the following git diff and generate a clean JSON object with three keys: "title" (a conventional commit-style PR title), "body" (a detailed PR description in Markdown format), and "summary" (a one-sentence summary for a project manager). Do not add any text before or after the JSON object. Diff:\n\n${diffContent}`;
 
     const result = await model.generateContent(prompt);
@@ -75,31 +75,86 @@ async function runDraftAgent() {
     });
     console.log(chalk.green(`   - Created Draft PR: ${pr.data.html_url}`));
 
-    // --- 5. Linear Agent Action: Let me update the team. ---
-    console.log(chalk.blue(`   - Posting action to Linear ticket ${linearTicketId}...`));
-    await axios.post('https://api.linear.app/oauth/agent/action', {
-      issueId: linearTicketId,
-      action: 'create',
-      subject: 'Pull Request',
-      url: pr.data.html_url, // The URL of the PR we just created
-      metadata: {
-        status: `Draft PR #${pr.data.number}`,
-        summary: aiResults.summary,
+    // --- 5. Linear Action: Let me update the team. ---
+    console.log(chalk.blue(`   - Adding comment to Linear ticket ${linearTicketId}...`));
+    
+    // First, get the issue ID using the identifier
+    const issueQuery = `
+      query GetIssue($id: String!) {
+        issue(id: $id) {
+          id
+          title
+        }
       }
+    `;
+    
+    const issueResponse = await axios.post('https://api.linear.app/graphql', {
+      query: issueQuery,
+      variables: { id: linearTicketId }
     }, {
       headers: {
-        // Use the special Agent Key for this endpoint
-        'Authorization': `Bearer ${process.env.LINEAR_AGENT_KEY}`,
+        'Authorization': `${process.env.LINEAR_API_KEY}`,
         'Content-Type': 'application/json',
       }
     });
-    console.log(chalk.green('   - Linear ticket updated.'));
+
+    if (!issueResponse.data.data || !issueResponse.data.data.issue) {
+      console.log(chalk.yellow(`   - Warning: Linear ticket ${linearTicketId} not found, skipping Linear update`));
+      console.log(chalk.green.bold('\n✅ Agent finished successfully (GitHub PR created, Linear skipped)!'));
+      return;
+    }
+
+    const issueId = issueResponse.data.data.issue.id;
+    
+    // Now add a comment to the issue
+    const commentMutation = `
+      mutation CreateComment($issueId: String!, $body: String!) {
+        commentCreate(input: {
+          issueId: $issueId
+          body: $body
+        }) {
+          success
+          comment {
+            id
+          }
+        }
+      }
+    `;
+
+    const commentBody = `🚀 **Draft PR Created**
+
+${aiResults.summary}
+
+**Pull Request:** ${pr.data.html_url}
+**Status:** Draft PR #${pr.data.number}`;
+
+    await axios.post('https://api.linear.app/graphql', {
+      query: commentMutation,
+      variables: {
+        issueId: issueId,
+        body: commentBody
+      }
+    }, {
+      headers: {
+        'Authorization': `${process.env.LINEAR_API_KEY}`,
+        'Content-Type': 'application/json',
+      }
+    });
+    
+    console.log(chalk.green('   - Linear ticket updated with PR comment.'));
 
     console.log(chalk.green.bold('\n✅ Agent finished successfully!'));
 
   } catch (error) {
     // If any step fails, catch the error and print a clear message.
     console.error(chalk.red.bold('\n❌ Agent failed:'), error.message);
+    
+    // If it's an axios error, show more details
+    if (error.response) {
+      console.error(chalk.red('Response status:'), error.response.status);
+      console.error(chalk.red('Response data:'), JSON.stringify(error.response.data, null, 2));
+    }
+    
     process.exit(1); // Exit with a non-zero code to indicate failure.
   }
 }
