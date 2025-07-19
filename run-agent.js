@@ -45,8 +45,8 @@ const axios = require('axios');
     const aiResults = JSON.parse(jsonString);
     console.log(chalk.green('   - AI analysis complete.'));
 
-    // --- 4. Create GitHub Draft PR ---
-    console.log(chalk.blue('   - Creating draft pull request on GitHub...'));
+    // --- 4. Create or Update GitHub Draft PR ---
+    console.log(chalk.blue('   - Checking for existing pull request on GitHub...'));
     const repoMatch = remoteUrl.match(/github\.com[/:]([\w-]+)\/([\w-]+)(\.git)?/);
     if (!repoMatch) {
       throw new Error('Could not parse GitHub owner/repo from remote URL.');
@@ -54,17 +54,73 @@ const axios = require('axios');
     const owner = repoMatch[1];
     const repo = repoMatch[2];
 
-    const pr = await octokit.pulls.create({
-      owner,
-      repo,
-      title: aiResults.title,
-      body: aiResults.body,
-      head: branchName,
-      base: 'main',
-      draft: true,
-    });
+    // Check if PR already exists for this branch
+    let pr;
+    let isUpdate = false;
+    try {
+      const existingPRs = await octokit.pulls.list({
+        owner,
+        repo,
+        head: `${owner}:${branchName}`,
+        state: 'open'
+      });
 
-    console.log(chalk.green(`   - Created Draft PR: ${pr.data.html_url}`));
+      if (existingPRs.data.length > 0) {
+        const existingPR = existingPRs.data[0];
+        isUpdate = true;
+        console.log(chalk.yellow(`   - Found existing PR #${existingPR.number}, updating with latest changes...`));
+        
+        // Update the existing PR
+        pr = await octokit.pulls.update({
+          owner,
+          repo,
+          pull_number: existingPR.number,
+          title: aiResults.title,
+          body: aiResults.body,
+        });
+        console.log(chalk.green(`   - Updated existing PR: ${pr.data.html_url}`));
+      } else {
+        // Create new PR
+        console.log(chalk.blue('   - No existing PR found, creating new draft PR...'));
+        pr = await octokit.pulls.create({
+          owner,
+          repo,
+          title: aiResults.title,
+          body: aiResults.body,
+          head: branchName,
+          base: 'main',
+          draft: true,
+        });
+        console.log(chalk.green(`   - Created new Draft PR: ${pr.data.html_url}`));
+      }
+    } catch (createError) {
+      if (createError.status === 422 && createError.message.includes('pull request already exists')) {
+        // Fallback: try to find and update the existing PR
+        console.log(chalk.yellow('   - Handling edge case: PR exists but not found in initial search...'));
+        const existingPRs = await octokit.pulls.list({
+          owner,
+          repo,
+          head: `${owner}:${branchName}`,
+          state: 'open'
+        });
+
+        if (existingPRs.data.length > 0) {
+          isUpdate = true;
+          pr = await octokit.pulls.update({
+            owner,
+            repo,
+            pull_number: existingPRs.data[0].number,
+            title: aiResults.title,
+            body: aiResults.body,
+          });
+          console.log(chalk.green(`   - Updated existing PR: ${pr.data.html_url}`));
+        } else {
+          throw createError;
+        }
+      } else {
+        throw createError;
+      }
+    }
 
     // --- 5. Update Linear Ticket ---
     console.log(chalk.blue(`   - Adding comment to Linear ticket ${linearTicketId}...`));
@@ -114,12 +170,12 @@ const axios = require('axios');
       }
     `;
 
-    const commentBody = `🚀 **Draft PR Created**
+    const commentBody = `🚀 **Pull Request ${isUpdate ? 'Updated' : 'Created'}**
 
 ${aiResults.summary}
 
 **Pull Request:** ${pr.data.html_url}  
-**Status:** Draft PR #${pr.data.number}`;
+**Status:** ${isUpdate ? 'Updated' : 'Draft'} PR #${pr.data.number}`;
 
     await axios.post(
       'https://api.linear.app/graphql',
