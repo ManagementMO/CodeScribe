@@ -1,0 +1,24 @@
+# .warp/workflows/codescribe.yaml
+
+# The human-friendly name that appears in the Warp UI.
+name: CodeScribe Agent - Draft or Update PR
+
+# The detailed description. This is CRITICAL for Warp AI.
+# Be descriptive about what it does and what the outcome is.
+description: A powerful AI agent that analyzes your current branch's changes against main. It automatically pushes your commits, uses AI to generate a PR title and description, and then creates a new draft PR on GitHub or updates an existing one. Finally, it posts a link and summary to the corresponding Linear ticket as an Agent Action.
+
+# Your team's name or GitHub handle.
+author: YourTeamName # <-- CHANGE THIS
+
+# The actual command Warp will run in the terminal.
+# Because we used `npm link`, we can use our clean command name.
+command: codescribe
+
+# Keywords to make your workflow easier to find via search.
+tags:
+  - linear
+  - git
+  - ai
+  - agent
+  - pr
+  - productivity
