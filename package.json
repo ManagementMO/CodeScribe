@@ -13,7 +13,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/ManagementMO/CodeScribe/issues"
   },
@@ -23,7 +23,7 @@
     "@linear/sdk": "^52.0.0",
     "@octokit/rest": "^22.0.0",
     "axios": "^1.10.0",
-    "chalk": "^4.1.2",
+    "chalk": "^5.4.1",
     "commander": "^14.0.0",
     "dotenv": "^17.2.0"
   }
