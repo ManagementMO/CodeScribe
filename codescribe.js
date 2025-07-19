@@ -70,10 +70,44 @@ async function runDraftAgent() {
         const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
         const prompt = `Analyze the following git diff and generate a clean JSON object with three keys: "title" (a conventional commit-style PR title), "body" (a detailed PR description in Markdown format), and "summary" (a one-sentence summary for a project manager). Do not add any text before or after the JSON object. Diff:\n\n${diffContent}`;
 
-        const result = await model.generateContent(prompt);
-        const jsonString = result.response.text().replace(/```json\n|```/g, '').trim();
-        const aiResults = JSON.parse(jsonString);
-        console.log(chalk.green('   - AI analysis complete.'));
+        let aiResults;
+        let retryCount = 0;
+        const maxRetries = 3;
+
+        while (retryCount < maxRetries) {
+            try {
+                const result = await model.generateContent(prompt);
+                const jsonString = result.response.text().replace(/```json\n|```/g, '').trim();
+                aiResults = JSON.parse(jsonString);
+                console.log(chalk.green('   - AI analysis complete.'));
+                break;
+            } catch (aiError) {
+                retryCount++;
+                if (aiError.message.includes('overloaded') || aiError.message.includes('503')) {
+                    if (retryCount < maxRetries) {
+                        const waitTime = retryCount * 2; // 2, 4, 6 seconds
+                        console.log(chalk.yellow(`   - AI service overloaded, retrying in ${waitTime}s... (${retryCount}/${maxRetries})`));
+                        await new Promise(resolve => setTimeout(resolve, waitTime * 1000));
+                        continue;
+                    }
+                }
+
+                if (retryCount >= maxRetries) {
+                    console.log(chalk.red('   - AI service unavailable, using fallback analysis...'));
+                    // Fallback: create basic PR info from branch name and diff stats
+                    const diffStats = execSync('git diff --stat origin/main...HEAD').toString().trim();
+                    aiResults = {
+                        title: `feat: ${linearTicketId} - Update implementation`,
+                        body: `## Changes\n\nThis PR addresses ticket ${linearTicketId}.\n\n### Diff Summary\n\`\`\`\n${diffStats}\n\`\`\`\n\n### Files Changed\n${diffContent.split('\n').filter(line => line.startsWith('diff --git')).map(line => line.replace('diff --git a/', '- ')).join('\n')}`,
+                        summary: `Updated implementation for ${linearTicketId} with code changes across multiple files.`
+                    };
+                    console.log(chalk.yellow('   - Using fallback PR content'));
+                    break;
+                } else {
+                    throw aiError;
+                }
+            }
+        }
 
         // --- 4. GitHub Action: Let me create or update the PR for you. ---
         console.log(chalk.blue('   - Checking for existing pull request on GitHub...'));
@@ -244,5 +278,19 @@ ${isUpdate ? '- ✨ Updated with latest code changes and AI analysis' : ''}`;
     }
 }
 
+// --- Graceful exit handling ---
+process.on('SIGINT', () => {
+    console.log(chalk.yellow('\n🛑 Agent interrupted by user'));
+    process.exit(0);
+});
+
+process.on('uncaughtException', (error) => {
+    console.error(chalk.red.bold('\n❌ Unexpected error:'), error.message);
+    process.exit(1);
+});
+
 // --- Execute the main function when the script is run ---
-runDraftAgent();
+runDraftAgent().catch((error) => {
+    console.error(chalk.red.bold('\n❌ Agent failed:'), error.message);
+    process.exit(1);
+});
