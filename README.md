@@ -7,3 +7,8 @@ A CodeScribe agent that automates PR creation and Linear ticket updates.
 - Creates draft PRs automatically
 - Updates Linear tickets
 # New section
+## Usage
+
+1. Stage your changes: `git add .`
+2. Run the agent: `node run-agent.js`
+3. Check your PR and Linear ticket!
