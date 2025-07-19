@@ -1,4 +1,6 @@
 // server.js
+// Example webhook ngrok:
+// https://d3746b51a3b7.ngrok-free.app/api/webhook
 
 // 1. Import the Express library
 const express = require('express');
@@ -11,7 +13,8 @@ const app = express();
 // any incoming request that has a 'Content-Type' of 'application/json'.
 app.use(express.json());
 
-// 4. Define the Webhook Endpoint (Our "Front Door")
+
+// 4. Define the Webhook Endpoint (Our "Front Door") (make sure to put /api/webhook)
 app.post('/api/webhook', (req, res) => {
   // The "Security Camera Feed" - Log everything to the console.
   console.log('✅ --- Webhook Received! --- ✅');
