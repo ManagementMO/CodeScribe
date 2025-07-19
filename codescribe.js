@@ -26,6 +26,26 @@ async function runDraftAgent() {
         // --- 1. Context Gathering: What have I been working on? ---
         console.log(chalk.blue('   - Gathering local git context...'));
         const branchName = execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
+
+        // Check if we have unpushed commits
+        try {
+            const unpushedCommits = execSync(`git log origin/${branchName}..HEAD --oneline`).toString().trim();
+            if (unpushedCommits) {
+                console.log(chalk.yellow('   - Found unpushed commits, pushing to remote...'));
+                execSync(`git push origin ${branchName}`);
+                console.log(chalk.green('   - Pushed latest commits to remote'));
+            }
+        } catch (pushError) {
+            // Branch might not exist on remote yet
+            console.log(chalk.yellow('   - Branch not on remote, pushing for first time...'));
+            try {
+                execSync(`git push -u origin ${branchName}`);
+                console.log(chalk.green('   - Pushed branch to remote'));
+            } catch (firstPushError) {
+                console.log(chalk.red('   - Warning: Could not push to remote, continuing anyway...'));
+            }
+        }
+
         // This is your improved diff command, which is great!
         const diffContent = execSync('git diff origin/main...HEAD').toString().trim();
         const remoteUrl = execSync('git config --get remote.origin.url').toString().trim();
@@ -33,6 +53,8 @@ async function runDraftAgent() {
         if (!diffContent) {
             throw new Error('No new commits found on this branch compared to "origin/main". Please commit your changes.');
         }
+
+        console.log(chalk.blue(`   - Found ${diffContent.split('\n').length} lines of changes`));
 
         // --- 2. Ticket ID Extraction: What is this work for? ---
         console.log(chalk.blue(`   - Parsing branch name "${branchName}"...`));
