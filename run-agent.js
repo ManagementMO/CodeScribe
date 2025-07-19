@@ -1,6 +1,7 @@
 // run-agent.js
 
-// Load environment variables from .env file at the very start
+// Load environment variables from clear
+// .env file at the very start
 require('dotenv').config();
 
 // Import necessary libraries
