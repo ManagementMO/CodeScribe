@@ -1,3 +1,3 @@
 # CodeScribe
 
-test for gemini
+Gemini I want you to talk to me a bit
