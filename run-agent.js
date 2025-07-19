@@ -27,7 +27,7 @@ async function runDraftAgent() {
     // --- 1. Context Gathering: What have I been working on? ---
     console.log(chalk.blue('   - Gathering local git context...'));
     const branchName = execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
-    const diffContent = execSync('git diff --staged').toString().trim();
+    const diffContent = execSync('git diff origin/main...HEAD').toString().trim();
     const remoteUrl = execSync('git config --get remote.origin.url').toString().trim();
 
     // The script cannot proceed without staged changes.
