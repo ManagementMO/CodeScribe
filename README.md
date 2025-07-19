@@ -18,3 +18,5 @@ A CodeScribe agent that automates PR creation and Linear ticket updates.
 - Gemini API
 - Warp
 - JavaScript 
+
+ggvvgvvgs
