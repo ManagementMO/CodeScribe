@@ -89,7 +89,7 @@ async function runDraftAgent() {
     }, {
       headers: {
         // Use the special Agent Key for this endpoint
-        'Authorization': `Bearer ${process.env.LINEAR_AGENT_KEY}`,
+        'Authorization': `Bearer ${process.env.LINEAR_API_KEY}`,
         'Content-Type': 'application/json',
       }
     });
