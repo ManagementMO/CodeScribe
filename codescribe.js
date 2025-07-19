@@ -64,6 +64,7 @@ async function runDraftAgent() {
 
         // Check if PR already exists for this branch
         let pr;
+        let isUpdate = false;
         try {
             const existingPRs = await octokit.pulls.list({
                 owner,
@@ -73,17 +74,33 @@ async function runDraftAgent() {
             });
 
             if (existingPRs.data.length > 0) {
-                // Update existing PR
+                const existingPR = existingPRs.data[0];
+                isUpdate = true;
+
+                // Check if title or body has changed
+                const titleChanged = existingPR.title !== aiResults.title;
+                const bodyChanged = existingPR.body !== aiResults.body;
+
+                if (titleChanged || bodyChanged) {
+                    console.log(chalk.yellow(`   - Found existing PR #${existingPR.number}, updating with latest changes...`));
+                    if (titleChanged) console.log(chalk.yellow(`     • Title updated`));
+                    if (bodyChanged) console.log(chalk.yellow(`     • Description updated with latest code analysis`));
+                } else {
+                    console.log(chalk.blue(`   - Found existing PR #${existingPR.number}, no changes needed to title/description`));
+                }
+
+                // Always update to ensure we have the latest commit references
                 pr = await octokit.pulls.update({
                     owner,
                     repo,
-                    pull_number: existingPRs.data[0].number,
+                    pull_number: existingPR.number,
                     title: aiResults.title,
                     body: aiResults.body,
                 });
                 console.log(chalk.green(`   - Updated existing PR: ${pr.data.html_url}`));
             } else {
                 // Create new PR
+                console.log(chalk.blue('   - No existing PR found, creating new draft PR...'));
                 pr = await octokit.pulls.create({
                     owner,
                     repo,
@@ -98,14 +115,16 @@ async function runDraftAgent() {
         } catch (createError) {
             if (createError.status === 422 && createError.message.includes('pull request already exists')) {
                 // Fallback: try to find and update the existing PR
+                console.log(chalk.yellow('   - Handling edge case: PR exists but not found in initial search...'));
                 const existingPRs = await octokit.pulls.list({
                     owner,
                     repo,
                     head: `${owner}:${branchName}`,
                     state: 'open'
                 });
-                
+
                 if (existingPRs.data.length > 0) {
+                    isUpdate = true;
                     pr = await octokit.pulls.update({
                         owner,
                         repo,
@@ -165,14 +184,15 @@ async function runDraftAgent() {
             }
         `;
 
-        const commentBody = `🚀 **Pull Request Created**
+        const commentBody = `🚀 **Pull Request ${isUpdate ? 'Updated' : 'Created'}**
 
 ${aiResults.summary}
 
 **PR Details:**
-- Status: Draft PR #${pr.data.number}
+- Status: ${isUpdate ? 'Updated' : 'Draft'} PR #${pr.data.number}
 - URL: ${pr.data.html_url}
-- Title: ${aiResults.title}`;
+- Title: ${aiResults.title}
+${isUpdate ? '- ✨ Updated with latest code changes and AI analysis' : ''}`;
 
         await axios.post('https://api.linear.app/graphql', {
             query: commentMutation,
