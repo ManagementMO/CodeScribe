@@ -17,5 +17,14 @@
   "bugs": {
     "url": "https://github.com/ManagementMO/CodeScribe/issues"
   },
-  "homepage": "https://github.com/ManagementMO/CodeScribe#readme"
+  "homepage": "https://github.com/ManagementMO/CodeScribe#readme",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@linear/sdk": "^52.0.0",
+    "@octokit/rest": "^22.0.0",
+    "axios": "^1.10.0",
+    "chalk": "^5.4.1",
+    "commander": "^14.0.0",
+    "dotenv": "^17.2.0"
+  }
 }
