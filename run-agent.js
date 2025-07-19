@@ -38,7 +38,7 @@ async function runDraftAgent() {
     console.log(chalk.blue(`   - Parsing branch name "${branchName}"...`));
     const ticketIdMatch = branchName.match(/([A-Z]+-\d+)/);
     if (!ticketIdMatch) {
-      throw new Error(`Could not find a Linear ticket ID (e.g., TIX-123) in the branch name.`);
+      throw new Error(`Could not find a Linear ticket ID in branch "${branchName}". Branch name should contain a ticket ID like COD-123, TIX-456, etc. Make sure there's a ticket with this ID in Linear.`);
     }
     const linearTicketId = ticketIdMatch[0];
     console.log(chalk.green(`   - Found Linear Ticket: ${linearTicketId}`));
@@ -77,7 +77,7 @@ async function runDraftAgent() {
 
     // --- 5. Linear Action: Let me update the team. ---
     console.log(chalk.blue(`   - Adding comment to Linear ticket ${linearTicketId}...`));
-    
+
     // First, get the issue ID using the identifier
     const issueQuery = `
       query GetIssue($id: String!) {
@@ -87,7 +87,7 @@ async function runDraftAgent() {
         }
       }
     `;
-    
+
     const issueResponse = await axios.post('https://api.linear.app/graphql', {
       query: issueQuery,
       variables: { id: linearTicketId }
@@ -105,7 +105,7 @@ async function runDraftAgent() {
     }
 
     const issueId = issueResponse.data.data.issue.id;
-    
+
     // Now add a comment to the issue
     const commentMutation = `
       mutation CreateComment($issueId: String!, $body: String!) {
@@ -140,7 +140,7 @@ ${aiResults.summary}
         'Content-Type': 'application/json',
       }
     });
-    
+
     console.log(chalk.green('   - Linear ticket updated with PR comment.'));
 
     console.log(chalk.green.bold('\n✅ Agent finished successfully!'));
@@ -148,13 +148,13 @@ ${aiResults.summary}
   } catch (error) {
     // If any step fails, catch the error and print a clear message.
     console.error(chalk.red.bold('\n❌ Agent failed:'), error.message);
-    
+
     // If it's an axios error, show more details
     if (error.response) {
       console.error(chalk.red('Response status:'), error.response.status);
       console.error(chalk.red('Response data:'), JSON.stringify(error.response.data, null, 2));
     }
-    
+
     process.exit(1); // Exit with a non-zero code to indicate failure.
   }
 }
