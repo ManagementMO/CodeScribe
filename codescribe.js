@@ -1,6 +1,5 @@
-// run-agent.js (Refactored for Agent API)
+#!/usr/bin/env node
 
-// Load environment variables from .env file at the very start
 require('dotenv').config();
 
 // Import necessary libraries
