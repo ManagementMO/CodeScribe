@@ -45,7 +45,7 @@ async function runDraftAgent() {
 
     // --- 3. AI Analysis: What should I say about this work? ---
     console.log(chalk.blue('   - Sending code changes to AI for analysis...'));
-    const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
     const prompt = `Analyze the following git diff and generate a clean JSON object with three keys: "title" (a conventional commit-style PR title), "body" (a detailed PR description in Markdown format), and "summary" (a one-sentence summary for a project manager). Do not add any text before or after the JSON object. Diff:\n\n${diffContent}`;
 
     const result = await model.generateContent(prompt);
