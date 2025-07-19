@@ -20,3 +20,4 @@ A CodeScribe agent that automates PR creation and Linear ticket updates.
 - JavaScript 
 
 ggvvgvvgs
+## New Feature
