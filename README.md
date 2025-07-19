@@ -13,3 +13,9 @@ A CodeScribe agent that automates PR creation and Linear ticket updates.
 2. Run the agent: `node run-agent.js`
 3. Check your PR and Linear ticket!
 ## Usage
+
+
+## Technology & Tools 
+- Linear 
+- Gemini API
+- Warp
