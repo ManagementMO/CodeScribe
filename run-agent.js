@@ -19,7 +19,7 @@ const axios = require('axios');
     // --- 1. Gather Local Git Info ---
     console.log(chalk.blue('   - Gathering local git context...'));
     const branchName = execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
-    const diffContent = execSync('git diff origin/main...HEAD').toString().trim();
+    const diffContent = execSync('git diff --stat origin/main...HEAD').toString().trim();
     const remoteUrl = execSync('git config --get remote.origin.url').toString().trim();
 
     if (!diffContent) {

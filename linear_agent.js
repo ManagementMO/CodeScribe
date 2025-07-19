@@ -201,6 +201,139 @@ ${analysis}`;
 Could not fetch commit information: ${error.message}`;
                 }
 
+            } else if (command.includes('todo') || command.includes('daily') || command.includes('morning') || command.includes('tasks')) {
+                // Daily task summary
+                console.log(chalk.blue('   - Generating daily task summary...'));
+                try {
+                    // Get current user info
+                    const userQuery = `
+                        query {
+                            viewer {
+                                id
+                                name
+                                email
+                            }
+                        }
+                    `;
+
+                    const userResponse = await axios.post('https://api.linear.app/graphql', {
+                        query: userQuery
+                    }, {
+                        headers: {
+                            'Authorization': `${process.env.LINEAR_API_KEY}`,
+                            'Content-Type': 'application/json',
+                        }
+                    });
+
+                    const currentUser = userResponse.data.data.viewer;
+                    console.log(chalk.blue(`   - Fetching tasks for ${currentUser.name}...`));
+
+                    // Get all open issues assigned to the current user
+                    const issuesQuery = `
+                        query($assigneeId: String!) {
+                            issues(
+                                first: 50,
+                                filter: {
+                                    assignee: { id: { eq: $assigneeId } }
+                                    state: { name: { nin: ["Done", "Canceled"] } }
+                                }
+                            ) {
+                                nodes {
+                                    id
+                                    identifier
+                                    title
+                                    description
+                                    priority
+                                    state {
+                                        name
+                                        color
+                                    }
+                                    labels {
+                                        nodes {
+                                            name
+                                            color
+                                        }
+                                    }
+                                    dueDate
+                                    estimate
+                                }
+                            }
+                        }
+                    `;
+
+                    const issuesResponse = await axios.post('https://api.linear.app/graphql', {
+                        query: issuesQuery,
+                        variables: { assigneeId: currentUser.id }
+                    }, {
+                        headers: {
+                            'Authorization': `${process.env.LINEAR_API_KEY}`,
+                            'Content-Type': 'application/json',
+                        }
+                    });
+
+                    const issues = issuesResponse.data.data.issues.nodes;
+                    
+                    if (issues.length === 0) {
+                        responseText = `### 🌅 Good Morning, ${currentUser.name}! ☀️
+
+**🎉 You're all caught up!** 
+
+No open tasks assigned to you today. Time to tackle some new challenges or help out your teammates! 
+
+**Suggestions:**
+- Review open PRs
+- Help with team tasks
+- Plan upcoming features
+- Take a well-deserved break! 🎯`;
+                    } else {
+                        // Categorize tasks by priority
+                        const highPriority = issues.filter(issue => issue.priority === 2);
+                        const mediumPriority = issues.filter(issue => issue.priority === 1);
+                        const lowPriority = issues.filter(issue => issue.priority === 0);
+
+                        // Generate friendly task list
+                        const taskList = issues.map(issue => {
+                            const priorityEmoji = issue.priority === 2 ? '🔴' : issue.priority === 1 ? '🟡' : '🟢';
+                            const stateEmoji = issue.state.name === 'In Progress' ? '🔄' : '📋';
+                            const estimateText = issue.estimate ? ` (${issue.estimate}h)` : '';
+                            return `${priorityEmoji} ${stateEmoji} **${issue.identifier}**: ${issue.title}${estimateText}`;
+                        }).join('\n');
+
+                        // Calculate total estimated time
+                        const totalEstimate = issues.reduce((sum, issue) => sum + (issue.estimate || 0), 0);
+
+                        // Generate AI-powered summary
+                        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+                        const prompt = `Generate a friendly, motivating morning summary for a developer with ${issues.length} tasks. Be encouraging and help them prioritize. Keep it under 2 sentences. Tasks: ${issues.map(i => i.title).join(', ')}`;
+
+                        const result = await model.generateContent(prompt);
+                        const aiSummary = result.response.text();
+
+                        responseText = `### 🌅 Good Morning, ${currentUser.name}! ☀️
+
+**${aiSummary}**
+
+**📋 Your Tasks Today (${issues.length} total):**
+${taskList}
+
+**📊 Quick Stats:**
+- 🔴 High Priority: ${highPriority.length}
+- 🟡 Medium Priority: ${mediumPriority.length}  
+- 🟢 Low Priority: ${lowPriority.length}
+- ⏱️ Total Estimated Time: ${totalEstimate}h
+
+**💡 Pro Tip:** Start with the high-priority items to build momentum! You've got this! 💪`;
+                    }
+
+                } catch (error) {
+                    console.error('Error generating daily summary:', error);
+                    responseText = `### ❌ Daily Summary Failed
+                    
+Could not fetch your tasks: ${error.message}
+
+Please try again or contact your admin if the issue persists.`;
+                }
+
             } else {
                 // Check for GitHub PR URL
                 const urlMatch = body.match(/https:\/\/github\.com\/[\w-]+\/[\w-]+\/pull\/\d+/);
@@ -232,6 +365,9 @@ Could not fetch commit information: ${error.message}`;
 
 I can help you with several commands:
 
+**🌅 Daily Summary:**
+- \`@codescribe-agent todo\` - Get your daily task summary
+
 **📊 Repository Analysis:**
 - \`@codescribe-agent repo\` - Get repository stats and recent commits
 
@@ -245,12 +381,10 @@ I can help you with several commands:
 - \`@codescribe-agent status\` - Check system status
 
 **Examples:**
+- \`@codescribe-agent todo\`
 - \`@codescribe-agent repo\`
 - \`@codescribe-agent commit\`  
-- \`@codescribe-agent status\`
-- \`@codescribe-agent https://github.com/owner/repo/pull/123\`
-
-Try any of these commands to test my capabilities! 🚀`;
+- \`@codescribe-agent status\``;
                 }
             }
 
