@@ -1,0 +1,44 @@
+{
+  "workflows": {
+    "github": {
+      "enabled": true,
+      "createDraft": true,
+      "autoAssignReviewers": false,
+      "templates": "default"
+    },
+    "linear": {
+      "enabled": true,
+      "autoTransition": true,
+      "addComments": true,
+      "trackTime": false
+    },
+    "documentation": {
+      "enabled": false,
+      "formats": ["mermaid", "markdown"],
+      "autoGenerate": false
+    },
+    "quality": {
+      "enabled": false,
+      "thresholds": {
+        "complexity": 10,
+        "maintainability": 70
+      }
+    }
+  },
+  "ai": {
+    "provider": "gemini",
+    "model": "gemini-1.5-flash",
+    "maxRetries": 3,
+    "fallback": true
+  },
+  "git": {
+    "autoPush": true,
+    "defaultBranch": "main",
+    "conventionalCommits": true
+  },
+  "logging": {
+    "level": "info",
+    "file": false,
+    "console": true
+  }
+}
