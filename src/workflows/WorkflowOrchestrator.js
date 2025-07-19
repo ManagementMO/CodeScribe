@@ -17,9 +17,11 @@ class WorkflowOrchestrator {
         // Import and register default workflows
         const GitHubWorkflow = require('./github/GitHubWorkflow');
         const LinearWorkflow = require('./linear/LinearWorkflow');
+        const CommitWorkflow = require('./commit/CommitWorkflow');
         
         this.registerWorkflow('github', new GitHubWorkflow(this.config));
         this.registerWorkflow('linear', new LinearWorkflow(this.config));
+        this.registerWorkflow('commit', new CommitWorkflow(this.config));
     }
 
     /**
@@ -48,6 +50,11 @@ class WorkflowOrchestrator {
                 // Standard PR creation workflow
                 selectedWorkflows.push(this.workflows.get('github'));
                 selectedWorkflows.push(this.workflows.get('linear'));
+                break;
+            
+            case 'commit':
+                // Commit workflow with GitHub and Linear tracking
+                selectedWorkflows.push(this.workflows.get('commit'));
                 break;
             
             case 'github-only':
