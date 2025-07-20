@@ -136,25 +136,45 @@ class ContextAnalyzer {
                 maxBuffer: 2 * 1024 * 1024 // 2MB limit for diff
             });
 
+            // If diff is empty but we know there are changes, create a summary
+            if (!diffContent && hasChanges) {
+                console.log(chalk.yellow('   - Diff too large, using summary...'));
+                const summary = await this.safeExecSync(`git diff --stat ${baseBranch}...HEAD`);
+                const fileList = await this.safeExecSync(`git diff --name-status ${baseBranch}...HEAD`);
+                return `Large diff summary:\n${summary}\n\nChanged files:\n${fileList}`;
+            }
+
             // If diff is too large, get a summary instead
-            if (diffContent.length > 1000000) { // 1MB
+            if (diffContent && diffContent.length > 1000000) { // 1MB
                 console.log(chalk.yellow('   - Large diff detected, using summary...'));
                 const summary = await this.safeExecSync(`git diff --stat ${baseBranch}...HEAD`);
                 const fileList = await this.safeExecSync(`git diff --name-status ${baseBranch}...HEAD`);
                 return `Large diff summary:\n${summary}\n\nChanged files:\n${fileList}`;
             }
 
-            return diffContent;
+            return diffContent || '';
         } catch (error) {
             console.log(chalk.yellow(`   - Warning: Could not get diff: ${error.message}`));
             // Fallback to just getting changed file names
             try {
                 const baseBranch = await this.getBaseBranch();
                 const fileList = await this.safeExecSync(`git diff --name-status ${baseBranch}...HEAD`);
-                return `Changed files:\n${fileList}`;
+                if (fileList) {
+                    return `Changed files:\n${fileList}`;
+                }
             } catch (fallbackError) {
-                return '';
+                // Last resort - if we can't get diff but we know there are commits, return a minimal diff
+                try {
+                    const commits = await this.safeExecSync(`git log ${await this.getBaseBranch()}..HEAD --oneline`);
+                    if (commits) {
+                        return `Recent commits:\n${commits}`;
+                    }
+                } catch (commitError) {
+                    // Absolute fallback
+                    return 'Changes detected but diff unavailable due to size limitations';
+                }
             }
+            return '';
         }
     }
 
