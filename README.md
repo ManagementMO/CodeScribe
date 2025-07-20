@@ -20,6 +20,7 @@
   <p>
     <!-- Add Badges for your project -->
     <img src="https://img.shields.io/badge/hackathon-Hack_the_6ix_2025-5A45A5?style=for-the-badge&logo=linear" alt="Hack the 6ix 2025 Badge"/>
+    <img src="https://img.shields.io/badge/for-Warp_Terminal-1E90FF?style=for-the-badge&logo=warp" alt="Warp Badge"/>
     <img src="https://img.shields.io/badge/made_with-Node.js-339933?style=for-the-badge&logo=nodedotjs" alt="Node.js Badge"/>
     <img src="https://img.shields.io/badge/AI-Google_Gemini-4285F4?style=for-the-badge&logo=google" alt="Google Gemini Badge"/>
     <img src="https://img.shields.io/badge/orchestration-Vellum-ff69b4?style=for-the-badge" alt="Vellum Badge"/>
