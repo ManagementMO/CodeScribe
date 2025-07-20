@@ -1,6 +1,6 @@
---- /dev/null
-+++ b/TEST.txt
-@@ -0,0 +1,3 @@
-+This is some random stuff.
-+Line two of random content.
-+And a final line for good measure.
+
+--- a/README.md
++++ b/README.md
+@@ -1 +1 @@
+-This is a sample project.
++This is a sample project.!
