@@ -1,233 +1,202 @@
 # Getting Started with CodeScribe
 
-CodeScribe is a comprehensive workflow orchestration tool that automates your development workflow from code changes to GitHub PRs and Linear ticket management. This guide will help you get up and running quickly.
+CodeScribe is an intelligent AI-powered development workflow orchestration tool that automates your entire development lifecycle - from intelligent commits to comprehensive pull requests with full Linear integration and automated documentation generation.
 
 ## Prerequisites
 
 - Node.js (v14 or higher)
-- Git repository with remote origin
-- GitHub account with repository access
-- Linear account with API access (optional)
-- Google Gemini API key for AI features
+- Git repository
+- GitHub account with personal access token
+- Linear account with API key (optional but recommended)
+- Gemini API key for AI analysis (optional but recommended)
 
-## Installation
+## Quick Installation
 
-1. **Clone or download CodeScribe**
-   ```bash
-   git clone <your-codescribe-repo>
-   cd codescribe
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables**
-   Create a `.env` file in the root directory:
-   ```env
-   GITHUB_TOKEN=your_github_personal_access_token
-   LINEAR_API_KEY=your_linear_api_key
-   GEMINI_API_KEY=your_gemini_api_key
-   ```
-
-## Quick Start Examples
-
-### Example 1: Basic Commit Workflow
-
-The most common workflow - you've made changes and want to commit with an intelligent message:
-
+1. Clone the repository:
 ```bash
-# Let CodeScribe analyze your changes and generate a commit message
-node codescribe.js commit
-
-# Or use the standalone commit tool
-node commit.js
+git clone <repository-url>
+cd CodeScribe
 ```
 
-**What happens:**
-- Analyzes your git diff
-- Generates a conventional commit message
-- Stages appropriate files
-- Creates the commit
-- Pushes to your current branch
-
-### Example 2: Feature Branch Workflow
-
-You're working on a Linear ticket and need to create a feature branch:
-
+2. Install dependencies:
 ```bash
-# Create a new branch based on Linear ticket
-node codescribe.js branch --ticket LIN-123
-
-# Make your changes, then commit
-node codescribe.js commit
-
-# Create PR when ready
-node codescribe.js pr
+npm install
 ```
 
-### Example 3: Complete Development Cycle
+3. Create a `.env` file with your API keys:
+```bash
+GITHUB_TOKEN=your_github_token_here
+LINEAR_API_KEY=your_linear_api_key_here
+GEMINI_API_KEY=your_gemini_api_key_here
+```
 
-The primary workflow that automates the entire development cycle:
+4. Test the installation:
+```bash
+node codescribe.js --help
+```
+
+## The Primary Development Workflow
+
+Here's the most common and powerful way to use CodeScribe in your daily development:
+
+### 1. Start Your Feature Development
+
+Create a branch following the naming convention (this is important for Linear integration):
 
 ```bash
-# After making changes, run the full workflow
+git checkout -b feat/COD-123-user-authentication
+# or
+git checkout -b fix/COD-456-login-bug
+```
+
+The format `feat/COD-123-description` automatically links to Linear ticket COD-123.
+
+### 2. Make Your Code Changes
+
+Work on your feature as usual:
+- Write code
+- Add tests
+- Make multiple commits if needed
+
+### 3. Use CodeScribe for Intelligent Commits
+
+Instead of manual commits, let CodeScribe create intelligent commit messages:
+
+```bash
+# Stage all changes and create AI-powered commit
+node codescribe.js commit --all
+```
+
+This will:
+- Analyze your code changes
+- Generate a detailed commit message explaining what and why
+- Include impact analysis (performance, security, maintainability)
+- Follow conventional commit format
+- Push to remote automatically
+
+### 4. Create Comprehensive Pull Request
+
+When ready for review, create a full pull request with complete tracking:
+
+```bash
 node codescribe.js
-
-# This will:
-# 1. Analyze your changes
-# 2. Create/update commits
-# 3. Create or update PR
-# 4. Update Linear ticket status
-# 5. Generate documentation if needed
 ```
 
-## Common Workflows
+This single command will:
+- **GitHub**: Create/update PR with detailed description, code analysis, and visual diagrams
+- **Linear**: Update ticket status, add progress comments, create sub-tickets if needed
+- **Documentation**: Generate Mermaid diagrams showing code flow and architecture
+- **Quality**: Perform security analysis and complexity assessment
+- **Tracking**: Record all activities for project visibility
 
-### Daily Development Workflow
+### 5. Handle Review Feedback
 
-1. **Start work on a ticket**
-   ```bash
-   # Pull latest changes
-   git pull origin main
-   
-   # Create feature branch (CodeScribe can help)
-   node codescribe.js branch --ticket LIN-123
-   ```
+When you make changes based on review feedback:
 
-2. **Make your changes**
-   - Edit code, add features, fix bugs
-   - Run tests locally
+```bash
+# Make your changes, then:
+node codescribe.js commit -m "Address review feedback"
 
-3. **Commit your work**
-   ```bash
-   # Let CodeScribe create intelligent commits
-   node codescribe.js commit
-   
-   # Or commit specific files
-   node codescribe.js commit --files src/feature.js tests/feature.test.js
-   ```
-
-4. **Create Pull Request**
-   ```bash
-   # Create PR with Linear integration
-   node codescribe.js pr
-   
-   # Or run full workflow
-   node codescribe.js
-   ```
-
-### Bug Fix Workflow
-
-1. **Create hotfix branch**
-   ```bash
-   node codescribe.js branch --type hotfix --ticket LIN-456
-   ```
-
-2. **Fix the bug and commit**
-   ```bash
-   node codescribe.js commit --type fix
-   ```
-
-3. **Create urgent PR**
-   ```bash
-   node codescribe.js pr --urgent --reviewers @team-lead
-   ```
-
-### Feature Development Workflow
-
-1. **Plan the feature**
-   ```bash
-   # CodeScribe can help break down complex features
-   node codescribe.js plan --ticket LIN-789
-   ```
-
-2. **Implement incrementally**
-   ```bash
-   # Commit each logical piece
-   node codescribe.js commit --scope auth --type feat
-   node codescribe.js commit --scope validation --type feat
-   ```
-
-3. **Generate documentation**
-   ```bash
-   # Auto-generate diagrams and docs
-   node codescribe.js docs --mermaid --api
-   ```
-
-## Configuration
-
-### Basic Configuration
-
-Create a `.codescribe.json` file in your project root:
-
-```json
-{
-  "github": {
-    "owner": "your-username",
-    "repo": "your-repo",
-    "defaultBranch": "main"
-  },
-  "linear": {
-    "teamId": "your-team-id",
-    "projectId": "your-project-id"
-  },
-  "commit": {
-    "conventional": true,
-    "signoff": false,
-    "template": "default"
-  },
-  "workflows": {
-    "autoCreatePR": true,
-    "autoUpdateLinear": true,
-    "generateDocs": true
-  }
-}
+# Update the PR with new analysis:
+node codescribe.js
 ```
 
-### Advanced Configuration
+The system automatically updates the existing PR and Linear ticket with new information.
 
-For more complex setups, see [Configuration Reference](CONFIGURATION.md).
+## Interactive Mode for Beginners
 
-## Troubleshooting
+If you're unsure which workflow to use, start with interactive mode:
 
-### Common Issues
+```bash
+node codescribe.js interactive
+```
 
-1. **"GitHub token not found"**
-   - Ensure `GITHUB_TOKEN` is set in your `.env` file
-   - Verify the token has appropriate permissions
+This will:
+- Analyze your current project state
+- Suggest the most appropriate workflow
+- Guide you through options
+- Execute your selected workflow
 
-2. **"Linear API key invalid"**
-   - Check your `LINEAR_API_KEY` in `.env`
-   - Ensure you have access to the Linear workspace
+## API Key Setup
 
-3. **"No changes detected"**
-   - Make sure you have uncommitted changes
-   - Use `git status` to verify
+### GitHub Token Setup
 
-4. **"Branch already exists"**
-   - CodeScribe will switch to existing branch
-   - Use `--force` to recreate the branch
+1. Go to [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens)
+2. Click "Generate new token (classic)"
+3. Select scopes:
+   - `repo` (for private repositories)
+   - `public_repo` (for public repositories)
+   - `write:discussion` (for PR discussions)
+4. Copy the token and add to `.env`
 
-### Getting Help
+### Linear API Key Setup
 
-- Run `node codescribe.js --help` for command help
-- Check the logs in `.codescribe/logs/`
-- Review the [FAQ](FAQ.md)
-- Create an issue on GitHub
+1. Go to [Linear Settings > API](https://linear.app/settings/api)
+2. Click "Create API key"
+3. Give it a descriptive name like "CodeScribe Integration"
+4. Copy the key and add to `.env`
+
+### Gemini API Key Setup
+
+1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
+2. Click "Create API key"
+3. Copy the key and add to `.env`
+
+## Verification
+
+Test that everything is working:
+
+```bash
+# Check configuration
+node codescribe.js --help
+
+# Test with dry run (won't make actual changes)
+node codescribe.js --dry-run
+
+# Run interactive mode to verify integrations
+node codescribe.js interactive
+```
+
+## Common First-Time Issues
+
+### 1. Git Authentication
+If you get git push errors, ensure your GitHub token has the right permissions and your git remote is set up correctly.
+
+### 2. Large Repository Performance
+For large repositories, CodeScribe automatically handles large diffs by using summaries. You'll see messages like "Large diff detected, using summary..."
+
+### 3. Branch Naming
+For Linear integration to work, include the ticket ID in your branch name: `feat/COD-123-description`
+
+### 4. No Changes Detected
+If CodeScribe says "no changes found," ensure you have committed changes and your branch differs from `origin/main`.
+
+## What Makes CodeScribe Different
+
+Unlike simple automation tools, CodeScribe provides:
+
+- **Intelligent Analysis**: AI-powered understanding of your code changes
+- **Complete Integration**: Seamless GitHub + Linear + Documentation workflow
+- **Visual Documentation**: Automatic Mermaid diagram generation
+- **Security & Quality**: Built-in code analysis and vulnerability scanning
+- **Context Awareness**: Understands your project structure and development patterns
+- **Workflow History**: Tracks and learns from your development patterns
 
 ## Next Steps
 
-- Read the [Configuration Reference](CONFIGURATION.md)
-- Explore [Advanced Workflows](ADVANCED_WORKFLOWS.md)
-- Learn about [Plugin Development](PLUGIN_DEVELOPMENT.md)
-- Check out [Best Practices](BEST_PRACTICES.md)
+Now that you have CodeScribe set up:
 
-## Tips for Success
+1. **Try the primary workflow** with a real feature branch
+2. **Explore interactive mode** to see all available options
+3. **Read the [User Guide](USER_GUIDE.md)** for comprehensive documentation
+4. **Check out [Warp Workflows](WARP_WORKFLOWS.md)** for terminal integration
+5. **Review [Configuration](CONFIGURATION.md)** for advanced customization
 
-1. **Start Simple**: Begin with basic commit workflow, then add complexity
-2. **Customize Gradually**: Adjust configuration as you learn what works
-3. **Use Templates**: Leverage built-in templates for consistency
-4. **Monitor Logs**: Check logs when things don't work as expected
-5. **Stay Updated**: Keep CodeScribe updated for latest features
+## Getting Help
+
+- Use `node codescribe.js --help` for command reference
+- Use `node codescribe.js interactive` for guided assistance
+- Check execution history: `node codescribe.js history`
+- View logs for troubleshooting: `node codescribe.js logs`
+
+The key to getting the most out of CodeScribe is to use it as part of your regular development workflow, not just as an occasional tool. The more you use it, the better it becomes at understanding your project and development patterns.
