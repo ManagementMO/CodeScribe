@@ -118,5 +118,5 @@ codescribe apply TICKET-ID
 codescribe pr
 
 # See all available commands and options
-codescribe --help
+codescribe --help 
 ---
