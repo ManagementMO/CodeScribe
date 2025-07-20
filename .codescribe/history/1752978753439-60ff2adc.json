@@ -1,0 +1,1377 @@
+{
+  "id": "1752978753439-60ff2adc",
+  "timestamp": "2025-07-20T02:32:33.439Z",
+  "command": "review",
+  "options": {},
+  "context": {
+    "git": {
+      "branch": "feat/COD-20-warp-test",
+      "diff": "Large diff summary:\n.codescribe/history/1752978027670-056053c0.json | 2299 +++++++++++++++++++++++\n .codescribe/history/1752978164278-ce0d889e.json |  512 +++++\n .codescribe/history/1752978180869-a6eee6a9.json |  512 +++++\n .codescribe/history/1752978336730-4dc95a0a.json | 1169 ++++++++++++\n .codescribe/history/1752978546640-b2fb4181.json |  460 +++++\n .codescribe/history/1752978600932-8840f7f3.json |  460 +++++\n .codescribe/logs/codescribe.log                 |   19 +\n docs/PLUGIN_DEVELOPMENT.md                      |    3 +\n linear_agent.js                                 |  232 ++-\n 9 files changed, 5664 insertions(+), 2 deletions(-)\n\nChanged files:\nA\t.codescribe/history/1752978027670-056053c0.json\nA\t.codescribe/history/1752978164278-ce0d889e.json\nA\t.codescribe/history/1752978180869-a6eee6a9.json\nA\t.codescribe/history/1752978336730-4dc95a0a.json\nA\t.codescribe/history/1752978546640-b2fb4181.json\nA\t.codescribe/history/1752978600932-8840f7f3.json\nM\t.codescribe/logs/codescribe.log\nM\tdocs/PLUGIN_DEVELOPMENT.md\nM\tlinear_agent.js",
+      "diffStats": ".codescribe/history/1752978027670-056053c0.json | 2299 +++++++++++++++++++++++\n .codescribe/history/1752978164278-ce0d889e.json |  512 +++++\n .codescribe/history/1752978180869-a6eee6a9.json |  512 +++++\n .codescribe/history/1752978336730-4dc95a0a.json | 1169 ++++++++++++\n .codescribe/history/1752978546640-b2fb4181.json |  460 +++++\n .codescribe/history/1752978600932-8840f7f3.json |  460 +++++\n .codescribe/logs/codescribe.log                 |   19 +\n docs/PLUGIN_DEVELOPMENT.md                      |    3 +\n linear_agent.js                                 |  232 ++-\n 9 files changed, 5664 insertions(+), 2 deletions(-)",
+      "commits": {},
+      "branchHistory": {
+        "creationPoint": "4d75664560341bb5ef5e48ffbffc6793dd63021c",
+        "creationDate": "2025-07-19 22:19:47 -0400",
+        "commitCount": 2,
+        "mergeCount": 0,
+        "ageInDays": 0,
+        "commits": [
+          {
+            "hash": "8052cb6",
+            "message": "feat(docs): COD-20 - implement new features across 5 components"
+          },
+          {
+            "hash": "05a384a",
+            "message": "test commit"
+          }
+        ]
+      },
+      "mergeBaseAnalysis": {
+        "mergeBase": "4d75664560341bb5ef5e48ffbffc6793dd63021c",
+        "mainHead": "7f7c7a2095e67550876d2334ceb8876e290830a8",
+        "aheadCount": 2,
+        "behindCount": 4,
+        "isUpToDate": false,
+        "needsRebase": true,
+        "commitsToMerge": 2
+      },
+      "conflictDetection": {
+        "hasActiveConflicts": false,
+        "potentialConflicts": [],
+        "conflictCount": 0,
+        "riskLevel": "low"
+      },
+      "commitAnalysis": {
+        "error": "commits is not iterable"
+      },
+      "branchValidation": {
+        "branchName": "feat/COD-20-warp-test",
+        "isValid": true,
+        "issues": [],
+        "suggestions": [],
+        "conventions": {
+          "hasTicketId": true,
+          "hasType": true,
+          "hasDescription": true,
+          "followsKebabCase": true
+        }
+      },
+      "hasChanges": true,
+      "hasUncommittedChanges": true,
+      "hasUnpushedCommits": false
+    },
+    "code": {
+      "hasChanges": false,
+      "changedFiles": [
+        {
+          "path": ".codescribe/history/1752978027670-056053c0.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1752978164278-ce0d889e.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1752978180869-a6eee6a9.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1752978336730-4dc95a0a.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1752978546640-b2fb4181.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1752978600932-8840f7f3.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/logs/codescribe.log",
+          "status": "modified",
+          "extension": "log",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "docs/PLUGIN_DEVELOPMENT.md",
+          "status": "modified",
+          "extension": "md",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "linear_agent.js",
+          "status": "modified",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        }
+      ],
+      "complexity": {
+        "totalScore": 37,
+        "averageScore": 37,
+        "level": "very_high",
+        "files": [
+          {
+            "file": "linear_agent.js",
+            "score": 37,
+            "functions": 10,
+            "classes": 3,
+            "conditionals": 15,
+            "loops": 0,
+            "depth": 30,
+            "lines": 516
+          }
+        ],
+        "issues": [
+          {
+            "file": "linear_agent.js",
+            "type": "high_complexity",
+            "score": 37,
+            "message": "High complexity score: 37"
+          }
+        ]
+      },
+      "security": {
+        "vulnerabilities": [],
+        "warnings": [],
+        "riskLevel": "none",
+        "issues": []
+      },
+      "dependencies": {
+        "added": [],
+        "updated": [],
+        "removed": [],
+        "devDependencies": [],
+        "securityUpdates": [],
+        "breakingChanges": []
+      },
+      "ast": {
+        "totalFiles": 1,
+        "parsedFiles": 1,
+        "functions": [
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 69
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 137
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 218
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 219
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "parseGitHubUrl",
+            "type": "function",
+            "async": false,
+            "params": 1,
+            "line": 254
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": true,
+            "params": 2,
+            "line": 265
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": true,
+            "params": 0,
+            "line": 285
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 368
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 407
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 0,
+            "line": 514
+          }
+        ],
+        "classes": [
+          {
+            "file": "linear_agent.js",
+            "name": "ConversationMemory",
+            "superClass": null,
+            "line": 23
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "IntelligentAgent",
+            "superClass": null,
+            "line": 92
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "WorkflowAutomation",
+            "superClass": null,
+            "line": 176
+          }
+        ],
+        "imports": [],
+        "exports": [],
+        "issues": []
+      },
+      "metrics": {
+        "totalLines": 1,
+        "addedLines": 0,
+        "removedLines": 0,
+        "modifiedFiles": 0,
+        "addedFiles": 0,
+        "removedFiles": 0
+      }
+    },
+    "project": {
+      "structure": {
+        "totalFiles": 72,
+        "directories": [
+          {
+            "path": ".codescribe",
+            "depth": 0
+          },
+          {
+            "path": ".codescribe\\history",
+            "depth": 1
+          },
+          {
+            "path": ".codescribe\\logs",
+            "depth": 1
+          },
+          {
+            "path": ".kiro",
+            "depth": 0
+          },
+          {
+            "path": ".kiro\\specs",
+            "depth": 1
+          },
+          {
+            "path": ".kiro\\specs\\enhanced-codescribe-workflows",
+            "depth": 2
+          },
+          {
+            "path": ".warp",
+            "depth": 0
+          },
+          {
+            "path": ".warp\\workflows",
+            "depth": 1
+          },
+          {
+            "path": "docs",
+            "depth": 0
+          },
+          {
+            "path": "src",
+            "depth": 0
+          },
+          {
+            "path": "src\\ai",
+            "depth": 1
+          },
+          {
+            "path": "src\\config",
+            "depth": 1
+          },
+          {
+            "path": "src\\context",
+            "depth": 1
+          },
+          {
+            "path": "src\\core",
+            "depth": 1
+          },
+          {
+            "path": "src\\utils",
+            "depth": 1
+          },
+          {
+            "path": "src\\workflows",
+            "depth": 1
+          },
+          {
+            "path": "src\\workflows\\commit",
+            "depth": 2
+          },
+          {
+            "path": "src\\workflows\\documentation",
+            "depth": 2
+          },
+          {
+            "path": "src\\workflows\\github",
+            "depth": 2
+          },
+          {
+            "path": "src\\workflows\\linear",
+            "depth": 2
+          }
+        ],
+        "fileTypes": {
+          ".json": 17,
+          ".log": 1,
+          "": 1,
+          ".md": 15,
+          ".yaml": 11,
+          ".js": 27
+        },
+        "testFiles": 0,
+        "documentationFiles": 15,
+        "configFiles": 28,
+        "ciFiles": 0,
+        "sourceFiles": 27,
+        "depth": 3
+      },
+      "configuration": {
+        "packageJson": {
+          "name": "codescribe",
+          "version": "1.0.0",
+          "description": "",
+          "main": "index.js",
+          "bin": {
+            "codescribe": "./codescribe.js"
+          },
+          "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1"
+          },
+          "repository": {
+            "type": "git",
+            "url": "git+https://github.com/ManagementMO/CodeScribe.git"
+          },
+          "keywords": [],
+          "author": "",
+          "license": "ISC",
+          "type": "commonjs",
+          "bugs": {
+            "url": "https://github.com/ManagementMO/CodeScribe/issues"
+          },
+          "homepage": "https://github.com/ManagementMO/CodeScribe#readme",
+          "dependencies": {
+            "@babel/parser": "^7.28.0",
+            "@babel/traverse": "^7.28.0",
+            "@babel/types": "^7.28.1",
+            "@google/generative-ai": "^0.24.1",
+            "@linear/sdk": "^52.0.0",
+            "@octokit/rest": "^22.0.0",
+            "acorn": "^8.15.0",
+            "audit-ci": "^7.1.0",
+            "axios": "^1.10.0",
+            "chalk": "^4.1.2",
+            "cli-progress": "^3.12.0",
+            "commander": "^14.0.0",
+            "dotenv": "^17.2.0",
+            "express": "^5.1.0",
+            "inquirer": "^8.2.6",
+            "semver": "^7.7.2"
+          }
+        },
+        "tsconfig": null,
+        "eslint": null,
+        "prettier": null,
+        "jest": null,
+        "webpack": null,
+        "babel": null,
+        "vite": null,
+        "nextConfig": null,
+        "tailwind": null,
+        "docker": null
+      },
+      "projectType": {
+        "primary": "node-cli",
+        "secondary": [
+          {
+            "type": "express-api",
+            "confidence": 0.26666666666666666,
+            "matches": [
+              "express"
+            ]
+          },
+          {
+            "type": "node-cli",
+            "confidence": 0.4666666666666666,
+            "matches": [
+              "commander",
+              "inquirer"
+            ]
+          }
+        ],
+        "confidence": 0.4666666666666666,
+        "indicators": [
+          "express",
+          "commander",
+          "inquirer"
+        ]
+      },
+      "framework": {
+        "frontend": [],
+        "backend": [
+          "Express"
+        ],
+        "testing": [],
+        "build": [],
+        "styling": [],
+        "database": []
+      },
+      "testCoverage": {
+        "hasTests": false,
+        "testFiles": 0,
+        "coverageReports": [],
+        "testFrameworks": [
+          "npm test"
+        ],
+        "coverageThreshold": null,
+        "lastCoverageRun": null,
+        "summary": null
+      },
+      "buildSystem": {
+        "bundler": null,
+        "taskRunner": null,
+        "packageManager": "npm",
+        "scripts": [
+          "test"
+        ],
+        "buildOutput": null,
+        "hasCI": false
+      },
+      "metadata": {
+        "hasTests": false,
+        "hasDocumentation": true,
+        "hasCI": false,
+        "packageManager": "npm",
+        "nodeVersion": null
+      }
+    },
+    "linear": {
+      "ticketId": "COD-20",
+      "ticketData": null,
+      "projectData": null
+    },
+    "ai": {
+      "title": "feat: Significantly expand code coverage and documentation",
+      "body": "This PR significantly expands the code coverage and documentation.  The changes include:\n\n* Addition of numerous new `.codescribe/history/*.json` files indicating a substantial increase in test data.\n* Updates to `linear_agent.js`, suggesting improvements or bug fixes in the linear agent's logic.  The exact nature of changes requires reviewing the diff.\n* Modifications to `docs/PLUGIN_DEVELOPMENT.md`, enhancing the plugin development documentation.  Refer to the diff for specific details.\n* Update to `.codescribe/logs/codescribe.log` reflecting the execution of the added tests. \n\nThis commit introduces a large number of additions (5664 lines) which suggests significant enhancements to both the test suite and the core functionality. A thorough review is recommended before merging.",
+      "summary": "This PR significantly expands code coverage and documentation, adding many new tests and improving the linear agent and documentation."
+    },
+    "documentation": {
+      "diagrams": {
+        "flowcharts": [
+          {
+            "type": "flowchart",
+            "title": "Class Relationships",
+            "mermaid": "flowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n"
+          }
+        ],
+        "dependencyGraphs": [],
+        "sequenceDiagrams": [
+          {
+            "type": "sequence",
+            "title": "API Interaction Flow",
+            "mermaid": "sequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n"
+          }
+        ],
+        "architectureDiagrams": [
+          {
+            "type": "architecture",
+            "title": "Project Architecture",
+            "mermaid": "graph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n"
+          }
+        ]
+      },
+      "formattedDiagrams": {
+        "github": {
+          "markdown": "## 📊 Code Analysis Diagrams\n\n### Class Relationships\n\n```mermaid\nflowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n```\n\n### API Interaction Flow\n\n```mermaid\nsequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n```\n\n### Project Architecture\n\n```mermaid\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n```\n\n",
+          "html": "<div class=\"code-analysis-diagrams\">\n<h2>📊 Code Analysis Diagrams</h2>\n<div class=\"diagram-container\">\n<h3>Class Relationships</h3>\n<div class=\"mermaid\">\nflowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>API Interaction Flow</h3>\n<div class=\"mermaid\">\nsequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>Project Architecture</h3>\n<div class=\"mermaid\">\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n</div>\n</div>\n</div>\n"
+        },
+        "linear": {
+          "markdown": "## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n",
+          "text": "📊 CODE ANALYSIS SUMMARY\n========================\n\nGenerated Diagrams:\n• Flowcharts: 1\n• Dependency Graphs: 0\n• Sequence Diagrams: 1\n• Architecture Diagrams: 1\n\n"
+        }
+      },
+      "summary": {
+        "totalDiagrams": 3,
+        "diagramTypes": {
+          "flowcharts": 1,
+          "dependencyGraphs": 0,
+          "sequenceDiagrams": 1,
+          "architectureDiagrams": 1
+        },
+        "analysisContext": {
+          "hasCodeChanges": false,
+          "changedFiles": 9,
+          "complexityLevel": "very_high",
+          "securityRisk": "none"
+        },
+        "recommendations": [
+          {
+            "type": "complexity",
+            "message": "High code complexity detected. Consider breaking down complex functions shown in flowcharts.",
+            "priority": "high"
+          },
+          {
+            "type": "architecture",
+            "message": "Multiple files changed. Consider reviewing architecture diagrams for impact assessment.",
+            "priority": "medium"
+          },
+          {
+            "type": "api",
+            "message": "API interactions detected. Review sequence diagrams for proper error handling.",
+            "priority": "low"
+          }
+        ]
+      }
+    },
+    "github": {
+      "pr": {
+        "url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/31",
+        "id": 2679511545,
+        "node_id": "PR_kwDOPPEEec6fthn5",
+        "html_url": "https://github.com/ManagementMO/CodeScribe/pull/31",
+        "diff_url": "https://github.com/ManagementMO/CodeScribe/pull/31.diff",
+        "patch_url": "https://github.com/ManagementMO/CodeScribe/pull/31.patch",
+        "issue_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/31",
+        "number": 31,
+        "state": "open",
+        "locked": false,
+        "title": "feat: Significantly expand code coverage and documentation",
+        "user": {
+          "login": "ManagementMO",
+          "id": 111318013,
+          "node_id": "U_kgDOBqKT_Q",
+          "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ManagementMO",
+          "html_url": "https://github.com/ManagementMO",
+          "followers_url": "https://api.github.com/users/ManagementMO/followers",
+          "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+          "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+          "repos_url": "https://api.github.com/users/ManagementMO/repos",
+          "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "This PR significantly expands the code coverage and documentation.  The changes include:\n\n* Addition of numerous new `.codescribe/history/*.json` files indicating a substantial increase in test data.\n* Updates to `linear_agent.js`, suggesting improvements or bug fixes in the linear agent's logic.  The exact nature of changes requires reviewing the diff.\n* Modifications to `docs/PLUGIN_DEVELOPMENT.md`, enhancing the plugin development documentation.  Refer to the diff for specific details.\n* Update to `.codescribe/logs/codescribe.log` reflecting the execution of the added tests. \n\nThis commit introduces a large number of additions (5664 lines) which suggests significant enhancements to both the test suite and the core functionality. A thorough review is recommended before merging.",
+        "created_at": "2025-07-20T02:25:36Z",
+        "updated_at": "2025-07-20T02:32:33Z",
+        "closed_at": null,
+        "merged_at": null,
+        "merge_commit_sha": "83b5c35966c84a3e2df003933d586ae08714dcd3",
+        "assignee": null,
+        "assignees": [],
+        "requested_reviewers": [],
+        "requested_teams": [],
+        "labels": [],
+        "milestone": null,
+        "draft": true,
+        "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/31/commits",
+        "review_comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/31/comments",
+        "review_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/comments{/number}",
+        "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/31/comments",
+        "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/8052cb6916fcb53aac5fc3effbe89b90526d8fb1",
+        "head": {
+          "label": "ManagementMO:feat/COD-20-warp-test",
+          "ref": "feat/COD-20-warp-test",
+          "sha": "8052cb6916fcb53aac5fc3effbe89b90526d8fb1",
+          "user": {
+            "login": "ManagementMO",
+            "id": 111318013,
+            "node_id": "U_kgDOBqKT_Q",
+            "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ManagementMO",
+            "html_url": "https://github.com/ManagementMO",
+            "followers_url": "https://api.github.com/users/ManagementMO/followers",
+            "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+            "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+            "repos_url": "https://api.github.com/users/ManagementMO/repos",
+            "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 1022428281,
+            "node_id": "R_kgDOPPEEeQ",
+            "name": "CodeScribe",
+            "full_name": "ManagementMO/CodeScribe",
+            "private": false,
+            "owner": {
+              "login": "ManagementMO",
+              "id": 111318013,
+              "node_id": "U_kgDOBqKT_Q",
+              "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ManagementMO",
+              "html_url": "https://github.com/ManagementMO",
+              "followers_url": "https://api.github.com/users/ManagementMO/followers",
+              "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+              "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+              "repos_url": "https://api.github.com/users/ManagementMO/repos",
+              "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "html_url": "https://github.com/ManagementMO/CodeScribe",
+            "description": null,
+            "fork": false,
+            "url": "https://api.github.com/repos/ManagementMO/CodeScribe",
+            "forks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/forks",
+            "keys_url": "https://api.github.com/repos/ManagementMO/CodeScribe/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/ManagementMO/CodeScribe/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/ManagementMO/CodeScribe/teams",
+            "hooks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/hooks",
+            "issue_events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/events",
+            "assignees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/ManagementMO/CodeScribe/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/tags",
+            "blobs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/ManagementMO/CodeScribe/languages",
+            "stargazers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/stargazers",
+            "contributors_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contributors",
+            "subscribers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscribers",
+            "subscription_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscription",
+            "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/ManagementMO/CodeScribe/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/ManagementMO/CodeScribe/merges",
+            "archive_url": "https://api.github.com/repos/ManagementMO/CodeScribe/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/ManagementMO/CodeScribe/downloads",
+            "issues_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/ManagementMO/CodeScribe/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/ManagementMO/CodeScribe/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/ManagementMO/CodeScribe/labels{/name}",
+            "releases_url": "https://api.github.com/repos/ManagementMO/CodeScribe/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/deployments",
+            "created_at": "2025-07-19T04:03:17Z",
+            "updated_at": "2025-07-20T02:21:56Z",
+            "pushed_at": "2025-07-20T02:31:23Z",
+            "git_url": "git://github.com/ManagementMO/CodeScribe.git",
+            "ssh_url": "git@github.com:ManagementMO/CodeScribe.git",
+            "clone_url": "https://github.com/ManagementMO/CodeScribe.git",
+            "svn_url": "https://github.com/ManagementMO/CodeScribe",
+            "homepage": null,
+            "size": 5808,
+            "stargazers_count": 1,
+            "watchers_count": 1,
+            "language": "JavaScript",
+            "has_issues": true,
+            "has_projects": true,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "has_discussions": false,
+            "forks_count": 0,
+            "mirror_url": null,
+            "archived": false,
+            "disabled": false,
+            "open_issues_count": 9,
+            "license": null,
+            "allow_forking": true,
+            "is_template": false,
+            "web_commit_signoff_required": false,
+            "topics": [],
+            "visibility": "public",
+            "forks": 0,
+            "open_issues": 9,
+            "watchers": 1,
+            "default_branch": "main"
+          }
+        },
+        "base": {
+          "label": "ManagementMO:main",
+          "ref": "main",
+          "sha": "7f7c7a2095e67550876d2334ceb8876e290830a8",
+          "user": {
+            "login": "ManagementMO",
+            "id": 111318013,
+            "node_id": "U_kgDOBqKT_Q",
+            "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ManagementMO",
+            "html_url": "https://github.com/ManagementMO",
+            "followers_url": "https://api.github.com/users/ManagementMO/followers",
+            "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+            "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+            "repos_url": "https://api.github.com/users/ManagementMO/repos",
+            "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 1022428281,
+            "node_id": "R_kgDOPPEEeQ",
+            "name": "CodeScribe",
+            "full_name": "ManagementMO/CodeScribe",
+            "private": false,
+            "owner": {
+              "login": "ManagementMO",
+              "id": 111318013,
+              "node_id": "U_kgDOBqKT_Q",
+              "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ManagementMO",
+              "html_url": "https://github.com/ManagementMO",
+              "followers_url": "https://api.github.com/users/ManagementMO/followers",
+              "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+              "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+              "repos_url": "https://api.github.com/users/ManagementMO/repos",
+              "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "html_url": "https://github.com/ManagementMO/CodeScribe",
+            "description": null,
+            "fork": false,
+            "url": "https://api.github.com/repos/ManagementMO/CodeScribe",
+            "forks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/forks",
+            "keys_url": "https://api.github.com/repos/ManagementMO/CodeScribe/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/ManagementMO/CodeScribe/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/ManagementMO/CodeScribe/teams",
+            "hooks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/hooks",
+            "issue_events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/events",
+            "assignees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/ManagementMO/CodeScribe/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/tags",
+            "blobs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/ManagementMO/CodeScribe/languages",
+            "stargazers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/stargazers",
+            "contributors_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contributors",
+            "subscribers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscribers",
+            "subscription_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscription",
+            "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/ManagementMO/CodeScribe/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/ManagementMO/CodeScribe/merges",
+            "archive_url": "https://api.github.com/repos/ManagementMO/CodeScribe/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/ManagementMO/CodeScribe/downloads",
+            "issues_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/ManagementMO/CodeScribe/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/ManagementMO/CodeScribe/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/ManagementMO/CodeScribe/labels{/name}",
+            "releases_url": "https://api.github.com/repos/ManagementMO/CodeScribe/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/deployments",
+            "created_at": "2025-07-19T04:03:17Z",
+            "updated_at": "2025-07-20T02:21:56Z",
+            "pushed_at": "2025-07-20T02:31:23Z",
+            "git_url": "git://github.com/ManagementMO/CodeScribe.git",
+            "ssh_url": "git@github.com:ManagementMO/CodeScribe.git",
+            "clone_url": "https://github.com/ManagementMO/CodeScribe.git",
+            "svn_url": "https://github.com/ManagementMO/CodeScribe",
+            "homepage": null,
+            "size": 5808,
+            "stargazers_count": 1,
+            "watchers_count": 1,
+            "language": "JavaScript",
+            "has_issues": true,
+            "has_projects": true,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "has_discussions": false,
+            "forks_count": 0,
+            "mirror_url": null,
+            "archived": false,
+            "disabled": false,
+            "open_issues_count": 9,
+            "license": null,
+            "allow_forking": true,
+            "is_template": false,
+            "web_commit_signoff_required": false,
+            "topics": [],
+            "visibility": "public",
+            "forks": 0,
+            "open_issues": 9,
+            "watchers": 1,
+            "default_branch": "main"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/31"
+          },
+          "html": {
+            "href": "https://github.com/ManagementMO/CodeScribe/pull/31"
+          },
+          "issue": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/31"
+          },
+          "comments": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/31/comments"
+          },
+          "review_comments": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/31/comments"
+          },
+          "review_comment": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/comments{/number}"
+          },
+          "commits": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/31/commits"
+          },
+          "statuses": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/8052cb6916fcb53aac5fc3effbe89b90526d8fb1"
+          }
+        },
+        "author_association": "OWNER",
+        "auto_merge": null,
+        "active_lock_reason": null,
+        "merged": false,
+        "mergeable": true,
+        "rebaseable": true,
+        "mergeable_state": "clean",
+        "merged_by": null,
+        "comments": 1,
+        "review_comments": 0,
+        "maintainer_can_modify": false,
+        "commits": 2,
+        "additions": 5664,
+        "deletions": 2,
+        "changed_files": 9,
+        "isUpdate": true
+      },
+      "owner": "ManagementMO",
+      "repo": "CodeScribe",
+      "isUpdate": true
+    }
+  },
+  "workflows": [
+    "documentation",
+    "github"
+  ],
+  "results": {
+    "documentation": {
+      "diagrams": {
+        "flowcharts": [
+          {
+            "type": "flowchart",
+            "title": "Class Relationships",
+            "mermaid": "flowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n"
+          }
+        ],
+        "dependencyGraphs": [],
+        "sequenceDiagrams": [
+          {
+            "type": "sequence",
+            "title": "API Interaction Flow",
+            "mermaid": "sequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n"
+          }
+        ],
+        "architectureDiagrams": [
+          {
+            "type": "architecture",
+            "title": "Project Architecture",
+            "mermaid": "graph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n"
+          }
+        ]
+      },
+      "formattedDiagrams": {
+        "github": {
+          "markdown": "## 📊 Code Analysis Diagrams\n\n### Class Relationships\n\n```mermaid\nflowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n```\n\n### API Interaction Flow\n\n```mermaid\nsequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n```\n\n### Project Architecture\n\n```mermaid\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n```\n\n",
+          "html": "<div class=\"code-analysis-diagrams\">\n<h2>📊 Code Analysis Diagrams</h2>\n<div class=\"diagram-container\">\n<h3>Class Relationships</h3>\n<div class=\"mermaid\">\nflowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>API Interaction Flow</h3>\n<div class=\"mermaid\">\nsequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>Project Architecture</h3>\n<div class=\"mermaid\">\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n</div>\n</div>\n</div>\n"
+        },
+        "linear": {
+          "markdown": "## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n",
+          "text": "📊 CODE ANALYSIS SUMMARY\n========================\n\nGenerated Diagrams:\n• Flowcharts: 1\n• Dependency Graphs: 0\n• Sequence Diagrams: 1\n• Architecture Diagrams: 1\n\n"
+        }
+      },
+      "summary": {
+        "totalDiagrams": 3,
+        "diagramTypes": {
+          "flowcharts": 1,
+          "dependencyGraphs": 0,
+          "sequenceDiagrams": 1,
+          "architectureDiagrams": 1
+        },
+        "analysisContext": {
+          "hasCodeChanges": false,
+          "changedFiles": 9,
+          "complexityLevel": "very_high",
+          "securityRisk": "none"
+        },
+        "recommendations": [
+          {
+            "type": "complexity",
+            "message": "High code complexity detected. Consider breaking down complex functions shown in flowcharts.",
+            "priority": "high"
+          },
+          {
+            "type": "architecture",
+            "message": "Multiple files changed. Consider reviewing architecture diagrams for impact assessment.",
+            "priority": "medium"
+          },
+          {
+            "type": "api",
+            "message": "API interactions detected. Review sequence diagrams for proper error handling.",
+            "priority": "low"
+          }
+        ]
+      }
+    },
+    "github": {
+      "pr": {
+        "url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/31",
+        "id": 2679511545,
+        "node_id": "PR_kwDOPPEEec6fthn5",
+        "html_url": "https://github.com/ManagementMO/CodeScribe/pull/31",
+        "diff_url": "https://github.com/ManagementMO/CodeScribe/pull/31.diff",
+        "patch_url": "https://github.com/ManagementMO/CodeScribe/pull/31.patch",
+        "issue_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/31",
+        "number": 31,
+        "state": "open",
+        "locked": false,
+        "title": "feat: Significantly expand code coverage and documentation",
+        "user": {
+          "login": "ManagementMO",
+          "id": 111318013,
+          "node_id": "U_kgDOBqKT_Q",
+          "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ManagementMO",
+          "html_url": "https://github.com/ManagementMO",
+          "followers_url": "https://api.github.com/users/ManagementMO/followers",
+          "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+          "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+          "repos_url": "https://api.github.com/users/ManagementMO/repos",
+          "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "This PR significantly expands the code coverage and documentation.  The changes include:\n\n* Addition of numerous new `.codescribe/history/*.json` files indicating a substantial increase in test data.\n* Updates to `linear_agent.js`, suggesting improvements or bug fixes in the linear agent's logic.  The exact nature of changes requires reviewing the diff.\n* Modifications to `docs/PLUGIN_DEVELOPMENT.md`, enhancing the plugin development documentation.  Refer to the diff for specific details.\n* Update to `.codescribe/logs/codescribe.log` reflecting the execution of the added tests. \n\nThis commit introduces a large number of additions (5664 lines) which suggests significant enhancements to both the test suite and the core functionality. A thorough review is recommended before merging.",
+        "created_at": "2025-07-20T02:25:36Z",
+        "updated_at": "2025-07-20T02:32:33Z",
+        "closed_at": null,
+        "merged_at": null,
+        "merge_commit_sha": "83b5c35966c84a3e2df003933d586ae08714dcd3",
+        "assignee": null,
+        "assignees": [],
+        "requested_reviewers": [],
+        "requested_teams": [],
+        "labels": [],
+        "milestone": null,
+        "draft": true,
+        "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/31/commits",
+        "review_comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/31/comments",
+        "review_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/comments{/number}",
+        "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/31/comments",
+        "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/8052cb6916fcb53aac5fc3effbe89b90526d8fb1",
+        "head": {
+          "label": "ManagementMO:feat/COD-20-warp-test",
+          "ref": "feat/COD-20-warp-test",
+          "sha": "8052cb6916fcb53aac5fc3effbe89b90526d8fb1",
+          "user": {
+            "login": "ManagementMO",
+            "id": 111318013,
+            "node_id": "U_kgDOBqKT_Q",
+            "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ManagementMO",
+            "html_url": "https://github.com/ManagementMO",
+            "followers_url": "https://api.github.com/users/ManagementMO/followers",
+            "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+            "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+            "repos_url": "https://api.github.com/users/ManagementMO/repos",
+            "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 1022428281,
+            "node_id": "R_kgDOPPEEeQ",
+            "name": "CodeScribe",
+            "full_name": "ManagementMO/CodeScribe",
+            "private": false,
+            "owner": {
+              "login": "ManagementMO",
+              "id": 111318013,
+              "node_id": "U_kgDOBqKT_Q",
+              "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ManagementMO",
+              "html_url": "https://github.com/ManagementMO",
+              "followers_url": "https://api.github.com/users/ManagementMO/followers",
+              "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+              "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+              "repos_url": "https://api.github.com/users/ManagementMO/repos",
+              "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "html_url": "https://github.com/ManagementMO/CodeScribe",
+            "description": null,
+            "fork": false,
+            "url": "https://api.github.com/repos/ManagementMO/CodeScribe",
+            "forks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/forks",
+            "keys_url": "https://api.github.com/repos/ManagementMO/CodeScribe/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/ManagementMO/CodeScribe/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/ManagementMO/CodeScribe/teams",
+            "hooks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/hooks",
+            "issue_events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/events",
+            "assignees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/ManagementMO/CodeScribe/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/tags",
+            "blobs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/ManagementMO/CodeScribe/languages",
+            "stargazers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/stargazers",
+            "contributors_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contributors",
+            "subscribers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscribers",
+            "subscription_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscription",
+            "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/ManagementMO/CodeScribe/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/ManagementMO/CodeScribe/merges",
+            "archive_url": "https://api.github.com/repos/ManagementMO/CodeScribe/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/ManagementMO/CodeScribe/downloads",
+            "issues_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/ManagementMO/CodeScribe/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/ManagementMO/CodeScribe/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/ManagementMO/CodeScribe/labels{/name}",
+            "releases_url": "https://api.github.com/repos/ManagementMO/CodeScribe/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/deployments",
+            "created_at": "2025-07-19T04:03:17Z",
+            "updated_at": "2025-07-20T02:21:56Z",
+            "pushed_at": "2025-07-20T02:31:23Z",
+            "git_url": "git://github.com/ManagementMO/CodeScribe.git",
+            "ssh_url": "git@github.com:ManagementMO/CodeScribe.git",
+            "clone_url": "https://github.com/ManagementMO/CodeScribe.git",
+            "svn_url": "https://github.com/ManagementMO/CodeScribe",
+            "homepage": null,
+            "size": 5808,
+            "stargazers_count": 1,
+            "watchers_count": 1,
+            "language": "JavaScript",
+            "has_issues": true,
+            "has_projects": true,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "has_discussions": false,
+            "forks_count": 0,
+            "mirror_url": null,
+            "archived": false,
+            "disabled": false,
+            "open_issues_count": 9,
+            "license": null,
+            "allow_forking": true,
+            "is_template": false,
+            "web_commit_signoff_required": false,
+            "topics": [],
+            "visibility": "public",
+            "forks": 0,
+            "open_issues": 9,
+            "watchers": 1,
+            "default_branch": "main"
+          }
+        },
+        "base": {
+          "label": "ManagementMO:main",
+          "ref": "main",
+          "sha": "7f7c7a2095e67550876d2334ceb8876e290830a8",
+          "user": {
+            "login": "ManagementMO",
+            "id": 111318013,
+            "node_id": "U_kgDOBqKT_Q",
+            "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ManagementMO",
+            "html_url": "https://github.com/ManagementMO",
+            "followers_url": "https://api.github.com/users/ManagementMO/followers",
+            "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+            "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+            "repos_url": "https://api.github.com/users/ManagementMO/repos",
+            "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 1022428281,
+            "node_id": "R_kgDOPPEEeQ",
+            "name": "CodeScribe",
+            "full_name": "ManagementMO/CodeScribe",
+            "private": false,
+            "owner": {
+              "login": "ManagementMO",
+              "id": 111318013,
+              "node_id": "U_kgDOBqKT_Q",
+              "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ManagementMO",
+              "html_url": "https://github.com/ManagementMO",
+              "followers_url": "https://api.github.com/users/ManagementMO/followers",
+              "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+              "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+              "repos_url": "https://api.github.com/users/ManagementMO/repos",
+              "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "html_url": "https://github.com/ManagementMO/CodeScribe",
+            "description": null,
+            "fork": false,
+            "url": "https://api.github.com/repos/ManagementMO/CodeScribe",
+            "forks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/forks",
+            "keys_url": "https://api.github.com/repos/ManagementMO/CodeScribe/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/ManagementMO/CodeScribe/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/ManagementMO/CodeScribe/teams",
+            "hooks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/hooks",
+            "issue_events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/events",
+            "assignees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/ManagementMO/CodeScribe/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/tags",
+            "blobs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/ManagementMO/CodeScribe/languages",
+            "stargazers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/stargazers",
+            "contributors_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contributors",
+            "subscribers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscribers",
+            "subscription_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscription",
+            "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/ManagementMO/CodeScribe/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/ManagementMO/CodeScribe/merges",
+            "archive_url": "https://api.github.com/repos/ManagementMO/CodeScribe/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/ManagementMO/CodeScribe/downloads",
+            "issues_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/ManagementMO/CodeScribe/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/ManagementMO/CodeScribe/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/ManagementMO/CodeScribe/labels{/name}",
+            "releases_url": "https://api.github.com/repos/ManagementMO/CodeScribe/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/deployments",
+            "created_at": "2025-07-19T04:03:17Z",
+            "updated_at": "2025-07-20T02:21:56Z",
+            "pushed_at": "2025-07-20T02:31:23Z",
+            "git_url": "git://github.com/ManagementMO/CodeScribe.git",
+            "ssh_url": "git@github.com:ManagementMO/CodeScribe.git",
+            "clone_url": "https://github.com/ManagementMO/CodeScribe.git",
+            "svn_url": "https://github.com/ManagementMO/CodeScribe",
+            "homepage": null,
+            "size": 5808,
+            "stargazers_count": 1,
+            "watchers_count": 1,
+            "language": "JavaScript",
+            "has_issues": true,
+            "has_projects": true,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "has_discussions": false,
+            "forks_count": 0,
+            "mirror_url": null,
+            "archived": false,
+            "disabled": false,
+            "open_issues_count": 9,
+            "license": null,
+            "allow_forking": true,
+            "is_template": false,
+            "web_commit_signoff_required": false,
+            "topics": [],
+            "visibility": "public",
+            "forks": 0,
+            "open_issues": 9,
+            "watchers": 1,
+            "default_branch": "main"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/31"
+          },
+          "html": {
+            "href": "https://github.com/ManagementMO/CodeScribe/pull/31"
+          },
+          "issue": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/31"
+          },
+          "comments": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/31/comments"
+          },
+          "review_comments": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/31/comments"
+          },
+          "review_comment": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/comments{/number}"
+          },
+          "commits": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/31/commits"
+          },
+          "statuses": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/8052cb6916fcb53aac5fc3effbe89b90526d8fb1"
+          }
+        },
+        "author_association": "OWNER",
+        "auto_merge": null,
+        "active_lock_reason": null,
+        "merged": false,
+        "mergeable": true,
+        "rebaseable": true,
+        "mergeable_state": "clean",
+        "merged_by": null,
+        "comments": 1,
+        "review_comments": 0,
+        "maintainer_can_modify": false,
+        "commits": 2,
+        "additions": 5664,
+        "deletions": 2,
+        "changed_files": 9,
+        "isUpdate": true
+      },
+      "owner": "ManagementMO",
+      "repo": "CodeScribe",
+      "isUpdate": true
+    }
+  },
+  "duration": 8051,
+  "success": true,
+  "error": null
+}
