@@ -1,21 +1,25 @@
 {
-  "id": "1752980768893-174875b4",
-  "timestamp": "2025-07-20T03:06:08.895Z",
-  "command": "default",
+  "id": "1752981924737-1524adfe",
+  "timestamp": "2025-07-20T03:25:24.738Z",
+  "command": "pr",
   "options": {},
   "context": {
     "git": {
       "branch": "feat/COD-21-enhanced-agent",
-      "diff": "Large diff summary:\n.codescribe/history/1752978027670-056053c0.json | 2299 ++++++++++++++++++++\n .codescribe/history/1752978164278-ce0d889e.json |  512 +++++\n .codescribe/history/1752978180869-a6eee6a9.json |  512 +++++\n .codescribe/history/1752978336730-4dc95a0a.json | 1169 +++++++++++\n .codescribe/history/1752978546640-b2fb4181.json |  460 ++++\n .codescribe/history/1752978600932-8840f7f3.json |  460 ++++\n .codescribe/history/1752978683541-1b2e19a0.json |  422 ++++\n .codescribe/history/1752978753439-60ff2adc.json | 1377 ++++++++++++\n .codescribe/history/1752979095309-c5783d11.json | 2541 +++++++++++++++++++++++\n .codescribe/logs/codescribe.log                 |   26 +\n CODESCRIBE_COMMAND_REFERENCE.md                 |  321 +++\n docs/PLUGIN_DEVELOPMENT.md                      |    3 +\n linear_agent.js                                 |  522 ++++-\n 13 files changed, 10594 insertions(+), 30 deletions(-)\n\nChanged files:\nA\t.codescribe/history/1752978027670-056053c0.json\nA\t.codescribe/history/1752978164278-ce0d889e.json\nA\t.codescribe/history/1752978180869-a6eee6a9.json\nA\t.codescribe/history/1752978336730-4dc95a0a.json\nA\t.codescribe/history/1752978546640-b2fb4181.json\nA\t.codescribe/history/1752978600932-8840f7f3.json\nA\t.codescribe/history/1752978683541-1b2e19a0.json\nA\t.codescribe/history/1752978753439-60ff2adc.json\nA\t.codescribe/history/1752979095309-c5783d11.json\nM\t.codescribe/logs/codescribe.log\nA\tCODESCRIBE_COMMAND_REFERENCE.md\nM\tdocs/PLUGIN_DEVELOPMENT.md\nM\tlinear_agent.js",
-      "diffStats": ".codescribe/history/1752978027670-056053c0.json | 2299 ++++++++++++++++++++\n .codescribe/history/1752978164278-ce0d889e.json |  512 +++++\n .codescribe/history/1752978180869-a6eee6a9.json |  512 +++++\n .codescribe/history/1752978336730-4dc95a0a.json | 1169 +++++++++++\n .codescribe/history/1752978546640-b2fb4181.json |  460 ++++\n .codescribe/history/1752978600932-8840f7f3.json |  460 ++++\n .codescribe/history/1752978683541-1b2e19a0.json |  422 ++++\n .codescribe/history/1752978753439-60ff2adc.json | 1377 ++++++++++++\n .codescribe/history/1752979095309-c5783d11.json | 2541 +++++++++++++++++++++++\n .codescribe/logs/codescribe.log                 |   26 +\n CODESCRIBE_COMMAND_REFERENCE.md                 |  321 +++\n docs/PLUGIN_DEVELOPMENT.md                      |    3 +\n linear_agent.js                                 |  522 ++++-\n 13 files changed, 10594 insertions(+), 30 deletions(-)",
+      "diff": "Large diff summary:\n.codescribe/history/1752978027670-056053c0.json | 2299 ++++++++++++++++++++\n .codescribe/history/1752978164278-ce0d889e.json |  512 +++++\n .codescribe/history/1752978180869-a6eee6a9.json |  512 +++++\n .codescribe/history/1752978336730-4dc95a0a.json | 1169 +++++++++++\n .codescribe/history/1752978546640-b2fb4181.json |  460 ++++\n .codescribe/history/1752978600932-8840f7f3.json |  460 ++++\n .codescribe/history/1752978683541-1b2e19a0.json |  422 ++++\n .codescribe/history/1752978753439-60ff2adc.json | 1377 ++++++++++++\n .codescribe/history/1752979095309-c5783d11.json | 2541 +++++++++++++++++++++++\n .codescribe/history/1752980768893-174875b4.json | 1921 +++++++++++++++++\n .codescribe/history/1752981428444-ab082640.json | 2227 ++++++++++++++++++++\n .codescribe/logs/codescribe.log                 |   33 +\n CODESCRIBE_COMMAND_REFERENCE.md                 |  321 +++\n docs/PLUGIN_DEVELOPMENT.md                      |    3 +\n linear_agent.js                                 |  609 +++++-\n src/context/ContextAnalyzer.js                  |   67 +-\n 16 files changed, 14889 insertions(+), 44 deletions(-)\n\nChanged files:\nA\t.codescribe/history/1752978027670-056053c0.json\nA\t.codescribe/history/1752978164278-ce0d889e.json\nA\t.codescribe/history/1752978180869-a6eee6a9.json\nA\t.codescribe/history/1752978336730-4dc95a0a.json\nA\t.codescribe/history/1752978546640-b2fb4181.json\nA\t.codescribe/history/1752978600932-8840f7f3.json\nA\t.codescribe/history/1752978683541-1b2e19a0.json\nA\t.codescribe/history/1752978753439-60ff2adc.json\nA\t.codescribe/history/1752979095309-c5783d11.json\nA\t.codescribe/history/1752980768893-174875b4.json\nA\t.codescribe/history/1752981428444-ab082640.json\nM\t.codescribe/logs/codescribe.log\nA\tCODESCRIBE_COMMAND_REFERENCE.md\nM\tdocs/PLUGIN_DEVELOPMENT.md\nM\tlinear_agent.js\nM\tsrc/context/ContextAnalyzer.js",
+      "diffStats": ".codescribe/history/1752978027670-056053c0.json | 2299 ++++++++++++++++++++\n .codescribe/history/1752978164278-ce0d889e.json |  512 +++++\n .codescribe/history/1752978180869-a6eee6a9.json |  512 +++++\n .codescribe/history/1752978336730-4dc95a0a.json | 1169 +++++++++++\n .codescribe/history/1752978546640-b2fb4181.json |  460 ++++\n .codescribe/history/1752978600932-8840f7f3.json |  460 ++++\n .codescribe/history/1752978683541-1b2e19a0.json |  422 ++++\n .codescribe/history/1752978753439-60ff2adc.json | 1377 ++++++++++++\n .codescribe/history/1752979095309-c5783d11.json | 2541 +++++++++++++++++++++++\n .codescribe/history/1752980768893-174875b4.json | 1921 +++++++++++++++++\n .codescribe/history/1752981428444-ab082640.json | 2227 ++++++++++++++++++++\n .codescribe/logs/codescribe.log                 |   33 +\n CODESCRIBE_COMMAND_REFERENCE.md                 |  321 +++\n docs/PLUGIN_DEVELOPMENT.md                      |    3 +\n linear_agent.js                                 |  609 +++++-\n src/context/ContextAnalyzer.js                  |   67 +-\n 16 files changed, 14889 insertions(+), 44 deletions(-)",
       "commits": {},
       "branchHistory": {
         "creationPoint": "4d75664560341bb5ef5e48ffbffc6793dd63021c",
         "creationDate": "2025-07-19 22:19:47 -0400",
-        "commitCount": 3,
+        "commitCount": 4,
         "mergeCount": 0,
         "ageInDays": 0,
         "commits": [
+          {
+            "hash": "c1b9c2d",
+            "message": "Fix persistent git diff origin/main...HEAD command failures"
+          },
           {
             "hash": "3a7c830",
             "message": "Enhanced linear_agent.js with advanced features and created comprehensive command reference"
@@ -33,11 +37,11 @@
       "mergeBaseAnalysis": {
         "mergeBase": "4d75664560341bb5ef5e48ffbffc6793dd63021c",
         "mainHead": "7f7c7a2095e67550876d2334ceb8876e290830a8",
-        "aheadCount": 3,
+        "aheadCount": 4,
         "behindCount": 4,
         "isUpToDate": false,
         "needsRebase": true,
-        "commitsToMerge": 3
+        "commitsToMerge": 4
       },
       "conflictDetection": {
         "hasActiveConflicts": false,
@@ -61,7 +65,7 @@
         }
       },
       "hasChanges": true,
-      "hasUncommittedChanges": false,
+      "hasUncommittedChanges": true,
       "hasUnpushedCommits": false
     },
     "code": {
@@ -140,6 +144,22 @@
           "isTest": false
         },
         {
+          "path": ".codescribe/history/1752980768893-174875b4.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1752981428444-ab082640.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
           "path": ".codescribe/logs/codescribe.log",
           "status": "modified",
           "extension": "log",
@@ -170,37 +190,78 @@
           "isJavaScript": true,
           "isConfig": false,
           "isTest": false
+        },
+        {
+          "path": "src/context/ContextAnalyzer.js",
+          "status": "modified",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
         }
       ],
       "complexity": {
-        "totalScore": 69,
-        "averageScore": 69,
+        "totalScore": 275,
+        "averageScore": 137.5,
         "level": "very_high",
         "files": [
           {
             "file": "linear_agent.js",
-            "score": 69,
+            "score": 79,
             "functions": 23,
             "classes": 3,
-            "conditionals": 34,
+            "conditionals": 44,
             "loops": 0,
             "depth": 33,
-            "lines": 750
+            "lines": 829
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "score": 196,
+            "functions": 27,
+            "classes": 1,
+            "conditionals": 118,
+            "loops": 22,
+            "depth": 25,
+            "lines": 2049
           }
         ],
         "issues": [
           {
             "file": "linear_agent.js",
             "type": "high_complexity",
-            "score": 69,
-            "message": "High complexity score: 69"
+            "score": 79,
+            "message": "High complexity score: 79"
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "type": "high_complexity",
+            "score": 196,
+            "message": "High complexity score: 196"
           }
         ]
       },
       "security": {
-        "vulnerabilities": [],
+        "vulnerabilities": [
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "type": "code_injection",
+            "severity": "high",
+            "message": "Use of eval() can lead to code injection",
+            "line": 553,
+            "code": "eval("
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "type": "weak_random",
+            "severity": "low",
+            "message": "Math.random() is not cryptographically secure",
+            "line": 589,
+            "code": "Math.random()"
+          }
+        ],
         "warnings": [],
-        "riskLevel": "none",
+        "riskLevel": "high",
         "issues": []
       },
       "dependencies": {
@@ -212,8 +273,8 @@
         "breakingChanges": []
       },
       "ast": {
-        "totalFiles": 1,
-        "parsedFiles": 1,
+        "totalFiles": 2,
+        "parsedFiles": 2,
         "functions": [
           {
             "file": "linear_agent.js",
@@ -237,7 +298,7 @@
             "type": "arrow_function",
             "async": false,
             "params": 1,
-            "line": 227
+            "line": 257
           },
           {
             "file": "linear_agent.js",
@@ -245,7 +306,7 @@
             "type": "arrow_function",
             "async": false,
             "params": 1,
-            "line": 228
+            "line": 258
           },
           {
             "file": "linear_agent.js",
@@ -253,7 +314,7 @@
             "type": "arrow_function",
             "async": false,
             "params": 1,
-            "line": 276
+            "line": 306
           },
           {
             "file": "linear_agent.js",
@@ -261,7 +322,7 @@
             "type": "arrow_function",
             "async": false,
             "params": 1,
-            "line": 319
+            "line": 349
           },
           {
             "file": "linear_agent.js",
@@ -269,38 +330,6 @@
             "type": "arrow_function",
             "async": false,
             "params": 1,
-            "line": 328
-          },
-          {
-            "file": "linear_agent.js",
-            "name": "arrow_function",
-            "type": "arrow_function",
-            "async": false,
-            "params": 1,
-            "line": 342
-          },
-          {
-            "file": "linear_agent.js",
-            "name": "arrow_function",
-            "type": "arrow_function",
-            "async": false,
-            "params": 2,
-            "line": 345
-          },
-          {
-            "file": "linear_agent.js",
-            "name": "arrow_function",
-            "type": "arrow_function",
-            "async": false,
-            "params": 1,
-            "line": 351
-          },
-          {
-            "file": "linear_agent.js",
-            "name": "arrow_function",
-            "type": "arrow_function",
-            "async": false,
-            "params": 2,
             "line": 358
           },
           {
@@ -309,7 +338,39 @@
             "type": "arrow_function",
             "async": false,
             "params": 1,
-            "line": 360
+            "line": 372
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 375
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 381
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 388
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 390
           },
           {
             "file": "linear_agent.js",
@@ -317,7 +378,7 @@
             "type": "function",
             "async": false,
             "params": 1,
-            "line": 373
+            "line": 403
           },
           {
             "file": "linear_agent.js",
@@ -325,7 +386,7 @@
             "type": "arrow_function",
             "async": true,
             "params": 2,
-            "line": 384
+            "line": 414
           },
           {
             "file": "linear_agent.js",
@@ -333,7 +394,7 @@
             "type": "arrow_function",
             "async": true,
             "params": 0,
-            "line": 404
+            "line": 434
           },
           {
             "file": "linear_agent.js",
@@ -341,7 +402,7 @@
             "type": "arrow_function",
             "async": false,
             "params": 1,
-            "line": 487
+            "line": 529
           },
           {
             "file": "linear_agent.js",
@@ -349,7 +410,7 @@
             "type": "arrow_function",
             "async": false,
             "params": 1,
-            "line": 526
+            "line": 568
           },
           {
             "file": "linear_agent.js",
@@ -357,7 +418,7 @@
             "type": "arrow_function",
             "async": false,
             "params": 1,
-            "line": 574
+            "line": 616
           },
           {
             "file": "linear_agent.js",
@@ -365,7 +426,7 @@
             "type": "arrow_function",
             "async": false,
             "params": 1,
-            "line": 578
+            "line": 620
           },
           {
             "file": "linear_agent.js",
@@ -373,7 +434,7 @@
             "type": "arrow_function",
             "async": false,
             "params": 1,
-            "line": 603
+            "line": 645
           },
           {
             "file": "linear_agent.js",
@@ -381,7 +442,7 @@
             "type": "arrow_function",
             "async": false,
             "params": 1,
-            "line": 606
+            "line": 648
           },
           {
             "file": "linear_agent.js",
@@ -389,7 +450,7 @@
             "type": "arrow_function",
             "async": false,
             "params": 1,
-            "line": 609
+            "line": 651
           },
           {
             "file": "linear_agent.js",
@@ -397,7 +458,223 @@
             "type": "arrow_function",
             "async": false,
             "params": 0,
-            "line": 748
+            "line": 827
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 0,
+            "line": 54
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 0,
+            "line": 55
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 0,
+            "line": 56
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 0,
+            "line": 57
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 262
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 321
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 373
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 652
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 653
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 782
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 890
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 1000
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1072
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1117
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1318
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1319
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 1433
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1435
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1541
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1613
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1688
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1832
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1836
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1839
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1841
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1937
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1990
           }
         ],
         "classes": [
@@ -417,7 +694,13 @@
             "file": "linear_agent.js",
             "name": "WorkflowAutomation",
             "superClass": null,
-            "line": 176
+            "line": 206
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "ContextAnalyzer",
+            "superClass": null,
+            "line": 7
           }
         ],
         "imports": [],
@@ -435,7 +718,7 @@
     },
     "project": {
       "structure": {
-        "totalFiles": 75,
+        "totalFiles": 60,
         "directories": [
           {
             "path": ".codescribe",
@@ -519,8 +802,8 @@
           }
         ],
         "fileTypes": {
-          ".json": 19,
           ".log": 1,
+          ".json": 4,
           "": 1,
           ".md": 16,
           ".yaml": 11,
@@ -528,7 +811,7 @@
         },
         "testFiles": 0,
         "documentationFiles": 16,
-        "configFiles": 30,
+        "configFiles": 15,
         "ciFiles": 0,
         "sourceFiles": 27,
         "depth": 3
@@ -664,9 +947,9 @@
         "priority": 0,
         "estimate": null,
         "state": {
-          "id": "2e19dc4d-e23f-41b5-8af6-d692cf583f1f",
-          "name": "Backlog",
-          "type": "backlog"
+          "id": "7cbfc433-f5a7-46a8-9688-f1a35b4b5b17",
+          "name": "In Review",
+          "type": "started"
         },
         "assignee": {
           "id": "671bd7cf-4218-4ef2-8f35-f3929781363f",
@@ -682,11 +965,188 @@
           "nodes": []
         },
         "comments": {
-          "nodes": []
+          "nodes": [
+            {
+              "id": "96080479-cbb3-4588-a679-749e857bbc16",
+              "body": "🚀 **CodeScribe Agent - Enhanced Workflow Execution**\n\n**Development Progress:**\n- Current Phase: IN REVIEW\n- Complexity Level: VERY_HIGH\n- Risk Level: HIGH\n\n**Scope Analysis:**\n- ⚠️ Scope changes detected (Risk: LOW)\n- High number of files changed (16)\n\n**Recommendations:**\n- Expand testing strategy due to wide-ranging changes\n\n**Blockers Detected:**\n- ⚠️ Code complexity score (137.5) exceeds recommended threshold\n- 🚨 High security risk detected in code changes\n\n**GitHub Integration:**\n- Status: Updated PR #32\n- URL: https://github.com/ManagementMO/CodeScribe/pull/32\n- Title: feat: Significant Expansion of Codebase and Documentation\n\n**AI Analysis:**\nThis PR significantly expands the project's codebase and documentation, adding new features and improving developer experience.\n\n**Code Analysis:**\n- Generated 3 visualization diagrams\n- Complexity Level: very_high\n- Security Risk: high\n\n**Code Recommendations:**\n- High code complexity detected. Consider breaking down complex functions shown in flowcharts.\n- Multiple files changed. Consider reviewing architecture diagrams for impact assessment.\n- API interactions detected. Review sequence diagrams for proper error handling.\n\n**Sub-ticket Management:**\n- 💡 Suggested 4 sub-tickets (auto-creation disabled)\n  - Implement general functionality\n  - Refactor high-complexity file: linear_agent.js\n  - Refactor high-complexity file: src/context/ContextAnalyzer.js\n- 🚨 Detected 1 potential blockers\n  - 🚨 Security Review Required - COD-21\n- Reasons: High code complexity (137.5 > 15), High number of changed files (16 > 8), High security risk detected\n\n\n## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n• ContextAnalyzer\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n\n\n---\n*Automated by CodeScribe Enhanced Linear Workflow*",
+              "createdAt": "2025-07-20T03:24:43.676Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "032dcb1e-ab8d-43a0-82ff-c17dd9cfa04b",
+              "body": "🚀 **CodeScribe Agent - Enhanced Workflow Execution**\n\n**Development Progress:**\n- Current Phase: IN REVIEW\n- Complexity Level: VERY_HIGH\n- Risk Level: HIGH\n\n**Scope Analysis:**\n- ⚠️ Scope changes detected (Risk: LOW)\n- High number of files changed (16)\n\n**Recommendations:**\n- Expand testing strategy due to wide-ranging changes\n\n**Blockers Detected:**\n- ⚠️ Code complexity score (137.5) exceeds recommended threshold\n- 🚨 High security risk detected in code changes\n\n**GitHub Integration:**\n- Status: Updated PR #32\n- URL: https://github.com/ManagementMO/CodeScribe/pull/32\n- Title: feat: Add extensive code description generation capabilities\n\n**AI Analysis:**\nThis PR significantly improves code description generation, adding extensive support and updating documentation, resulting in more comprehensive and accurate outputs.\n\n**Code Analysis:**\n- Generated 3 visualization diagrams\n- Complexity Level: very_high\n- Security Risk: high\n\n**Code Recommendations:**\n- High code complexity detected. Consider breaking down complex functions shown in flowcharts.\n- Multiple files changed. Consider reviewing architecture diagrams for impact assessment.\n- API interactions detected. Review sequence diagrams for proper error handling.\n\n**Sub-ticket Management:**\n- 💡 Suggested 4 sub-tickets (auto-creation disabled)\n  - Implement general functionality\n  - Refactor high-complexity file: linear_agent.js\n  - Refactor high-complexity file: src/context/ContextAnalyzer.js\n- 🚨 Detected 1 potential blockers\n  - 🚨 Security Review Required - COD-21\n- Reasons: High code complexity (137.5 > 15), High number of changed files (16 > 8), High security risk detected\n\n\n## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n• ContextAnalyzer\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n\n\n---\n*Automated by CodeScribe Enhanced Linear Workflow*",
+              "createdAt": "2025-07-20T03:24:19.630Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "c910fcda-5f32-4220-a4db-d7125d26fc9f",
+              "body": "🚀 **CodeScribe Agent - Enhanced Workflow Execution**\n\n**Development Progress:**\n- Current Phase: IN REVIEW\n- Complexity Level: VERY_HIGH\n- Risk Level: HIGH\n\n**Status Update:**\n- ✅ Status changed from \"Todo\" to \"In Review\"\n- Reason: Pull request created for review\n\n**Scope Analysis:**\n- ⚠️ Scope changes detected (Risk: LOW)\n- High number of files changed (13)\n\n**Recommendations:**\n- Expand testing strategy due to wide-ranging changes\n\n**Blockers Detected:**\n- ⚠️ Code complexity score (79) exceeds recommended threshold\n\n**GitHub Integration:**\n- Status: Updated PR #32\n- URL: https://github.com/ManagementMO/CodeScribe/pull/32\n- Title: feat: Significant expansion of CodeDescribe functionality\n\n**AI Analysis:**\nMajor update to CodeDescribe adding significant new features and expanding its functionality.\n\n**Code Analysis:**\n- Generated 3 visualization diagrams\n- Complexity Level: very_high\n- Security Risk: none\n\n**Code Recommendations:**\n- High code complexity detected. Consider breaking down complex functions shown in flowcharts.\n- Multiple files changed. Consider reviewing architecture diagrams for impact assessment.\n- API interactions detected. Review sequence diagrams for proper error handling.\n\n**Sub-ticket Management:**\n- 💡 Suggested 2 sub-tickets (auto-creation disabled)\n  - Implement general functionality\n  - Refactor high-complexity file: linear_agent.js\n- Reasons: High code complexity (79 > 15), High number of changed files (13 > 8)\n\n\n## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n\n\n---\n*Automated by CodeScribe Enhanced Linear Workflow*",
+              "createdAt": "2025-07-20T03:17:08.724Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "9bedbd66-aeb6-48b7-ad40-e03e58887880",
+              "body": "### 💬 CodeScribe AI Assistant\n\n❌ AI service quota exceeded. Please try again later.",
+              "createdAt": "2025-07-20T03:16:07.302Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "9eb936fb-9a2b-4811-94a6-dfd5d213c537",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:16:05.266Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "eea70db1-a29c-47e5-ab7b-4126d437b6f5",
+              "body": "@codescribe-agent talk hi",
+              "createdAt": "2025-07-20T03:16:04.556Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "865edc5e-2512-4247-abab-dfa6375ae93b",
+              "body": "### 💬 CodeScribe AI Assistant\n\n❌ AI service quota exceeded. Please try again later.",
+              "createdAt": "2025-07-20T03:14:16.717Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "52d514ff-bf0e-442a-8ecb-5a21f267bb18",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:14:16.468Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "546567e5-945a-47ab-a9fe-3d62a94c9dd3",
+              "body": "@codescribe-agent talk hi",
+              "createdAt": "2025-07-20T03:14:15.695Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "1082ffd7-8c64-4e91-8be5-4294530a830a",
+              "body": "### 💬 CodeScribe AI Assistant\n\n❌ AI service quota exceeded. Please try again later.",
+              "createdAt": "2025-07-20T03:13:10.229Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "aae83a2f-9a62-491b-810c-10cee4c64d80",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:13:09.673Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "c56436c8-4a8b-4d04-9179-b4fd4da8be9a",
+              "body": "@codescribe-agent chat whats up",
+              "createdAt": "2025-07-20T03:13:08.897Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "8bc95819-fecd-4c28-8b60-750ef767c379",
+              "body": "### 💬 CodeScribe AI Assistant\n\nI'm having trouble processing that right now. Could you try rephrasing your question?",
+              "createdAt": "2025-07-20T03:09:41.778Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "64d3fdd6-0e59-4580-a5d3-e7270068f2af",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:09:41.144Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "e6946541-7a12-4108-895e-5c2d29ea874c",
+              "body": "@codescribe-agent chat hi how are you",
+              "createdAt": "2025-07-20T03:09:40.611Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "9bfb33a0-7630-4873-8177-2f17c81953e2",
+              "body": "### 💬 CodeScribe AI Assistant\n\nI'm having trouble processing that right now. Could you try rephrasing your question?",
+              "createdAt": "2025-07-20T03:08:08.701Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "0db8cf2d-40c2-4072-ab98-52ab53285c76",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:08:08.455Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "0d638fe7-ee98-4544-b60b-bac7955b02ef",
+              "body": "@codescribe-agent chat hi",
+              "createdAt": "2025-07-20T03:08:07.890Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "7a7c1481-467b-445b-af52-6d6a4c8ae9cb",
+              "body": "### 💬 CodeScribe AI Assistant\n\nI'm having trouble processing that right now. Could you try rephrasing your question?",
+              "createdAt": "2025-07-20T03:07:05.697Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "82a9f566-39cd-4896-a97a-c57a49239c56",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:07:05.242Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "d18be552-c79d-4fae-8a7d-2eddd3d84d80",
+              "body": "@codescribe-agent chat how are you?",
+              "createdAt": "2025-07-20T03:07:04.740Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "333a0e78-d0f2-4e1a-a6cb-55bf166a9097",
+              "body": "🚀 **CodeScribe Agent - Enhanced Workflow Execution**\n\n**Development Progress:**\n- Current Phase: IN REVIEW\n- Complexity Level: VERY_HIGH\n- Risk Level: HIGH\n\n**Status Update:**\n- ✅ Status changed from \"Backlog\" to \"In Review\"\n- Reason: Pull request created for review\n\n**Scope Analysis:**\n- ⚠️ Scope changes detected (Risk: LOW)\n- High number of files changed (13)\n\n**Recommendations:**\n- Expand testing strategy due to wide-ranging changes\n\n**Blockers Detected:**\n- ⚠️ Code complexity score (69) exceeds recommended threshold\n\n**GitHub Integration:**\n- Status: Created PR #32\n- URL: https://github.com/ManagementMO/CodeScribe/pull/32\n- Title: feat: COD-21 - Update implementation\n\n**AI Analysis:**\nUpdated implementation for COD-21 with code changes across multiple files.\n\n**Code Analysis:**\n- Generated 3 visualization diagrams\n- Complexity Level: very_high\n- Security Risk: none\n\n**Code Recommendations:**\n- High code complexity detected. Consider breaking down complex functions shown in flowcharts.\n- Multiple files changed. Consider reviewing architecture diagrams for impact assessment.\n- API interactions detected. Review sequence diagrams for proper error handling.\n\n**Sub-ticket Management:**\n- 💡 Suggested 2 sub-tickets (auto-creation disabled)\n  - Implement general functionality\n  - Refactor high-complexity file: linear_agent.js\n- Reasons: High code complexity (69 > 15), High number of changed files (13 > 8)\n\n\n## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n\n\n---\n*Automated by CodeScribe Enhanced Linear Workflow*",
+              "createdAt": "2025-07-20T03:06:09.153Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            }
+          ]
         },
         "createdAt": "2025-07-20T02:44:36.138Z",
-        "updatedAt": "2025-07-20T02:44:36.138Z",
-        "startedAt": null,
+        "updatedAt": "2025-07-20T03:24:45.381Z",
+        "startedAt": "2025-07-20T03:17:08.555Z",
         "completedAt": null,
         "dueDate": null,
         "cycle": null
@@ -698,6 +1158,11 @@
             "type": "status_transition",
             "action": "Move to In Review",
             "reason": "Pull request created and ready for review"
+          },
+          {
+            "type": "blocker_notification",
+            "action": "Notify team of blocker",
+            "reason": "High security risk detected in code changes"
           }
         ],
         "timeSpent": null,
@@ -706,23 +1171,25 @@
         "blockers": [
           {
             "type": "high_complexity",
-            "message": "Code complexity score (69) exceeds recommended threshold",
+            "message": "Code complexity score (137.5) exceeds recommended threshold",
             "severity": "medium"
+          },
+          {
+            "type": "security_risk",
+            "message": "High security risk detected in code changes",
+            "severity": "high"
           }
         ],
         "milestones": [
           {
             "type": "pr_created",
-            "timestamp": "2025-07-20T03:06:08.446Z"
+            "timestamp": "2025-07-20T03:25:24.534Z"
           }
         ]
       },
       "statusTransition": {
-        "success": true,
-        "fromStatus": "Backlog",
-        "toStatus": "In Review",
-        "reason": "Pull request created for review",
-        "timestamp": "2025-07-20T03:06:08.733Z"
+        "skipped": true,
+        "reason": "No status change needed (current: In Review, target: undefined)"
       },
       "timeTracking": {
         "skipped": true,
@@ -734,7 +1201,7 @@
           {
             "type": "file_count_high",
             "severity": "low",
-            "message": "High number of files changed (13)",
+            "message": "High number of files changed (16)",
             "impact": "May indicate scope creep or complex refactoring"
           }
         ],
@@ -750,15 +1217,16 @@
       "subTickets": {
         "success": true,
         "reasons": [
-          "High code complexity (69 > 15)",
-          "High number of changed files (13 > 8)"
+          "High code complexity (137.5 > 15)",
+          "High number of changed files (16 > 8)",
+          "High security risk detected"
         ],
         "analysis": {
           "shouldCreateSubTickets": true,
           "suggestedSubTickets": [
             {
               "title": "Implement general functionality",
-              "description": "**Auto-generated sub-ticket from COD-21**\n\nHandle changes to 13 files related to general\n\n**Scope:**\nFiles to modify:\n- .codescribe/history/1752978027670-056053c0.json\n- .codescribe/history/1752978164278-ce0d889e.json\n- .codescribe/history/1752978180869-a6eee6a9.json\n- .codescribe/history/1752978336730-4dc95a0a.json\n- .codescribe/history/1752978546640-b2fb4181.json\n- .codescribe/history/1752978600932-8840f7f3.json\n- .codescribe/history/1752978683541-1b2e19a0.json\n- .codescribe/history/1752978753439-60ff2adc.json\n- .codescribe/history/1752979095309-c5783d11.json\n- .codescribe/logs/codescribe.log\n- CODESCRIBE_COMMAND_REFERENCE.md\n- docs/PLUGIN_DEVELOPMENT.md\n- linear_agent.js\n\n**Complexity:** high\n**Priority:** low\n\n**Parent Ticket:** COD-21 - final_tests",
+              "description": "**Auto-generated sub-ticket from COD-21**\n\nHandle changes to 16 files related to general\n\n**Scope:**\nFiles to modify:\n- .codescribe/history/1752978027670-056053c0.json\n- .codescribe/history/1752978164278-ce0d889e.json\n- .codescribe/history/1752978180869-a6eee6a9.json\n- .codescribe/history/1752978336730-4dc95a0a.json\n- .codescribe/history/1752978546640-b2fb4181.json\n- .codescribe/history/1752978600932-8840f7f3.json\n- .codescribe/history/1752978683541-1b2e19a0.json\n- .codescribe/history/1752978753439-60ff2adc.json\n- .codescribe/history/1752979095309-c5783d11.json\n- .codescribe/history/1752980768893-174875b4.json\n- .codescribe/history/1752981428444-ab082640.json\n- .codescribe/logs/codescribe.log\n- CODESCRIBE_COMMAND_REFERENCE.md\n- docs/PLUGIN_DEVELOPMENT.md\n- linear_agent.js\n- src/context/ContextAnalyzer.js\n\n**Complexity:** high\n**Priority:** low\n\n**Parent Ticket:** COD-21 - final_tests",
               "priority": 4,
               "estimate": 8,
               "labels": [
@@ -781,10 +1249,13 @@
                   ".codescribe/history/1752978683541-1b2e19a0.json",
                   ".codescribe/history/1752978753439-60ff2adc.json",
                   ".codescribe/history/1752979095309-c5783d11.json",
+                  ".codescribe/history/1752980768893-174875b4.json",
+                  ".codescribe/history/1752981428444-ab082640.json",
                   ".codescribe/logs/codescribe.log",
                   "CODESCRIBE_COMMAND_REFERENCE.md",
                   "docs/PLUGIN_DEVELOPMENT.md",
-                  "linear_agent.js"
+                  "linear_agent.js",
+                  "src/context/ContextAnalyzer.js"
                 ],
                 "complexity": "high",
                 "autoGenerated": true,
@@ -793,7 +1264,7 @@
             },
             {
               "title": "Refactor high-complexity file: linear_agent.js",
-              "description": "**Auto-generated sub-ticket from COD-21**\n\nAddress complexity issues in linear_agent.js (score: 69)\n\n**Scope:**\nFiles to modify:\n- linear_agent.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-21 - final_tests",
+              "description": "**Auto-generated sub-ticket from COD-21**\n\nAddress complexity issues in linear_agent.js (score: 79)\n\n**Scope:**\nFiles to modify:\n- linear_agent.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-21 - final_tests",
               "priority": 3,
               "estimate": 9,
               "labels": [
@@ -814,14 +1285,81 @@
                 "autoGenerated": true,
                 "parentTicket": "COD-21"
               }
+            },
+            {
+              "title": "Refactor high-complexity file: src/context/ContextAnalyzer.js",
+              "description": "**Auto-generated sub-ticket from COD-21**\n\nAddress complexity issues in src/context/ContextAnalyzer.js (score: 196)\n\n**Scope:**\nFiles to modify:\n- src/context/ContextAnalyzer.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-21 - final_tests",
+              "priority": 3,
+              "estimate": 9,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "refactor",
+                "technical-debt"
+              ],
+              "parentIssueId": "85c59810-b5f7-4071-81c6-04b3de7895be",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "complexity_refactor",
+                "files": [
+                  "src/context/ContextAnalyzer.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-21"
+              }
+            },
+            {
+              "title": "Address security vulnerabilities",
+              "description": "**Auto-generated sub-ticket from COD-21**\n\nFix 1 high-severity security issues\n\n**Scope:**\nFiles to modify:\n- src/context/ContextAnalyzer.js\n\n**Complexity:** medium\n**Priority:** high\n\n**Security Considerations:**\nThis task addresses security vulnerabilities. Please ensure:\n- Code review by security team\n- Security testing before deployment\n- Documentation of security fixes\n\n**Parent Ticket:** COD-21 - final_tests",
+              "priority": 2,
+              "estimate": 3,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "security",
+                "bug",
+                "high-priority"
+              ],
+              "parentIssueId": "85c59810-b5f7-4071-81c6-04b3de7895be",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "security_fixes",
+                "files": [
+                  "src/context/ContextAnalyzer.js"
+                ],
+                "complexity": "medium",
+                "autoGenerated": true,
+                "parentTicket": "COD-21"
+              }
             }
           ],
-          "blockers": [],
+          "blockers": [
+            {
+              "type": "security_blocker",
+              "title": "🚨 Security Review Required - COD-21",
+              "description": "Critical security vulnerabilities must be addressed before proceeding with COD-21",
+              "priority": "urgent",
+              "blocking": true,
+              "vulnerabilities": [
+                {
+                  "file": "src/context/ContextAnalyzer.js",
+                  "type": "code_injection",
+                  "severity": "high",
+                  "message": "Use of eval() can lead to code injection",
+                  "line": 553,
+                  "code": "eval("
+                }
+              ]
+            }
+          ],
           "taskBreakdown": [
             {
               "type": "functionality_group",
               "title": "Implement general functionality",
-              "description": "Handle changes to 13 files related to general",
+              "description": "Handle changes to 16 files related to general",
               "files": [
                 ".codescribe/history/1752978027670-056053c0.json",
                 ".codescribe/history/1752978164278-ce0d889e.json",
@@ -832,10 +1370,13 @@
                 ".codescribe/history/1752978683541-1b2e19a0.json",
                 ".codescribe/history/1752978753439-60ff2adc.json",
                 ".codescribe/history/1752979095309-c5783d11.json",
+                ".codescribe/history/1752980768893-174875b4.json",
+                ".codescribe/history/1752981428444-ab082640.json",
                 ".codescribe/logs/codescribe.log",
                 "CODESCRIBE_COMMAND_REFERENCE.md",
                 "docs/PLUGIN_DEVELOPMENT.md",
-                "linear_agent.js"
+                "linear_agent.js",
+                "src/context/ContextAnalyzer.js"
               ],
               "estimatedComplexity": "high",
               "priority": "low"
@@ -843,12 +1384,32 @@
             {
               "type": "complexity_refactor",
               "title": "Refactor high-complexity file: linear_agent.js",
-              "description": "Address complexity issues in linear_agent.js (score: 69)",
+              "description": "Address complexity issues in linear_agent.js (score: 79)",
               "files": [
                 "linear_agent.js"
               ],
               "estimatedComplexity": "high",
               "priority": "medium"
+            },
+            {
+              "type": "complexity_refactor",
+              "title": "Refactor high-complexity file: src/context/ContextAnalyzer.js",
+              "description": "Address complexity issues in src/context/ContextAnalyzer.js (score: 196)",
+              "files": [
+                "src/context/ContextAnalyzer.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "medium"
+            },
+            {
+              "type": "security_fixes",
+              "title": "Address security vulnerabilities",
+              "description": "Fix 1 high-severity security issues",
+              "files": [
+                "src/context/ContextAnalyzer.js"
+              ],
+              "estimatedComplexity": "medium",
+              "priority": "high"
             }
           ]
         },
@@ -857,9 +1418,9 @@
       }
     },
     "ai": {
-      "title": "feat: COD-21 - Update implementation",
-      "body": "## Changes\n\nThis PR addresses ticket COD-21.\n\n### Diff Summary\n```\n.codescribe/history/1752978027670-056053c0.json | 2299 ++++++++++++++++++++\n .codescribe/history/1752978164278-ce0d889e.json |  512 +++++\n .codescribe/history/1752978180869-a6eee6a9.json |  512 +++++\n .codescribe/history/1752978336730-4dc95a0a.json | 1169 +++++++++++\n .codescribe/history/1752978546640-b2fb4181.json |  460 ++++\n .codescribe/history/1752978600932-8840f7f3.json |  460 ++++\n .codescribe/history/1752978683541-1b2e19a0.json |  422 ++++\n .codescribe/history/1752978753439-60ff2adc.json | 1377 ++++++++++++\n .codescribe/history/1752979095309-c5783d11.json | 2541 +++++++++++++++++++++++\n .codescribe/logs/codescribe.log                 |   26 +\n CODESCRIBE_COMMAND_REFERENCE.md                 |  321 +++\n docs/PLUGIN_DEVELOPMENT.md                      |    3 +\n linear_agent.js                                 |  522 ++++-\n 13 files changed, 10594 insertions(+), 30 deletions(-)\n```\n\n### Files Changed\n",
-      "summary": "Updated implementation for COD-21 with code changes across multiple files."
+      "title": "feat: Significant enhancement to code description generation",
+      "body": "This PR introduces a major update to the code description generation capabilities.  The changes include:\n\n* Substantial improvements to the core code analysis engine resulting in more accurate and comprehensive descriptions.\n* Addition of several new features and functionalities, significantly expanding the system's capabilities.\n*  Updated documentation for both users (CODESCRIBE_COMMAND_REFERENCE.md) and plugin developers (docs/PLUGIN_DEVELOPMENT.md).\n* Enhancements to the `linear_agent.js` module.\n* Refinements to the context analysis (`src/context/ContextAnalyzer.js`).\n\nThe changes are extensive, affecting many aspects of the system.  Detailed changes are reflected in the numerous newly added `.codescribe/history/*.json` files. These files track the evolution of the code description generation process over multiple iterations.  The `codescribe.log` file provides an overall log of this extensive process.\n\nThis update represents a significant step forward in the accuracy, comprehensiveness, and utility of code descriptions generated by the system.",
+      "summary": "Major update to code description generation, adding significant new features and improving accuracy."
     },
     "documentation": {
       "diagrams": {
@@ -867,7 +1428,7 @@
           {
             "type": "flowchart",
             "title": "Class Relationships",
-            "mermaid": "flowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n"
+            "mermaid": "flowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n    C3[ContextAnalyzer]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n"
           }
         ],
         "dependencyGraphs": [],
@@ -888,11 +1449,11 @@
       },
       "formattedDiagrams": {
         "github": {
-          "markdown": "## 📊 Code Analysis Diagrams\n\n### Class Relationships\n\n```mermaid\nflowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n```\n\n### API Interaction Flow\n\n```mermaid\nsequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n```\n\n### Project Architecture\n\n```mermaid\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n```\n\n",
-          "html": "<div class=\"code-analysis-diagrams\">\n<h2>📊 Code Analysis Diagrams</h2>\n<div class=\"diagram-container\">\n<h3>Class Relationships</h3>\n<div class=\"mermaid\">\nflowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>API Interaction Flow</h3>\n<div class=\"mermaid\">\nsequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>Project Architecture</h3>\n<div class=\"mermaid\">\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n</div>\n</div>\n</div>\n"
+          "markdown": "## 📊 Code Analysis Diagrams\n\n### Class Relationships\n\n```mermaid\nflowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n    C3[ContextAnalyzer]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n```\n\n### API Interaction Flow\n\n```mermaid\nsequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n```\n\n### Project Architecture\n\n```mermaid\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n```\n\n",
+          "html": "<div class=\"code-analysis-diagrams\">\n<h2>📊 Code Analysis Diagrams</h2>\n<div class=\"diagram-container\">\n<h3>Class Relationships</h3>\n<div class=\"mermaid\">\nflowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n    C3[ContextAnalyzer]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>API Interaction Flow</h3>\n<div class=\"mermaid\">\nsequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>Project Architecture</h3>\n<div class=\"mermaid\">\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n</div>\n</div>\n</div>\n"
         },
         "linear": {
-          "markdown": "## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n",
+          "markdown": "## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n• ContextAnalyzer\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n",
           "text": "📊 CODE ANALYSIS SUMMARY\n========================\n\nGenerated Diagrams:\n• Flowcharts: 1\n• Dependency Graphs: 0\n• Sequence Diagrams: 1\n• Architecture Diagrams: 1\n\n"
         }
       },
@@ -906,9 +1467,9 @@
         },
         "analysisContext": {
           "hasCodeChanges": false,
-          "changedFiles": 13,
+          "changedFiles": 16,
           "complexityLevel": "very_high",
-          "securityRisk": "none"
+          "securityRisk": "high"
         },
         "recommendations": [
           {
@@ -941,7 +1502,7 @@
         "number": 32,
         "state": "open",
         "locked": false,
-        "title": "feat: COD-21 - Update implementation",
+        "title": "feat: Significant enhancement to code description generation",
         "user": {
           "login": "ManagementMO",
           "id": 111318013,
@@ -963,12 +1524,12 @@
           "user_view_type": "public",
           "site_admin": false
         },
-        "body": "## Changes\n\nThis PR addresses ticket COD-21.\n\n### Diff Summary\n```\n.codescribe/history/1752978027670-056053c0.json | 2299 ++++++++++++++++++++\n .codescribe/history/1752978164278-ce0d889e.json |  512 +++++\n .codescribe/history/1752978180869-a6eee6a9.json |  512 +++++\n .codescribe/history/1752978336730-4dc95a0a.json | 1169 +++++++++++\n .codescribe/history/1752978546640-b2fb4181.json |  460 ++++\n .codescribe/history/1752978600932-8840f7f3.json |  460 ++++\n .codescribe/history/1752978683541-1b2e19a0.json |  422 ++++\n .codescribe/history/1752978753439-60ff2adc.json | 1377 ++++++++++++\n .codescribe/history/1752979095309-c5783d11.json | 2541 +++++++++++++++++++++++\n .codescribe/logs/codescribe.log                 |   26 +\n CODESCRIBE_COMMAND_REFERENCE.md                 |  321 +++\n docs/PLUGIN_DEVELOPMENT.md                      |    3 +\n linear_agent.js                                 |  522 ++++-\n 13 files changed, 10594 insertions(+), 30 deletions(-)\n```\n\n### Files Changed\n",
+        "body": "This PR introduces a major update to the code description generation capabilities.  The changes include:\n\n* Substantial improvements to the core code analysis engine resulting in more accurate and comprehensive descriptions.\n* Addition of several new features and functionalities, significantly expanding the system's capabilities.\n*  Updated documentation for both users (CODESCRIBE_COMMAND_REFERENCE.md) and plugin developers (docs/PLUGIN_DEVELOPMENT.md).\n* Enhancements to the `linear_agent.js` module.\n* Refinements to the context analysis (`src/context/ContextAnalyzer.js`).\n\nThe changes are extensive, affecting many aspects of the system.  Detailed changes are reflected in the numerous newly added `.codescribe/history/*.json` files. These files track the evolution of the code description generation process over multiple iterations.  The `codescribe.log` file provides an overall log of this extensive process.\n\nThis update represents a significant step forward in the accuracy, comprehensiveness, and utility of code descriptions generated by the system.",
         "created_at": "2025-07-20T03:06:07Z",
-        "updated_at": "2025-07-20T03:06:07Z",
+        "updated_at": "2025-07-20T03:25:23Z",
         "closed_at": null,
         "merged_at": null,
-        "merge_commit_sha": null,
+        "merge_commit_sha": "0ecaa6f965613d67df4eb90e2bbc85de3c44b03c",
         "assignee": null,
         "assignees": [],
         "requested_reviewers": [],
@@ -980,11 +1541,11 @@
         "review_comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/32/comments",
         "review_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/comments{/number}",
         "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/32/comments",
-        "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/3a7c8306ef4bfe186d6d0062f38b13f944717447",
+        "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/c1b9c2d50df0067227f9963d642884ee6c77cd2e",
         "head": {
           "label": "ManagementMO:feat/COD-21-enhanced-agent",
           "ref": "feat/COD-21-enhanced-agent",
-          "sha": "3a7c8306ef4bfe186d6d0062f38b13f944717447",
+          "sha": "c1b9c2d50df0067227f9963d642884ee6c77cd2e",
           "user": {
             "login": "ManagementMO",
             "id": 111318013,
@@ -1075,13 +1636,13 @@
             "deployments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/deployments",
             "created_at": "2025-07-19T04:03:17Z",
             "updated_at": "2025-07-20T02:21:56Z",
-            "pushed_at": "2025-07-20T03:06:00Z",
+            "pushed_at": "2025-07-20T03:24:11Z",
             "git_url": "git://github.com/ManagementMO/CodeScribe.git",
             "ssh_url": "git@github.com:ManagementMO/CodeScribe.git",
             "clone_url": "https://github.com/ManagementMO/CodeScribe.git",
             "svn_url": "https://github.com/ManagementMO/CodeScribe",
             "homepage": null,
-            "size": 5808,
+            "size": 5992,
             "stargazers_count": 1,
             "watchers_count": 1,
             "language": "JavaScript",
@@ -1202,13 +1763,13 @@
             "deployments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/deployments",
             "created_at": "2025-07-19T04:03:17Z",
             "updated_at": "2025-07-20T02:21:56Z",
-            "pushed_at": "2025-07-20T03:06:00Z",
+            "pushed_at": "2025-07-20T03:24:11Z",
             "git_url": "git://github.com/ManagementMO/CodeScribe.git",
             "ssh_url": "git@github.com:ManagementMO/CodeScribe.git",
             "clone_url": "https://github.com/ManagementMO/CodeScribe.git",
             "svn_url": "https://github.com/ManagementMO/CodeScribe",
             "homepage": null,
-            "size": 5808,
+            "size": 5992,
             "stargazers_count": 1,
             "watchers_count": 1,
             "language": "JavaScript",
@@ -1258,29 +1819,29 @@
             "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/32/commits"
           },
           "statuses": {
-            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/3a7c8306ef4bfe186d6d0062f38b13f944717447"
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/c1b9c2d50df0067227f9963d642884ee6c77cd2e"
           }
         },
         "author_association": "OWNER",
         "auto_merge": null,
         "active_lock_reason": null,
         "merged": false,
-        "mergeable": null,
-        "rebaseable": null,
-        "mergeable_state": "unknown",
+        "mergeable": true,
+        "rebaseable": true,
+        "mergeable_state": "clean",
         "merged_by": null,
-        "comments": 0,
+        "comments": 1,
         "review_comments": 0,
         "maintainer_can_modify": false,
-        "commits": 3,
-        "additions": 10594,
-        "deletions": 30,
-        "changed_files": 13,
-        "isUpdate": false
+        "commits": 4,
+        "additions": 14889,
+        "deletions": 44,
+        "changed_files": 16,
+        "isUpdate": true
       },
       "owner": "ManagementMO",
       "repo": "CodeScribe",
-      "isUpdate": false
+      "isUpdate": true
     }
   },
   "workflows": [
@@ -1295,7 +1856,7 @@
           {
             "type": "flowchart",
             "title": "Class Relationships",
-            "mermaid": "flowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n"
+            "mermaid": "flowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n    C3[ContextAnalyzer]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n"
           }
         ],
         "dependencyGraphs": [],
@@ -1316,11 +1877,11 @@
       },
       "formattedDiagrams": {
         "github": {
-          "markdown": "## 📊 Code Analysis Diagrams\n\n### Class Relationships\n\n```mermaid\nflowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n```\n\n### API Interaction Flow\n\n```mermaid\nsequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n```\n\n### Project Architecture\n\n```mermaid\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n```\n\n",
-          "html": "<div class=\"code-analysis-diagrams\">\n<h2>📊 Code Analysis Diagrams</h2>\n<div class=\"diagram-container\">\n<h3>Class Relationships</h3>\n<div class=\"mermaid\">\nflowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>API Interaction Flow</h3>\n<div class=\"mermaid\">\nsequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>Project Architecture</h3>\n<div class=\"mermaid\">\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n</div>\n</div>\n</div>\n"
+          "markdown": "## 📊 Code Analysis Diagrams\n\n### Class Relationships\n\n```mermaid\nflowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n    C3[ContextAnalyzer]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n```\n\n### API Interaction Flow\n\n```mermaid\nsequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n```\n\n### Project Architecture\n\n```mermaid\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n```\n\n",
+          "html": "<div class=\"code-analysis-diagrams\">\n<h2>📊 Code Analysis Diagrams</h2>\n<div class=\"diagram-container\">\n<h3>Class Relationships</h3>\n<div class=\"mermaid\">\nflowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n    C3[ContextAnalyzer]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>API Interaction Flow</h3>\n<div class=\"mermaid\">\nsequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>Project Architecture</h3>\n<div class=\"mermaid\">\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n</div>\n</div>\n</div>\n"
         },
         "linear": {
-          "markdown": "## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n",
+          "markdown": "## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n• ContextAnalyzer\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n",
           "text": "📊 CODE ANALYSIS SUMMARY\n========================\n\nGenerated Diagrams:\n• Flowcharts: 1\n• Dependency Graphs: 0\n• Sequence Diagrams: 1\n• Architecture Diagrams: 1\n\n"
         }
       },
@@ -1334,9 +1895,9 @@
         },
         "analysisContext": {
           "hasCodeChanges": false,
-          "changedFiles": 13,
+          "changedFiles": 16,
           "complexityLevel": "very_high",
-          "securityRisk": "none"
+          "securityRisk": "high"
         },
         "recommendations": [
           {
@@ -1369,7 +1930,7 @@
         "number": 32,
         "state": "open",
         "locked": false,
-        "title": "feat: COD-21 - Update implementation",
+        "title": "feat: Significant enhancement to code description generation",
         "user": {
           "login": "ManagementMO",
           "id": 111318013,
@@ -1391,12 +1952,12 @@
           "user_view_type": "public",
           "site_admin": false
         },
-        "body": "## Changes\n\nThis PR addresses ticket COD-21.\n\n### Diff Summary\n```\n.codescribe/history/1752978027670-056053c0.json | 2299 ++++++++++++++++++++\n .codescribe/history/1752978164278-ce0d889e.json |  512 +++++\n .codescribe/history/1752978180869-a6eee6a9.json |  512 +++++\n .codescribe/history/1752978336730-4dc95a0a.json | 1169 +++++++++++\n .codescribe/history/1752978546640-b2fb4181.json |  460 ++++\n .codescribe/history/1752978600932-8840f7f3.json |  460 ++++\n .codescribe/history/1752978683541-1b2e19a0.json |  422 ++++\n .codescribe/history/1752978753439-60ff2adc.json | 1377 ++++++++++++\n .codescribe/history/1752979095309-c5783d11.json | 2541 +++++++++++++++++++++++\n .codescribe/logs/codescribe.log                 |   26 +\n CODESCRIBE_COMMAND_REFERENCE.md                 |  321 +++\n docs/PLUGIN_DEVELOPMENT.md                      |    3 +\n linear_agent.js                                 |  522 ++++-\n 13 files changed, 10594 insertions(+), 30 deletions(-)\n```\n\n### Files Changed\n",
+        "body": "This PR introduces a major update to the code description generation capabilities.  The changes include:\n\n* Substantial improvements to the core code analysis engine resulting in more accurate and comprehensive descriptions.\n* Addition of several new features and functionalities, significantly expanding the system's capabilities.\n*  Updated documentation for both users (CODESCRIBE_COMMAND_REFERENCE.md) and plugin developers (docs/PLUGIN_DEVELOPMENT.md).\n* Enhancements to the `linear_agent.js` module.\n* Refinements to the context analysis (`src/context/ContextAnalyzer.js`).\n\nThe changes are extensive, affecting many aspects of the system.  Detailed changes are reflected in the numerous newly added `.codescribe/history/*.json` files. These files track the evolution of the code description generation process over multiple iterations.  The `codescribe.log` file provides an overall log of this extensive process.\n\nThis update represents a significant step forward in the accuracy, comprehensiveness, and utility of code descriptions generated by the system.",
         "created_at": "2025-07-20T03:06:07Z",
-        "updated_at": "2025-07-20T03:06:07Z",
+        "updated_at": "2025-07-20T03:25:23Z",
         "closed_at": null,
         "merged_at": null,
-        "merge_commit_sha": null,
+        "merge_commit_sha": "0ecaa6f965613d67df4eb90e2bbc85de3c44b03c",
         "assignee": null,
         "assignees": [],
         "requested_reviewers": [],
@@ -1408,11 +1969,11 @@
         "review_comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/32/comments",
         "review_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/comments{/number}",
         "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/32/comments",
-        "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/3a7c8306ef4bfe186d6d0062f38b13f944717447",
+        "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/c1b9c2d50df0067227f9963d642884ee6c77cd2e",
         "head": {
           "label": "ManagementMO:feat/COD-21-enhanced-agent",
           "ref": "feat/COD-21-enhanced-agent",
-          "sha": "3a7c8306ef4bfe186d6d0062f38b13f944717447",
+          "sha": "c1b9c2d50df0067227f9963d642884ee6c77cd2e",
           "user": {
             "login": "ManagementMO",
             "id": 111318013,
@@ -1503,13 +2064,13 @@
             "deployments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/deployments",
             "created_at": "2025-07-19T04:03:17Z",
             "updated_at": "2025-07-20T02:21:56Z",
-            "pushed_at": "2025-07-20T03:06:00Z",
+            "pushed_at": "2025-07-20T03:24:11Z",
             "git_url": "git://github.com/ManagementMO/CodeScribe.git",
             "ssh_url": "git@github.com:ManagementMO/CodeScribe.git",
             "clone_url": "https://github.com/ManagementMO/CodeScribe.git",
             "svn_url": "https://github.com/ManagementMO/CodeScribe",
             "homepage": null,
-            "size": 5808,
+            "size": 5992,
             "stargazers_count": 1,
             "watchers_count": 1,
             "language": "JavaScript",
@@ -1630,13 +2191,13 @@
             "deployments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/deployments",
             "created_at": "2025-07-19T04:03:17Z",
             "updated_at": "2025-07-20T02:21:56Z",
-            "pushed_at": "2025-07-20T03:06:00Z",
+            "pushed_at": "2025-07-20T03:24:11Z",
             "git_url": "git://github.com/ManagementMO/CodeScribe.git",
             "ssh_url": "git@github.com:ManagementMO/CodeScribe.git",
             "clone_url": "https://github.com/ManagementMO/CodeScribe.git",
             "svn_url": "https://github.com/ManagementMO/CodeScribe",
             "homepage": null,
-            "size": 5808,
+            "size": 5992,
             "stargazers_count": 1,
             "watchers_count": 1,
             "language": "JavaScript",
@@ -1686,29 +2247,29 @@
             "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/32/commits"
           },
           "statuses": {
-            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/3a7c8306ef4bfe186d6d0062f38b13f944717447"
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/c1b9c2d50df0067227f9963d642884ee6c77cd2e"
           }
         },
         "author_association": "OWNER",
         "auto_merge": null,
         "active_lock_reason": null,
         "merged": false,
-        "mergeable": null,
-        "rebaseable": null,
-        "mergeable_state": "unknown",
+        "mergeable": true,
+        "rebaseable": true,
+        "mergeable_state": "clean",
         "merged_by": null,
-        "comments": 0,
+        "comments": 1,
         "review_comments": 0,
         "maintainer_can_modify": false,
-        "commits": 3,
-        "additions": 10594,
-        "deletions": 30,
-        "changed_files": 13,
-        "isUpdate": false
+        "commits": 4,
+        "additions": 14889,
+        "deletions": 44,
+        "changed_files": 16,
+        "isUpdate": true
       },
       "owner": "ManagementMO",
       "repo": "CodeScribe",
-      "isUpdate": false
+      "isUpdate": true
     },
     "linear": {
       "ticketId": "COD-21",
@@ -1722,9 +2283,9 @@
         "priority": 0,
         "estimate": null,
         "state": {
-          "id": "2e19dc4d-e23f-41b5-8af6-d692cf583f1f",
-          "name": "Backlog",
-          "type": "backlog"
+          "id": "7cbfc433-f5a7-46a8-9688-f1a35b4b5b17",
+          "name": "In Review",
+          "type": "started"
         },
         "assignee": {
           "id": "671bd7cf-4218-4ef2-8f35-f3929781363f",
@@ -1740,11 +2301,188 @@
           "nodes": []
         },
         "comments": {
-          "nodes": []
+          "nodes": [
+            {
+              "id": "96080479-cbb3-4588-a679-749e857bbc16",
+              "body": "🚀 **CodeScribe Agent - Enhanced Workflow Execution**\n\n**Development Progress:**\n- Current Phase: IN REVIEW\n- Complexity Level: VERY_HIGH\n- Risk Level: HIGH\n\n**Scope Analysis:**\n- ⚠️ Scope changes detected (Risk: LOW)\n- High number of files changed (16)\n\n**Recommendations:**\n- Expand testing strategy due to wide-ranging changes\n\n**Blockers Detected:**\n- ⚠️ Code complexity score (137.5) exceeds recommended threshold\n- 🚨 High security risk detected in code changes\n\n**GitHub Integration:**\n- Status: Updated PR #32\n- URL: https://github.com/ManagementMO/CodeScribe/pull/32\n- Title: feat: Significant Expansion of Codebase and Documentation\n\n**AI Analysis:**\nThis PR significantly expands the project's codebase and documentation, adding new features and improving developer experience.\n\n**Code Analysis:**\n- Generated 3 visualization diagrams\n- Complexity Level: very_high\n- Security Risk: high\n\n**Code Recommendations:**\n- High code complexity detected. Consider breaking down complex functions shown in flowcharts.\n- Multiple files changed. Consider reviewing architecture diagrams for impact assessment.\n- API interactions detected. Review sequence diagrams for proper error handling.\n\n**Sub-ticket Management:**\n- 💡 Suggested 4 sub-tickets (auto-creation disabled)\n  - Implement general functionality\n  - Refactor high-complexity file: linear_agent.js\n  - Refactor high-complexity file: src/context/ContextAnalyzer.js\n- 🚨 Detected 1 potential blockers\n  - 🚨 Security Review Required - COD-21\n- Reasons: High code complexity (137.5 > 15), High number of changed files (16 > 8), High security risk detected\n\n\n## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n• ContextAnalyzer\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n\n\n---\n*Automated by CodeScribe Enhanced Linear Workflow*",
+              "createdAt": "2025-07-20T03:24:43.676Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "032dcb1e-ab8d-43a0-82ff-c17dd9cfa04b",
+              "body": "🚀 **CodeScribe Agent - Enhanced Workflow Execution**\n\n**Development Progress:**\n- Current Phase: IN REVIEW\n- Complexity Level: VERY_HIGH\n- Risk Level: HIGH\n\n**Scope Analysis:**\n- ⚠️ Scope changes detected (Risk: LOW)\n- High number of files changed (16)\n\n**Recommendations:**\n- Expand testing strategy due to wide-ranging changes\n\n**Blockers Detected:**\n- ⚠️ Code complexity score (137.5) exceeds recommended threshold\n- 🚨 High security risk detected in code changes\n\n**GitHub Integration:**\n- Status: Updated PR #32\n- URL: https://github.com/ManagementMO/CodeScribe/pull/32\n- Title: feat: Add extensive code description generation capabilities\n\n**AI Analysis:**\nThis PR significantly improves code description generation, adding extensive support and updating documentation, resulting in more comprehensive and accurate outputs.\n\n**Code Analysis:**\n- Generated 3 visualization diagrams\n- Complexity Level: very_high\n- Security Risk: high\n\n**Code Recommendations:**\n- High code complexity detected. Consider breaking down complex functions shown in flowcharts.\n- Multiple files changed. Consider reviewing architecture diagrams for impact assessment.\n- API interactions detected. Review sequence diagrams for proper error handling.\n\n**Sub-ticket Management:**\n- 💡 Suggested 4 sub-tickets (auto-creation disabled)\n  - Implement general functionality\n  - Refactor high-complexity file: linear_agent.js\n  - Refactor high-complexity file: src/context/ContextAnalyzer.js\n- 🚨 Detected 1 potential blockers\n  - 🚨 Security Review Required - COD-21\n- Reasons: High code complexity (137.5 > 15), High number of changed files (16 > 8), High security risk detected\n\n\n## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n• ContextAnalyzer\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n\n\n---\n*Automated by CodeScribe Enhanced Linear Workflow*",
+              "createdAt": "2025-07-20T03:24:19.630Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "c910fcda-5f32-4220-a4db-d7125d26fc9f",
+              "body": "🚀 **CodeScribe Agent - Enhanced Workflow Execution**\n\n**Development Progress:**\n- Current Phase: IN REVIEW\n- Complexity Level: VERY_HIGH\n- Risk Level: HIGH\n\n**Status Update:**\n- ✅ Status changed from \"Todo\" to \"In Review\"\n- Reason: Pull request created for review\n\n**Scope Analysis:**\n- ⚠️ Scope changes detected (Risk: LOW)\n- High number of files changed (13)\n\n**Recommendations:**\n- Expand testing strategy due to wide-ranging changes\n\n**Blockers Detected:**\n- ⚠️ Code complexity score (79) exceeds recommended threshold\n\n**GitHub Integration:**\n- Status: Updated PR #32\n- URL: https://github.com/ManagementMO/CodeScribe/pull/32\n- Title: feat: Significant expansion of CodeDescribe functionality\n\n**AI Analysis:**\nMajor update to CodeDescribe adding significant new features and expanding its functionality.\n\n**Code Analysis:**\n- Generated 3 visualization diagrams\n- Complexity Level: very_high\n- Security Risk: none\n\n**Code Recommendations:**\n- High code complexity detected. Consider breaking down complex functions shown in flowcharts.\n- Multiple files changed. Consider reviewing architecture diagrams for impact assessment.\n- API interactions detected. Review sequence diagrams for proper error handling.\n\n**Sub-ticket Management:**\n- 💡 Suggested 2 sub-tickets (auto-creation disabled)\n  - Implement general functionality\n  - Refactor high-complexity file: linear_agent.js\n- Reasons: High code complexity (79 > 15), High number of changed files (13 > 8)\n\n\n## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n\n\n---\n*Automated by CodeScribe Enhanced Linear Workflow*",
+              "createdAt": "2025-07-20T03:17:08.724Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "9bedbd66-aeb6-48b7-ad40-e03e58887880",
+              "body": "### 💬 CodeScribe AI Assistant\n\n❌ AI service quota exceeded. Please try again later.",
+              "createdAt": "2025-07-20T03:16:07.302Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "9eb936fb-9a2b-4811-94a6-dfd5d213c537",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:16:05.266Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "eea70db1-a29c-47e5-ab7b-4126d437b6f5",
+              "body": "@codescribe-agent talk hi",
+              "createdAt": "2025-07-20T03:16:04.556Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "865edc5e-2512-4247-abab-dfa6375ae93b",
+              "body": "### 💬 CodeScribe AI Assistant\n\n❌ AI service quota exceeded. Please try again later.",
+              "createdAt": "2025-07-20T03:14:16.717Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "52d514ff-bf0e-442a-8ecb-5a21f267bb18",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:14:16.468Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "546567e5-945a-47ab-a9fe-3d62a94c9dd3",
+              "body": "@codescribe-agent talk hi",
+              "createdAt": "2025-07-20T03:14:15.695Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "1082ffd7-8c64-4e91-8be5-4294530a830a",
+              "body": "### 💬 CodeScribe AI Assistant\n\n❌ AI service quota exceeded. Please try again later.",
+              "createdAt": "2025-07-20T03:13:10.229Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "aae83a2f-9a62-491b-810c-10cee4c64d80",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:13:09.673Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "c56436c8-4a8b-4d04-9179-b4fd4da8be9a",
+              "body": "@codescribe-agent chat whats up",
+              "createdAt": "2025-07-20T03:13:08.897Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "8bc95819-fecd-4c28-8b60-750ef767c379",
+              "body": "### 💬 CodeScribe AI Assistant\n\nI'm having trouble processing that right now. Could you try rephrasing your question?",
+              "createdAt": "2025-07-20T03:09:41.778Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "64d3fdd6-0e59-4580-a5d3-e7270068f2af",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:09:41.144Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "e6946541-7a12-4108-895e-5c2d29ea874c",
+              "body": "@codescribe-agent chat hi how are you",
+              "createdAt": "2025-07-20T03:09:40.611Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "9bfb33a0-7630-4873-8177-2f17c81953e2",
+              "body": "### 💬 CodeScribe AI Assistant\n\nI'm having trouble processing that right now. Could you try rephrasing your question?",
+              "createdAt": "2025-07-20T03:08:08.701Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "0db8cf2d-40c2-4072-ab98-52ab53285c76",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:08:08.455Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "0d638fe7-ee98-4544-b60b-bac7955b02ef",
+              "body": "@codescribe-agent chat hi",
+              "createdAt": "2025-07-20T03:08:07.890Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "7a7c1481-467b-445b-af52-6d6a4c8ae9cb",
+              "body": "### 💬 CodeScribe AI Assistant\n\nI'm having trouble processing that right now. Could you try rephrasing your question?",
+              "createdAt": "2025-07-20T03:07:05.697Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "82a9f566-39cd-4896-a97a-c57a49239c56",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:07:05.242Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "d18be552-c79d-4fae-8a7d-2eddd3d84d80",
+              "body": "@codescribe-agent chat how are you?",
+              "createdAt": "2025-07-20T03:07:04.740Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "333a0e78-d0f2-4e1a-a6cb-55bf166a9097",
+              "body": "🚀 **CodeScribe Agent - Enhanced Workflow Execution**\n\n**Development Progress:**\n- Current Phase: IN REVIEW\n- Complexity Level: VERY_HIGH\n- Risk Level: HIGH\n\n**Status Update:**\n- ✅ Status changed from \"Backlog\" to \"In Review\"\n- Reason: Pull request created for review\n\n**Scope Analysis:**\n- ⚠️ Scope changes detected (Risk: LOW)\n- High number of files changed (13)\n\n**Recommendations:**\n- Expand testing strategy due to wide-ranging changes\n\n**Blockers Detected:**\n- ⚠️ Code complexity score (69) exceeds recommended threshold\n\n**GitHub Integration:**\n- Status: Created PR #32\n- URL: https://github.com/ManagementMO/CodeScribe/pull/32\n- Title: feat: COD-21 - Update implementation\n\n**AI Analysis:**\nUpdated implementation for COD-21 with code changes across multiple files.\n\n**Code Analysis:**\n- Generated 3 visualization diagrams\n- Complexity Level: very_high\n- Security Risk: none\n\n**Code Recommendations:**\n- High code complexity detected. Consider breaking down complex functions shown in flowcharts.\n- Multiple files changed. Consider reviewing architecture diagrams for impact assessment.\n- API interactions detected. Review sequence diagrams for proper error handling.\n\n**Sub-ticket Management:**\n- 💡 Suggested 2 sub-tickets (auto-creation disabled)\n  - Implement general functionality\n  - Refactor high-complexity file: linear_agent.js\n- Reasons: High code complexity (69 > 15), High number of changed files (13 > 8)\n\n\n## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n\n\n---\n*Automated by CodeScribe Enhanced Linear Workflow*",
+              "createdAt": "2025-07-20T03:06:09.153Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            }
+          ]
         },
         "createdAt": "2025-07-20T02:44:36.138Z",
-        "updatedAt": "2025-07-20T02:44:36.138Z",
-        "startedAt": null,
+        "updatedAt": "2025-07-20T03:24:45.381Z",
+        "startedAt": "2025-07-20T03:17:08.555Z",
         "completedAt": null,
         "dueDate": null,
         "cycle": null
@@ -1756,6 +2494,11 @@
             "type": "status_transition",
             "action": "Move to In Review",
             "reason": "Pull request created and ready for review"
+          },
+          {
+            "type": "blocker_notification",
+            "action": "Notify team of blocker",
+            "reason": "High security risk detected in code changes"
           }
         ],
         "timeSpent": null,
@@ -1764,23 +2507,25 @@
         "blockers": [
           {
             "type": "high_complexity",
-            "message": "Code complexity score (69) exceeds recommended threshold",
+            "message": "Code complexity score (137.5) exceeds recommended threshold",
             "severity": "medium"
+          },
+          {
+            "type": "security_risk",
+            "message": "High security risk detected in code changes",
+            "severity": "high"
           }
         ],
         "milestones": [
           {
             "type": "pr_created",
-            "timestamp": "2025-07-20T03:06:08.446Z"
+            "timestamp": "2025-07-20T03:25:24.534Z"
           }
         ]
       },
       "statusTransition": {
-        "success": true,
-        "fromStatus": "Backlog",
-        "toStatus": "In Review",
-        "reason": "Pull request created for review",
-        "timestamp": "2025-07-20T03:06:08.733Z"
+        "skipped": true,
+        "reason": "No status change needed (current: In Review, target: undefined)"
       },
       "timeTracking": {
         "skipped": true,
@@ -1792,7 +2537,7 @@
           {
             "type": "file_count_high",
             "severity": "low",
-            "message": "High number of files changed (13)",
+            "message": "High number of files changed (16)",
             "impact": "May indicate scope creep or complex refactoring"
           }
         ],
@@ -1808,15 +2553,16 @@
       "subTickets": {
         "success": true,
         "reasons": [
-          "High code complexity (69 > 15)",
-          "High number of changed files (13 > 8)"
+          "High code complexity (137.5 > 15)",
+          "High number of changed files (16 > 8)",
+          "High security risk detected"
         ],
         "analysis": {
           "shouldCreateSubTickets": true,
           "suggestedSubTickets": [
             {
               "title": "Implement general functionality",
-              "description": "**Auto-generated sub-ticket from COD-21**\n\nHandle changes to 13 files related to general\n\n**Scope:**\nFiles to modify:\n- .codescribe/history/1752978027670-056053c0.json\n- .codescribe/history/1752978164278-ce0d889e.json\n- .codescribe/history/1752978180869-a6eee6a9.json\n- .codescribe/history/1752978336730-4dc95a0a.json\n- .codescribe/history/1752978546640-b2fb4181.json\n- .codescribe/history/1752978600932-8840f7f3.json\n- .codescribe/history/1752978683541-1b2e19a0.json\n- .codescribe/history/1752978753439-60ff2adc.json\n- .codescribe/history/1752979095309-c5783d11.json\n- .codescribe/logs/codescribe.log\n- CODESCRIBE_COMMAND_REFERENCE.md\n- docs/PLUGIN_DEVELOPMENT.md\n- linear_agent.js\n\n**Complexity:** high\n**Priority:** low\n\n**Parent Ticket:** COD-21 - final_tests",
+              "description": "**Auto-generated sub-ticket from COD-21**\n\nHandle changes to 16 files related to general\n\n**Scope:**\nFiles to modify:\n- .codescribe/history/1752978027670-056053c0.json\n- .codescribe/history/1752978164278-ce0d889e.json\n- .codescribe/history/1752978180869-a6eee6a9.json\n- .codescribe/history/1752978336730-4dc95a0a.json\n- .codescribe/history/1752978546640-b2fb4181.json\n- .codescribe/history/1752978600932-8840f7f3.json\n- .codescribe/history/1752978683541-1b2e19a0.json\n- .codescribe/history/1752978753439-60ff2adc.json\n- .codescribe/history/1752979095309-c5783d11.json\n- .codescribe/history/1752980768893-174875b4.json\n- .codescribe/history/1752981428444-ab082640.json\n- .codescribe/logs/codescribe.log\n- CODESCRIBE_COMMAND_REFERENCE.md\n- docs/PLUGIN_DEVELOPMENT.md\n- linear_agent.js\n- src/context/ContextAnalyzer.js\n\n**Complexity:** high\n**Priority:** low\n\n**Parent Ticket:** COD-21 - final_tests",
               "priority": 4,
               "estimate": 8,
               "labels": [
@@ -1839,10 +2585,13 @@
                   ".codescribe/history/1752978683541-1b2e19a0.json",
                   ".codescribe/history/1752978753439-60ff2adc.json",
                   ".codescribe/history/1752979095309-c5783d11.json",
+                  ".codescribe/history/1752980768893-174875b4.json",
+                  ".codescribe/history/1752981428444-ab082640.json",
                   ".codescribe/logs/codescribe.log",
                   "CODESCRIBE_COMMAND_REFERENCE.md",
                   "docs/PLUGIN_DEVELOPMENT.md",
-                  "linear_agent.js"
+                  "linear_agent.js",
+                  "src/context/ContextAnalyzer.js"
                 ],
                 "complexity": "high",
                 "autoGenerated": true,
@@ -1851,7 +2600,7 @@
             },
             {
               "title": "Refactor high-complexity file: linear_agent.js",
-              "description": "**Auto-generated sub-ticket from COD-21**\n\nAddress complexity issues in linear_agent.js (score: 69)\n\n**Scope:**\nFiles to modify:\n- linear_agent.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-21 - final_tests",
+              "description": "**Auto-generated sub-ticket from COD-21**\n\nAddress complexity issues in linear_agent.js (score: 79)\n\n**Scope:**\nFiles to modify:\n- linear_agent.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-21 - final_tests",
               "priority": 3,
               "estimate": 9,
               "labels": [
@@ -1872,14 +2621,81 @@
                 "autoGenerated": true,
                 "parentTicket": "COD-21"
               }
+            },
+            {
+              "title": "Refactor high-complexity file: src/context/ContextAnalyzer.js",
+              "description": "**Auto-generated sub-ticket from COD-21**\n\nAddress complexity issues in src/context/ContextAnalyzer.js (score: 196)\n\n**Scope:**\nFiles to modify:\n- src/context/ContextAnalyzer.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-21 - final_tests",
+              "priority": 3,
+              "estimate": 9,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "refactor",
+                "technical-debt"
+              ],
+              "parentIssueId": "85c59810-b5f7-4071-81c6-04b3de7895be",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "complexity_refactor",
+                "files": [
+                  "src/context/ContextAnalyzer.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-21"
+              }
+            },
+            {
+              "title": "Address security vulnerabilities",
+              "description": "**Auto-generated sub-ticket from COD-21**\n\nFix 1 high-severity security issues\n\n**Scope:**\nFiles to modify:\n- src/context/ContextAnalyzer.js\n\n**Complexity:** medium\n**Priority:** high\n\n**Security Considerations:**\nThis task addresses security vulnerabilities. Please ensure:\n- Code review by security team\n- Security testing before deployment\n- Documentation of security fixes\n\n**Parent Ticket:** COD-21 - final_tests",
+              "priority": 2,
+              "estimate": 3,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "security",
+                "bug",
+                "high-priority"
+              ],
+              "parentIssueId": "85c59810-b5f7-4071-81c6-04b3de7895be",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "security_fixes",
+                "files": [
+                  "src/context/ContextAnalyzer.js"
+                ],
+                "complexity": "medium",
+                "autoGenerated": true,
+                "parentTicket": "COD-21"
+              }
             }
           ],
-          "blockers": [],
+          "blockers": [
+            {
+              "type": "security_blocker",
+              "title": "🚨 Security Review Required - COD-21",
+              "description": "Critical security vulnerabilities must be addressed before proceeding with COD-21",
+              "priority": "urgent",
+              "blocking": true,
+              "vulnerabilities": [
+                {
+                  "file": "src/context/ContextAnalyzer.js",
+                  "type": "code_injection",
+                  "severity": "high",
+                  "message": "Use of eval() can lead to code injection",
+                  "line": 553,
+                  "code": "eval("
+                }
+              ]
+            }
+          ],
           "taskBreakdown": [
             {
               "type": "functionality_group",
               "title": "Implement general functionality",
-              "description": "Handle changes to 13 files related to general",
+              "description": "Handle changes to 16 files related to general",
               "files": [
                 ".codescribe/history/1752978027670-056053c0.json",
                 ".codescribe/history/1752978164278-ce0d889e.json",
@@ -1890,10 +2706,13 @@
                 ".codescribe/history/1752978683541-1b2e19a0.json",
                 ".codescribe/history/1752978753439-60ff2adc.json",
                 ".codescribe/history/1752979095309-c5783d11.json",
+                ".codescribe/history/1752980768893-174875b4.json",
+                ".codescribe/history/1752981428444-ab082640.json",
                 ".codescribe/logs/codescribe.log",
                 "CODESCRIBE_COMMAND_REFERENCE.md",
                 "docs/PLUGIN_DEVELOPMENT.md",
-                "linear_agent.js"
+                "linear_agent.js",
+                "src/context/ContextAnalyzer.js"
               ],
               "estimatedComplexity": "high",
               "priority": "low"
@@ -1901,12 +2720,32 @@
             {
               "type": "complexity_refactor",
               "title": "Refactor high-complexity file: linear_agent.js",
-              "description": "Address complexity issues in linear_agent.js (score: 69)",
+              "description": "Address complexity issues in linear_agent.js (score: 79)",
               "files": [
                 "linear_agent.js"
               ],
               "estimatedComplexity": "high",
               "priority": "medium"
+            },
+            {
+              "type": "complexity_refactor",
+              "title": "Refactor high-complexity file: src/context/ContextAnalyzer.js",
+              "description": "Address complexity issues in src/context/ContextAnalyzer.js (score: 196)",
+              "files": [
+                "src/context/ContextAnalyzer.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "medium"
+            },
+            {
+              "type": "security_fixes",
+              "title": "Address security vulnerabilities",
+              "description": "Fix 1 high-severity security issues",
+              "files": [
+                "src/context/ContextAnalyzer.js"
+              ],
+              "estimatedComplexity": "medium",
+              "priority": "high"
             }
           ]
         },
@@ -1915,7 +2754,7 @@
       }
     }
   },
-  "duration": 10376,
+  "duration": 9013,
   "success": true,
   "error": null
 }

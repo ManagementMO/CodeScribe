@@ -32,7 +32,7 @@ LINEAR_API_KEY=your_linear_api_key
 GEMINI_API_KEY=your_gemini_api_key
 ```
 
-### Basic Usage
+### Basic Usage !!!
 
 #### Create Intelligent Commits
 ```bash
