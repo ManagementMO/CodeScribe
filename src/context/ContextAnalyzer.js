@@ -15,7 +15,7 @@ class ContextAnalyzer {
      */
     async gather() {
         const gitContext = await this.gatherGitContext();
-        
+
         const context = {
             git: gitContext,
             code: await this.analyzeCodeChanges(),
@@ -32,17 +32,17 @@ class ContextAnalyzer {
      */
     async gatherGitContext() {
         console.log(chalk.blue('   - Gathering enhanced git context...'));
-        
+
         try {
             const branchName = await this.safeExecSync('git rev-parse --abbrev-ref HEAD');
             const remoteUrl = await this.safeExecSync('git config --get remote.origin.url');
-            
+
             // Handle unpushed commits
             await this.handleUnpushedCommits(branchName);
-            
+
             // Use safer diff gathering with size limits
             const diffContent = await this.getSafeDiff(branchName);
-            
+
             if (!diffContent || diffContent.length === 0) {
                 throw new Error('No new commits found on this branch compared to "origin/main". Please commit your changes.');
             }
@@ -56,7 +56,7 @@ class ContextAnalyzer {
                 this.detectConflicts(branchName).catch(() => ({})),
                 this.analyzeCommitMessages(branchName).catch(() => ({}))
             ]);
-            
+
             const branchValidation = this.validateBranchNaming(branchName);
 
             return {
@@ -92,7 +92,7 @@ class ContextAnalyzer {
                 timeout: 30000, // 30 second timeout
                 encoding: 'utf8'
             };
-            
+
             const result = execSync(command, { ...defaultOptions, ...options });
             return result.toString().trim();
         } catch (error) {
@@ -100,7 +100,7 @@ class ContextAnalyzer {
                 console.log(chalk.yellow(`   - Warning: Command output too large, truncating: ${command}`));
                 // Try with smaller buffer and truncate
                 try {
-                    const result = execSync(command, { 
+                    const result = execSync(command, {
                         maxBuffer: 512 * 1024, // 512KB
                         timeout: 15000,
                         encoding: 'utf8'
@@ -124,7 +124,7 @@ class ContextAnalyzer {
         try {
             // Determine the best base branch to compare against
             const baseBranch = await this.getBaseBranch();
-            
+
             // First check if there are any changes
             const hasChanges = await this.safeExecSync(`git diff --name-only ${baseBranch}...HEAD`);
             if (!hasChanges) {
@@ -135,7 +135,7 @@ class ContextAnalyzer {
             const diffContent = await this.safeExecSync(`git diff ${baseBranch}...HEAD`, {
                 maxBuffer: 2 * 1024 * 1024 // 2MB limit for diff
             });
-            
+
             // If diff is too large, get a summary instead
             if (diffContent.length > 1000000) { // 1MB
                 console.log(chalk.yellow('   - Large diff detected, using summary...'));
@@ -143,7 +143,7 @@ class ContextAnalyzer {
                 const fileList = await this.safeExecSync(`git diff --name-status ${baseBranch}...HEAD`);
                 return `Large diff summary:\n${summary}\n\nChanged files:\n${fileList}`;
             }
-            
+
             return diffContent;
         } catch (error) {
             console.log(chalk.yellow(`   - Warning: Could not get diff: ${error.message}`));
@@ -166,7 +166,7 @@ class ContextAnalyzer {
         // Try different base branch options in order of preference
         const baseBranchOptions = [
             'origin/main',
-            'origin/master', 
+            'origin/master',
             'main',
             'master'
         ];
@@ -258,7 +258,7 @@ class ContextAnalyzer {
             const baseBranch = await this.getBaseBranch();
             const commitLog = await this.safeExecSync(`git log ${baseBranch}..${branchName} --oneline --no-merges`);
             if (!commitLog) return [];
-            
+
             return commitLog.split('\n').map(line => {
                 const [hash, ...messageParts] = line.split(' ');
                 return {
@@ -277,12 +277,12 @@ class ContextAnalyzer {
      */
     async analyzeCodeChanges() {
         console.log(chalk.blue('   - Analyzing code changes...'));
-        
+
         try {
             const baseBranch = await this.getBaseBranch();
             const diffContent = await this.safeExecSync(`git diff ${baseBranch}...HEAD`);
             const changedFiles = await this.getChangedFiles();
-            
+
             const analysis = {
                 hasChanges: diffContent.length > 0,
                 changedFiles,
@@ -292,7 +292,7 @@ class ContextAnalyzer {
                 ast: await this.performASTAnalysis(changedFiles),
                 metrics: this.calculateCodeMetrics(diffContent)
             };
-            
+
             return analysis;
         } catch (error) {
             console.log(chalk.yellow('   - Warning: Code analysis failed:', error.message));
@@ -317,7 +317,7 @@ class ContextAnalyzer {
             const baseBranch = await this.getBaseBranch();
             const diffOutput = await this.safeExecSync(`git diff --name-status ${baseBranch}...HEAD`);
             if (!diffOutput) return [];
-            
+
             return diffOutput.split('\n').map(line => {
                 const [status, ...pathParts] = line.split('\t');
                 const path = pathParts.join('\t');
@@ -361,7 +361,7 @@ class ContextAnalyzer {
         const fs = require('fs');
         const parser = require('@babel/parser');
         const traverse = require('@babel/traverse').default;
-        
+
         const complexity = {
             totalScore: 0,
             averageScore: 0,
@@ -369,19 +369,19 @@ class ContextAnalyzer {
             files: [],
             issues: []
         };
-        
+
         const jsFiles = changedFiles.filter(f => f.isJavaScript && f.status !== 'deleted');
-        
+
         for (const file of jsFiles) {
             try {
                 if (!fs.existsSync(file.path)) continue;
-                
+
                 const content = fs.readFileSync(file.path, 'utf8');
                 const fileComplexity = await this.analyzeFileComplexity(file.path, content);
-                
+
                 complexity.files.push(fileComplexity);
                 complexity.totalScore += fileComplexity.score;
-                
+
                 if (fileComplexity.score > 10) {
                     complexity.issues.push({
                         file: file.path,
@@ -398,12 +398,12 @@ class ContextAnalyzer {
                 });
             }
         }
-        
+
         if (jsFiles.length > 0) {
             complexity.averageScore = complexity.totalScore / jsFiles.length;
             complexity.level = this.getComplexityLevel(complexity.averageScore);
         }
-        
+
         return complexity;
     }
 
@@ -416,7 +416,7 @@ class ContextAnalyzer {
     async analyzeFileComplexity(filePath, content) {
         const parser = require('@babel/parser');
         const traverse = require('@babel/traverse').default;
-        
+
         let complexity = {
             file: filePath,
             score: 0,
@@ -427,7 +427,7 @@ class ContextAnalyzer {
             depth: 0,
             lines: content.split('\n').length
         };
-        
+
         try {
             const ast = parser.parse(content, {
                 sourceType: 'module',
@@ -448,10 +448,10 @@ class ContextAnalyzer {
                     'optionalChaining'
                 ]
             });
-            
+
             let currentDepth = 0;
             let maxDepth = 0;
-            
+
             traverse(ast, {
                 enter(path) {
                     currentDepth++;
@@ -473,15 +473,15 @@ class ContextAnalyzer {
                 ForInStatement() { complexity.loops++; complexity.score += 2; },
                 ForOfStatement() { complexity.loops++; complexity.score += 2; }
             });
-            
+
             complexity.depth = maxDepth;
             complexity.score += Math.floor(maxDepth / 5); // Add complexity for deep nesting
-            
+
         } catch (error) {
             // If parsing fails, estimate complexity from basic metrics
             complexity.score = Math.floor(complexity.lines / 20);
         }
-        
+
         return complexity;
     }
 
@@ -504,14 +504,14 @@ class ContextAnalyzer {
      */
     async performSecurityAnalysis(changedFiles) {
         console.log(chalk.blue('   - Performing security analysis...'));
-        
+
         const security = {
             vulnerabilities: [],
             warnings: [],
             riskLevel: 'low',
             issues: []
         };
-        
+
         // Check for common security patterns in code
         for (const file of changedFiles) {
             if (file.isJavaScript && file.status !== 'deleted') {
@@ -519,14 +519,14 @@ class ContextAnalyzer {
                 security.vulnerabilities.push(...fileVulns);
             }
         }
-        
+
         // Check dependency vulnerabilities
         const depVulns = await this.scanDependencyVulnerabilities();
         security.vulnerabilities.push(...depVulns);
-        
+
         // Assess overall risk level
         security.riskLevel = this.assessSecurityRisk(security.vulnerabilities);
-        
+
         return security;
     }
 
@@ -538,12 +538,12 @@ class ContextAnalyzer {
     async scanFileForVulnerabilities(filePath) {
         const fs = require('fs');
         const vulnerabilities = [];
-        
+
         try {
             if (!fs.existsSync(filePath)) return [];
-            
+
             const content = fs.readFileSync(filePath, 'utf8');
-            
+
             // Common security patterns to check
             const securityPatterns = [
                 {
@@ -589,7 +589,7 @@ class ContextAnalyzer {
                     message: 'Math.random() is not cryptographically secure'
                 }
             ];
-            
+
             for (const { pattern, type, severity, message } of securityPatterns) {
                 const matches = content.matchAll(pattern);
                 for (const match of matches) {
@@ -604,11 +604,11 @@ class ContextAnalyzer {
                     });
                 }
             }
-            
+
         } catch (error) {
             // Ignore file read errors
         }
-        
+
         return vulnerabilities;
     }
 
@@ -618,12 +618,12 @@ class ContextAnalyzer {
      */
     async scanDependencyVulnerabilities() {
         const vulnerabilities = [];
-        
+
         try {
             // Run npm audit to check for known vulnerabilities
             const auditOutput = execSync('npm audit --json', { stdio: 'pipe' }).toString();
             const auditData = JSON.parse(auditOutput);
-            
+
             if (auditData.vulnerabilities) {
                 for (const [packageName, vulnData] of Object.entries(auditData.vulnerabilities)) {
                     vulnerabilities.push({
@@ -639,7 +639,7 @@ class ContextAnalyzer {
             // npm audit might fail if no package-lock.json or other issues
             // This is not critical, so we continue
         }
-        
+
         return vulnerabilities;
     }
 
@@ -651,7 +651,7 @@ class ContextAnalyzer {
     assessSecurityRisk(vulnerabilities) {
         const highSeverity = vulnerabilities.filter(v => v.severity === 'high').length;
         const mediumSeverity = vulnerabilities.filter(v => v.severity === 'medium').length;
-        
+
         if (highSeverity > 0) return 'high';
         if (mediumSeverity > 2) return 'medium';
         if (vulnerabilities.length > 0) return 'low';
@@ -664,10 +664,10 @@ class ContextAnalyzer {
      */
     async analyzeDependencyChanges() {
         console.log(chalk.blue('   - Analyzing dependency changes...'));
-        
+
         const fs = require('fs');
         const semver = require('semver');
-        
+
         const analysis = {
             added: [],
             updated: [],
@@ -676,19 +676,19 @@ class ContextAnalyzer {
             securityUpdates: [],
             breakingChanges: []
         };
-        
+
         try {
             // Check if package.json was modified
             const baseBranch = await this.getBaseBranch();
             const packageJsonDiff = execSync(`git diff ${baseBranch}...HEAD -- package.json`).toString();
-            
+
             if (packageJsonDiff) {
                 const changes = this.parsePackageJsonDiff(packageJsonDiff);
                 analysis.added = changes.added;
                 analysis.updated = changes.updated;
                 analysis.removed = changes.removed;
                 analysis.devDependencies = changes.devDependencies;
-                
+
                 // Analyze version changes for breaking changes
                 for (const update of changes.updated) {
                     if (semver.major(update.newVersion) > semver.major(update.oldVersion)) {
@@ -701,11 +701,11 @@ class ContextAnalyzer {
                     }
                 }
             }
-            
+
         } catch (error) {
             // If we can't analyze package.json changes, that's okay
         }
-        
+
         return analysis;
     }
 
@@ -721,12 +721,12 @@ class ContextAnalyzer {
             removed: [],
             devDependencies: []
         };
-        
+
         const lines = diff.split('\n');
-        
+
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i];
-            
+
             if (line.startsWith('+') && line.includes(':') && line.includes('"')) {
                 const match = line.match(/\+\s*"([^"]+)":\s*"([^"]+)"/);
                 if (match) {
@@ -755,7 +755,7 @@ class ContextAnalyzer {
                 }
             }
         }
-        
+
         return changes;
     }
 
@@ -768,7 +768,7 @@ class ContextAnalyzer {
         const fs = require('fs');
         const parser = require('@babel/parser');
         const traverse = require('@babel/traverse').default;
-        
+
         const analysis = {
             totalFiles: 0,
             parsedFiles: 0,
@@ -778,23 +778,23 @@ class ContextAnalyzer {
             exports: [],
             issues: []
         };
-        
+
         const jsFiles = changedFiles.filter(f => f.isJavaScript && f.status !== 'deleted');
         analysis.totalFiles = jsFiles.length;
-        
+
         for (const file of jsFiles) {
             try {
                 if (!fs.existsSync(file.path)) continue;
-                
+
                 const content = fs.readFileSync(file.path, 'utf8');
                 const fileAnalysis = await this.analyzeFileAST(file.path, content);
-                
+
                 analysis.functions.push(...fileAnalysis.functions);
                 analysis.classes.push(...fileAnalysis.classes);
                 analysis.imports.push(...fileAnalysis.imports);
                 analysis.exports.push(...fileAnalysis.exports);
                 analysis.parsedFiles++;
-                
+
             } catch (error) {
                 analysis.issues.push({
                     file: file.path,
@@ -803,7 +803,7 @@ class ContextAnalyzer {
                 });
             }
         }
-        
+
         return analysis;
     }
 
@@ -816,14 +816,14 @@ class ContextAnalyzer {
     async analyzeFileAST(filePath, content) {
         const parser = require('@babel/parser');
         const traverse = require('@babel/traverse').default;
-        
+
         const analysis = {
             functions: [],
             classes: [],
             imports: [],
             exports: []
         };
-        
+
         const ast = parser.parse(content, {
             sourceType: 'module',
             allowImportExportEverywhere: true,
@@ -843,7 +843,7 @@ class ContextAnalyzer {
                 'optionalChaining'
             ]
         });
-        
+
         traverse(ast, {
             FunctionDeclaration(path) {
                 analysis.functions.push({
@@ -903,7 +903,7 @@ class ContextAnalyzer {
                 });
             }
         });
-        
+
         return analysis;
     }
 
@@ -922,7 +922,7 @@ class ContextAnalyzer {
             addedFiles: 0,
             removedFiles: 0
         };
-        
+
         for (const line of lines) {
             if (line.startsWith('+') && !line.startsWith('+++')) {
                 metrics.addedLines++;
@@ -932,7 +932,7 @@ class ContextAnalyzer {
                 metrics.modifiedFiles++;
             }
         }
-        
+
         return metrics;
     }
 
@@ -942,7 +942,7 @@ class ContextAnalyzer {
      */
     async analyzeProjectStructure() {
         console.log(chalk.blue('   - Analyzing project structure...'));
-        
+
         try {
             const structure = await this.analyzeDirectoryStructure();
             const configuration = await this.analyzeConfigurationFiles();
@@ -950,7 +950,7 @@ class ContextAnalyzer {
             const framework = await this.detectFramework(configuration);
             const testCoverage = await this.analyzeTestCoverage();
             const buildSystem = await this.analyzeBuildSystem(configuration);
-            
+
             return {
                 structure,
                 configuration,
@@ -984,7 +984,7 @@ class ContextAnalyzer {
     async analyzeDirectoryStructure() {
         const fs = require('fs');
         const path = require('path');
-        
+
         const structure = {
             totalFiles: 0,
             directories: [],
@@ -996,24 +996,24 @@ class ContextAnalyzer {
             sourceFiles: 0,
             depth: 0
         };
-        
+
         const analyzeDirectory = (dirPath, currentDepth = 0) => {
             if (currentDepth > 10) return; // Prevent infinite recursion
-            
+
             structure.depth = Math.max(structure.depth, currentDepth);
-            
+
             try {
                 const items = fs.readdirSync(dirPath);
-                
+
                 for (const item of items) {
                     const fullPath = path.join(dirPath, item);
                     const relativePath = path.relative('.', fullPath);
-                    
+
                     // Skip node_modules and other common ignore patterns
                     if (this.shouldSkipPath(relativePath)) continue;
-                    
+
                     const stats = fs.statSync(fullPath);
-                    
+
                     if (stats.isDirectory()) {
                         structure.directories.push({
                             path: relativePath,
@@ -1022,10 +1022,10 @@ class ContextAnalyzer {
                         analyzeDirectory(fullPath, currentDepth + 1);
                     } else {
                         structure.totalFiles++;
-                        
+
                         const ext = path.extname(item);
                         structure.fileTypes[ext] = (structure.fileTypes[ext] || 0) + 1;
-                        
+
                         // Categorize files
                         if (this.isTestFile(relativePath)) {
                             structure.testFiles++;
@@ -1044,7 +1044,7 @@ class ContextAnalyzer {
                 // Skip directories we can't read
             }
         };
-        
+
         analyzeDirectory('.');
         return structure;
     }
@@ -1068,7 +1068,7 @@ class ContextAnalyzer {
             'tmp',
             'temp'
         ];
-        
+
         return skipPatterns.some(pattern => path.includes(pattern));
     }
 
@@ -1079,9 +1079,9 @@ class ContextAnalyzer {
      */
     isTestFile(filePath) {
         return /\.(test|spec)\.(js|jsx|ts|tsx|mjs)$/.test(filePath) ||
-               filePath.includes('__tests__') ||
-               filePath.includes('/test/') ||
-               filePath.includes('/tests/');
+            filePath.includes('__tests__') ||
+            filePath.includes('/test/') ||
+            filePath.includes('/tests/');
     }
 
     /**
@@ -1091,9 +1091,9 @@ class ContextAnalyzer {
      */
     isDocumentationFile(filePath) {
         return /\.(md|txt|rst|adoc)$/i.test(filePath) ||
-               filePath.toLowerCase().includes('readme') ||
-               filePath.toLowerCase().includes('changelog') ||
-               filePath.includes('/docs/');
+            filePath.toLowerCase().includes('readme') ||
+            filePath.toLowerCase().includes('changelog') ||
+            filePath.includes('/docs/');
     }
 
     /**
@@ -1113,7 +1113,7 @@ class ContextAnalyzer {
             /jest\.config\./,
             /eslint\.config\./
         ];
-        
+
         return configPatterns.some(pattern => pattern.test(filePath));
     }
 
@@ -1124,11 +1124,11 @@ class ContextAnalyzer {
      */
     isCIFile(filePath) {
         return filePath.includes('.github/workflows') ||
-               filePath.includes('.gitlab-ci') ||
-               filePath.includes('Jenkinsfile') ||
-               filePath.includes('.travis.yml') ||
-               filePath.includes('azure-pipelines') ||
-               filePath.includes('.circleci');
+            filePath.includes('.gitlab-ci') ||
+            filePath.includes('Jenkinsfile') ||
+            filePath.includes('.travis.yml') ||
+            filePath.includes('azure-pipelines') ||
+            filePath.includes('.circleci');
     }
 
     /**
@@ -1138,7 +1138,7 @@ class ContextAnalyzer {
      */
     isSourceFile(filePath) {
         return /\.(js|jsx|ts|tsx|mjs|cjs|vue|svelte|py|java|go|rs|cpp|c|h)$/.test(filePath) &&
-               !this.isTestFile(filePath);
+            !this.isTestFile(filePath);
     }
 
     /**
@@ -1160,7 +1160,7 @@ class ContextAnalyzer {
             tailwind: null,
             docker: null
         };
-        
+
         // Analyze package.json
         if (fs.existsSync('package.json')) {
             try {
@@ -1169,7 +1169,7 @@ class ContextAnalyzer {
                 configuration.packageJson = { error: 'Invalid JSON' };
             }
         }
-        
+
         // Analyze TypeScript config
         const tsconfigFiles = ['tsconfig.json', 'tsconfig.build.json', 'tsconfig.app.json'];
         for (const file of tsconfigFiles) {
@@ -1182,7 +1182,7 @@ class ContextAnalyzer {
                 }
             }
         }
-        
+
         // Analyze ESLint config
         const eslintFiles = ['.eslintrc.json', '.eslintrc.js', '.eslintrc.yml', 'eslint.config.js'];
         for (const file of eslintFiles) {
@@ -1191,7 +1191,7 @@ class ContextAnalyzer {
                 break;
             }
         }
-        
+
         // Analyze Prettier config
         const prettierFiles = ['.prettierrc', '.prettierrc.json', '.prettierrc.js', 'prettier.config.js'];
         for (const file of prettierFiles) {
@@ -1200,7 +1200,7 @@ class ContextAnalyzer {
                 break;
             }
         }
-        
+
         // Analyze Jest config
         const jestFiles = ['jest.config.js', 'jest.config.json', 'jest.config.ts'];
         for (const file of jestFiles) {
@@ -1209,32 +1209,32 @@ class ContextAnalyzer {
                 break;
             }
         }
-        
+
         // Check for other common config files
         if (fs.existsSync('webpack.config.js')) {
             configuration.webpack = { exists: true };
         }
-        
+
         if (fs.existsSync('babel.config.js') || fs.existsSync('.babelrc')) {
             configuration.babel = { exists: true };
         }
-        
+
         if (fs.existsSync('vite.config.js') || fs.existsSync('vite.config.ts')) {
             configuration.vite = { exists: true };
         }
-        
+
         if (fs.existsSync('next.config.js')) {
             configuration.nextConfig = { exists: true };
         }
-        
+
         if (fs.existsSync('tailwind.config.js')) {
             configuration.tailwind = { exists: true };
         }
-        
+
         if (fs.existsSync('Dockerfile') || fs.existsSync('docker-compose.yml')) {
             configuration.docker = { exists: true };
         }
-        
+
         return configuration;
     }
 
@@ -1250,10 +1250,10 @@ class ContextAnalyzer {
             confidence: 0,
             indicators: []
         };
-        
+
         const pkg = configuration.packageJson;
         if (!pkg) return projectType;
-        
+
         // Check for specific project types
         const typeIndicators = [
             {
@@ -1307,36 +1307,36 @@ class ContextAnalyzer {
                 confidence: 0.8
             }
         ];
-        
+
         const allDeps = {
             ...pkg.dependencies,
             ...pkg.devDependencies,
             ...pkg.peerDependencies
         };
-        
+
         for (const { type, indicators, confidence } of typeIndicators) {
-            const matches = indicators.filter(indicator => 
+            const matches = indicators.filter(indicator =>
                 Object.keys(allDeps).some(dep => dep.includes(indicator))
             );
-            
+
             if (matches.length > 0) {
                 const matchConfidence = (matches.length / indicators.length) * confidence;
-                
+
                 if (matchConfidence > projectType.confidence) {
                     projectType.primary = type;
                     projectType.confidence = matchConfidence;
                 }
-                
+
                 projectType.secondary.push({
                     type,
                     confidence: matchConfidence,
                     matches
                 });
-                
+
                 projectType.indicators.push(...matches);
             }
         }
-        
+
         // Check for TypeScript
         if (configuration.tsconfig || allDeps.typescript) {
             projectType.secondary.push({
@@ -1345,7 +1345,7 @@ class ContextAnalyzer {
                 matches: ['typescript']
             });
         }
-        
+
         return projectType;
     }
 
@@ -1363,15 +1363,15 @@ class ContextAnalyzer {
             styling: [],
             database: []
         };
-        
+
         const pkg = configuration.packageJson;
         if (!pkg) return framework;
-        
+
         const allDeps = {
             ...pkg.dependencies,
             ...pkg.devDependencies
         };
-        
+
         // Frontend frameworks
         const frontendFrameworks = [
             { name: 'React', indicators: ['react', 'react-dom'] },
@@ -1382,7 +1382,7 @@ class ContextAnalyzer {
             { name: 'Nuxt.js', indicators: ['nuxt'] },
             { name: 'Gatsby', indicators: ['gatsby'] }
         ];
-        
+
         // Backend frameworks
         const backendFrameworks = [
             { name: 'Express', indicators: ['express'] },
@@ -1391,7 +1391,7 @@ class ContextAnalyzer {
             { name: 'NestJS', indicators: ['@nestjs/core'] },
             { name: 'Hapi', indicators: ['@hapi/hapi'] }
         ];
-        
+
         // Testing frameworks
         const testingFrameworks = [
             { name: 'Jest', indicators: ['jest'] },
@@ -1401,7 +1401,7 @@ class ContextAnalyzer {
             { name: 'Playwright', indicators: ['@playwright/test'] },
             { name: 'Testing Library', indicators: ['@testing-library/react', '@testing-library/vue'] }
         ];
-        
+
         // Build tools
         const buildTools = [
             { name: 'Webpack', indicators: ['webpack'] },
@@ -1410,7 +1410,7 @@ class ContextAnalyzer {
             { name: 'Parcel', indicators: ['parcel'] },
             { name: 'esbuild', indicators: ['esbuild'] }
         ];
-        
+
         // Styling frameworks
         const stylingFrameworks = [
             { name: 'Tailwind CSS', indicators: ['tailwindcss'] },
@@ -1420,7 +1420,7 @@ class ContextAnalyzer {
             { name: 'Styled Components', indicators: ['styled-components'] },
             { name: 'Emotion', indicators: ['@emotion/react'] }
         ];
-        
+
         // Database libraries
         const databaseLibs = [
             { name: 'Mongoose', indicators: ['mongoose'] },
@@ -1429,7 +1429,7 @@ class ContextAnalyzer {
             { name: 'Sequelize', indicators: ['sequelize'] },
             { name: 'Knex', indicators: ['knex'] }
         ];
-        
+
         const detectFrameworks = (frameworks, category) => {
             for (const { name, indicators } of frameworks) {
                 const found = indicators.some(indicator => allDeps[indicator]);
@@ -1438,14 +1438,14 @@ class ContextAnalyzer {
                 }
             }
         };
-        
+
         detectFrameworks(frontendFrameworks, 'frontend');
         detectFrameworks(backendFrameworks, 'backend');
         detectFrameworks(testingFrameworks, 'testing');
         detectFrameworks(buildTools, 'build');
         detectFrameworks(stylingFrameworks, 'styling');
         detectFrameworks(databaseLibs, 'database');
-        
+
         return framework;
     }
 
@@ -1455,7 +1455,7 @@ class ContextAnalyzer {
      */
     async analyzeTestCoverage() {
         console.log(chalk.blue('   - Analyzing test coverage...'));
-        
+
         const fs = require('fs');
         const coverage = {
             hasTests: false,
@@ -1466,7 +1466,7 @@ class ContextAnalyzer {
             lastCoverageRun: null,
             summary: null
         };
-        
+
         // Count test files using Node.js (cross-platform)
         try {
             coverage.testFiles = this.countTestFilesManually();
@@ -1475,7 +1475,7 @@ class ContextAnalyzer {
             coverage.testFiles = 0;
             coverage.hasTests = false;
         }
-        
+
         // Check for coverage reports
         const coverageFiles = [
             'coverage/lcov-report/index.html',
@@ -1483,11 +1483,11 @@ class ContextAnalyzer {
             'coverage.json',
             '.nyc_output'
         ];
-        
+
         for (const file of coverageFiles) {
             if (fs.existsSync(file)) {
                 coverage.coverageReports.push(file);
-                
+
                 // Try to get last modified time
                 try {
                     const stats = fs.statSync(file);
@@ -1499,7 +1499,7 @@ class ContextAnalyzer {
                 }
             }
         }
-        
+
         // Try to read coverage summary
         if (fs.existsSync('coverage/coverage-summary.json')) {
             try {
@@ -1509,23 +1509,23 @@ class ContextAnalyzer {
                 // Ignore JSON parse errors
             }
         }
-        
+
         // Check package.json for test scripts and coverage config
         try {
             const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-            
+
             if (pkg.scripts) {
                 if (pkg.scripts.test) coverage.testFrameworks.push('npm test');
                 if (pkg.scripts['test:coverage']) coverage.testFrameworks.push('coverage script');
             }
-            
+
             if (pkg.jest && pkg.jest.coverageThreshold) {
                 coverage.coverageThreshold = pkg.jest.coverageThreshold;
             }
         } catch (error) {
             // Ignore package.json read errors
         }
-        
+
         return coverage;
     }
 
@@ -1537,18 +1537,18 @@ class ContextAnalyzer {
         const fs = require('fs');
         const path = require('path');
         let count = 0;
-        
+
         const countInDirectory = (dirPath) => {
             try {
                 const items = fs.readdirSync(dirPath);
-                
+
                 for (const item of items) {
                     const fullPath = path.join(dirPath, item);
-                    
+
                     if (this.shouldSkipPath(fullPath)) continue;
-                    
+
                     const stats = fs.statSync(fullPath);
-                    
+
                     if (stats.isDirectory()) {
                         countInDirectory(fullPath);
                     } else if (this.isTestFile(fullPath)) {
@@ -1559,7 +1559,7 @@ class ContextAnalyzer {
                 // Skip directories we can't read
             }
         };
-        
+
         countInDirectory('.');
         return count;
     }
@@ -1578,12 +1578,12 @@ class ContextAnalyzer {
             buildOutput: null,
             hasCI: false
         };
-        
+
         const pkg = configuration.packageJson;
         if (pkg && pkg.scripts) {
             buildSystem.scripts = Object.keys(pkg.scripts);
         }
-        
+
         // Detect bundler
         if (configuration.webpack) buildSystem.bundler = 'webpack';
         else if (configuration.vite) buildSystem.bundler = 'vite';
@@ -1592,12 +1592,12 @@ class ContextAnalyzer {
             else if (pkg.devDependencies.parcel) buildSystem.bundler = 'parcel';
             else if (pkg.devDependencies.esbuild) buildSystem.bundler = 'esbuild';
         }
-        
+
         // Detect task runner
         if (pkg && pkg.scripts) {
             if (pkg.scripts.build) buildSystem.taskRunner = 'npm scripts';
         }
-        
+
         // Check for build output directories
         const fs = require('fs');
         const buildDirs = ['dist', 'build', '.next', 'out'];
@@ -1607,11 +1607,11 @@ class ContextAnalyzer {
                 break;
             }
         }
-        
+
         // Check for CI configuration
         const ciFiles = ['.github/workflows', '.gitlab-ci.yml', 'Jenkinsfile', '.travis.yml'];
         buildSystem.hasCI = ciFiles.some(file => fs.existsSync(file));
-        
+
         return buildSystem;
     }
 
@@ -1621,12 +1621,12 @@ class ContextAnalyzer {
      */
     detectPackageManager() {
         const fs = require('fs');
-        
+
         if (fs.existsSync('yarn.lock')) return 'yarn';
         if (fs.existsSync('pnpm-lock.yaml')) return 'pnpm';
         if (fs.existsSync('package-lock.json')) return 'npm';
         if (fs.existsSync('bun.lockb')) return 'bun';
-        
+
         return 'unknown';
     }
 
@@ -1637,11 +1637,11 @@ class ContextAnalyzer {
      */
     detectNodeVersion(configuration) {
         const pkg = configuration.packageJson;
-        
+
         if (pkg && pkg.engines && pkg.engines.node) {
             return pkg.engines.node;
         }
-        
+
         // Check .nvmrc
         const fs = require('fs');
         if (fs.existsSync('.nvmrc')) {
@@ -1651,7 +1651,7 @@ class ContextAnalyzer {
                 return null;
             }
         }
-        
+
         return null;
     }
 
@@ -1663,22 +1663,22 @@ class ContextAnalyzer {
     async getBranchHistory(branchName) {
         try {
             console.log(chalk.blue('   - Analyzing branch history...'));
-            
+
             // Get branch creation point
             const creationPoint = execSync(`git merge-base origin/main ${branchName}`).toString().trim();
             const creationDate = execSync(`git show -s --format=%ci ${creationPoint}`).toString().trim();
-            
+
             // Get all commits on this branch
             const branchCommits = execSync(`git log ${creationPoint}..${branchName} --oneline --no-merges`).toString().trim();
             const commitCount = branchCommits ? branchCommits.split('\n').length : 0;
-            
+
             // Check for merge commits
             const mergeCommits = execSync(`git log ${creationPoint}..${branchName} --merges --oneline`).toString().trim();
             const mergeCount = mergeCommits ? mergeCommits.split('\n').length : 0;
-            
+
             // Get branch age in days
             const ageInDays = Math.floor((Date.now() - new Date(creationDate).getTime()) / (1000 * 60 * 60 * 24));
-            
+
             return {
                 creationPoint,
                 creationDate,
@@ -1704,20 +1704,20 @@ class ContextAnalyzer {
     async analyzeMergeBase(branchName) {
         try {
             console.log(chalk.blue('   - Analyzing merge base...'));
-            
+
             const mergeBase = execSync(`git merge-base origin/main ${branchName}`).toString().trim();
             const mainHead = execSync('git rev-parse origin/main').toString().trim();
-            
+
             // Count commits ahead and behind
             const aheadCount = execSync(`git rev-list --count ${mergeBase}..${branchName}`).toString().trim();
             const behindCount = execSync(`git rev-list --count ${mergeBase}..origin/main`).toString().trim();
-            
+
             // Check if merge base is up to date
             const isUpToDate = mergeBase === mainHead;
-            
+
             // Get commits that would be merged
             const commitsToMerge = execSync(`git log ${mergeBase}..${branchName} --oneline --no-merges`).toString().trim();
-            
+
             return {
                 mergeBase,
                 mainHead,
@@ -1741,7 +1741,7 @@ class ContextAnalyzer {
     async detectConflicts(branchName) {
         try {
             console.log(chalk.blue('   - Detecting potential conflicts...'));
-            
+
             // Check current merge conflicts
             let hasActiveConflicts = false;
             try {
@@ -1750,14 +1750,14 @@ class ContextAnalyzer {
                 const conflictFiles = error.stdout ? error.stdout.toString().trim() : '';
                 hasActiveConflicts = conflictFiles.length > 0;
             }
-            
+
             // Simulate merge to detect potential conflicts
             let potentialConflicts = [];
             try {
                 // Create a temporary branch to test merge
                 const tempBranch = `temp-merge-test-${Date.now()}`;
                 execSync(`git checkout -b ${tempBranch} origin/main`, { stdio: 'pipe' });
-                
+
                 try {
                     execSync(`git merge --no-commit --no-ff ${branchName}`, { stdio: 'pipe' });
                     // If merge succeeds, no conflicts
@@ -1774,16 +1774,16 @@ class ContextAnalyzer {
                         // Ignore abort errors
                     }
                 }
-                
+
                 // Switch back and delete temp branch
                 execSync(`git checkout ${branchName}`, { stdio: 'pipe' });
                 execSync(`git branch -D ${tempBranch}`, { stdio: 'pipe' });
-                
+
             } catch (error) {
                 // If we can't create temp branch, fall back to file-based analysis
                 potentialConflicts = await this.analyzeFileConflicts(branchName);
             }
-            
+
             return {
                 hasActiveConflicts,
                 potentialConflicts,
@@ -1804,7 +1804,7 @@ class ContextAnalyzer {
     parseConflictOutput(conflictOutput) {
         const conflicts = [];
         const lines = conflictOutput.split('\n');
-        
+
         for (const line of lines) {
             if (line.includes('CONFLICT')) {
                 const match = line.match(/CONFLICT \((.+?)\): (.+)/);
@@ -1817,7 +1817,7 @@ class ContextAnalyzer {
                 }
             }
         }
-        
+
         return conflicts;
     }
 
@@ -1830,14 +1830,14 @@ class ContextAnalyzer {
         try {
             // Get files changed in this branch
             const branchFiles = execSync(`git diff --name-only origin/main...${branchName}`).toString().trim().split('\n').filter(f => f);
-            
+
             // Get files changed in main since branch creation
             const mergeBase = execSync(`git merge-base origin/main ${branchName}`).toString().trim();
             const mainFiles = execSync(`git diff --name-only ${mergeBase}..origin/main`).toString().trim().split('\n').filter(f => f);
-            
+
             // Find overlapping files
             const overlappingFiles = branchFiles.filter(file => mainFiles.includes(file));
-            
+
             return overlappingFiles.map(file => ({
                 type: 'content',
                 file,
@@ -1867,7 +1867,7 @@ class ContextAnalyzer {
     async analyzeCommitMessages(branchName) {
         try {
             console.log(chalk.blue('   - Analyzing commit messages...'));
-            
+
             const commits = this.getRecentCommits(branchName);
             const analysis = {
                 totalCommits: commits.length,
@@ -1877,23 +1877,23 @@ class ContextAnalyzer {
                 issues: [],
                 suggestions: []
             };
-            
+
             const conventionalPattern = /^(feat|fix|docs|style|refactor|perf|test|chore|ci|build|revert)(\(.+\))?: .+/;
             const breakingChangePattern = /BREAKING CHANGE:|!/;
-            
+
             for (const commit of commits) {
                 const message = commit.message;
-                
+
                 if (conventionalPattern.test(message)) {
                     analysis.conventionalCommits++;
-                    
+
                     // Extract commit type
                     const typeMatch = message.match(/^([^(:]+)/);
                     if (typeMatch) {
                         const type = typeMatch[1];
                         analysis.commitTypes[type] = (analysis.commitTypes[type] || 0) + 1;
                     }
-                    
+
                     // Check for breaking changes
                     if (breakingChangePattern.test(message)) {
                         analysis.issues.push({
@@ -1910,7 +1910,7 @@ class ContextAnalyzer {
                         message: `Non-conventional commit: "${message}"`
                     });
                 }
-                
+
                 // Check for common issues
                 if (message.length < 10) {
                     analysis.issues.push({
@@ -1919,7 +1919,7 @@ class ContextAnalyzer {
                         message: 'Commit message too short'
                     });
                 }
-                
+
                 if (message.length > 72) {
                     analysis.issues.push({
                         commit: commit.hash,
@@ -1928,16 +1928,16 @@ class ContextAnalyzer {
                     });
                 }
             }
-            
+
             // Generate suggestions
             if (analysis.nonConventionalCommits > 0) {
                 analysis.suggestions.push('Consider using conventional commit format (feat:, fix:, docs:, etc.)');
             }
-            
+
             if (analysis.issues.some(i => i.type === 'breaking_change')) {
                 analysis.suggestions.push('Breaking changes detected - ensure proper versioning and documentation');
             }
-            
+
             return analysis;
         } catch (error) {
             console.log(chalk.yellow('   - Warning: Could not analyze commit messages'));
@@ -1952,7 +1952,7 @@ class ContextAnalyzer {
      */
     validateBranchNaming(branchName) {
         console.log(chalk.blue('   - Validating branch naming...'));
-        
+
         const validation = {
             branchName,
             isValid: true,
@@ -1965,7 +1965,7 @@ class ContextAnalyzer {
                 followsKebabCase: false
             }
         };
-        
+
         // Check for ticket ID (Linear format)
         const ticketPattern = /[A-Z]+-\d+/;
         if (ticketPattern.test(branchName)) {
@@ -1975,7 +1975,7 @@ class ContextAnalyzer {
             validation.suggestions.push('Include Linear ticket ID in branch name');
             validation.isValid = false;
         }
-        
+
         // Check for branch type prefix
         const typePattern = /^(feature|feat|fix|hotfix|bugfix|chore|docs|refactor|test)[\/-]/i;
         if (typePattern.test(branchName)) {
@@ -1984,7 +1984,7 @@ class ContextAnalyzer {
             validation.issues.push('Missing branch type prefix');
             validation.suggestions.push('Use prefixes like feature/, fix/, hotfix/, etc.');
         }
-        
+
         // Check for descriptive name
         const parts = branchName.split(/[\/-]/);
         const hasDescription = parts.some(part => part.length > 3 && !/^[A-Z]+-\d+$/.test(part));
@@ -1994,7 +1994,7 @@ class ContextAnalyzer {
             validation.issues.push('Missing descriptive name');
             validation.suggestions.push('Add descriptive words about the change');
         }
-        
+
         // Check for kebab-case
         const kebabPattern = /^[a-z0-9-\/]+$/;
         if (kebabPattern.test(branchName.toLowerCase())) {
@@ -2003,14 +2003,14 @@ class ContextAnalyzer {
             validation.issues.push('Not in kebab-case format');
             validation.suggestions.push('Use lowercase letters, numbers, and hyphens only');
         }
-        
+
         // Check length
         if (branchName.length > 50) {
             validation.issues.push('Branch name too long');
             validation.suggestions.push('Keep branch names under 50 characters');
             validation.isValid = false;
         }
-        
+
         // Check for invalid characters
         const invalidChars = branchName.match(/[^a-zA-Z0-9\-\/]/g);
         if (invalidChars) {
@@ -2018,7 +2018,7 @@ class ContextAnalyzer {
             validation.suggestions.push('Use only letters, numbers, hyphens, and forward slashes');
             validation.isValid = false;
         }
-        
+
         return validation;
     }
 
@@ -2030,11 +2030,11 @@ class ContextAnalyzer {
     gatherLinearContext(branchName) {
         console.log(chalk.blue(`   - Parsing branch name "${branchName}"...`));
         const ticketIdMatch = branchName.match(/([A-Z]+-\d+)/);
-        
+
         if (!ticketIdMatch) {
             throw new Error(`Could not find a Linear ticket ID (e.g., TIX-123) in branch "${branchName}".`);
         }
-        
+
         const linearTicketId = ticketIdMatch[0];
         console.log(chalk.green(`   - Found Linear Ticket: ${linearTicketId}`));
 
