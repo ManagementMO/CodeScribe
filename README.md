@@ -91,9 +91,11 @@ Get up and running with CodeScribe in minutes.
 ### 1. Installation
 Clone the repository and install dependencies.
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/ManagementMO/CodeScribe.git
+cd codescribe
 npm install
+
+# Set up your environment variable (BYO) for Gemini, Vellum, Linear, etc.
 
 # Make the codescribe command globally available on your system.
 npm link
@@ -103,6 +105,8 @@ Now you can use the CodeScribe agent from any git repository on your machine.
 
 # Apply a preliminary diff from a Linear ticket
 codescribe apply TICKET-ID
+
+# Use it in warp! Press CTRL + R and search for the codescribe workflows to automate even further.
 
 # Run the comprehensive PR creation/update workflow
 codescribe pr
