@@ -1,0 +1,2914 @@
+{
+  "id": "1752974400674-25414e62",
+  "timestamp": "2025-07-20T01:20:00.674Z",
+  "command": "commit",
+  "options": {
+    "all": true
+  },
+  "context": {
+    "git": {
+      "branch": "feat/COD-20-warp-test",
+      "diff": "Large diff summary:\n.codescribe.example.enhanced.json                  |   34 +\n .codescribe.example.json                           |   44 +\n .codescribe/history/1752973267409-3e2e0811.json    | 4338 ++++++++++++++++++++\n .codescribe/logs/codescribe.log                    |    4 +\n .../specs/enhanced-codescribe-workflows/design.md  |  370 ++\n .../enhanced-codescribe-workflows/requirements.md  |   61 +\n .kiro/specs/enhanced-codescribe-workflows/tasks.md |  147 +\n .warp/workflows/codescribe-commit.yaml             |   22 +\n .warp/workflows/codescribe-docs.yaml               |   22 +\n .warp/workflows/codescribe-feature.yaml            |   22 +\n .warp/workflows/codescribe-fix.yaml                |   22 +\n .warp/workflows/codescribe-interactive.yaml        |   21 +\n .warp/workflows/codescribe-linear.yaml             |   22 +\n .warp/workflows/codescribe-pr.yaml                 |   24 +\n .warp/workflows/codescribe-quality.yaml            |   22 +\n .warp/workflows/codescribe-release.yaml            |   22 +\n .warp/workflows/codescribe-review.yaml             |   22 +\n README.md                                          |  140 +-\n codescribe.js                                      |  707 ++--\n commit.js                                          |  105 +\n docs/COMMIT_WORKFLOW.md                            |  302 ++\n docs/CONFIGURATION.md                              |  463 +++\n docs/ENHANCED_COMMIT_MESSAGES.md                   |  220 +\n docs/ENHANCED_LINEAR_WORKFLOW.md                   |  262 ++\n docs/GETTING_STARTED.md                            |  233 ++\n docs/PLUGIN_DEVELOPMENT.md                         |    0\n docs/WARP_QUICK_REFERENCE.md                       |  117 +\n docs/WARP_WORKFLOWS.md                             |  541 +++\n package-lock.json                                  | 1065 ++++-\n package.json                                       |   12 +-\n src/README.md                                      |  162 +\n src/ai/AIAnalysisEngine.js                         |  713 ++++\n src/config/ConfigurationManager.js                 |  254 ++\n src/context/ContextAnalyzer.js                     | 1893 +++++++++\n src/core/CodeScribeCore.js                         |  203 +\n src/utils/Logger.js                                |  239 ++\n src/utils/ProgressReporter.js                      |  235 ++\n src/utils/WorkflowHistory.js                       |  260 ++\n src/workflows/BaseWorkflow.js                      |  107 +\n src/workflows/WorkflowOrchestrator.js              |  183 +\n src/workflows/commit/CommitMessageTemplates.js     |  367 ++\n src/workflows/commit/CommitWorkflow.js             |  631 +++\n .../documentation/DocumentationWorkflow.js         |  145 +\n src/workflows/documentation/MermaidGenerator.js    |  573 +++\n src/workflows/github/GitHubTrackingReporter.js     |  581 +++\n src/workflows/github/GitHubWorkflow.js             |  211 +\n src/workflows/linear/LinearWorkflow.js             | 1731 ++++++++\n test-commit-integration.js                         |  246 ++\n test-commit.js                                     |   35 +\n test-enhanced-commit.js                            |  289 ++\n test-enhanced-linear-workflow.js                   |  285 ++\n test-mermaid-comprehensive.js                      |  126 +\n test-mermaid-generation.js                         |   71 +\n test-real-linear-integration.js                    |  166 +\n test-status-transition-fix.js                      |  130 +\n vellum_server.js                                   |  231 --\n 56 files changed, 18936 insertions(+), 517 deletions(-)\n\nChanged files:\nA\t.codescribe.example.enhanced.json\nA\t.codescribe.example.json\nA\t.codescribe/history/1752973267409-3e2e0811.json\nA\t.codescribe/logs/codescribe.log\nA\t.kiro/specs/enhanced-codescribe-workflows/design.md\nA\t.kiro/specs/enhanced-codescribe-workflows/requirements.md\nA\t.kiro/specs/enhanced-codescribe-workflows/tasks.md\nA\t.warp/workflows/codescribe-commit.yaml\nA\t.warp/workflows/codescribe-docs.yaml\nA\t.warp/workflows/codescribe-feature.yaml\nA\t.warp/workflows/codescribe-fix.yaml\nA\t.warp/workflows/codescribe-interactive.yaml\nA\t.warp/workflows/codescribe-linear.yaml\nA\t.warp/workflows/codescribe-pr.yaml\nA\t.warp/workflows/codescribe-quality.yaml\nA\t.warp/workflows/codescribe-release.yaml\nA\t.warp/workflows/codescribe-review.yaml\nM\tREADME.md\nM\tcodescribe.js\nA\tcommit.js\nA\tdocs/COMMIT_WORKFLOW.md\nA\tdocs/CONFIGURATION.md\nA\tdocs/ENHANCED_COMMIT_MESSAGES.md\nA\tdocs/ENHANCED_LINEAR_WORKFLOW.md\nA\tdocs/GETTING_STARTED.md\nA\tdocs/PLUGIN_DEVELOPMENT.md\nA\tdocs/WARP_QUICK_REFERENCE.md\nA\tdocs/WARP_WORKFLOWS.md\nM\tpackage-lock.json\nM\tpackage.json\nA\tsrc/README.md\nA\tsrc/ai/AIAnalysisEngine.js\nA\tsrc/config/ConfigurationManager.js\nA\tsrc/context/ContextAnalyzer.js\nA\tsrc/core/CodeScribeCore.js\nA\tsrc/utils/Logger.js\nA\tsrc/utils/ProgressReporter.js\nA\tsrc/utils/WorkflowHistory.js\nA\tsrc/workflows/BaseWorkflow.js\nA\tsrc/workflows/WorkflowOrchestrator.js\nA\tsrc/workflows/commit/CommitMessageTemplates.js\nA\tsrc/workflows/commit/CommitWorkflow.js\nA\tsrc/workflows/documentation/DocumentationWorkflow.js\nA\tsrc/workflows/documentation/MermaidGenerator.js\nA\tsrc/workflows/github/GitHubTrackingReporter.js\nA\tsrc/workflows/github/GitHubWorkflow.js\nA\tsrc/workflows/linear/LinearWorkflow.js\nA\ttest-commit-integration.js\nA\ttest-commit.js\nA\ttest-enhanced-commit.js\nA\ttest-enhanced-linear-workflow.js\nA\ttest-mermaid-comprehensive.js\nA\ttest-mermaid-generation.js\nA\ttest-real-linear-integration.js\nA\ttest-status-transition-fix.js\nD\tvellum_server.js",
+      "diffStats": ".codescribe.example.enhanced.json                  |   34 +\n .codescribe.example.json                           |   44 +\n .codescribe/history/1752973267409-3e2e0811.json    | 4338 ++++++++++++++++++++\n .codescribe/logs/codescribe.log                    |    4 +\n .../specs/enhanced-codescribe-workflows/design.md  |  370 ++\n .../enhanced-codescribe-workflows/requirements.md  |   61 +\n .kiro/specs/enhanced-codescribe-workflows/tasks.md |  147 +\n .warp/workflows/codescribe-commit.yaml             |   22 +\n .warp/workflows/codescribe-docs.yaml               |   22 +\n .warp/workflows/codescribe-feature.yaml            |   22 +\n .warp/workflows/codescribe-fix.yaml                |   22 +\n .warp/workflows/codescribe-interactive.yaml        |   21 +\n .warp/workflows/codescribe-linear.yaml             |   22 +\n .warp/workflows/codescribe-pr.yaml                 |   24 +\n .warp/workflows/codescribe-quality.yaml            |   22 +\n .warp/workflows/codescribe-release.yaml            |   22 +\n .warp/workflows/codescribe-review.yaml             |   22 +\n README.md                                          |  140 +-\n codescribe.js                                      |  707 ++--\n commit.js                                          |  105 +\n docs/COMMIT_WORKFLOW.md                            |  302 ++\n docs/CONFIGURATION.md                              |  463 +++\n docs/ENHANCED_COMMIT_MESSAGES.md                   |  220 +\n docs/ENHANCED_LINEAR_WORKFLOW.md                   |  262 ++\n docs/GETTING_STARTED.md                            |  233 ++\n docs/PLUGIN_DEVELOPMENT.md                         |    0\n docs/WARP_QUICK_REFERENCE.md                       |  117 +\n docs/WARP_WORKFLOWS.md                             |  541 +++\n package-lock.json                                  | 1065 ++++-\n package.json                                       |   12 +-\n src/README.md                                      |  162 +\n src/ai/AIAnalysisEngine.js                         |  713 ++++\n src/config/ConfigurationManager.js                 |  254 ++\n src/context/ContextAnalyzer.js                     | 1893 +++++++++\n src/core/CodeScribeCore.js                         |  203 +\n src/utils/Logger.js                                |  239 ++\n src/utils/ProgressReporter.js                      |  235 ++\n src/utils/WorkflowHistory.js                       |  260 ++\n src/workflows/BaseWorkflow.js                      |  107 +\n src/workflows/WorkflowOrchestrator.js              |  183 +\n src/workflows/commit/CommitMessageTemplates.js     |  367 ++\n src/workflows/commit/CommitWorkflow.js             |  631 +++\n .../documentation/DocumentationWorkflow.js         |  145 +\n src/workflows/documentation/MermaidGenerator.js    |  573 +++\n src/workflows/github/GitHubTrackingReporter.js     |  581 +++\n src/workflows/github/GitHubWorkflow.js             |  211 +\n src/workflows/linear/LinearWorkflow.js             | 1731 ++++++++\n test-commit-integration.js                         |  246 ++\n test-commit.js                                     |   35 +\n test-enhanced-commit.js                            |  289 ++\n test-enhanced-linear-workflow.js                   |  285 ++\n test-mermaid-comprehensive.js                      |  126 +\n test-mermaid-generation.js                         |   71 +\n test-real-linear-integration.js                    |  166 +\n test-status-transition-fix.js                      |  130 +\n vellum_server.js                                   |  231 --\n 56 files changed, 18936 insertions(+), 517 deletions(-)",
+      "commits": {},
+      "branchHistory": {
+        "creationPoint": "1f0e813689bddcaa70e46b999ee08077e9923b73",
+        "creationDate": "2025-07-19 16:37:29 -0400",
+        "commitCount": 5,
+        "mergeCount": 0,
+        "ageInDays": 0,
+        "commits": [
+          {
+            "hash": "81f5398",
+            "message": "security(CodeScribe): Refactor to modular architecture and enhance security with comprehensive analysis"
+          },
+          {
+            "hash": "7c4073f",
+            "message": "test(.kiro): COD-20: Update .kiro/specs/enhanced-codescribe-workflows/tasks.md"
+          },
+          {
+            "hash": "307de08",
+            "message": "test(test)!: COD-20: Update 11 files (test, docs, code, config)"
+          },
+          {
+            "hash": "68cc710",
+            "message": "REFACTORED CODESCRIBE"
+          },
+          {
+            "hash": "3a60db3",
+            "message": "Add README.md"
+          }
+        ]
+      },
+      "mergeBaseAnalysis": {
+        "mergeBase": "1f0e813689bddcaa70e46b999ee08077e9923b73",
+        "mainHead": "217cb89561ac963171f6d3b20661fcdc02a66d91",
+        "aheadCount": 5,
+        "behindCount": 2,
+        "isUpToDate": false,
+        "needsRebase": true,
+        "commitsToMerge": 5
+      },
+      "conflictDetection": {
+        "hasActiveConflicts": false,
+        "potentialConflicts": [],
+        "conflictCount": 0,
+        "riskLevel": "low"
+      },
+      "commitAnalysis": {
+        "error": "commits is not iterable"
+      },
+      "branchValidation": {
+        "branchName": "feat/COD-20-warp-test",
+        "isValid": true,
+        "issues": [],
+        "suggestions": [],
+        "conventions": {
+          "hasTicketId": true,
+          "hasType": true,
+          "hasDescription": true,
+          "followsKebabCase": true
+        }
+      },
+      "hasChanges": true,
+      "hasUncommittedChanges": true,
+      "hasUnpushedCommits": false
+    },
+    "code": {
+      "hasChanges": false,
+      "changedFiles": [
+        {
+          "path": ".codescribe.example.enhanced.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe.example.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1752973267409-3e2e0811.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/logs/codescribe.log",
+          "status": "added",
+          "extension": "log",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": ".kiro/specs/enhanced-codescribe-workflows/design.md",
+          "status": "added",
+          "extension": "md",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": ".kiro/specs/enhanced-codescribe-workflows/requirements.md",
+          "status": "added",
+          "extension": "md",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": ".kiro/specs/enhanced-codescribe-workflows/tasks.md",
+          "status": "added",
+          "extension": "md",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": ".warp/workflows/codescribe-commit.yaml",
+          "status": "added",
+          "extension": "yaml",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".warp/workflows/codescribe-docs.yaml",
+          "status": "added",
+          "extension": "yaml",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".warp/workflows/codescribe-feature.yaml",
+          "status": "added",
+          "extension": "yaml",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".warp/workflows/codescribe-fix.yaml",
+          "status": "added",
+          "extension": "yaml",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".warp/workflows/codescribe-interactive.yaml",
+          "status": "added",
+          "extension": "yaml",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".warp/workflows/codescribe-linear.yaml",
+          "status": "added",
+          "extension": "yaml",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".warp/workflows/codescribe-pr.yaml",
+          "status": "added",
+          "extension": "yaml",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".warp/workflows/codescribe-quality.yaml",
+          "status": "added",
+          "extension": "yaml",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".warp/workflows/codescribe-release.yaml",
+          "status": "added",
+          "extension": "yaml",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".warp/workflows/codescribe-review.yaml",
+          "status": "added",
+          "extension": "yaml",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": "README.md",
+          "status": "modified",
+          "extension": "md",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "codescribe.js",
+          "status": "modified",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "commit.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "docs/COMMIT_WORKFLOW.md",
+          "status": "added",
+          "extension": "md",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "docs/CONFIGURATION.md",
+          "status": "added",
+          "extension": "md",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "docs/ENHANCED_COMMIT_MESSAGES.md",
+          "status": "added",
+          "extension": "md",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "docs/ENHANCED_LINEAR_WORKFLOW.md",
+          "status": "added",
+          "extension": "md",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "docs/GETTING_STARTED.md",
+          "status": "added",
+          "extension": "md",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "docs/PLUGIN_DEVELOPMENT.md",
+          "status": "added",
+          "extension": "md",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "docs/WARP_QUICK_REFERENCE.md",
+          "status": "added",
+          "extension": "md",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "docs/WARP_WORKFLOWS.md",
+          "status": "added",
+          "extension": "md",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "package-lock.json",
+          "status": "modified",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": "package.json",
+          "status": "modified",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": "src/README.md",
+          "status": "added",
+          "extension": "md",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/ai/AIAnalysisEngine.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/config/ConfigurationManager.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/context/ContextAnalyzer.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/core/CodeScribeCore.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/utils/Logger.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/utils/ProgressReporter.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/utils/WorkflowHistory.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/workflows/BaseWorkflow.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/workflows/WorkflowOrchestrator.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/workflows/commit/CommitMessageTemplates.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/workflows/commit/CommitWorkflow.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/workflows/documentation/DocumentationWorkflow.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/workflows/documentation/MermaidGenerator.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/workflows/github/GitHubTrackingReporter.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/workflows/github/GitHubWorkflow.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/workflows/linear/LinearWorkflow.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "test-commit-integration.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "test-commit.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "test-enhanced-commit.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "test-enhanced-linear-workflow.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "test-mermaid-comprehensive.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "test-mermaid-generation.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "test-real-linear-integration.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "test-status-transition-fix.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "vellum_server.js",
+          "status": "deleted",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        }
+      ],
+      "complexity": {
+        "totalScore": 1016,
+        "averageScore": 39.07692307692308,
+        "level": "very_high",
+        "files": [
+          {
+            "file": "codescribe.js",
+            "score": 64,
+            "functions": 24,
+            "classes": 0,
+            "conditionals": 35,
+            "loops": 1,
+            "depth": 17,
+            "lines": 494
+          },
+          {
+            "file": "commit.js",
+            "score": 20,
+            "functions": 4,
+            "classes": 0,
+            "conditionals": 11,
+            "loops": 1,
+            "depth": 17,
+            "lines": 105
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "score": 73,
+            "functions": 15,
+            "classes": 1,
+            "conditionals": 46,
+            "loops": 3,
+            "depth": 20,
+            "lines": 713
+          },
+          {
+            "file": "src/config/ConfigurationManager.js",
+            "score": 24,
+            "functions": 0,
+            "classes": 1,
+            "conditionals": 9,
+            "loops": 5,
+            "depth": 15,
+            "lines": 254
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "score": 193,
+            "functions": 27,
+            "classes": 1,
+            "conditionals": 117,
+            "loops": 21,
+            "depth": 25,
+            "lines": 2002
+          },
+          {
+            "file": "src/core/CodeScribeCore.js",
+            "score": 11,
+            "functions": 2,
+            "classes": 1,
+            "conditionals": 4,
+            "loops": 0,
+            "depth": 17,
+            "lines": 203
+          },
+          {
+            "file": "src/utils/Logger.js",
+            "score": 21,
+            "functions": 2,
+            "classes": 1,
+            "conditionals": 12,
+            "loops": 1,
+            "depth": 16,
+            "lines": 239
+          },
+          {
+            "file": "src/utils/ProgressReporter.js",
+            "score": 30,
+            "functions": 5,
+            "classes": 1,
+            "conditionals": 19,
+            "loops": 0,
+            "depth": 20,
+            "lines": 235
+          },
+          {
+            "file": "src/utils/WorkflowHistory.js",
+            "score": 36,
+            "functions": 11,
+            "classes": 1,
+            "conditionals": 15,
+            "loops": 2,
+            "depth": 20,
+            "lines": 260
+          },
+          {
+            "file": "src/workflows/BaseWorkflow.js",
+            "score": 5,
+            "functions": 0,
+            "classes": 1,
+            "conditionals": 1,
+            "loops": 0,
+            "depth": 11,
+            "lines": 107
+          },
+          {
+            "file": "src/workflows/WorkflowOrchestrator.js",
+            "score": 10,
+            "functions": 1,
+            "classes": 1,
+            "conditionals": 2,
+            "loops": 1,
+            "depth": 16,
+            "lines": 183
+          },
+          {
+            "file": "src/workflows/commit/CommitMessageTemplates.js",
+            "score": 38,
+            "functions": 10,
+            "classes": 1,
+            "conditionals": 21,
+            "loops": 1,
+            "depth": 18,
+            "lines": 367
+          },
+          {
+            "file": "src/workflows/commit/CommitWorkflow.js",
+            "score": 66,
+            "functions": 10,
+            "classes": 1,
+            "conditionals": 47,
+            "loops": 2,
+            "depth": 19,
+            "lines": 631
+          },
+          {
+            "file": "src/workflows/documentation/DocumentationWorkflow.js",
+            "score": 9,
+            "functions": 0,
+            "classes": 1,
+            "conditionals": 4,
+            "loops": 0,
+            "depth": 16,
+            "lines": 145
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "score": 49,
+            "functions": 19,
+            "classes": 1,
+            "conditionals": 22,
+            "loops": 1,
+            "depth": 24,
+            "lines": 573
+          },
+          {
+            "file": "src/workflows/github/GitHubTrackingReporter.js",
+            "score": 55,
+            "functions": 13,
+            "classes": 1,
+            "conditionals": 36,
+            "loops": 0,
+            "depth": 22,
+            "lines": 581
+          },
+          {
+            "file": "src/workflows/github/GitHubWorkflow.js",
+            "score": 16,
+            "functions": 2,
+            "classes": 1,
+            "conditionals": 9,
+            "loops": 0,
+            "depth": 19,
+            "lines": 211
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "score": 181,
+            "functions": 17,
+            "classes": 1,
+            "conditionals": 126,
+            "loops": 16,
+            "depth": 20,
+            "lines": 1731
+          },
+          {
+            "file": "test-commit-integration.js",
+            "score": 17,
+            "functions": 6,
+            "classes": 0,
+            "conditionals": 6,
+            "loops": 1,
+            "depth": 15,
+            "lines": 246
+          },
+          {
+            "file": "test-commit.js",
+            "score": 4,
+            "functions": 1,
+            "classes": 0,
+            "conditionals": 1,
+            "loops": 0,
+            "depth": 12,
+            "lines": 35
+          },
+          {
+            "file": "test-enhanced-commit.js",
+            "score": 15,
+            "functions": 7,
+            "classes": 0,
+            "conditionals": 1,
+            "loops": 2,
+            "depth": 16,
+            "lines": 289
+          },
+          {
+            "file": "test-enhanced-linear-workflow.js",
+            "score": 23,
+            "functions": 5,
+            "classes": 1,
+            "conditionals": 12,
+            "loops": 0,
+            "depth": 22,
+            "lines": 285
+          },
+          {
+            "file": "test-mermaid-comprehensive.js",
+            "score": 16,
+            "functions": 1,
+            "classes": 0,
+            "conditionals": 11,
+            "loops": 0,
+            "depth": 21,
+            "lines": 126
+          },
+          {
+            "file": "test-mermaid-generation.js",
+            "score": 10,
+            "functions": 2,
+            "classes": 0,
+            "conditionals": 5,
+            "loops": 0,
+            "depth": 18,
+            "lines": 71
+          },
+          {
+            "file": "test-real-linear-integration.js",
+            "score": 19,
+            "functions": 3,
+            "classes": 0,
+            "conditionals": 13,
+            "loops": 0,
+            "depth": 17,
+            "lines": 166
+          },
+          {
+            "file": "test-status-transition-fix.js",
+            "score": 11,
+            "functions": 1,
+            "classes": 1,
+            "conditionals": 4,
+            "loops": 0,
+            "depth": 20,
+            "lines": 130
+          }
+        ],
+        "issues": [
+          {
+            "file": "codescribe.js",
+            "type": "high_complexity",
+            "score": 64,
+            "message": "High complexity score: 64"
+          },
+          {
+            "file": "commit.js",
+            "type": "high_complexity",
+            "score": 20,
+            "message": "High complexity score: 20"
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "type": "high_complexity",
+            "score": 73,
+            "message": "High complexity score: 73"
+          },
+          {
+            "file": "src/config/ConfigurationManager.js",
+            "type": "high_complexity",
+            "score": 24,
+            "message": "High complexity score: 24"
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "type": "high_complexity",
+            "score": 193,
+            "message": "High complexity score: 193"
+          },
+          {
+            "file": "src/core/CodeScribeCore.js",
+            "type": "high_complexity",
+            "score": 11,
+            "message": "High complexity score: 11"
+          },
+          {
+            "file": "src/utils/Logger.js",
+            "type": "high_complexity",
+            "score": 21,
+            "message": "High complexity score: 21"
+          },
+          {
+            "file": "src/utils/ProgressReporter.js",
+            "type": "high_complexity",
+            "score": 30,
+            "message": "High complexity score: 30"
+          },
+          {
+            "file": "src/utils/WorkflowHistory.js",
+            "type": "high_complexity",
+            "score": 36,
+            "message": "High complexity score: 36"
+          },
+          {
+            "file": "src/workflows/commit/CommitMessageTemplates.js",
+            "type": "high_complexity",
+            "score": 38,
+            "message": "High complexity score: 38"
+          },
+          {
+            "file": "src/workflows/commit/CommitWorkflow.js",
+            "type": "high_complexity",
+            "score": 66,
+            "message": "High complexity score: 66"
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "type": "high_complexity",
+            "score": 49,
+            "message": "High complexity score: 49"
+          },
+          {
+            "file": "src/workflows/github/GitHubTrackingReporter.js",
+            "type": "high_complexity",
+            "score": 55,
+            "message": "High complexity score: 55"
+          },
+          {
+            "file": "src/workflows/github/GitHubWorkflow.js",
+            "type": "high_complexity",
+            "score": 16,
+            "message": "High complexity score: 16"
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "type": "high_complexity",
+            "score": 181,
+            "message": "High complexity score: 181"
+          },
+          {
+            "file": "test-commit-integration.js",
+            "type": "high_complexity",
+            "score": 17,
+            "message": "High complexity score: 17"
+          },
+          {
+            "file": "test-enhanced-commit.js",
+            "type": "high_complexity",
+            "score": 15,
+            "message": "High complexity score: 15"
+          },
+          {
+            "file": "test-enhanced-linear-workflow.js",
+            "type": "high_complexity",
+            "score": 23,
+            "message": "High complexity score: 23"
+          },
+          {
+            "file": "test-mermaid-comprehensive.js",
+            "type": "high_complexity",
+            "score": 16,
+            "message": "High complexity score: 16"
+          },
+          {
+            "file": "test-real-linear-integration.js",
+            "type": "high_complexity",
+            "score": 19,
+            "message": "High complexity score: 19"
+          },
+          {
+            "file": "test-status-transition-fix.js",
+            "type": "high_complexity",
+            "score": 11,
+            "message": "High complexity score: 11"
+          }
+        ]
+      },
+      "security": {
+        "vulnerabilities": [
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "type": "code_injection",
+            "severity": "high",
+            "message": "Use of eval() can lead to code injection",
+            "line": 507,
+            "code": "eval("
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "type": "weak_random",
+            "severity": "low",
+            "message": "Math.random() is not cryptographically secure",
+            "line": 543,
+            "code": "Math.random()"
+          },
+          {
+            "file": "test-real-linear-integration.js",
+            "type": "hardcoded_secret",
+            "severity": "high",
+            "message": "Hardcoded API key detected",
+            "line": 31,
+            "code": "API_KEY=\""
+          }
+        ],
+        "warnings": [],
+        "riskLevel": "high",
+        "issues": []
+      },
+      "dependencies": {
+        "added": [
+          {
+            "package": "@babel/parser",
+            "version": "^7.28.0"
+          },
+          {
+            "package": "@babel/traverse",
+            "version": "^7.28.0"
+          },
+          {
+            "package": "@babel/types",
+            "version": "^7.28.1"
+          },
+          {
+            "package": "acorn",
+            "version": "^8.15.0"
+          },
+          {
+            "package": "audit-ci",
+            "version": "^7.1.0"
+          },
+          {
+            "package": "cli-progress",
+            "version": "^3.12.0"
+          },
+          {
+            "package": "inquirer",
+            "version": "^8.2.6"
+          },
+          {
+            "package": "semver",
+            "version": "^7.7.2"
+          }
+        ],
+        "updated": [
+          {
+            "package": "express",
+            "oldVersion": "^5.1.0",
+            "newVersion": "^5.1.0"
+          }
+        ],
+        "removed": [],
+        "devDependencies": [],
+        "securityUpdates": [],
+        "breakingChanges": []
+      },
+      "ast": {
+        "totalFiles": 26,
+        "parsedFiles": 26,
+        "functions": [
+          {
+            "file": "codescribe.js",
+            "name": "runDraftAgent",
+            "type": "function",
+            "async": true,
+            "params": 2,
+            "line": 12
+          },
+          {
+            "file": "codescribe.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 0,
+            "line": 32
+          },
+          {
+            "file": "codescribe.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 37
+          },
+          {
+            "file": "codescribe.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 0,
+            "line": 77
+          },
+          {
+            "file": "codescribe.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 79
+          },
+          {
+            "file": "codescribe.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 0,
+            "line": 88
+          },
+          {
+            "file": "codescribe.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 90
+          },
+          {
+            "file": "codescribe.js",
+            "name": "showHelp",
+            "type": "function",
+            "async": false,
+            "params": 0,
+            "line": 100
+          },
+          {
+            "file": "codescribe.js",
+            "name": "runInteractiveMode",
+            "type": "function",
+            "async": true,
+            "params": 0,
+            "line": 167
+          },
+          {
+            "file": "codescribe.js",
+            "name": "analyzeContextForSuggestions",
+            "type": "function",
+            "async": false,
+            "params": 1,
+            "line": 237
+          },
+          {
+            "file": "codescribe.js",
+            "name": "getWorkflowOptions",
+            "type": "function",
+            "async": true,
+            "params": 1,
+            "line": 256
+          },
+          {
+            "file": "codescribe.js",
+            "name": "handleHistoryCommand",
+            "type": "function",
+            "async": true,
+            "params": 3,
+            "line": 300
+          },
+          {
+            "file": "codescribe.js",
+            "name": "showHistory",
+            "type": "function",
+            "async": true,
+            "params": 2,
+            "line": 340
+          },
+          {
+            "file": "codescribe.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 352
+          },
+          {
+            "file": "codescribe.js",
+            "name": "showStats",
+            "type": "function",
+            "async": true,
+            "params": 2,
+            "line": 382
+          },
+          {
+            "file": "codescribe.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 404
+          },
+          {
+            "file": "codescribe.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 406
+          },
+          {
+            "file": "codescribe.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 415
+          },
+          {
+            "file": "codescribe.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 417
+          },
+          {
+            "file": "codescribe.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 425
+          },
+          {
+            "file": "codescribe.js",
+            "name": "replayExecution",
+            "type": "function",
+            "async": true,
+            "params": 3,
+            "line": 436
+          },
+          {
+            "file": "codescribe.js",
+            "name": "showLogs",
+            "type": "function",
+            "async": true,
+            "params": 2,
+            "line": 455
+          },
+          {
+            "file": "codescribe.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 468
+          },
+          {
+            "file": "codescribe.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 491
+          },
+          {
+            "file": "commit.js",
+            "name": "runCommitWorkflow",
+            "type": "function",
+            "async": true,
+            "params": 0,
+            "line": 12
+          },
+          {
+            "file": "commit.js",
+            "name": "showHelp",
+            "type": "function",
+            "async": false,
+            "params": 0,
+            "line": 68
+          },
+          {
+            "file": "commit.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 0,
+            "line": 90
+          },
+          {
+            "file": "commit.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 95
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 102
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 427
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 428
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 429
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 430
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 431
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 456
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 457
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 469
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 490
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 559
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 560
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 642
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 643
+          },
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 701
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 0,
+            "line": 54
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 0,
+            "line": 55
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 0,
+            "line": 56
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 0,
+            "line": 57
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 218
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 275
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 327
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 606
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 607
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 735
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 843
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 953
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1025
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1070
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1271
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1272
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 1386
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1388
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1494
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1566
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1641
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1785
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1789
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1792
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1794
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1890
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1943
+          },
+          {
+            "file": "src/core/CodeScribeCore.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 95
+          },
+          {
+            "file": "src/core/CodeScribeCore.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 116
+          },
+          {
+            "file": "src/utils/Logger.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 0,
+            "line": 63
+          },
+          {
+            "file": "src/utils/Logger.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 231
+          },
+          {
+            "file": "src/utils/ProgressReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 147
+          },
+          {
+            "file": "src/utils/ProgressReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 155
+          },
+          {
+            "file": "src/utils/ProgressReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 160
+          },
+          {
+            "file": "src/utils/ProgressReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 0,
+            "line": 180
+          },
+          {
+            "file": "src/utils/ProgressReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 226
+          },
+          {
+            "file": "src/utils/WorkflowHistory.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 46
+          },
+          {
+            "file": "src/utils/WorkflowHistory.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 75
+          },
+          {
+            "file": "src/utils/WorkflowHistory.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 76
+          },
+          {
+            "file": "src/utils/WorkflowHistory.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 149
+          },
+          {
+            "file": "src/utils/WorkflowHistory.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 150
+          },
+          {
+            "file": "src/utils/WorkflowHistory.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 158
+          },
+          {
+            "file": "src/utils/WorkflowHistory.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 162
+          },
+          {
+            "file": "src/utils/WorkflowHistory.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 164
+          },
+          {
+            "file": "src/utils/WorkflowHistory.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 179
+          },
+          {
+            "file": "src/utils/WorkflowHistory.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 180
+          },
+          {
+            "file": "src/utils/WorkflowHistory.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 248
+          },
+          {
+            "file": "src/workflows/WorkflowOrchestrator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 128
+          },
+          {
+            "file": "src/workflows/commit/CommitMessageTemplates.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 166
+          },
+          {
+            "file": "src/workflows/commit/CommitMessageTemplates.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 171
+          },
+          {
+            "file": "src/workflows/commit/CommitMessageTemplates.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 176
+          },
+          {
+            "file": "src/workflows/commit/CommitMessageTemplates.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 186
+          },
+          {
+            "file": "src/workflows/commit/CommitMessageTemplates.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 205
+          },
+          {
+            "file": "src/workflows/commit/CommitMessageTemplates.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 231
+          },
+          {
+            "file": "src/workflows/commit/CommitMessageTemplates.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 232
+          },
+          {
+            "file": "src/workflows/commit/CommitMessageTemplates.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 266
+          },
+          {
+            "file": "src/workflows/commit/CommitMessageTemplates.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 334
+          },
+          {
+            "file": "src/workflows/commit/CommitMessageTemplates.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 354
+          },
+          {
+            "file": "src/workflows/commit/CommitWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 169
+          },
+          {
+            "file": "src/workflows/commit/CommitWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 170
+          },
+          {
+            "file": "src/workflows/commit/CommitWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 171
+          },
+          {
+            "file": "src/workflows/commit/CommitWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 230
+          },
+          {
+            "file": "src/workflows/commit/CommitWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 230
+          },
+          {
+            "file": "src/workflows/commit/CommitWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 240
+          },
+          {
+            "file": "src/workflows/commit/CommitWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 262
+          },
+          {
+            "file": "src/workflows/commit/CommitWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 263
+          },
+          {
+            "file": "src/workflows/commit/CommitWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 305
+          },
+          {
+            "file": "src/workflows/commit/CommitWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 306
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 65
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 124
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 129
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 182
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 189
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 204
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 207
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 226
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 237
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 243
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 253
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 255
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 258
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 281
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 312
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 442
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 467
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 487
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 524
+          },
+          {
+            "file": "src/workflows/github/GitHubTrackingReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 170
+          },
+          {
+            "file": "src/workflows/github/GitHubTrackingReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 173
+          },
+          {
+            "file": "src/workflows/github/GitHubTrackingReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 191
+          },
+          {
+            "file": "src/workflows/github/GitHubTrackingReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 198
+          },
+          {
+            "file": "src/workflows/github/GitHubTrackingReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 204
+          },
+          {
+            "file": "src/workflows/github/GitHubTrackingReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 205
+          },
+          {
+            "file": "src/workflows/github/GitHubTrackingReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 289
+          },
+          {
+            "file": "src/workflows/github/GitHubTrackingReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 290
+          },
+          {
+            "file": "src/workflows/github/GitHubTrackingReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 292
+          },
+          {
+            "file": "src/workflows/github/GitHubTrackingReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 467
+          },
+          {
+            "file": "src/workflows/github/GitHubTrackingReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 536
+          },
+          {
+            "file": "src/workflows/github/GitHubTrackingReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 553
+          },
+          {
+            "file": "src/workflows/github/GitHubTrackingReporter.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 554
+          },
+          {
+            "file": "src/workflows/github/GitHubWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 184
+          },
+          {
+            "file": "src/workflows/github/GitHubWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 184
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 142
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 222
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 452
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 637
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 666
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 989
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1140
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1150
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1166
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1173
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1241
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1263
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1439
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1467
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1468
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1477
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 1675
+          },
+          {
+            "file": "test-commit-integration.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 13
+          },
+          {
+            "file": "test-commit-integration.js",
+            "name": "testCommitWorkflowIntegration",
+            "type": "function",
+            "async": true,
+            "params": 0,
+            "line": 105
+          },
+          {
+            "file": "test-commit-integration.js",
+            "name": "testChangeAnalysis",
+            "type": "function",
+            "async": true,
+            "params": 0,
+            "line": 153
+          },
+          {
+            "file": "test-commit-integration.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 160
+          },
+          {
+            "file": "test-commit-integration.js",
+            "name": "testFileCategorization",
+            "type": "function",
+            "async": true,
+            "params": 0,
+            "line": 195
+          },
+          {
+            "file": "test-commit-integration.js",
+            "name": "runIntegrationTests",
+            "type": "function",
+            "async": true,
+            "params": 0,
+            "line": 218
+          },
+          {
+            "file": "test-commit.js",
+            "name": "testCommitWorkflow",
+            "type": "function",
+            "async": true,
+            "params": 0,
+            "line": 7
+          },
+          {
+            "file": "test-enhanced-commit.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 13
+          },
+          {
+            "file": "test-enhanced-commit.js",
+            "name": "testCommitMessageTemplates",
+            "type": "function",
+            "async": true,
+            "params": 0,
+            "line": 125
+          },
+          {
+            "file": "test-enhanced-commit.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 134
+          },
+          {
+            "file": "test-enhanced-commit.js",
+            "name": "testAIAnalysisEngine",
+            "type": "function",
+            "async": true,
+            "params": 0,
+            "line": 158
+          },
+          {
+            "file": "test-enhanced-commit.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 180
+          },
+          {
+            "file": "test-enhanced-commit.js",
+            "name": "testCommitTypeDetection",
+            "type": "function",
+            "async": true,
+            "params": 0,
+            "line": 201
+          },
+          {
+            "file": "test-enhanced-commit.js",
+            "name": "runTests",
+            "type": "function",
+            "async": true,
+            "params": 0,
+            "line": 261
+          },
+          {
+            "file": "test-enhanced-linear-workflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 187
+          },
+          {
+            "file": "test-enhanced-linear-workflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 194
+          },
+          {
+            "file": "test-enhanced-linear-workflow.js",
+            "name": "testEnhancedLinearWorkflow",
+            "type": "function",
+            "async": true,
+            "params": 0,
+            "line": 203
+          },
+          {
+            "file": "test-enhanced-linear-workflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 260
+          },
+          {
+            "file": "test-enhanced-linear-workflow.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 267
+          },
+          {
+            "file": "test-mermaid-comprehensive.js",
+            "name": "testAllMermaidFeatures",
+            "type": "function",
+            "async": true,
+            "params": 0,
+            "line": 10
+          },
+          {
+            "file": "test-mermaid-generation.js",
+            "name": "testMermaidGeneration",
+            "type": "function",
+            "async": true,
+            "params": 0,
+            "line": 9
+          },
+          {
+            "file": "test-mermaid-generation.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 38
+          },
+          {
+            "file": "test-real-linear-integration.js",
+            "name": "askQuestion",
+            "type": "function",
+            "async": false,
+            "params": 1,
+            "line": 16
+          },
+          {
+            "file": "test-real-linear-integration.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 17
+          },
+          {
+            "file": "test-real-linear-integration.js",
+            "name": "testRealLinearIntegration",
+            "type": "function",
+            "async": true,
+            "params": 0,
+            "line": 22
+          },
+          {
+            "file": "test-status-transition-fix.js",
+            "name": "testStatusTransitionFix",
+            "type": "function",
+            "async": true,
+            "params": 0,
+            "line": 71
+          }
+        ],
+        "classes": [
+          {
+            "file": "src/ai/AIAnalysisEngine.js",
+            "name": "AIAnalysisEngine",
+            "superClass": null,
+            "line": 7
+          },
+          {
+            "file": "src/config/ConfigurationManager.js",
+            "name": "ConfigurationManager",
+            "superClass": null,
+            "line": 7
+          },
+          {
+            "file": "src/context/ContextAnalyzer.js",
+            "name": "ContextAnalyzer",
+            "superClass": null,
+            "line": 7
+          },
+          {
+            "file": "src/core/CodeScribeCore.js",
+            "name": "CodeScribeCore",
+            "superClass": null,
+            "line": 14
+          },
+          {
+            "file": "src/utils/Logger.js",
+            "name": "Logger",
+            "superClass": null,
+            "line": 8
+          },
+          {
+            "file": "src/utils/ProgressReporter.js",
+            "name": "ProgressReporter",
+            "superClass": null,
+            "line": 7
+          },
+          {
+            "file": "src/utils/WorkflowHistory.js",
+            "name": "WorkflowHistory",
+            "superClass": null,
+            "line": 8
+          },
+          {
+            "file": "src/workflows/BaseWorkflow.js",
+            "name": "BaseWorkflow",
+            "superClass": null,
+            "line": 5
+          },
+          {
+            "file": "src/workflows/WorkflowOrchestrator.js",
+            "name": "WorkflowOrchestrator",
+            "superClass": null,
+            "line": 6
+          },
+          {
+            "file": "src/workflows/commit/CommitMessageTemplates.js",
+            "name": "CommitMessageTemplates",
+            "superClass": null,
+            "line": 4
+          },
+          {
+            "file": "src/workflows/commit/CommitWorkflow.js",
+            "name": "CommitWorkflow",
+            "superClass": "BaseWorkflow",
+            "line": 8
+          },
+          {
+            "file": "src/workflows/documentation/DocumentationWorkflow.js",
+            "name": "DocumentationWorkflow",
+            "superClass": "BaseWorkflow",
+            "line": 8
+          },
+          {
+            "file": "src/workflows/documentation/MermaidGenerator.js",
+            "name": "MermaidGenerator",
+            "superClass": null,
+            "line": 6
+          },
+          {
+            "file": "src/workflows/github/GitHubTrackingReporter.js",
+            "name": "GitHubTrackingReporter",
+            "superClass": null,
+            "line": 7
+          },
+          {
+            "file": "src/workflows/github/GitHubWorkflow.js",
+            "name": "GitHubWorkflow",
+            "superClass": "BaseWorkflow",
+            "line": 8
+          },
+          {
+            "file": "src/workflows/linear/LinearWorkflow.js",
+            "name": "LinearWorkflow",
+            "superClass": "BaseWorkflow",
+            "line": 9
+          },
+          {
+            "file": "test-enhanced-linear-workflow.js",
+            "name": "TestLinearWorkflow",
+            "superClass": "LinearWorkflow",
+            "line": 146
+          },
+          {
+            "file": "test-status-transition-fix.js",
+            "name": "TestLinearWorkflow",
+            "superClass": "LinearWorkflow",
+            "line": 21
+          }
+        ],
+        "imports": [],
+        "exports": [],
+        "issues": []
+      },
+      "metrics": {
+        "totalLines": 1,
+        "addedLines": 0,
+        "removedLines": 0,
+        "modifiedFiles": 0,
+        "addedFiles": 0,
+        "removedFiles": 0
+      }
+    },
+    "project": {
+      "structure": {
+        "totalFiles": 59,
+        "directories": [
+          {
+            "path": ".codescribe",
+            "depth": 0
+          },
+          {
+            "path": ".codescribe\\history",
+            "depth": 1
+          },
+          {
+            "path": ".codescribe\\logs",
+            "depth": 1
+          },
+          {
+            "path": ".kiro",
+            "depth": 0
+          },
+          {
+            "path": ".kiro\\specs",
+            "depth": 1
+          },
+          {
+            "path": ".kiro\\specs\\enhanced-codescribe-workflows",
+            "depth": 2
+          },
+          {
+            "path": ".warp",
+            "depth": 0
+          },
+          {
+            "path": ".warp\\workflows",
+            "depth": 1
+          },
+          {
+            "path": "docs",
+            "depth": 0
+          },
+          {
+            "path": "src",
+            "depth": 0
+          },
+          {
+            "path": "src\\ai",
+            "depth": 1
+          },
+          {
+            "path": "src\\config",
+            "depth": 1
+          },
+          {
+            "path": "src\\context",
+            "depth": 1
+          },
+          {
+            "path": "src\\core",
+            "depth": 1
+          },
+          {
+            "path": "src\\utils",
+            "depth": 1
+          },
+          {
+            "path": "src\\workflows",
+            "depth": 1
+          },
+          {
+            "path": "src\\workflows\\commit",
+            "depth": 2
+          },
+          {
+            "path": "src\\workflows\\documentation",
+            "depth": 2
+          },
+          {
+            "path": "src\\workflows\\github",
+            "depth": 2
+          },
+          {
+            "path": "src\\workflows\\linear",
+            "depth": 2
+          }
+        ],
+        "fileTypes": {
+          ".json": 6,
+          ".log": 1,
+          "": 1,
+          ".md": 13,
+          ".yaml": 11,
+          ".js": 27
+        },
+        "testFiles": 0,
+        "documentationFiles": 13,
+        "configFiles": 17,
+        "ciFiles": 0,
+        "sourceFiles": 27,
+        "depth": 3
+      },
+      "configuration": {
+        "packageJson": {
+          "name": "codescribe",
+          "version": "1.0.0",
+          "description": "",
+          "main": "index.js",
+          "bin": {
+            "codescribe": "./codescribe.js"
+          },
+          "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1"
+          },
+          "repository": {
+            "type": "git",
+            "url": "git+https://github.com/ManagementMO/CodeScribe.git"
+          },
+          "keywords": [],
+          "author": "",
+          "license": "ISC",
+          "type": "commonjs",
+          "bugs": {
+            "url": "https://github.com/ManagementMO/CodeScribe/issues"
+          },
+          "homepage": "https://github.com/ManagementMO/CodeScribe#readme",
+          "dependencies": {
+            "@babel/parser": "^7.28.0",
+            "@babel/traverse": "^7.28.0",
+            "@babel/types": "^7.28.1",
+            "@google/generative-ai": "^0.24.1",
+            "@linear/sdk": "^52.0.0",
+            "@octokit/rest": "^22.0.0",
+            "acorn": "^8.15.0",
+            "audit-ci": "^7.1.0",
+            "axios": "^1.10.0",
+            "chalk": "^4.1.2",
+            "cli-progress": "^3.12.0",
+            "commander": "^14.0.0",
+            "dotenv": "^17.2.0",
+            "express": "^5.1.0",
+            "inquirer": "^8.2.6",
+            "semver": "^7.7.2"
+          }
+        },
+        "tsconfig": null,
+        "eslint": null,
+        "prettier": null,
+        "jest": null,
+        "webpack": null,
+        "babel": null,
+        "vite": null,
+        "nextConfig": null,
+        "tailwind": null,
+        "docker": null
+      },
+      "projectType": {
+        "primary": "node-cli",
+        "secondary": [
+          {
+            "type": "express-api",
+            "confidence": 0.26666666666666666,
+            "matches": [
+              "express"
+            ]
+          },
+          {
+            "type": "node-cli",
+            "confidence": 0.4666666666666666,
+            "matches": [
+              "commander",
+              "inquirer"
+            ]
+          }
+        ],
+        "confidence": 0.4666666666666666,
+        "indicators": [
+          "express",
+          "commander",
+          "inquirer"
+        ]
+      },
+      "framework": {
+        "frontend": [],
+        "backend": [
+          "Express"
+        ],
+        "testing": [],
+        "build": [],
+        "styling": [],
+        "database": []
+      },
+      "testCoverage": {
+        "hasTests": false,
+        "testFiles": 0,
+        "coverageReports": [],
+        "testFrameworks": [
+          "npm test"
+        ],
+        "coverageThreshold": null,
+        "lastCoverageRun": null,
+        "summary": null
+      },
+      "buildSystem": {
+        "bundler": null,
+        "taskRunner": null,
+        "packageManager": "npm",
+        "scripts": [
+          "test"
+        ],
+        "buildOutput": null,
+        "hasCI": false
+      },
+      "metadata": {
+        "hasTests": false,
+        "hasDocumentation": true,
+        "hasCI": false,
+        "packageManager": "npm",
+        "nodeVersion": null
+      }
+    },
+    "linear": {
+      "ticketId": "COD-20",
+      "ticketData": null,
+      "projectData": null
+    },
+    "ai": {
+      "title": "feat: Enhance CodeScribe with advanced linear workflow and improved commit message handling",
+      "body": "This PR introduces a significant enhancement to CodeScribe, focusing on two key areas:\n\n1. **Advanced Linear Workflow:**  A completely new linear workflow has been implemented, providing a more streamlined and efficient way to manage code changes. This includes a substantial overhaul of the internal architecture to support this new functionality.  This new workflow is thoroughly documented in `docs/ENHANCED_LINEAR_WORKFLOW.md`.\n\n2. **Improved Commit Message Handling:** The process of creating commit messages has been significantly improved with enhanced templates and better guidance.  This includes the addition of new commit message templates, and improved AI-powered commit message analysis to ensure consistency and clarity. Details can be found in `docs/ENHANCED_COMMIT_MESSAGES.md`.\n\nThis release also includes:\n\n* Extensive documentation updates across various documentation files (`docs/*`) to reflect the changes.\n* New test cases (`test-*`) to ensure the stability and functionality of the new features.\n* A new `src/context/ContextAnalyzer.js` and updated `src/ai/AIAnalysisEngine.js` significantly enhanced AI capabilities.\n* Removal of the deprecated `vellum_server.js`\n\nThe new features have been thoroughly tested, but please test thoroughly in your environments and report any issues.\n\n**Affected files:**\nThis PR involves substantial changes across multiple modules, including core workflow logic, AI integration, documentation, and testing.  A comprehensive list of changes is available in the diff.\n",
+      "summary": "This release significantly enhances CodeScribe's linear workflow and commit message handling, improving developer efficiency and code quality."
+    },
+    "commit": {
+      "commit": {
+        "hash": "9fdee3ab49220abbc43efe7b8c79beae9a507db0",
+        "shortHash": "9fdee3a",
+        "message": "security(CodeScribe): Enhanced commit workflows and security improvements (risk level: high)",
+        "author": "Mohammed Elshrief <111318013+ManagementMO@users.noreply.github.com>",
+        "timestamp": "2025-07-19 21:19:57 -0400"
+      },
+      "push": {
+        "success": true,
+        "branch": "feat/COD-20-warp-test",
+        "remote": "origin"
+      },
+      "linear": {
+        "success": true,
+        "ticketId": "COD-20",
+        "issueId": "9c45c108-554c-4f53-82dc-2d64e45f8903",
+        "commentAdded": true
+      },
+      "message": "security(CodeScribe): Enhanced commit workflows and security improvements (risk level: high)"
+    }
+  },
+  "workflows": [
+    "commit"
+  ],
+  "results": {
+    "commit": {
+      "commit": {
+        "hash": "9fdee3ab49220abbc43efe7b8c79beae9a507db0",
+        "shortHash": "9fdee3a",
+        "message": "security(CodeScribe): Enhanced commit workflows and security improvements (risk level: high)",
+        "author": "Mohammed Elshrief <111318013+ManagementMO@users.noreply.github.com>",
+        "timestamp": "2025-07-19 21:19:57 -0400"
+      },
+      "push": {
+        "success": true,
+        "branch": "feat/COD-20-warp-test",
+        "remote": "origin"
+      },
+      "linear": {
+        "success": true,
+        "ticketId": "COD-20",
+        "issueId": "9c45c108-554c-4f53-82dc-2d64e45f8903",
+        "commentAdded": true
+      },
+      "message": "security(CodeScribe): Enhanced commit workflows and security improvements (risk level: high)"
+    }
+  },
+  "duration": 16477,
+  "success": true,
+  "error": null
+}

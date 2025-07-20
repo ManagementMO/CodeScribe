@@ -48,26 +48,52 @@ codescribe --help
 | `codescribe replay <id>` | Replay previous execution |
 | `codescribe logs` | View detailed logs |
 
-## 🔄 Typical Development Flow
+## 🔄 Primary Development Flow
 
 ```bash
-# 1. Start new feature
-codescribe interactive  # or codescribe feature
+# 1. Create feature branch with Linear ticket ID
+git checkout -b feat/COD-123-feature-name
 
-# 2. Make incremental commits
-codescribe commit
+# 2. Make changes and intelligent commits
+codescribe commit --all
 
-# 3. Quality check before PR
-codescribe quality
+# 3. Create comprehensive PR (does everything)
+codescribe
 
-# 4. Generate documentation
-codescribe docs
+# This single command:
+# - Creates/updates GitHub PR with AI description
+# - Updates Linear ticket status and progress
+# - Generates Mermaid diagrams and documentation
+# - Performs code quality and security analysis
+# - Provides comprehensive tracking
+```
 
-# 5. Create final PR
-codescribe pr
+## 🔄 Alternative Development Flows
 
-# 6. Prepare release (when ready)
-codescribe release
+### Incremental Development
+```bash
+# Make changes, then commit incrementally
+codescribe commit -m "Add user validation"
+codescribe commit -m "Fix edge case handling"
+# When ready for PR
+codescribe
+```
+
+### Quality-First Approach
+```bash
+# Check quality before PR
+codescribe quality && codescribe
+
+# Generate docs then PR
+codescribe docs && codescribe
+```
+
+### Bug Fix Flow
+```bash
+# Specialized bug fix workflow
+codescribe fix
+# Then create PR
+codescribe
 ```
 
 ## ⚙️ Environment Setup
