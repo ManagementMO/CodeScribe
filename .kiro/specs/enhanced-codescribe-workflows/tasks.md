@@ -134,6 +134,7 @@
 
 - [-] 9.1 Write comprehensive user documentation
 
+
   - Create getting started guide with common workflow examples
   - Add configuration reference documentation
   - Implement plugin development guide with examples

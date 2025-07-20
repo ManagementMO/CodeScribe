@@ -1,4 +1,4 @@
-const { execSync } = require('child_process');
+const { execSync, spawn } = require('child_process');
 const chalk = require('chalk');
 
 /**
@@ -34,41 +34,150 @@ class ContextAnalyzer {
         console.log(chalk.blue('   - Gathering enhanced git context...'));
         
         try {
-            const branchName = execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
-            const remoteUrl = execSync('git config --get remote.origin.url').toString().trim();
+            const branchName = await this.safeExecSync('git rev-parse --abbrev-ref HEAD');
+            const remoteUrl = await this.safeExecSync('git config --get remote.origin.url');
             
             // Handle unpushed commits
             await this.handleUnpushedCommits(branchName);
             
-            const diffContent = execSync('git diff origin/main...HEAD').toString().trim();
+            // Use safer diff gathering with size limits
+            const diffContent = await this.getSafeDiff(branchName);
             
-            if (!diffContent) {
+            if (!diffContent || diffContent.length === 0) {
                 throw new Error('No new commits found on this branch compared to "origin/main". Please commit your changes.');
             }
 
             console.log(chalk.blue(`   - Found ${diffContent.split('\n').length} lines of changes`));
 
-            // Enhanced git context gathering
-            const branchHistory = await this.getBranchHistory(branchName);
-            const mergeBaseAnalysis = await this.analyzeMergeBase(branchName);
-            const conflictDetection = await this.detectConflicts(branchName);
-            const commitAnalysis = await this.analyzeCommitMessages(branchName);
+            // Enhanced git context gathering with safe execution
+            const [branchHistory, mergeBaseAnalysis, conflictDetection, commitAnalysis] = await Promise.all([
+                this.getBranchHistory(branchName).catch(() => ({})),
+                this.analyzeMergeBase(branchName).catch(() => ({})),
+                this.detectConflicts(branchName).catch(() => ({})),
+                this.analyzeCommitMessages(branchName).catch(() => ({}))
+            ]);
+            
             const branchValidation = this.validateBranchNaming(branchName);
 
             return {
                 branch: branchName,
                 remoteUrl,
                 diff: diffContent,
-                diffStats: execSync('git diff --stat origin/main...HEAD').toString().trim(),
+                diffStats: await this.safeExecSync('git diff --stat origin/main...HEAD', { maxBuffer: 1024 * 1024 }),
                 commits: this.getRecentCommits(branchName),
                 branchHistory,
                 mergeBaseAnalysis,
                 conflictDetection,
                 commitAnalysis,
-                branchValidation
+                branchValidation,
+                hasChanges: diffContent.length > 0,
+                hasUncommittedChanges: await this.hasUncommittedChanges(),
+                hasUnpushedCommits: await this.hasUnpushedCommits(branchName)
             };
         } catch (error) {
             throw new Error(`Git context gathering failed: ${error.message}`);
+        }
+    }
+
+    /**
+     * Safe execution of git commands with proper error handling and buffer limits
+     * @param {string} command - Git command to execute
+     * @param {Object} options - Execution options
+     * @returns {Promise<string>} Command output
+     */
+    async safeExecSync(command, options = {}) {
+        try {
+            const defaultOptions = {
+                maxBuffer: 1024 * 1024, // 1MB buffer limit
+                timeout: 30000, // 30 second timeout
+                encoding: 'utf8'
+            };
+            
+            const result = execSync(command, { ...defaultOptions, ...options });
+            return result.toString().trim();
+        } catch (error) {
+            if (error.code === 'ENOBUFS') {
+                console.log(chalk.yellow(`   - Warning: Command output too large, truncating: ${command}`));
+                // Try with smaller buffer and truncate
+                try {
+                    const result = execSync(command, { 
+                        maxBuffer: 512 * 1024, // 512KB
+                        timeout: 15000,
+                        encoding: 'utf8'
+                    });
+                    return result.toString().trim().substring(0, 100000); // Truncate to 100KB
+                } catch (secondError) {
+                    console.log(chalk.red(`   - Command failed: ${command}`));
+                    return '';
+                }
+            }
+            throw error;
+        }
+    }
+
+    /**
+     * Get git diff with size limits and streaming for large repositories
+     * @param {string} branchName - Current branch name
+     * @returns {Promise<string>} Git diff content
+     */
+    async getSafeDiff(branchName) {
+        try {
+            // First check if there are any changes
+            const hasChanges = await this.safeExecSync('git diff --name-only origin/main...HEAD');
+            if (!hasChanges) {
+                return '';
+            }
+
+            // Get diff with size limit
+            const diffContent = await this.safeExecSync('git diff origin/main...HEAD', {
+                maxBuffer: 2 * 1024 * 1024 // 2MB limit for diff
+            });
+            
+            // If diff is too large, get a summary instead
+            if (diffContent.length > 1000000) { // 1MB
+                console.log(chalk.yellow('   - Large diff detected, using summary...'));
+                const summary = await this.safeExecSync('git diff --stat origin/main...HEAD');
+                const fileList = await this.safeExecSync('git diff --name-status origin/main...HEAD');
+                return `Large diff summary:\n${summary}\n\nChanged files:\n${fileList}`;
+            }
+            
+            return diffContent;
+        } catch (error) {
+            console.log(chalk.yellow(`   - Warning: Could not get diff: ${error.message}`));
+            // Fallback to just getting changed file names
+            try {
+                const fileList = await this.safeExecSync('git diff --name-status origin/main...HEAD');
+                return `Changed files:\n${fileList}`;
+            } catch (fallbackError) {
+                return '';
+            }
+        }
+    }
+
+    /**
+     * Check if there are uncommitted changes
+     * @returns {Promise<boolean>} True if there are uncommitted changes
+     */
+    async hasUncommittedChanges() {
+        try {
+            const status = await this.safeExecSync('git status --porcelain');
+            return status.length > 0;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    /**
+     * Check if there are unpushed commits
+     * @param {string} branchName - Current branch name
+     * @returns {Promise<boolean>} True if there are unpushed commits
+     */
+    async hasUnpushedCommits(branchName) {
+        try {
+            const unpushed = await this.safeExecSync(`git log origin/${branchName}..HEAD --oneline`);
+            return unpushed.length > 0;
+        } catch (error) {
+            return false;
         }
     }
 
@@ -78,17 +187,17 @@ class ContextAnalyzer {
      */
     async handleUnpushedCommits(branchName) {
         try {
-            const unpushedCommits = execSync(`git log origin/${branchName}..HEAD --oneline`).toString().trim();
+            const unpushedCommits = await this.safeExecSync(`git log origin/${branchName}..HEAD --oneline`);
             if (unpushedCommits) {
                 console.log(chalk.yellow('   - Found unpushed commits, pushing to remote...'));
-                execSync(`git push origin ${branchName}`);
+                await this.safeExecSync(`git push origin ${branchName}`);
                 console.log(chalk.green('   - Pushed latest commits to remote'));
             }
         } catch (pushError) {
             // Branch might not exist on remote yet
             console.log(chalk.yellow('   - Branch not on remote, pushing for first time...'));
             try {
-                execSync(`git push -u origin ${branchName}`);
+                await this.safeExecSync(`git push -u origin ${branchName}`);
                 console.log(chalk.green('   - Pushed branch to remote'));
             } catch (firstPushError) {
                 console.log(chalk.red('   - Warning: Could not push to remote, continuing anyway...'));
@@ -101,9 +210,9 @@ class ContextAnalyzer {
      * @param {string} branchName - Current branch name
      * @returns {Array} Array of commit objects
      */
-    getRecentCommits(branchName) {
+    async getRecentCommits(branchName) {
         try {
-            const commitLog = execSync(`git log origin/main..${branchName} --oneline --no-merges`).toString().trim();
+            const commitLog = await this.safeExecSync(`git log origin/main..${branchName} --oneline --no-merges`);
             if (!commitLog) return [];
             
             return commitLog.split('\n').map(line => {
@@ -126,8 +235,8 @@ class ContextAnalyzer {
         console.log(chalk.blue('   - Analyzing code changes...'));
         
         try {
-            const diffContent = execSync('git diff origin/main...HEAD').toString();
-            const changedFiles = this.getChangedFiles();
+            const diffContent = await this.safeExecSync('git diff origin/main...HEAD');
+            const changedFiles = await this.getChangedFiles();
             
             const analysis = {
                 hasChanges: diffContent.length > 0,
@@ -158,9 +267,9 @@ class ContextAnalyzer {
      * Get list of changed files from git diff
      * @returns {Array} Array of changed file objects
      */
-    getChangedFiles() {
+    async getChangedFiles() {
         try {
-            const diffOutput = execSync('git diff --name-status origin/main...HEAD').toString().trim();
+            const diffOutput = await this.safeExecSync('git diff --name-status origin/main...HEAD');
             if (!diffOutput) return [];
             
             return diffOutput.split('\n').map(line => {
