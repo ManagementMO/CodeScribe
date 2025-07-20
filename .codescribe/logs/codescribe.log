@@ -62,3 +62,6 @@
 [2025-07-20T03:26:12.906Z] [INFO] Starting CodeScribe execution {"command":"pr","options":{},"timestamp":"2025-07-20T03:26:12.906Z"}
 [2025-07-20T03:26:19.405Z] [INFO] Workflows selected {"workflows":["documentation","github","linear"],"count":3}
 [2025-07-20T03:26:20.908Z] [INFO] CodeScribe execution completed successfully {"command":"pr","duration":8003,"workflows":["documentation","github","linear"],"results":["documentation","github","linear"]}
+[2025-07-20T04:42:17.550Z] [INFO] Starting CodeScribe execution {"command":"default","options":{},"timestamp":"2025-07-20T04:42:17.549Z"}
+[2025-07-20T04:42:26.333Z] [INFO] Workflows selected {"workflows":["documentation","github","linear"],"count":3}
+[2025-07-20T04:42:27.941Z] [INFO] CodeScribe execution completed successfully {"command":"default","duration":10392,"workflows":["documentation","github","linear"],"results":["documentation","github","linear"]}
