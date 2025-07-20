@@ -81,3 +81,32 @@ Clone the repository and install dependencies.
 git clone https://github.com/your-username/your-repo.git
 cd your-repo
 npm install
+
+# Make the codescribe command globally available on your system.
+npm link
+
+# Basic Usage
+Now you can use the CodeScribe agent from any git repository on your machine.
+
+# Apply a preliminary diff from a Linear ticket
+codescribe apply TICKET-ID
+
+# Run the comprehensive PR creation/update workflow
+codescribe pr
+
+# See all available commands and options
+codescribe --help
+
+
+---
+
+## What's Next for CodeScribe
+
+We're incredibly proud of what we built in a weekend, but we're just scratching the surface of what's possible. Our roadmap includes:
+
+1.  **IDE Extension:** A "one-click apply" and "one-click PR" button directly in VS Code, bringing the agent's power even closer to the developer's workflow.
+2.  **Automated Test Generation:** The agent will not only write the feature code but also generate corresponding unit test stubs to ensure code quality from the start.
+3.  **Self-Improving Feedback Loop:** Allow developers to approve or reject the AI's changes. This feedback will be used to fine-tune the AI model, making it smarter and more aligned with a specific team's coding style over time.
+4.  **Interactive Patch Application:** Instead of applying the entire diff at once, the agent will present individual "hunks" of code changes, allowing the developer to selectively accept or reject parts of the AI's suggestion.
+
+---
