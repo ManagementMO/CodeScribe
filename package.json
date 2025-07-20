@@ -28,6 +28,7 @@
     "@google/generative-ai": "^0.24.1",
     "@linear/sdk": "^52.0.0",
     "@octokit/rest": "^22.0.0",
+    "@supabase/supabase-js": "^2.52.0",
     "acorn": "^8.15.0",
     "audit-ci": "^7.1.0",
     "axios": "^1.10.0",
@@ -37,6 +38,7 @@
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
     "inquirer": "^8.2.6",
+    "postgres": "^3.4.7",
     "semver": "^7.7.2"
   }
 }
