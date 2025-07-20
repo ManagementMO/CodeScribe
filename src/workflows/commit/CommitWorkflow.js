@@ -101,7 +101,39 @@ class CommitWorkflow extends BaseWorkflow {
             return this.formatCommitMessage(options.message, context);
         }
 
-        // Generate message based on code analysis
+        try {
+            // Get enhanced change analysis from context
+            const changeAnalysis = {
+                complexity: context.code?.complexity || {},
+                security: context.code?.security || {},
+                dependencies: context.code?.dependencies || {},
+                metrics: context.code?.metrics || {},
+                code: context.code || {}
+            };
+
+            // Try to use AI for enhanced commit message generation
+            const AIAnalysisEngine = require('../../ai/AIAnalysisEngine');
+            const aiEngine = new AIAnalysisEngine(this.config);
+
+            if (aiEngine.isAvailable()) {
+                this.log('Generating enhanced commit message with AI analysis...', 'info');
+                const enhancedMessage = await aiEngine.generateEnhancedCommitMessage(context, changeAnalysis);
+                
+                // Store additional metadata for potential use in Linear updates
+                this.lastCommitMetadata = {
+                    impact: enhancedMessage.impact,
+                    rationale: enhancedMessage.rationale,
+                    template: enhancedMessage.template,
+                    description: enhancedMessage.description
+                };
+
+                return enhancedMessage.message;
+            }
+        } catch (error) {
+            this.log(`Enhanced commit message generation failed: ${error.message}`, 'warn');
+        }
+
+        // Fallback to basic analysis
         const changes = await this.analyzeChanges();
         const ticketId = context.linear?.ticketId;
         
@@ -483,7 +515,7 @@ class CommitWorkflow extends BaseWorkflow {
     }
 
     /**
-     * Generate Linear comment for commit
+     * Generate Linear comment for commit with enhanced context
      * @param {Object} commitResult - Commit result
      * @param {Object} context - Current execution context
      * @returns {string} Generated comment
@@ -499,8 +531,66 @@ class CommitWorkflow extends BaseWorkflow {
             const commitUrl = `https://github.com/${owner}/${repo}/commit/${commitResult.hash}`;
             comment += `**GitHub:** [View Commit](${commitUrl})\n`;
         }
+
+        // Add enhanced metadata if available
+        if (this.lastCommitMetadata) {
+            const metadata = this.lastCommitMetadata;
+            
+            comment += `\n### 📊 **Impact Analysis**\n`;
+            
+            if (metadata.description) {
+                comment += `**Description:** ${metadata.description}\n`;
+            }
+            
+            if (metadata.impact) {
+                comment += `**Performance Impact:** ${metadata.impact.performance}\n`;
+                comment += `**Security Risk:** ${metadata.impact.security}\n`;
+                comment += `**Maintainability:** ${metadata.impact.maintainability}\n`;
+                
+                if (metadata.impact.breaking) {
+                    comment += `⚠️ **Breaking Changes:** Yes\n`;
+                }
+            }
+            
+            if (metadata.rationale && metadata.rationale !== 'Automated analysis - detailed rationale unavailable') {
+                comment += `\n**Design Rationale:** ${metadata.rationale}\n`;
+            }
+            
+            if (metadata.template) {
+                comment += `**Change Type:** ${metadata.template}\n`;
+            }
+        }
+
+        // Add code metrics if available
+        if (context.code?.metrics) {
+            const metrics = context.code.metrics;
+            comment += `\n### 📈 **Code Metrics**\n`;
+            comment += `**Lines Added:** ${metrics.addedLines || 0}\n`;
+            comment += `**Lines Removed:** ${metrics.removedLines || 0}\n`;
+            comment += `**Files Modified:** ${metrics.modifiedFiles || 0}\n`;
+        }
+
+        // Add complexity information if available
+        if (context.code?.complexity && context.code.complexity.level !== 'unknown') {
+            comment += `\n### 🔍 **Code Quality**\n`;
+            comment += `**Complexity Level:** ${context.code.complexity.level}\n`;
+            
+            if (context.code.complexity.issues && context.code.complexity.issues.length > 0) {
+                comment += `**Quality Issues:** ${context.code.complexity.issues.length} detected\n`;
+            }
+        }
+
+        // Add security information if available
+        if (context.code?.security && context.code.security.riskLevel !== 'none') {
+            comment += `\n### 🔒 **Security Analysis**\n`;
+            comment += `**Risk Level:** ${context.code.security.riskLevel}\n`;
+            
+            if (context.code.security.vulnerabilities && context.code.security.vulnerabilities.length > 0) {
+                comment += `**Vulnerabilities Found:** ${context.code.security.vulnerabilities.length}\n`;
+            }
+        }
         
-        comment += `\n*Committed by CodeScribe Agent*`;
+        comment += `\n*Committed by CodeScribe Agent with Enhanced Analysis*`;
         
         return comment;
     }

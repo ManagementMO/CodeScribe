@@ -1,0 +1,22 @@
+# .warp/workflows/codescribe-commit.yaml
+
+# Intelligent commit workflow with tracking
+name: CodeScribe - Smart Commit with Tracking
+
+description: |
+  Creates intelligent commits with AI-generated messages that explain the "why" behind changes.
+  Automatically stages files, analyzes code impact, generates conventional commit messages,
+  and updates both GitHub and Linear with commit details and progress tracking.
+
+author: CodeScribe Team
+
+command: codescribe commit
+
+tags:
+  - commit
+  - ai
+  - conventional-commits
+  - github
+  - linear
+  - tracking
+  - smart-staging

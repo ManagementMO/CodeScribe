@@ -1,0 +1,22 @@
+# .warp/workflows/codescribe-docs.yaml
+
+# Documentation generation workflow
+name: CodeScribe - Generate Documentation & Diagrams
+
+description: |
+  Generates comprehensive documentation from your code changes including Mermaid flowcharts,
+  sequence diagrams, architecture diagrams, API documentation, and Architecture Decision Records (ADRs).
+  Perfect for maintaining up-to-date project documentation automatically.
+
+author: CodeScribe Team
+
+command: codescribe docs
+
+tags:
+  - documentation
+  - mermaid
+  - diagrams
+  - api-docs
+  - adr
+  - architecture
+  - flowcharts

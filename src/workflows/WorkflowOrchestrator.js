@@ -18,10 +18,12 @@ class WorkflowOrchestrator {
         const GitHubWorkflow = require('./github/GitHubWorkflow');
         const LinearWorkflow = require('./linear/LinearWorkflow');
         const CommitWorkflow = require('./commit/CommitWorkflow');
+        const DocumentationWorkflow = require('./documentation/DocumentationWorkflow');
         
         this.registerWorkflow('github', new GitHubWorkflow(this.config));
         this.registerWorkflow('linear', new LinearWorkflow(this.config));
         this.registerWorkflow('commit', new CommitWorkflow(this.config));
+        this.registerWorkflow('documentation', new DocumentationWorkflow(this.config));
     }
 
     /**
@@ -43,11 +45,12 @@ class WorkflowOrchestrator {
     selectWorkflows(command, context) {
         const selectedWorkflows = [];
 
-        // Default workflow selection logic
+        // Enhanced workflow selection logic
         switch (command) {
             case 'default':
             case 'pr':
-                // Standard PR creation workflow
+                // Standard PR creation workflow with documentation
+                selectedWorkflows.push(this.workflows.get('documentation'));
                 selectedWorkflows.push(this.workflows.get('github'));
                 selectedWorkflows.push(this.workflows.get('linear'));
                 break;
@@ -57,16 +60,67 @@ class WorkflowOrchestrator {
                 selectedWorkflows.push(this.workflows.get('commit'));
                 break;
             
+            case 'docs':
+            case 'documentation':
+                // Documentation generation only
+                selectedWorkflows.push(this.workflows.get('documentation'));
+                break;
+                
+            case 'quality':
+                // Code quality analysis workflow
+                selectedWorkflows.push(this.workflows.get('documentation'));
+                selectedWorkflows.push(this.workflows.get('github')); // For creating issues
+                break;
+                
+            case 'linear':
+                // Linear-focused workflow
+                selectedWorkflows.push(this.workflows.get('linear'));
+                break;
+                
+            case 'feature':
+                // Feature development workflow
+                selectedWorkflows.push(this.workflows.get('documentation'));
+                selectedWorkflows.push(this.workflows.get('github'));
+                selectedWorkflows.push(this.workflows.get('linear'));
+                break;
+                
+            case 'fix':
+                // Bug fix workflow
+                selectedWorkflows.push(this.workflows.get('documentation'));
+                selectedWorkflows.push(this.workflows.get('github'));
+                selectedWorkflows.push(this.workflows.get('linear'));
+                break;
+                
+            case 'review':
+                // Code review workflow
+                selectedWorkflows.push(this.workflows.get('documentation'));
+                selectedWorkflows.push(this.workflows.get('github'));
+                break;
+                
+            case 'release':
+                // Release preparation workflow
+                selectedWorkflows.push(this.workflows.get('documentation'));
+                selectedWorkflows.push(this.workflows.get('github'));
+                break;
+            
+            // Legacy commands
             case 'github-only':
+                selectedWorkflows.push(this.workflows.get('documentation'));
                 selectedWorkflows.push(this.workflows.get('github'));
                 break;
                 
             case 'linear-only':
+                selectedWorkflows.push(this.workflows.get('documentation'));
                 selectedWorkflows.push(this.workflows.get('linear'));
                 break;
                 
+            case 'documentation-only':
+                selectedWorkflows.push(this.workflows.get('documentation'));
+                break;
+                
             default:
-                // Default to standard workflow
+                // Default to standard workflow with documentation
+                selectedWorkflows.push(this.workflows.get('documentation'));
                 selectedWorkflows.push(this.workflows.get('github'));
                 selectedWorkflows.push(this.workflows.get('linear'));
         }

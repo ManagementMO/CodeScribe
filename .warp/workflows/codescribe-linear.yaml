@@ -1,0 +1,22 @@
+# .warp/workflows/codescribe-linear.yaml
+
+# Linear-focused workflow
+name: CodeScribe - Linear Ticket Management
+
+description: |
+  Advanced Linear integration for ticket management including automatic status transitions,
+  time tracking, sub-ticket creation for complex changes, blocker detection, and progress reporting.
+  Keeps stakeholders informed without manual updates.
+
+author: CodeScribe Team
+
+command: codescribe linear
+
+tags:
+  - linear
+  - tickets
+  - time-tracking
+  - sub-tickets
+  - blockers
+  - progress
+  - stakeholders

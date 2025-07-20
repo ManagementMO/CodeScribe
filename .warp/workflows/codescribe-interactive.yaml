@@ -1,0 +1,21 @@
+# .warp/workflows/codescribe-interactive.yaml
+
+# Interactive guided workflow
+name: CodeScribe - Interactive Workflow Guide
+
+description: |
+  Interactive mode that guides you through different workflow options based on your current
+  project state. Analyzes your changes and suggests the most appropriate workflow actions,
+  with step-by-step guidance and context-aware suggestions.
+
+author: CodeScribe Team
+
+command: codescribe interactive
+
+tags:
+  - interactive
+  - guided
+  - workflow
+  - suggestions
+  - context-aware
+  - beginner-friendly

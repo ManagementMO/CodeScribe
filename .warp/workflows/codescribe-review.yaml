@@ -1,0 +1,22 @@
+# .warp/workflows/codescribe-review.yaml
+
+# Code review workflow
+name: CodeScribe - Code Review Assistant
+
+description: |
+  Assists with code review processes by analyzing changes for potential issues, generating
+  review checklists, suggesting reviewers based on code ownership, and creating comprehensive
+  review summaries with security and performance considerations.
+
+author: CodeScribe Team
+
+command: codescribe review
+
+tags:
+  - code-review
+  - reviewers
+  - checklists
+  - security
+  - performance
+  - ownership
+  - summaries

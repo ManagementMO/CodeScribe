@@ -1,0 +1,34 @@
+{
+  "workflows": {
+    "linear": {
+      "enabled": true,
+      "autoTransition": true,
+      "trackTime": true,
+      "detectScopeChanges": true,
+      "notifyOnScopeChange": true,
+      "autoCreateSubTickets": false,
+      "subTicketComplexityThreshold": 15,
+      "subTicketFileCountThreshold": 8
+    },
+    "github": {
+      "enabled": true,
+      "createDraft": true,
+      "autoAssignReviewers": false
+    },
+    "documentation": {
+      "enabled": true,
+      "formats": ["mermaid", "markdown"],
+      "autoGenerate": true
+    }
+  },
+  "ai": {
+    "provider": "gemini",
+    "model": "gemini-1.5-flash",
+    "maxRetries": 3
+  },
+  "git": {
+    "autoPush": true,
+    "defaultBranch": "main",
+    "conventionalCommits": true
+  }
+}

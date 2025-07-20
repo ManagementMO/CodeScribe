@@ -1,0 +1,22 @@
+# .warp/workflows/codescribe-feature.yaml
+
+# Feature development workflow
+name: CodeScribe - Feature Development Workflow
+
+description: |
+  Complete feature development workflow that handles feature branch creation, progressive
+  development tracking, feature flag management, comprehensive testing, and feature
+  documentation. Includes automatic sub-ticket creation for complex features.
+
+author: CodeScribe Team
+
+command: codescribe feature
+
+tags:
+  - feature
+  - development
+  - feature-flags
+  - testing
+  - sub-tickets
+  - documentation
+  - progressive

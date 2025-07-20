@@ -171,6 +171,8 @@ class GitHubWorkflow extends BaseWorkflow {
         return newPR.data;
     }
 
+
+
     /**
      * Generate PR content from context (fallback when AI is not available)
      * @param {Object} context - Current execution context
@@ -179,9 +181,16 @@ class GitHubWorkflow extends BaseWorkflow {
     async generatePRContent(context) {
         const ticketId = context.linear?.ticketId || 'UNKNOWN';
         
+        let body = `## Changes\n\nThis PR addresses ticket ${ticketId}.\n\n### Diff Summary\n\`\`\`\n${context.git.diffStats}\n\`\`\`\n\n### Files Changed\n${context.git.diff.split('\n').filter(line => line.startsWith('diff --git')).map(line => line.replace('diff --git a/', '- ')).join('\n')}`;
+        
+        // Add Mermaid diagrams if available from documentation workflow
+        if (context.documentation && context.documentation.formattedDiagrams) {
+            body += '\n\n' + context.documentation.formattedDiagrams.github.markdown;
+        }
+        
         return {
             title: `feat: ${ticketId} - Update implementation`,
-            body: `## Changes\n\nThis PR addresses ticket ${ticketId}.\n\n### Diff Summary\n\`\`\`\n${context.git.diffStats}\n\`\`\`\n\n### Files Changed\n${context.git.diff.split('\n').filter(line => line.startsWith('diff --git')).map(line => line.replace('diff --git a/', '- ')).join('\n')}`,
+            body: body,
             summary: `Updated implementation for ${ticketId} with code changes across multiple files.`
         };
     }

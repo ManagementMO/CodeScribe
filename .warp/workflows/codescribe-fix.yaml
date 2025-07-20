@@ -1,0 +1,22 @@
+# .warp/workflows/codescribe-fix.yaml
+
+# Bug fix workflow
+name: CodeScribe - Bug Fix & Issue Management
+
+description: |
+  Specialized workflow for bug fixes that automatically creates GitHub issues from detected
+  bug patterns, suggests fix strategies, creates appropriate PR templates for bug fixes,
+  and ensures proper testing and documentation of the fix.
+
+author: CodeScribe Team
+
+command: codescribe fix
+
+tags:
+  - bugfix
+  - issues
+  - github
+  - testing
+  - fix-strategies
+  - templates
+  - documentation
