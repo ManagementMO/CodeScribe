@@ -158,17 +158,47 @@ Respond naturally as if you're a knowledgeable teammate who understands the proj
 
     async generateResponse(systemPrompt, userMessage, context) {
         try {
+            console.log(chalk.gray('   - Building AI prompt...'));
+
             const prompt = `${systemPrompt}
 
 User Message: ${userMessage}
 
 Respond helpfully and conversationally. If the user is asking about code, commits, PRs, or Linear workflows, provide specific actionable insights. If you need more information, ask clarifying questions.`;
 
+            console.log(chalk.gray('   - Sending request to Gemini API...'));
+            console.log(chalk.gray(`   - Prompt length: ${prompt.length} characters`));
+
             const result = await this.model.generateContent(prompt);
-            return result.response.text();
+
+            console.log(chalk.gray('   - Received response from Gemini API'));
+
+            if (!result || !result.response) {
+                throw new Error('No response received from Gemini API');
+            }
+
+            const responseText = result.response.text();
+            console.log(chalk.gray(`   - Response length: ${responseText.length} characters`));
+
+            return responseText;
         } catch (error) {
-            console.error('AI generation error:', error);
-            return "I'm having trouble processing that right now. Could you try rephrasing your question?";
+            console.error(chalk.red('AI generation error details:'), {
+                message: error.message,
+                stack: error.stack,
+                name: error.name,
+                code: error.code
+            });
+
+            // Check for specific API errors
+            if (error.message?.includes('API key')) {
+                return "❌ AI service configuration error. Please check the API key setup.";
+            } else if (error.message?.includes('quota') || error.message?.includes('limit')) {
+                return "❌ AI service quota exceeded. Please try again later.";
+            } else if (error.message?.includes('safety') || error.message?.includes('blocked')) {
+                return "❌ Content was blocked by safety filters. Please rephrase your question.";
+            } else {
+                return `❌ AI processing error: ${error.message}. Please try rephrasing your question.`;
+            }
         }
     }
 }
@@ -448,14 +478,26 @@ app.post('/api/webhook', async (req, res) => {
             if (command.includes('status') || command.includes('health')) {
                 // Health check command
                 console.log(chalk.blue('   - Executing health check...'));
+
+                // Check API configurations
+                const githubStatus = process.env.GITHUB_TOKEN ? '✅ Connected' : '❌ Missing Token';
+                const linearStatus = process.env.LINEAR_API_KEY ? '✅ Connected' : '❌ Missing Token';
+                const geminiStatus = process.env.GEMINI_API_KEY ? '✅ Connected' : '❌ Missing Token';
+
                 responseText = `### 🤖 CodeScribe Status Report
 
-**System Status:** ✅ All systems operational
+**System Status:** ${githubStatus === '✅ Connected' && linearStatus === '✅ Connected' ? '✅ All systems operational' : '⚠️ Some issues detected'}
 **Current Time:** ${new Date().toLocaleString()}
-**GitHub API:** ✅ Connected
-**Linear API:** ✅ Connected  
-**AI Model:** ✅ Gemini 1.5 Flash ready
+**GitHub API:** ${githubStatus}
+**Linear API:** ${linearStatus}
+**AI Model (Gemini):** ${geminiStatus}
 **Webhook:** ✅ Receiving notifications
+
+**Debug Info:**
+- User ID: ${notification.user?.id || 'Not found'}
+- User Name: ${notification.user?.name || 'Not found'}
+- Issue ID: ${issueId}
+- Command: ${command}
 
 Ready to assist with code reviews and automation! 🚀`;
 
@@ -621,13 +663,50 @@ ${insights.topContributors.map(c => `- ${c.name}: ${c.count} issues`).join('\n')
                 // Conversational AI mode
                 console.log(chalk.blue('   - Engaging conversational AI...'));
                 try {
-                    const userId = notification.user?.id || 'unknown';
-                    const userName = notification.user?.name || 'User';
+                    // Extract user information from notification
+                    const userId = notification.user?.id || notification.userId || 'unknown';
+                    const userName = notification.user?.name || notification.user?.displayName || 'User';
+
+                    console.log(chalk.gray(`   - User: ${userName} (${userId})`));
+                    console.log(chalk.gray(`   - Message: ${body.substring(0, 100)}...`));
+
+                    // Check if GEMINI_API_KEY is available
+                    if (!process.env.GEMINI_API_KEY) {
+                        throw new Error('GEMINI_API_KEY not configured');
+                    }
 
                     const response = await agent.processMessage(issueId, userId, userName, body);
                     responseText = `### 💬 CodeScribe AI Assistant\n\n${response}`;
                 } catch (error) {
-                    responseText = `### ❌ AI Assistant Error\n\nSorry, I'm having trouble processing that. Could you try again?`;
+                    console.error(chalk.red('   - Conversational AI error:'), error);
+
+                    // Provide a helpful fallback response
+                    if (error.message?.includes('API key')) {
+                        responseText = `### ❌ AI Configuration Error
+
+The conversational AI feature requires a valid Gemini API key. Please check your environment configuration.
+
+**Available Commands:**
+- \`@codescribe-agent status\` - System health check
+- \`@codescribe-agent repo\` - Repository analysis  
+- \`@codescribe-agent commit\` - Latest commit analysis
+- \`@codescribe-agent progress\` - Issue progress analysis
+- \`@codescribe-agent [GitHub PR URL]\` - PR review`;
+                    } else {
+                        responseText = `### ❌ AI Assistant Temporarily Unavailable
+
+I'm having trouble with the conversational AI right now. Here's what I can still help with:
+
+**Working Commands:**
+- \`@codescribe-agent status\` - System health check
+- \`@codescribe-agent repo\` - Repository analysis  
+- \`@codescribe-agent commit\` - Latest commit analysis
+- \`@codescribe-agent progress\` - Issue progress analysis
+- \`@codescribe-agent team\` - Team insights
+- \`@codescribe-agent [GitHub PR URL]\` - PR review
+
+**Error Details:** ${error.message}`;
+                    }
                 }
 
             } else {

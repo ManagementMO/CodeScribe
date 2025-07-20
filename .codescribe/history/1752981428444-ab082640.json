@@ -1,0 +1,2227 @@
+{
+  "id": "1752981428444-ab082640",
+  "timestamp": "2025-07-20T03:17:08.454Z",
+  "command": "default",
+  "options": {},
+  "context": {
+    "git": {
+      "branch": "feat/COD-21-enhanced-agent",
+      "diff": "Large diff summary:\n.codescribe/history/1752978027670-056053c0.json | 2299 ++++++++++++++++++++\n .codescribe/history/1752978164278-ce0d889e.json |  512 +++++\n .codescribe/history/1752978180869-a6eee6a9.json |  512 +++++\n .codescribe/history/1752978336730-4dc95a0a.json | 1169 +++++++++++\n .codescribe/history/1752978546640-b2fb4181.json |  460 ++++\n .codescribe/history/1752978600932-8840f7f3.json |  460 ++++\n .codescribe/history/1752978683541-1b2e19a0.json |  422 ++++\n .codescribe/history/1752978753439-60ff2adc.json | 1377 ++++++++++++\n .codescribe/history/1752979095309-c5783d11.json | 2541 +++++++++++++++++++++++\n .codescribe/logs/codescribe.log                 |   26 +\n CODESCRIBE_COMMAND_REFERENCE.md                 |  321 +++\n docs/PLUGIN_DEVELOPMENT.md                      |    3 +\n linear_agent.js                                 |  522 ++++-\n 13 files changed, 10594 insertions(+), 30 deletions(-)\n\nChanged files:\nA\t.codescribe/history/1752978027670-056053c0.json\nA\t.codescribe/history/1752978164278-ce0d889e.json\nA\t.codescribe/history/1752978180869-a6eee6a9.json\nA\t.codescribe/history/1752978336730-4dc95a0a.json\nA\t.codescribe/history/1752978546640-b2fb4181.json\nA\t.codescribe/history/1752978600932-8840f7f3.json\nA\t.codescribe/history/1752978683541-1b2e19a0.json\nA\t.codescribe/history/1752978753439-60ff2adc.json\nA\t.codescribe/history/1752979095309-c5783d11.json\nM\t.codescribe/logs/codescribe.log\nA\tCODESCRIBE_COMMAND_REFERENCE.md\nM\tdocs/PLUGIN_DEVELOPMENT.md\nM\tlinear_agent.js",
+      "diffStats": ".codescribe/history/1752978027670-056053c0.json | 2299 ++++++++++++++++++++\n .codescribe/history/1752978164278-ce0d889e.json |  512 +++++\n .codescribe/history/1752978180869-a6eee6a9.json |  512 +++++\n .codescribe/history/1752978336730-4dc95a0a.json | 1169 +++++++++++\n .codescribe/history/1752978546640-b2fb4181.json |  460 ++++\n .codescribe/history/1752978600932-8840f7f3.json |  460 ++++\n .codescribe/history/1752978683541-1b2e19a0.json |  422 ++++\n .codescribe/history/1752978753439-60ff2adc.json | 1377 ++++++++++++\n .codescribe/history/1752979095309-c5783d11.json | 2541 +++++++++++++++++++++++\n .codescribe/logs/codescribe.log                 |   26 +\n CODESCRIBE_COMMAND_REFERENCE.md                 |  321 +++\n docs/PLUGIN_DEVELOPMENT.md                      |    3 +\n linear_agent.js                                 |  522 ++++-\n 13 files changed, 10594 insertions(+), 30 deletions(-)",
+      "commits": {},
+      "branchHistory": {
+        "creationPoint": "4d75664560341bb5ef5e48ffbffc6793dd63021c",
+        "creationDate": "2025-07-19 22:19:47 -0400",
+        "commitCount": 3,
+        "mergeCount": 0,
+        "ageInDays": 0,
+        "commits": [
+          {
+            "hash": "3a7c830",
+            "message": "Enhanced linear_agent.js with advanced features and created comprehensive command reference"
+          },
+          {
+            "hash": "8052cb6",
+            "message": "feat(docs): COD-20 - implement new features across 5 components"
+          },
+          {
+            "hash": "05a384a",
+            "message": "test commit"
+          }
+        ]
+      },
+      "mergeBaseAnalysis": {
+        "mergeBase": "4d75664560341bb5ef5e48ffbffc6793dd63021c",
+        "mainHead": "7f7c7a2095e67550876d2334ceb8876e290830a8",
+        "aheadCount": 3,
+        "behindCount": 4,
+        "isUpToDate": false,
+        "needsRebase": true,
+        "commitsToMerge": 3
+      },
+      "conflictDetection": {
+        "hasActiveConflicts": false,
+        "potentialConflicts": [],
+        "conflictCount": 0,
+        "riskLevel": "low"
+      },
+      "commitAnalysis": {
+        "error": "commits is not iterable"
+      },
+      "branchValidation": {
+        "branchName": "feat/COD-21-enhanced-agent",
+        "isValid": true,
+        "issues": [],
+        "suggestions": [],
+        "conventions": {
+          "hasTicketId": true,
+          "hasType": true,
+          "hasDescription": true,
+          "followsKebabCase": true
+        }
+      },
+      "hasChanges": true,
+      "hasUncommittedChanges": true,
+      "hasUnpushedCommits": false
+    },
+    "code": {
+      "hasChanges": false,
+      "changedFiles": [
+        {
+          "path": ".codescribe/history/1752978027670-056053c0.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1752978164278-ce0d889e.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1752978180869-a6eee6a9.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1752978336730-4dc95a0a.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1752978546640-b2fb4181.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1752978600932-8840f7f3.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1752978683541-1b2e19a0.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1752978753439-60ff2adc.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1752979095309-c5783d11.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/logs/codescribe.log",
+          "status": "modified",
+          "extension": "log",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "CODESCRIBE_COMMAND_REFERENCE.md",
+          "status": "added",
+          "extension": "md",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "docs/PLUGIN_DEVELOPMENT.md",
+          "status": "modified",
+          "extension": "md",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "linear_agent.js",
+          "status": "modified",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        }
+      ],
+      "complexity": {
+        "totalScore": 79,
+        "averageScore": 79,
+        "level": "very_high",
+        "files": [
+          {
+            "file": "linear_agent.js",
+            "score": 79,
+            "functions": 23,
+            "classes": 3,
+            "conditionals": 44,
+            "loops": 0,
+            "depth": 33,
+            "lines": 829
+          }
+        ],
+        "issues": [
+          {
+            "file": "linear_agent.js",
+            "type": "high_complexity",
+            "score": 79,
+            "message": "High complexity score: 79"
+          }
+        ]
+      },
+      "security": {
+        "vulnerabilities": [],
+        "warnings": [],
+        "riskLevel": "none",
+        "issues": []
+      },
+      "dependencies": {
+        "added": [],
+        "updated": [],
+        "removed": [],
+        "devDependencies": [],
+        "securityUpdates": [],
+        "breakingChanges": []
+      },
+      "ast": {
+        "totalFiles": 1,
+        "parsedFiles": 1,
+        "functions": [
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 69
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 137
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 257
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 258
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 306
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 349
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 358
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 372
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 375
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 381
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 388
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 390
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "parseGitHubUrl",
+            "type": "function",
+            "async": false,
+            "params": 1,
+            "line": 403
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": true,
+            "params": 2,
+            "line": 414
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": true,
+            "params": 0,
+            "line": 434
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 529
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 568
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 616
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 620
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 645
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 648
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 651
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 0,
+            "line": 827
+          }
+        ],
+        "classes": [
+          {
+            "file": "linear_agent.js",
+            "name": "ConversationMemory",
+            "superClass": null,
+            "line": 23
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "IntelligentAgent",
+            "superClass": null,
+            "line": 92
+          },
+          {
+            "file": "linear_agent.js",
+            "name": "WorkflowAutomation",
+            "superClass": null,
+            "line": 206
+          }
+        ],
+        "imports": [],
+        "exports": [],
+        "issues": []
+      },
+      "metrics": {
+        "totalLines": 1,
+        "addedLines": 0,
+        "removedLines": 0,
+        "modifiedFiles": 0,
+        "addedFiles": 0,
+        "removedFiles": 0
+      }
+    },
+    "project": {
+      "structure": {
+        "totalFiles": 76,
+        "directories": [
+          {
+            "path": ".codescribe",
+            "depth": 0
+          },
+          {
+            "path": ".codescribe\\history",
+            "depth": 1
+          },
+          {
+            "path": ".codescribe\\logs",
+            "depth": 1
+          },
+          {
+            "path": ".kiro",
+            "depth": 0
+          },
+          {
+            "path": ".kiro\\specs",
+            "depth": 1
+          },
+          {
+            "path": ".kiro\\specs\\enhanced-codescribe-workflows",
+            "depth": 2
+          },
+          {
+            "path": ".warp",
+            "depth": 0
+          },
+          {
+            "path": ".warp\\workflows",
+            "depth": 1
+          },
+          {
+            "path": "docs",
+            "depth": 0
+          },
+          {
+            "path": "src",
+            "depth": 0
+          },
+          {
+            "path": "src\\ai",
+            "depth": 1
+          },
+          {
+            "path": "src\\config",
+            "depth": 1
+          },
+          {
+            "path": "src\\context",
+            "depth": 1
+          },
+          {
+            "path": "src\\core",
+            "depth": 1
+          },
+          {
+            "path": "src\\utils",
+            "depth": 1
+          },
+          {
+            "path": "src\\workflows",
+            "depth": 1
+          },
+          {
+            "path": "src\\workflows\\commit",
+            "depth": 2
+          },
+          {
+            "path": "src\\workflows\\documentation",
+            "depth": 2
+          },
+          {
+            "path": "src\\workflows\\github",
+            "depth": 2
+          },
+          {
+            "path": "src\\workflows\\linear",
+            "depth": 2
+          }
+        ],
+        "fileTypes": {
+          ".json": 20,
+          ".log": 1,
+          "": 1,
+          ".md": 16,
+          ".yaml": 11,
+          ".js": 27
+        },
+        "testFiles": 0,
+        "documentationFiles": 16,
+        "configFiles": 31,
+        "ciFiles": 0,
+        "sourceFiles": 27,
+        "depth": 3
+      },
+      "configuration": {
+        "packageJson": {
+          "name": "codescribe",
+          "version": "1.0.0",
+          "description": "",
+          "main": "index.js",
+          "bin": {
+            "codescribe": "./codescribe.js"
+          },
+          "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1"
+          },
+          "repository": {
+            "type": "git",
+            "url": "git+https://github.com/ManagementMO/CodeScribe.git"
+          },
+          "keywords": [],
+          "author": "",
+          "license": "ISC",
+          "type": "commonjs",
+          "bugs": {
+            "url": "https://github.com/ManagementMO/CodeScribe/issues"
+          },
+          "homepage": "https://github.com/ManagementMO/CodeScribe#readme",
+          "dependencies": {
+            "@babel/parser": "^7.28.0",
+            "@babel/traverse": "^7.28.0",
+            "@babel/types": "^7.28.1",
+            "@google/generative-ai": "^0.24.1",
+            "@linear/sdk": "^52.0.0",
+            "@octokit/rest": "^22.0.0",
+            "acorn": "^8.15.0",
+            "audit-ci": "^7.1.0",
+            "axios": "^1.10.0",
+            "chalk": "^4.1.2",
+            "cli-progress": "^3.12.0",
+            "commander": "^14.0.0",
+            "dotenv": "^17.2.0",
+            "express": "^5.1.0",
+            "inquirer": "^8.2.6",
+            "semver": "^7.7.2"
+          }
+        },
+        "tsconfig": null,
+        "eslint": null,
+        "prettier": null,
+        "jest": null,
+        "webpack": null,
+        "babel": null,
+        "vite": null,
+        "nextConfig": null,
+        "tailwind": null,
+        "docker": null
+      },
+      "projectType": {
+        "primary": "node-cli",
+        "secondary": [
+          {
+            "type": "express-api",
+            "confidence": 0.26666666666666666,
+            "matches": [
+              "express"
+            ]
+          },
+          {
+            "type": "node-cli",
+            "confidence": 0.4666666666666666,
+            "matches": [
+              "commander",
+              "inquirer"
+            ]
+          }
+        ],
+        "confidence": 0.4666666666666666,
+        "indicators": [
+          "express",
+          "commander",
+          "inquirer"
+        ]
+      },
+      "framework": {
+        "frontend": [],
+        "backend": [
+          "Express"
+        ],
+        "testing": [],
+        "build": [],
+        "styling": [],
+        "database": []
+      },
+      "testCoverage": {
+        "hasTests": false,
+        "testFiles": 0,
+        "coverageReports": [],
+        "testFrameworks": [
+          "npm test"
+        ],
+        "coverageThreshold": null,
+        "lastCoverageRun": null,
+        "summary": null
+      },
+      "buildSystem": {
+        "bundler": null,
+        "taskRunner": null,
+        "packageManager": "npm",
+        "scripts": [
+          "test"
+        ],
+        "buildOutput": null,
+        "hasCI": false
+      },
+      "metadata": {
+        "hasTests": false,
+        "hasDocumentation": true,
+        "hasCI": false,
+        "packageManager": "npm",
+        "nodeVersion": null
+      }
+    },
+    "linear": {
+      "ticketId": "COD-21",
+      "issueId": "85c59810-b5f7-4071-81c6-04b3de7895be",
+      "commentAdded": true,
+      "issue": {
+        "id": "85c59810-b5f7-4071-81c6-04b3de7895be",
+        "identifier": "COD-21",
+        "title": "final_tests",
+        "description": null,
+        "priority": 0,
+        "estimate": null,
+        "state": {
+          "id": "b54f1750-a1c0-4089-bd02-472cdfbe5ce2",
+          "name": "Todo",
+          "type": "unstarted"
+        },
+        "assignee": {
+          "id": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+          "name": "Mohammed Elshrief",
+          "email": "elshriefmoh@gmail.com"
+        },
+        "project": null,
+        "team": {
+          "id": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+          "name": "Codescribe"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "comments": {
+          "nodes": [
+            {
+              "id": "9bedbd66-aeb6-48b7-ad40-e03e58887880",
+              "body": "### 💬 CodeScribe AI Assistant\n\n❌ AI service quota exceeded. Please try again later.",
+              "createdAt": "2025-07-20T03:16:07.302Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "9eb936fb-9a2b-4811-94a6-dfd5d213c537",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:16:05.266Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "eea70db1-a29c-47e5-ab7b-4126d437b6f5",
+              "body": "@codescribe-agent talk hi",
+              "createdAt": "2025-07-20T03:16:04.556Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "865edc5e-2512-4247-abab-dfa6375ae93b",
+              "body": "### 💬 CodeScribe AI Assistant\n\n❌ AI service quota exceeded. Please try again later.",
+              "createdAt": "2025-07-20T03:14:16.717Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "52d514ff-bf0e-442a-8ecb-5a21f267bb18",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:14:16.468Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "546567e5-945a-47ab-a9fe-3d62a94c9dd3",
+              "body": "@codescribe-agent talk hi",
+              "createdAt": "2025-07-20T03:14:15.695Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "1082ffd7-8c64-4e91-8be5-4294530a830a",
+              "body": "### 💬 CodeScribe AI Assistant\n\n❌ AI service quota exceeded. Please try again later.",
+              "createdAt": "2025-07-20T03:13:10.229Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "aae83a2f-9a62-491b-810c-10cee4c64d80",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:13:09.673Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "c56436c8-4a8b-4d04-9179-b4fd4da8be9a",
+              "body": "@codescribe-agent chat whats up",
+              "createdAt": "2025-07-20T03:13:08.897Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "8bc95819-fecd-4c28-8b60-750ef767c379",
+              "body": "### 💬 CodeScribe AI Assistant\n\nI'm having trouble processing that right now. Could you try rephrasing your question?",
+              "createdAt": "2025-07-20T03:09:41.778Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "64d3fdd6-0e59-4580-a5d3-e7270068f2af",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:09:41.144Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "e6946541-7a12-4108-895e-5c2d29ea874c",
+              "body": "@codescribe-agent chat hi how are you",
+              "createdAt": "2025-07-20T03:09:40.611Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "9bfb33a0-7630-4873-8177-2f17c81953e2",
+              "body": "### 💬 CodeScribe AI Assistant\n\nI'm having trouble processing that right now. Could you try rephrasing your question?",
+              "createdAt": "2025-07-20T03:08:08.701Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "0db8cf2d-40c2-4072-ab98-52ab53285c76",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:08:08.455Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "0d638fe7-ee98-4544-b60b-bac7955b02ef",
+              "body": "@codescribe-agent chat hi",
+              "createdAt": "2025-07-20T03:08:07.890Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "7a7c1481-467b-445b-af52-6d6a4c8ae9cb",
+              "body": "### 💬 CodeScribe AI Assistant\n\nI'm having trouble processing that right now. Could you try rephrasing your question?",
+              "createdAt": "2025-07-20T03:07:05.697Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "82a9f566-39cd-4896-a97a-c57a49239c56",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:07:05.242Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "d18be552-c79d-4fae-8a7d-2eddd3d84d80",
+              "body": "@codescribe-agent chat how are you?",
+              "createdAt": "2025-07-20T03:07:04.740Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "333a0e78-d0f2-4e1a-a6cb-55bf166a9097",
+              "body": "🚀 **CodeScribe Agent - Enhanced Workflow Execution**\n\n**Development Progress:**\n- Current Phase: IN REVIEW\n- Complexity Level: VERY_HIGH\n- Risk Level: HIGH\n\n**Status Update:**\n- ✅ Status changed from \"Backlog\" to \"In Review\"\n- Reason: Pull request created for review\n\n**Scope Analysis:**\n- ⚠️ Scope changes detected (Risk: LOW)\n- High number of files changed (13)\n\n**Recommendations:**\n- Expand testing strategy due to wide-ranging changes\n\n**Blockers Detected:**\n- ⚠️ Code complexity score (69) exceeds recommended threshold\n\n**GitHub Integration:**\n- Status: Created PR #32\n- URL: https://github.com/ManagementMO/CodeScribe/pull/32\n- Title: feat: COD-21 - Update implementation\n\n**AI Analysis:**\nUpdated implementation for COD-21 with code changes across multiple files.\n\n**Code Analysis:**\n- Generated 3 visualization diagrams\n- Complexity Level: very_high\n- Security Risk: none\n\n**Code Recommendations:**\n- High code complexity detected. Consider breaking down complex functions shown in flowcharts.\n- Multiple files changed. Consider reviewing architecture diagrams for impact assessment.\n- API interactions detected. Review sequence diagrams for proper error handling.\n\n**Sub-ticket Management:**\n- 💡 Suggested 2 sub-tickets (auto-creation disabled)\n  - Implement general functionality\n  - Refactor high-complexity file: linear_agent.js\n- Reasons: High code complexity (69 > 15), High number of changed files (13 > 8)\n\n\n## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n\n\n---\n*Automated by CodeScribe Enhanced Linear Workflow*",
+              "createdAt": "2025-07-20T03:06:09.153Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            }
+          ]
+        },
+        "createdAt": "2025-07-20T02:44:36.138Z",
+        "updatedAt": "2025-07-20T03:16:07.258Z",
+        "startedAt": null,
+        "completedAt": null,
+        "dueDate": null,
+        "cycle": null
+      },
+      "progressAnalysis": {
+        "currentPhase": "in_review",
+        "suggestedActions": [
+          {
+            "type": "status_transition",
+            "action": "Move to In Review",
+            "reason": "Pull request created and ready for review"
+          }
+        ],
+        "timeSpent": null,
+        "complexity": "very_high",
+        "riskLevel": "high",
+        "blockers": [
+          {
+            "type": "high_complexity",
+            "message": "Code complexity score (79) exceeds recommended threshold",
+            "severity": "medium"
+          }
+        ],
+        "milestones": [
+          {
+            "type": "pr_created",
+            "timestamp": "2025-07-20T03:17:08.045Z"
+          }
+        ]
+      },
+      "statusTransition": {
+        "success": true,
+        "fromStatus": "Todo",
+        "toStatus": "In Review",
+        "reason": "Pull request created for review",
+        "timestamp": "2025-07-20T03:17:08.303Z"
+      },
+      "timeTracking": {
+        "skipped": true,
+        "reason": "Time tracking disabled"
+      },
+      "scopeChange": {
+        "hasChanges": true,
+        "changes": [
+          {
+            "type": "file_count_high",
+            "severity": "low",
+            "message": "High number of files changed (13)",
+            "impact": "May indicate scope creep or complex refactoring"
+          }
+        ],
+        "riskLevel": "low",
+        "recommendations": [
+          {
+            "type": "testing_strategy",
+            "message": "Expand testing strategy due to wide-ranging changes",
+            "action": "Add integration tests and increase test coverage"
+          }
+        ]
+      },
+      "subTickets": {
+        "success": true,
+        "reasons": [
+          "High code complexity (79 > 15)",
+          "High number of changed files (13 > 8)"
+        ],
+        "analysis": {
+          "shouldCreateSubTickets": true,
+          "suggestedSubTickets": [
+            {
+              "title": "Implement general functionality",
+              "description": "**Auto-generated sub-ticket from COD-21**\n\nHandle changes to 13 files related to general\n\n**Scope:**\nFiles to modify:\n- .codescribe/history/1752978027670-056053c0.json\n- .codescribe/history/1752978164278-ce0d889e.json\n- .codescribe/history/1752978180869-a6eee6a9.json\n- .codescribe/history/1752978336730-4dc95a0a.json\n- .codescribe/history/1752978546640-b2fb4181.json\n- .codescribe/history/1752978600932-8840f7f3.json\n- .codescribe/history/1752978683541-1b2e19a0.json\n- .codescribe/history/1752978753439-60ff2adc.json\n- .codescribe/history/1752979095309-c5783d11.json\n- .codescribe/logs/codescribe.log\n- CODESCRIBE_COMMAND_REFERENCE.md\n- docs/PLUGIN_DEVELOPMENT.md\n- linear_agent.js\n\n**Complexity:** high\n**Priority:** low\n\n**Parent Ticket:** COD-21 - final_tests",
+              "priority": 4,
+              "estimate": 8,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "feature"
+              ],
+              "parentIssueId": "85c59810-b5f7-4071-81c6-04b3de7895be",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "functionality_group",
+                "files": [
+                  ".codescribe/history/1752978027670-056053c0.json",
+                  ".codescribe/history/1752978164278-ce0d889e.json",
+                  ".codescribe/history/1752978180869-a6eee6a9.json",
+                  ".codescribe/history/1752978336730-4dc95a0a.json",
+                  ".codescribe/history/1752978546640-b2fb4181.json",
+                  ".codescribe/history/1752978600932-8840f7f3.json",
+                  ".codescribe/history/1752978683541-1b2e19a0.json",
+                  ".codescribe/history/1752978753439-60ff2adc.json",
+                  ".codescribe/history/1752979095309-c5783d11.json",
+                  ".codescribe/logs/codescribe.log",
+                  "CODESCRIBE_COMMAND_REFERENCE.md",
+                  "docs/PLUGIN_DEVELOPMENT.md",
+                  "linear_agent.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-21"
+              }
+            },
+            {
+              "title": "Refactor high-complexity file: linear_agent.js",
+              "description": "**Auto-generated sub-ticket from COD-21**\n\nAddress complexity issues in linear_agent.js (score: 79)\n\n**Scope:**\nFiles to modify:\n- linear_agent.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-21 - final_tests",
+              "priority": 3,
+              "estimate": 9,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "refactor",
+                "technical-debt"
+              ],
+              "parentIssueId": "85c59810-b5f7-4071-81c6-04b3de7895be",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "complexity_refactor",
+                "files": [
+                  "linear_agent.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-21"
+              }
+            }
+          ],
+          "blockers": [],
+          "taskBreakdown": [
+            {
+              "type": "functionality_group",
+              "title": "Implement general functionality",
+              "description": "Handle changes to 13 files related to general",
+              "files": [
+                ".codescribe/history/1752978027670-056053c0.json",
+                ".codescribe/history/1752978164278-ce0d889e.json",
+                ".codescribe/history/1752978180869-a6eee6a9.json",
+                ".codescribe/history/1752978336730-4dc95a0a.json",
+                ".codescribe/history/1752978546640-b2fb4181.json",
+                ".codescribe/history/1752978600932-8840f7f3.json",
+                ".codescribe/history/1752978683541-1b2e19a0.json",
+                ".codescribe/history/1752978753439-60ff2adc.json",
+                ".codescribe/history/1752979095309-c5783d11.json",
+                ".codescribe/logs/codescribe.log",
+                "CODESCRIBE_COMMAND_REFERENCE.md",
+                "docs/PLUGIN_DEVELOPMENT.md",
+                "linear_agent.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "low"
+            },
+            {
+              "type": "complexity_refactor",
+              "title": "Refactor high-complexity file: linear_agent.js",
+              "description": "Address complexity issues in linear_agent.js (score: 79)",
+              "files": [
+                "linear_agent.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "medium"
+            }
+          ]
+        },
+        "createdSubTickets": [],
+        "autoCreated": false
+      }
+    },
+    "ai": {
+      "title": "feat: Significant expansion of CodeDescribe functionality",
+      "body": "This PR represents a major update to CodeDescribe, adding significant new features and functionality.  The changes include:\n\n* Extensive additions to CodeDescribe's internal data structures and logging mechanisms, as evidenced by the numerous additions to `.codescribe/history/*.json` files and `.codescribe/logs/codescribe.log`.\n* Enhancements to the `linear_agent.js` component, suggesting improvements to the core logic or agent behavior.\n* Updated documentation in `CODESCRIBE_COMMAND_REFERENCE.md` and `docs/PLUGIN_DEVELOPMENT.md` to reflect these changes.  The documentation updates indicate a significant increase in the number of available commands and/or plugin development options.\n\nThe sheer volume of changes (over 10,000 lines inserted) suggests a substantial overhaul or feature addition rather than minor bug fixes or refactoring.  Please review thoroughly, paying particular attention to the documentation updates to understand the implications of this release.",
+      "summary": "Major update to CodeDescribe adding significant new features and expanding its functionality."
+    },
+    "documentation": {
+      "diagrams": {
+        "flowcharts": [
+          {
+            "type": "flowchart",
+            "title": "Class Relationships",
+            "mermaid": "flowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n"
+          }
+        ],
+        "dependencyGraphs": [],
+        "sequenceDiagrams": [
+          {
+            "type": "sequence",
+            "title": "API Interaction Flow",
+            "mermaid": "sequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n"
+          }
+        ],
+        "architectureDiagrams": [
+          {
+            "type": "architecture",
+            "title": "Project Architecture",
+            "mermaid": "graph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n"
+          }
+        ]
+      },
+      "formattedDiagrams": {
+        "github": {
+          "markdown": "## 📊 Code Analysis Diagrams\n\n### Class Relationships\n\n```mermaid\nflowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n```\n\n### API Interaction Flow\n\n```mermaid\nsequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n```\n\n### Project Architecture\n\n```mermaid\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n```\n\n",
+          "html": "<div class=\"code-analysis-diagrams\">\n<h2>📊 Code Analysis Diagrams</h2>\n<div class=\"diagram-container\">\n<h3>Class Relationships</h3>\n<div class=\"mermaid\">\nflowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>API Interaction Flow</h3>\n<div class=\"mermaid\">\nsequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>Project Architecture</h3>\n<div class=\"mermaid\">\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n</div>\n</div>\n</div>\n"
+        },
+        "linear": {
+          "markdown": "## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n",
+          "text": "📊 CODE ANALYSIS SUMMARY\n========================\n\nGenerated Diagrams:\n• Flowcharts: 1\n• Dependency Graphs: 0\n• Sequence Diagrams: 1\n• Architecture Diagrams: 1\n\n"
+        }
+      },
+      "summary": {
+        "totalDiagrams": 3,
+        "diagramTypes": {
+          "flowcharts": 1,
+          "dependencyGraphs": 0,
+          "sequenceDiagrams": 1,
+          "architectureDiagrams": 1
+        },
+        "analysisContext": {
+          "hasCodeChanges": false,
+          "changedFiles": 13,
+          "complexityLevel": "very_high",
+          "securityRisk": "none"
+        },
+        "recommendations": [
+          {
+            "type": "complexity",
+            "message": "High code complexity detected. Consider breaking down complex functions shown in flowcharts.",
+            "priority": "high"
+          },
+          {
+            "type": "architecture",
+            "message": "Multiple files changed. Consider reviewing architecture diagrams for impact assessment.",
+            "priority": "medium"
+          },
+          {
+            "type": "api",
+            "message": "API interactions detected. Review sequence diagrams for proper error handling.",
+            "priority": "low"
+          }
+        ]
+      }
+    },
+    "github": {
+      "pr": {
+        "url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/32",
+        "id": 2679532597,
+        "node_id": "PR_kwDOPPEEec6ftmw1",
+        "html_url": "https://github.com/ManagementMO/CodeScribe/pull/32",
+        "diff_url": "https://github.com/ManagementMO/CodeScribe/pull/32.diff",
+        "patch_url": "https://github.com/ManagementMO/CodeScribe/pull/32.patch",
+        "issue_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/32",
+        "number": 32,
+        "state": "open",
+        "locked": false,
+        "title": "feat: Significant expansion of CodeDescribe functionality",
+        "user": {
+          "login": "ManagementMO",
+          "id": 111318013,
+          "node_id": "U_kgDOBqKT_Q",
+          "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ManagementMO",
+          "html_url": "https://github.com/ManagementMO",
+          "followers_url": "https://api.github.com/users/ManagementMO/followers",
+          "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+          "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+          "repos_url": "https://api.github.com/users/ManagementMO/repos",
+          "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "This PR represents a major update to CodeDescribe, adding significant new features and functionality.  The changes include:\n\n* Extensive additions to CodeDescribe's internal data structures and logging mechanisms, as evidenced by the numerous additions to `.codescribe/history/*.json` files and `.codescribe/logs/codescribe.log`.\n* Enhancements to the `linear_agent.js` component, suggesting improvements to the core logic or agent behavior.\n* Updated documentation in `CODESCRIBE_COMMAND_REFERENCE.md` and `docs/PLUGIN_DEVELOPMENT.md` to reflect these changes.  The documentation updates indicate a significant increase in the number of available commands and/or plugin development options.\n\nThe sheer volume of changes (over 10,000 lines inserted) suggests a substantial overhaul or feature addition rather than minor bug fixes or refactoring.  Please review thoroughly, paying particular attention to the documentation updates to understand the implications of this release.",
+        "created_at": "2025-07-20T03:06:07Z",
+        "updated_at": "2025-07-20T03:17:07Z",
+        "closed_at": null,
+        "merged_at": null,
+        "merge_commit_sha": "a60f9d3a19dce3848563d2c1f3b3032b980f506b",
+        "assignee": null,
+        "assignees": [],
+        "requested_reviewers": [],
+        "requested_teams": [],
+        "labels": [],
+        "milestone": null,
+        "draft": true,
+        "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/32/commits",
+        "review_comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/32/comments",
+        "review_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/comments{/number}",
+        "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/32/comments",
+        "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/3a7c8306ef4bfe186d6d0062f38b13f944717447",
+        "head": {
+          "label": "ManagementMO:feat/COD-21-enhanced-agent",
+          "ref": "feat/COD-21-enhanced-agent",
+          "sha": "3a7c8306ef4bfe186d6d0062f38b13f944717447",
+          "user": {
+            "login": "ManagementMO",
+            "id": 111318013,
+            "node_id": "U_kgDOBqKT_Q",
+            "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ManagementMO",
+            "html_url": "https://github.com/ManagementMO",
+            "followers_url": "https://api.github.com/users/ManagementMO/followers",
+            "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+            "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+            "repos_url": "https://api.github.com/users/ManagementMO/repos",
+            "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 1022428281,
+            "node_id": "R_kgDOPPEEeQ",
+            "name": "CodeScribe",
+            "full_name": "ManagementMO/CodeScribe",
+            "private": false,
+            "owner": {
+              "login": "ManagementMO",
+              "id": 111318013,
+              "node_id": "U_kgDOBqKT_Q",
+              "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ManagementMO",
+              "html_url": "https://github.com/ManagementMO",
+              "followers_url": "https://api.github.com/users/ManagementMO/followers",
+              "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+              "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+              "repos_url": "https://api.github.com/users/ManagementMO/repos",
+              "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "html_url": "https://github.com/ManagementMO/CodeScribe",
+            "description": null,
+            "fork": false,
+            "url": "https://api.github.com/repos/ManagementMO/CodeScribe",
+            "forks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/forks",
+            "keys_url": "https://api.github.com/repos/ManagementMO/CodeScribe/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/ManagementMO/CodeScribe/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/ManagementMO/CodeScribe/teams",
+            "hooks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/hooks",
+            "issue_events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/events",
+            "assignees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/ManagementMO/CodeScribe/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/tags",
+            "blobs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/ManagementMO/CodeScribe/languages",
+            "stargazers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/stargazers",
+            "contributors_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contributors",
+            "subscribers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscribers",
+            "subscription_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscription",
+            "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/ManagementMO/CodeScribe/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/ManagementMO/CodeScribe/merges",
+            "archive_url": "https://api.github.com/repos/ManagementMO/CodeScribe/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/ManagementMO/CodeScribe/downloads",
+            "issues_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/ManagementMO/CodeScribe/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/ManagementMO/CodeScribe/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/ManagementMO/CodeScribe/labels{/name}",
+            "releases_url": "https://api.github.com/repos/ManagementMO/CodeScribe/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/deployments",
+            "created_at": "2025-07-19T04:03:17Z",
+            "updated_at": "2025-07-20T02:21:56Z",
+            "pushed_at": "2025-07-20T03:06:00Z",
+            "git_url": "git://github.com/ManagementMO/CodeScribe.git",
+            "ssh_url": "git@github.com:ManagementMO/CodeScribe.git",
+            "clone_url": "https://github.com/ManagementMO/CodeScribe.git",
+            "svn_url": "https://github.com/ManagementMO/CodeScribe",
+            "homepage": null,
+            "size": 5808,
+            "stargazers_count": 1,
+            "watchers_count": 1,
+            "language": "JavaScript",
+            "has_issues": true,
+            "has_projects": true,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "has_discussions": false,
+            "forks_count": 0,
+            "mirror_url": null,
+            "archived": false,
+            "disabled": false,
+            "open_issues_count": 10,
+            "license": null,
+            "allow_forking": true,
+            "is_template": false,
+            "web_commit_signoff_required": false,
+            "topics": [],
+            "visibility": "public",
+            "forks": 0,
+            "open_issues": 10,
+            "watchers": 1,
+            "default_branch": "main"
+          }
+        },
+        "base": {
+          "label": "ManagementMO:main",
+          "ref": "main",
+          "sha": "7f7c7a2095e67550876d2334ceb8876e290830a8",
+          "user": {
+            "login": "ManagementMO",
+            "id": 111318013,
+            "node_id": "U_kgDOBqKT_Q",
+            "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ManagementMO",
+            "html_url": "https://github.com/ManagementMO",
+            "followers_url": "https://api.github.com/users/ManagementMO/followers",
+            "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+            "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+            "repos_url": "https://api.github.com/users/ManagementMO/repos",
+            "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 1022428281,
+            "node_id": "R_kgDOPPEEeQ",
+            "name": "CodeScribe",
+            "full_name": "ManagementMO/CodeScribe",
+            "private": false,
+            "owner": {
+              "login": "ManagementMO",
+              "id": 111318013,
+              "node_id": "U_kgDOBqKT_Q",
+              "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ManagementMO",
+              "html_url": "https://github.com/ManagementMO",
+              "followers_url": "https://api.github.com/users/ManagementMO/followers",
+              "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+              "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+              "repos_url": "https://api.github.com/users/ManagementMO/repos",
+              "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "html_url": "https://github.com/ManagementMO/CodeScribe",
+            "description": null,
+            "fork": false,
+            "url": "https://api.github.com/repos/ManagementMO/CodeScribe",
+            "forks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/forks",
+            "keys_url": "https://api.github.com/repos/ManagementMO/CodeScribe/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/ManagementMO/CodeScribe/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/ManagementMO/CodeScribe/teams",
+            "hooks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/hooks",
+            "issue_events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/events",
+            "assignees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/ManagementMO/CodeScribe/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/tags",
+            "blobs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/ManagementMO/CodeScribe/languages",
+            "stargazers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/stargazers",
+            "contributors_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contributors",
+            "subscribers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscribers",
+            "subscription_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscription",
+            "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/ManagementMO/CodeScribe/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/ManagementMO/CodeScribe/merges",
+            "archive_url": "https://api.github.com/repos/ManagementMO/CodeScribe/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/ManagementMO/CodeScribe/downloads",
+            "issues_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/ManagementMO/CodeScribe/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/ManagementMO/CodeScribe/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/ManagementMO/CodeScribe/labels{/name}",
+            "releases_url": "https://api.github.com/repos/ManagementMO/CodeScribe/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/deployments",
+            "created_at": "2025-07-19T04:03:17Z",
+            "updated_at": "2025-07-20T02:21:56Z",
+            "pushed_at": "2025-07-20T03:06:00Z",
+            "git_url": "git://github.com/ManagementMO/CodeScribe.git",
+            "ssh_url": "git@github.com:ManagementMO/CodeScribe.git",
+            "clone_url": "https://github.com/ManagementMO/CodeScribe.git",
+            "svn_url": "https://github.com/ManagementMO/CodeScribe",
+            "homepage": null,
+            "size": 5808,
+            "stargazers_count": 1,
+            "watchers_count": 1,
+            "language": "JavaScript",
+            "has_issues": true,
+            "has_projects": true,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "has_discussions": false,
+            "forks_count": 0,
+            "mirror_url": null,
+            "archived": false,
+            "disabled": false,
+            "open_issues_count": 10,
+            "license": null,
+            "allow_forking": true,
+            "is_template": false,
+            "web_commit_signoff_required": false,
+            "topics": [],
+            "visibility": "public",
+            "forks": 0,
+            "open_issues": 10,
+            "watchers": 1,
+            "default_branch": "main"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/32"
+          },
+          "html": {
+            "href": "https://github.com/ManagementMO/CodeScribe/pull/32"
+          },
+          "issue": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/32"
+          },
+          "comments": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/32/comments"
+          },
+          "review_comments": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/32/comments"
+          },
+          "review_comment": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/comments{/number}"
+          },
+          "commits": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/32/commits"
+          },
+          "statuses": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/3a7c8306ef4bfe186d6d0062f38b13f944717447"
+          }
+        },
+        "author_association": "OWNER",
+        "auto_merge": null,
+        "active_lock_reason": null,
+        "merged": false,
+        "mergeable": true,
+        "rebaseable": true,
+        "mergeable_state": "clean",
+        "merged_by": null,
+        "comments": 1,
+        "review_comments": 0,
+        "maintainer_can_modify": false,
+        "commits": 3,
+        "additions": 10594,
+        "deletions": 30,
+        "changed_files": 13,
+        "isUpdate": true
+      },
+      "owner": "ManagementMO",
+      "repo": "CodeScribe",
+      "isUpdate": true
+    }
+  },
+  "workflows": [
+    "documentation",
+    "github",
+    "linear"
+  ],
+  "results": {
+    "documentation": {
+      "diagrams": {
+        "flowcharts": [
+          {
+            "type": "flowchart",
+            "title": "Class Relationships",
+            "mermaid": "flowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n"
+          }
+        ],
+        "dependencyGraphs": [],
+        "sequenceDiagrams": [
+          {
+            "type": "sequence",
+            "title": "API Interaction Flow",
+            "mermaid": "sequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n"
+          }
+        ],
+        "architectureDiagrams": [
+          {
+            "type": "architecture",
+            "title": "Project Architecture",
+            "mermaid": "graph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n"
+          }
+        ]
+      },
+      "formattedDiagrams": {
+        "github": {
+          "markdown": "## 📊 Code Analysis Diagrams\n\n### Class Relationships\n\n```mermaid\nflowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n```\n\n### API Interaction Flow\n\n```mermaid\nsequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n```\n\n### Project Architecture\n\n```mermaid\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n```\n\n",
+          "html": "<div class=\"code-analysis-diagrams\">\n<h2>📊 Code Analysis Diagrams</h2>\n<div class=\"diagram-container\">\n<h3>Class Relationships</h3>\n<div class=\"mermaid\">\nflowchart TD\n    C0[ConversationMemory]\n    C1[IntelligentAgent]\n    C2[WorkflowAutomation]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>API Interaction Flow</h3>\n<div class=\"mermaid\">\nsequenceDiagram\n    participant Client\n    participant App\n    participant API\n    participant DB\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n    Client->>+App: arrow_function()\n    App->>+API: HTTP Request\n    API->>+DB: Query Data\n    DB-->>-API: Return Data\n    API-->>-App: HTTP Response\n    App-->>-Client: Return Result\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>Project Architecture</h3>\n<div class=\"mermaid\">\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n</div>\n</div>\n</div>\n"
+        },
+        "linear": {
+          "markdown": "## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n",
+          "text": "📊 CODE ANALYSIS SUMMARY\n========================\n\nGenerated Diagrams:\n• Flowcharts: 1\n• Dependency Graphs: 0\n• Sequence Diagrams: 1\n• Architecture Diagrams: 1\n\n"
+        }
+      },
+      "summary": {
+        "totalDiagrams": 3,
+        "diagramTypes": {
+          "flowcharts": 1,
+          "dependencyGraphs": 0,
+          "sequenceDiagrams": 1,
+          "architectureDiagrams": 1
+        },
+        "analysisContext": {
+          "hasCodeChanges": false,
+          "changedFiles": 13,
+          "complexityLevel": "very_high",
+          "securityRisk": "none"
+        },
+        "recommendations": [
+          {
+            "type": "complexity",
+            "message": "High code complexity detected. Consider breaking down complex functions shown in flowcharts.",
+            "priority": "high"
+          },
+          {
+            "type": "architecture",
+            "message": "Multiple files changed. Consider reviewing architecture diagrams for impact assessment.",
+            "priority": "medium"
+          },
+          {
+            "type": "api",
+            "message": "API interactions detected. Review sequence diagrams for proper error handling.",
+            "priority": "low"
+          }
+        ]
+      }
+    },
+    "github": {
+      "pr": {
+        "url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/32",
+        "id": 2679532597,
+        "node_id": "PR_kwDOPPEEec6ftmw1",
+        "html_url": "https://github.com/ManagementMO/CodeScribe/pull/32",
+        "diff_url": "https://github.com/ManagementMO/CodeScribe/pull/32.diff",
+        "patch_url": "https://github.com/ManagementMO/CodeScribe/pull/32.patch",
+        "issue_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/32",
+        "number": 32,
+        "state": "open",
+        "locked": false,
+        "title": "feat: Significant expansion of CodeDescribe functionality",
+        "user": {
+          "login": "ManagementMO",
+          "id": 111318013,
+          "node_id": "U_kgDOBqKT_Q",
+          "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ManagementMO",
+          "html_url": "https://github.com/ManagementMO",
+          "followers_url": "https://api.github.com/users/ManagementMO/followers",
+          "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+          "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+          "repos_url": "https://api.github.com/users/ManagementMO/repos",
+          "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "This PR represents a major update to CodeDescribe, adding significant new features and functionality.  The changes include:\n\n* Extensive additions to CodeDescribe's internal data structures and logging mechanisms, as evidenced by the numerous additions to `.codescribe/history/*.json` files and `.codescribe/logs/codescribe.log`.\n* Enhancements to the `linear_agent.js` component, suggesting improvements to the core logic or agent behavior.\n* Updated documentation in `CODESCRIBE_COMMAND_REFERENCE.md` and `docs/PLUGIN_DEVELOPMENT.md` to reflect these changes.  The documentation updates indicate a significant increase in the number of available commands and/or plugin development options.\n\nThe sheer volume of changes (over 10,000 lines inserted) suggests a substantial overhaul or feature addition rather than minor bug fixes or refactoring.  Please review thoroughly, paying particular attention to the documentation updates to understand the implications of this release.",
+        "created_at": "2025-07-20T03:06:07Z",
+        "updated_at": "2025-07-20T03:17:07Z",
+        "closed_at": null,
+        "merged_at": null,
+        "merge_commit_sha": "a60f9d3a19dce3848563d2c1f3b3032b980f506b",
+        "assignee": null,
+        "assignees": [],
+        "requested_reviewers": [],
+        "requested_teams": [],
+        "labels": [],
+        "milestone": null,
+        "draft": true,
+        "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/32/commits",
+        "review_comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/32/comments",
+        "review_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/comments{/number}",
+        "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/32/comments",
+        "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/3a7c8306ef4bfe186d6d0062f38b13f944717447",
+        "head": {
+          "label": "ManagementMO:feat/COD-21-enhanced-agent",
+          "ref": "feat/COD-21-enhanced-agent",
+          "sha": "3a7c8306ef4bfe186d6d0062f38b13f944717447",
+          "user": {
+            "login": "ManagementMO",
+            "id": 111318013,
+            "node_id": "U_kgDOBqKT_Q",
+            "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ManagementMO",
+            "html_url": "https://github.com/ManagementMO",
+            "followers_url": "https://api.github.com/users/ManagementMO/followers",
+            "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+            "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+            "repos_url": "https://api.github.com/users/ManagementMO/repos",
+            "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 1022428281,
+            "node_id": "R_kgDOPPEEeQ",
+            "name": "CodeScribe",
+            "full_name": "ManagementMO/CodeScribe",
+            "private": false,
+            "owner": {
+              "login": "ManagementMO",
+              "id": 111318013,
+              "node_id": "U_kgDOBqKT_Q",
+              "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ManagementMO",
+              "html_url": "https://github.com/ManagementMO",
+              "followers_url": "https://api.github.com/users/ManagementMO/followers",
+              "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+              "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+              "repos_url": "https://api.github.com/users/ManagementMO/repos",
+              "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "html_url": "https://github.com/ManagementMO/CodeScribe",
+            "description": null,
+            "fork": false,
+            "url": "https://api.github.com/repos/ManagementMO/CodeScribe",
+            "forks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/forks",
+            "keys_url": "https://api.github.com/repos/ManagementMO/CodeScribe/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/ManagementMO/CodeScribe/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/ManagementMO/CodeScribe/teams",
+            "hooks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/hooks",
+            "issue_events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/events",
+            "assignees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/ManagementMO/CodeScribe/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/tags",
+            "blobs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/ManagementMO/CodeScribe/languages",
+            "stargazers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/stargazers",
+            "contributors_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contributors",
+            "subscribers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscribers",
+            "subscription_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscription",
+            "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/ManagementMO/CodeScribe/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/ManagementMO/CodeScribe/merges",
+            "archive_url": "https://api.github.com/repos/ManagementMO/CodeScribe/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/ManagementMO/CodeScribe/downloads",
+            "issues_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/ManagementMO/CodeScribe/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/ManagementMO/CodeScribe/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/ManagementMO/CodeScribe/labels{/name}",
+            "releases_url": "https://api.github.com/repos/ManagementMO/CodeScribe/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/deployments",
+            "created_at": "2025-07-19T04:03:17Z",
+            "updated_at": "2025-07-20T02:21:56Z",
+            "pushed_at": "2025-07-20T03:06:00Z",
+            "git_url": "git://github.com/ManagementMO/CodeScribe.git",
+            "ssh_url": "git@github.com:ManagementMO/CodeScribe.git",
+            "clone_url": "https://github.com/ManagementMO/CodeScribe.git",
+            "svn_url": "https://github.com/ManagementMO/CodeScribe",
+            "homepage": null,
+            "size": 5808,
+            "stargazers_count": 1,
+            "watchers_count": 1,
+            "language": "JavaScript",
+            "has_issues": true,
+            "has_projects": true,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "has_discussions": false,
+            "forks_count": 0,
+            "mirror_url": null,
+            "archived": false,
+            "disabled": false,
+            "open_issues_count": 10,
+            "license": null,
+            "allow_forking": true,
+            "is_template": false,
+            "web_commit_signoff_required": false,
+            "topics": [],
+            "visibility": "public",
+            "forks": 0,
+            "open_issues": 10,
+            "watchers": 1,
+            "default_branch": "main"
+          }
+        },
+        "base": {
+          "label": "ManagementMO:main",
+          "ref": "main",
+          "sha": "7f7c7a2095e67550876d2334ceb8876e290830a8",
+          "user": {
+            "login": "ManagementMO",
+            "id": 111318013,
+            "node_id": "U_kgDOBqKT_Q",
+            "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ManagementMO",
+            "html_url": "https://github.com/ManagementMO",
+            "followers_url": "https://api.github.com/users/ManagementMO/followers",
+            "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+            "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+            "repos_url": "https://api.github.com/users/ManagementMO/repos",
+            "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 1022428281,
+            "node_id": "R_kgDOPPEEeQ",
+            "name": "CodeScribe",
+            "full_name": "ManagementMO/CodeScribe",
+            "private": false,
+            "owner": {
+              "login": "ManagementMO",
+              "id": 111318013,
+              "node_id": "U_kgDOBqKT_Q",
+              "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ManagementMO",
+              "html_url": "https://github.com/ManagementMO",
+              "followers_url": "https://api.github.com/users/ManagementMO/followers",
+              "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+              "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+              "repos_url": "https://api.github.com/users/ManagementMO/repos",
+              "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "html_url": "https://github.com/ManagementMO/CodeScribe",
+            "description": null,
+            "fork": false,
+            "url": "https://api.github.com/repos/ManagementMO/CodeScribe",
+            "forks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/forks",
+            "keys_url": "https://api.github.com/repos/ManagementMO/CodeScribe/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/ManagementMO/CodeScribe/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/ManagementMO/CodeScribe/teams",
+            "hooks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/hooks",
+            "issue_events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/events",
+            "assignees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/ManagementMO/CodeScribe/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/tags",
+            "blobs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/ManagementMO/CodeScribe/languages",
+            "stargazers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/stargazers",
+            "contributors_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contributors",
+            "subscribers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscribers",
+            "subscription_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscription",
+            "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/ManagementMO/CodeScribe/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/ManagementMO/CodeScribe/merges",
+            "archive_url": "https://api.github.com/repos/ManagementMO/CodeScribe/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/ManagementMO/CodeScribe/downloads",
+            "issues_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/ManagementMO/CodeScribe/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/ManagementMO/CodeScribe/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/ManagementMO/CodeScribe/labels{/name}",
+            "releases_url": "https://api.github.com/repos/ManagementMO/CodeScribe/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/deployments",
+            "created_at": "2025-07-19T04:03:17Z",
+            "updated_at": "2025-07-20T02:21:56Z",
+            "pushed_at": "2025-07-20T03:06:00Z",
+            "git_url": "git://github.com/ManagementMO/CodeScribe.git",
+            "ssh_url": "git@github.com:ManagementMO/CodeScribe.git",
+            "clone_url": "https://github.com/ManagementMO/CodeScribe.git",
+            "svn_url": "https://github.com/ManagementMO/CodeScribe",
+            "homepage": null,
+            "size": 5808,
+            "stargazers_count": 1,
+            "watchers_count": 1,
+            "language": "JavaScript",
+            "has_issues": true,
+            "has_projects": true,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "has_discussions": false,
+            "forks_count": 0,
+            "mirror_url": null,
+            "archived": false,
+            "disabled": false,
+            "open_issues_count": 10,
+            "license": null,
+            "allow_forking": true,
+            "is_template": false,
+            "web_commit_signoff_required": false,
+            "topics": [],
+            "visibility": "public",
+            "forks": 0,
+            "open_issues": 10,
+            "watchers": 1,
+            "default_branch": "main"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/32"
+          },
+          "html": {
+            "href": "https://github.com/ManagementMO/CodeScribe/pull/32"
+          },
+          "issue": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/32"
+          },
+          "comments": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/32/comments"
+          },
+          "review_comments": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/32/comments"
+          },
+          "review_comment": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/comments{/number}"
+          },
+          "commits": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/32/commits"
+          },
+          "statuses": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/3a7c8306ef4bfe186d6d0062f38b13f944717447"
+          }
+        },
+        "author_association": "OWNER",
+        "auto_merge": null,
+        "active_lock_reason": null,
+        "merged": false,
+        "mergeable": true,
+        "rebaseable": true,
+        "mergeable_state": "clean",
+        "merged_by": null,
+        "comments": 1,
+        "review_comments": 0,
+        "maintainer_can_modify": false,
+        "commits": 3,
+        "additions": 10594,
+        "deletions": 30,
+        "changed_files": 13,
+        "isUpdate": true
+      },
+      "owner": "ManagementMO",
+      "repo": "CodeScribe",
+      "isUpdate": true
+    },
+    "linear": {
+      "ticketId": "COD-21",
+      "issueId": "85c59810-b5f7-4071-81c6-04b3de7895be",
+      "commentAdded": true,
+      "issue": {
+        "id": "85c59810-b5f7-4071-81c6-04b3de7895be",
+        "identifier": "COD-21",
+        "title": "final_tests",
+        "description": null,
+        "priority": 0,
+        "estimate": null,
+        "state": {
+          "id": "b54f1750-a1c0-4089-bd02-472cdfbe5ce2",
+          "name": "Todo",
+          "type": "unstarted"
+        },
+        "assignee": {
+          "id": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+          "name": "Mohammed Elshrief",
+          "email": "elshriefmoh@gmail.com"
+        },
+        "project": null,
+        "team": {
+          "id": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+          "name": "Codescribe"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "comments": {
+          "nodes": [
+            {
+              "id": "9bedbd66-aeb6-48b7-ad40-e03e58887880",
+              "body": "### 💬 CodeScribe AI Assistant\n\n❌ AI service quota exceeded. Please try again later.",
+              "createdAt": "2025-07-20T03:16:07.302Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "9eb936fb-9a2b-4811-94a6-dfd5d213c537",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:16:05.266Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "eea70db1-a29c-47e5-ab7b-4126d437b6f5",
+              "body": "@codescribe-agent talk hi",
+              "createdAt": "2025-07-20T03:16:04.556Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "865edc5e-2512-4247-abab-dfa6375ae93b",
+              "body": "### 💬 CodeScribe AI Assistant\n\n❌ AI service quota exceeded. Please try again later.",
+              "createdAt": "2025-07-20T03:14:16.717Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "52d514ff-bf0e-442a-8ecb-5a21f267bb18",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:14:16.468Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "546567e5-945a-47ab-a9fe-3d62a94c9dd3",
+              "body": "@codescribe-agent talk hi",
+              "createdAt": "2025-07-20T03:14:15.695Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "1082ffd7-8c64-4e91-8be5-4294530a830a",
+              "body": "### 💬 CodeScribe AI Assistant\n\n❌ AI service quota exceeded. Please try again later.",
+              "createdAt": "2025-07-20T03:13:10.229Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "aae83a2f-9a62-491b-810c-10cee4c64d80",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:13:09.673Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "c56436c8-4a8b-4d04-9179-b4fd4da8be9a",
+              "body": "@codescribe-agent chat whats up",
+              "createdAt": "2025-07-20T03:13:08.897Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "8bc95819-fecd-4c28-8b60-750ef767c379",
+              "body": "### 💬 CodeScribe AI Assistant\n\nI'm having trouble processing that right now. Could you try rephrasing your question?",
+              "createdAt": "2025-07-20T03:09:41.778Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "64d3fdd6-0e59-4580-a5d3-e7270068f2af",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:09:41.144Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "e6946541-7a12-4108-895e-5c2d29ea874c",
+              "body": "@codescribe-agent chat hi how are you",
+              "createdAt": "2025-07-20T03:09:40.611Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "9bfb33a0-7630-4873-8177-2f17c81953e2",
+              "body": "### 💬 CodeScribe AI Assistant\n\nI'm having trouble processing that right now. Could you try rephrasing your question?",
+              "createdAt": "2025-07-20T03:08:08.701Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "0db8cf2d-40c2-4072-ab98-52ab53285c76",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:08:08.455Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "0d638fe7-ee98-4544-b60b-bac7955b02ef",
+              "body": "@codescribe-agent chat hi",
+              "createdAt": "2025-07-20T03:08:07.890Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "7a7c1481-467b-445b-af52-6d6a4c8ae9cb",
+              "body": "### 💬 CodeScribe AI Assistant\n\nI'm having trouble processing that right now. Could you try rephrasing your question?",
+              "createdAt": "2025-07-20T03:07:05.697Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "82a9f566-39cd-4896-a97a-c57a49239c56",
+              "body": "🤖 Roger that! I'm starting the code review now...",
+              "createdAt": "2025-07-20T03:07:05.242Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "d18be552-c79d-4fae-8a7d-2eddd3d84d80",
+              "body": "@codescribe-agent chat how are you?",
+              "createdAt": "2025-07-20T03:07:04.740Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            },
+            {
+              "id": "333a0e78-d0f2-4e1a-a6cb-55bf166a9097",
+              "body": "🚀 **CodeScribe Agent - Enhanced Workflow Execution**\n\n**Development Progress:**\n- Current Phase: IN REVIEW\n- Complexity Level: VERY_HIGH\n- Risk Level: HIGH\n\n**Status Update:**\n- ✅ Status changed from \"Backlog\" to \"In Review\"\n- Reason: Pull request created for review\n\n**Scope Analysis:**\n- ⚠️ Scope changes detected (Risk: LOW)\n- High number of files changed (13)\n\n**Recommendations:**\n- Expand testing strategy due to wide-ranging changes\n\n**Blockers Detected:**\n- ⚠️ Code complexity score (69) exceeds recommended threshold\n\n**GitHub Integration:**\n- Status: Created PR #32\n- URL: https://github.com/ManagementMO/CodeScribe/pull/32\n- Title: feat: COD-21 - Update implementation\n\n**AI Analysis:**\nUpdated implementation for COD-21 with code changes across multiple files.\n\n**Code Analysis:**\n- Generated 3 visualization diagrams\n- Complexity Level: very_high\n- Security Risk: none\n\n**Code Recommendations:**\n- High code complexity detected. Consider breaking down complex functions shown in flowcharts.\n- Multiple files changed. Consider reviewing architecture diagrams for impact assessment.\n- API interactions detected. Review sequence diagrams for proper error handling.\n\n**Sub-ticket Management:**\n- 💡 Suggested 2 sub-tickets (auto-creation disabled)\n  - Implement general functionality\n  - Refactor high-complexity file: linear_agent.js\n- Reasons: High code complexity (69 > 15), High number of changed files (13 > 8)\n\n\n## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• ConversationMemory\n• IntelligentAgent\n• WorkflowAutomation\n\n```\n\n### API Interaction Flow\n\n```\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\nDB → >-API: Return Data\nAPI → >-App: HTTP Response\nApp → >-Client: Return Result\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n\n\n---\n*Automated by CodeScribe Enhanced Linear Workflow*",
+              "createdAt": "2025-07-20T03:06:09.153Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            }
+          ]
+        },
+        "createdAt": "2025-07-20T02:44:36.138Z",
+        "updatedAt": "2025-07-20T03:16:07.258Z",
+        "startedAt": null,
+        "completedAt": null,
+        "dueDate": null,
+        "cycle": null
+      },
+      "progressAnalysis": {
+        "currentPhase": "in_review",
+        "suggestedActions": [
+          {
+            "type": "status_transition",
+            "action": "Move to In Review",
+            "reason": "Pull request created and ready for review"
+          }
+        ],
+        "timeSpent": null,
+        "complexity": "very_high",
+        "riskLevel": "high",
+        "blockers": [
+          {
+            "type": "high_complexity",
+            "message": "Code complexity score (79) exceeds recommended threshold",
+            "severity": "medium"
+          }
+        ],
+        "milestones": [
+          {
+            "type": "pr_created",
+            "timestamp": "2025-07-20T03:17:08.045Z"
+          }
+        ]
+      },
+      "statusTransition": {
+        "success": true,
+        "fromStatus": "Todo",
+        "toStatus": "In Review",
+        "reason": "Pull request created for review",
+        "timestamp": "2025-07-20T03:17:08.303Z"
+      },
+      "timeTracking": {
+        "skipped": true,
+        "reason": "Time tracking disabled"
+      },
+      "scopeChange": {
+        "hasChanges": true,
+        "changes": [
+          {
+            "type": "file_count_high",
+            "severity": "low",
+            "message": "High number of files changed (13)",
+            "impact": "May indicate scope creep or complex refactoring"
+          }
+        ],
+        "riskLevel": "low",
+        "recommendations": [
+          {
+            "type": "testing_strategy",
+            "message": "Expand testing strategy due to wide-ranging changes",
+            "action": "Add integration tests and increase test coverage"
+          }
+        ]
+      },
+      "subTickets": {
+        "success": true,
+        "reasons": [
+          "High code complexity (79 > 15)",
+          "High number of changed files (13 > 8)"
+        ],
+        "analysis": {
+          "shouldCreateSubTickets": true,
+          "suggestedSubTickets": [
+            {
+              "title": "Implement general functionality",
+              "description": "**Auto-generated sub-ticket from COD-21**\n\nHandle changes to 13 files related to general\n\n**Scope:**\nFiles to modify:\n- .codescribe/history/1752978027670-056053c0.json\n- .codescribe/history/1752978164278-ce0d889e.json\n- .codescribe/history/1752978180869-a6eee6a9.json\n- .codescribe/history/1752978336730-4dc95a0a.json\n- .codescribe/history/1752978546640-b2fb4181.json\n- .codescribe/history/1752978600932-8840f7f3.json\n- .codescribe/history/1752978683541-1b2e19a0.json\n- .codescribe/history/1752978753439-60ff2adc.json\n- .codescribe/history/1752979095309-c5783d11.json\n- .codescribe/logs/codescribe.log\n- CODESCRIBE_COMMAND_REFERENCE.md\n- docs/PLUGIN_DEVELOPMENT.md\n- linear_agent.js\n\n**Complexity:** high\n**Priority:** low\n\n**Parent Ticket:** COD-21 - final_tests",
+              "priority": 4,
+              "estimate": 8,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "feature"
+              ],
+              "parentIssueId": "85c59810-b5f7-4071-81c6-04b3de7895be",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "functionality_group",
+                "files": [
+                  ".codescribe/history/1752978027670-056053c0.json",
+                  ".codescribe/history/1752978164278-ce0d889e.json",
+                  ".codescribe/history/1752978180869-a6eee6a9.json",
+                  ".codescribe/history/1752978336730-4dc95a0a.json",
+                  ".codescribe/history/1752978546640-b2fb4181.json",
+                  ".codescribe/history/1752978600932-8840f7f3.json",
+                  ".codescribe/history/1752978683541-1b2e19a0.json",
+                  ".codescribe/history/1752978753439-60ff2adc.json",
+                  ".codescribe/history/1752979095309-c5783d11.json",
+                  ".codescribe/logs/codescribe.log",
+                  "CODESCRIBE_COMMAND_REFERENCE.md",
+                  "docs/PLUGIN_DEVELOPMENT.md",
+                  "linear_agent.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-21"
+              }
+            },
+            {
+              "title": "Refactor high-complexity file: linear_agent.js",
+              "description": "**Auto-generated sub-ticket from COD-21**\n\nAddress complexity issues in linear_agent.js (score: 79)\n\n**Scope:**\nFiles to modify:\n- linear_agent.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-21 - final_tests",
+              "priority": 3,
+              "estimate": 9,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "refactor",
+                "technical-debt"
+              ],
+              "parentIssueId": "85c59810-b5f7-4071-81c6-04b3de7895be",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "complexity_refactor",
+                "files": [
+                  "linear_agent.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-21"
+              }
+            }
+          ],
+          "blockers": [],
+          "taskBreakdown": [
+            {
+              "type": "functionality_group",
+              "title": "Implement general functionality",
+              "description": "Handle changes to 13 files related to general",
+              "files": [
+                ".codescribe/history/1752978027670-056053c0.json",
+                ".codescribe/history/1752978164278-ce0d889e.json",
+                ".codescribe/history/1752978180869-a6eee6a9.json",
+                ".codescribe/history/1752978336730-4dc95a0a.json",
+                ".codescribe/history/1752978546640-b2fb4181.json",
+                ".codescribe/history/1752978600932-8840f7f3.json",
+                ".codescribe/history/1752978683541-1b2e19a0.json",
+                ".codescribe/history/1752978753439-60ff2adc.json",
+                ".codescribe/history/1752979095309-c5783d11.json",
+                ".codescribe/logs/codescribe.log",
+                "CODESCRIBE_COMMAND_REFERENCE.md",
+                "docs/PLUGIN_DEVELOPMENT.md",
+                "linear_agent.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "low"
+            },
+            {
+              "type": "complexity_refactor",
+              "title": "Refactor high-complexity file: linear_agent.js",
+              "description": "Address complexity issues in linear_agent.js (score: 79)",
+              "files": [
+                "linear_agent.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "medium"
+            }
+          ]
+        },
+        "createdSubTickets": [],
+        "autoCreated": false
+      }
+    }
+  },
+  "duration": 8765,
+  "success": true,
+  "error": null
+}

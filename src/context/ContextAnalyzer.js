@@ -63,7 +63,7 @@ class ContextAnalyzer {
                 branch: branchName,
                 remoteUrl,
                 diff: diffContent,
-                diffStats: await this.safeExecSync('git diff --stat origin/main...HEAD', { maxBuffer: 1024 * 1024 }),
+                diffStats: await this.safeExecSync(`git diff --stat ${await this.getBaseBranch()}...HEAD`, { maxBuffer: 1024 * 1024 }),
                 commits: this.getRecentCommits(branchName),
                 branchHistory,
                 mergeBaseAnalysis,
@@ -122,22 +122,25 @@ class ContextAnalyzer {
      */
     async getSafeDiff(branchName) {
         try {
+            // Determine the best base branch to compare against
+            const baseBranch = await this.getBaseBranch();
+            
             // First check if there are any changes
-            const hasChanges = await this.safeExecSync('git diff --name-only origin/main...HEAD');
+            const hasChanges = await this.safeExecSync(`git diff --name-only ${baseBranch}...HEAD`);
             if (!hasChanges) {
                 return '';
             }
 
             // Get diff with size limit
-            const diffContent = await this.safeExecSync('git diff origin/main...HEAD', {
+            const diffContent = await this.safeExecSync(`git diff ${baseBranch}...HEAD`, {
                 maxBuffer: 2 * 1024 * 1024 // 2MB limit for diff
             });
             
             // If diff is too large, get a summary instead
             if (diffContent.length > 1000000) { // 1MB
                 console.log(chalk.yellow('   - Large diff detected, using summary...'));
-                const summary = await this.safeExecSync('git diff --stat origin/main...HEAD');
-                const fileList = await this.safeExecSync('git diff --name-status origin/main...HEAD');
+                const summary = await this.safeExecSync(`git diff --stat ${baseBranch}...HEAD`);
+                const fileList = await this.safeExecSync(`git diff --name-status ${baseBranch}...HEAD`);
                 return `Large diff summary:\n${summary}\n\nChanged files:\n${fileList}`;
             }
             
@@ -146,11 +149,51 @@ class ContextAnalyzer {
             console.log(chalk.yellow(`   - Warning: Could not get diff: ${error.message}`));
             // Fallback to just getting changed file names
             try {
-                const fileList = await this.safeExecSync('git diff --name-status origin/main...HEAD');
+                const baseBranch = await this.getBaseBranch();
+                const fileList = await this.safeExecSync(`git diff --name-status ${baseBranch}...HEAD`);
                 return `Changed files:\n${fileList}`;
             } catch (fallbackError) {
                 return '';
             }
+        }
+    }
+
+    /**
+     * Determine the best base branch to compare against
+     * @returns {Promise<string>} Base branch reference
+     */
+    async getBaseBranch() {
+        // Try different base branch options in order of preference
+        const baseBranchOptions = [
+            'origin/main',
+            'origin/master', 
+            'main',
+            'master'
+        ];
+
+        for (const baseBranch of baseBranchOptions) {
+            try {
+                // Check if this branch reference exists
+                await this.safeExecSync(`git rev-parse --verify ${baseBranch}`);
+                console.log(chalk.gray(`   - Using base branch: ${baseBranch}`));
+                return baseBranch;
+            } catch (error) {
+                // This branch doesn't exist, try the next one
+                continue;
+            }
+        }
+
+        // If none of the standard branches exist, fall back to the current branch's merge base
+        try {
+            const mergeBase = await this.safeExecSync('git merge-base HEAD HEAD~10');
+            if (mergeBase) {
+                console.log(chalk.gray('   - Using merge base as fallback'));
+                return mergeBase.trim();
+            }
+        } catch (error) {
+            // Last resort fallback
+            console.log(chalk.yellow('   - Warning: Using HEAD~1 as fallback base'));
+            return 'HEAD~1';
         }
     }
 
@@ -212,7 +255,8 @@ class ContextAnalyzer {
      */
     async getRecentCommits(branchName) {
         try {
-            const commitLog = await this.safeExecSync(`git log origin/main..${branchName} --oneline --no-merges`);
+            const baseBranch = await this.getBaseBranch();
+            const commitLog = await this.safeExecSync(`git log ${baseBranch}..${branchName} --oneline --no-merges`);
             if (!commitLog) return [];
             
             return commitLog.split('\n').map(line => {
@@ -235,7 +279,8 @@ class ContextAnalyzer {
         console.log(chalk.blue('   - Analyzing code changes...'));
         
         try {
-            const diffContent = await this.safeExecSync('git diff origin/main...HEAD');
+            const baseBranch = await this.getBaseBranch();
+            const diffContent = await this.safeExecSync(`git diff ${baseBranch}...HEAD`);
             const changedFiles = await this.getChangedFiles();
             
             const analysis = {
@@ -269,7 +314,8 @@ class ContextAnalyzer {
      */
     async getChangedFiles() {
         try {
-            const diffOutput = await this.safeExecSync('git diff --name-status origin/main...HEAD');
+            const baseBranch = await this.getBaseBranch();
+            const diffOutput = await this.safeExecSync(`git diff --name-status ${baseBranch}...HEAD`);
             if (!diffOutput) return [];
             
             return diffOutput.split('\n').map(line => {
@@ -633,7 +679,8 @@ class ContextAnalyzer {
         
         try {
             // Check if package.json was modified
-            const packageJsonDiff = execSync('git diff origin/main...HEAD -- package.json').toString();
+            const baseBranch = await this.getBaseBranch();
+            const packageJsonDiff = execSync(`git diff ${baseBranch}...HEAD -- package.json`).toString();
             
             if (packageJsonDiff) {
                 const changes = this.parsePackageJsonDiff(packageJsonDiff);
