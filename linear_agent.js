@@ -1,4 +1,4 @@
-// cloud-server.js
+// Enhanced Linear AI Agent - Intelligent Conversational Assistant
 
 require('dotenv').config();
 
@@ -8,15 +8,243 @@ const { Octokit } = require('@octokit/rest');
 const { LinearClient } = require('@linear/sdk');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const chalk = require('chalk');
+const fs = require('fs').promises;
+const path = require('path');
 
 // --- Initialize API Clients ---
 const app = express();
-// We need the raw body for webhook verification, so we'll use a special middleware setup.
 app.use(express.json());
 
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 const linearClient = new LinearClient({ apiKey: process.env.LINEAR_API_KEY });
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+// --- Enhanced AI Agent Classes ---
+class ConversationMemory {
+    constructor() {
+        this.conversations = new Map();
+        this.contextCache = new Map();
+        this.userProfiles = new Map();
+    }
+
+    async saveConversation(issueId, userId, message, response) {
+        const key = `${issueId}-${userId}`;
+        if (!this.conversations.has(key)) {
+            this.conversations.set(key, []);
+        }
+        
+        this.conversations.get(key).push({
+            timestamp: new Date(),
+            message,
+            response,
+            context: await this.getIssueContext(issueId)
+        });
+
+        // Keep only last 20 exchanges per conversation
+        if (this.conversations.get(key).length > 20) {
+            this.conversations.get(key).shift();
+        }
+    }
+
+    getConversationHistory(issueId, userId) {
+        const key = `${issueId}-${userId}`;
+        return this.conversations.get(key) || [];
+    }
+
+    async getIssueContext(issueId) {
+        if (this.contextCache.has(issueId)) {
+            const cached = this.contextCache.get(issueId);
+            if (Date.now() - cached.timestamp < 300000) { // 5 min cache
+                return cached.data;
+            }
+        }
+
+        try {
+            const issue = await linearClient.issue(issueId);
+            const context = {
+                title: issue.title,
+                description: issue.description,
+                state: issue.state?.name,
+                priority: issue.priority,
+                labels: issue.labels?.nodes?.map(l => l.name) || [],
+                assignee: issue.assignee?.name,
+                team: issue.team?.name,
+                project: issue.project?.name,
+                cycle: issue.cycle?.name,
+                estimate: issue.estimate,
+                createdAt: issue.createdAt,
+                updatedAt: issue.updatedAt
+            };
+            
+            this.contextCache.set(issueId, {
+                timestamp: Date.now(),
+                data: context
+            });
+            
+            return context;
+        } catch (error) {
+            console.error('Error fetching issue context:', error);
+            return null;
+        }
+    }
+}
+
+class IntelligentAgent {
+    constructor() {
+        this.memory = new ConversationMemory();
+        this.model = genAI.getGenerativeModel({ 
+            model: 'gemini-1.5-pro',
+            generationConfig: {
+                temperature: 0.7,
+                topP: 0.8,
+                maxOutputTokens: 2048,
+            }
+        });
+    }
+
+    async processMessage(issueId, userId, userName, message) {
+        const context = await this.memory.getIssueContext(issueId);
+        const history = this.memory.getConversationHistory(issueId, userId);
+        
+        // Build comprehensive prompt with context
+        const systemPrompt = this.buildSystemPrompt(context, history, userName);
+        const response = await this.generateResponse(systemPrompt, message, context);
+        
+        // Save conversation
+        await this.memory.saveConversation(issueId, userId, message, response);
+        
+        return response;
+    }
+
+    buildSystemPrompt(context, history, userName) {
+        return `You are CodeScribe AI, an intelligent development assistant integrated with Linear and GitHub. You're having a conversation with ${userName} about their work.
+
+CURRENT ISSUE CONTEXT:
+${context ? `
+- Title: ${context.title}
+- Description: ${context.description || 'No description'}
+- State: ${context.state}
+- Priority: ${context.priority}
+- Team: ${context.team}
+- Assignee: ${context.assignee || 'Unassigned'}
+- Labels: ${context.labels.join(', ') || 'None'}
+- Estimate: ${context.estimate || 'Not estimated'}
+- Project: ${context.project || 'No project'}
+- Cycle: ${context.cycle || 'No cycle'}
+` : 'No issue context available'}
+
+CONVERSATION HISTORY:
+${history.slice(-5).map(h => `User: ${h.message}\nYou: ${h.response}`).join('\n\n')}
+
+CAPABILITIES:
+- Analyze code, commits, and pull requests
+- Help with Linear workflow management
+- Provide development insights and suggestions
+- Remember conversation context
+- Execute GitHub operations
+- Track project progress
+- Generate documentation
+- Suggest improvements and optimizations
+
+PERSONALITY:
+- Conversational and helpful
+- Technical but approachable
+- Proactive in suggesting improvements
+- Remember previous discussions
+- Ask clarifying questions when needed
+
+Respond naturally as if you're a knowledgeable teammate who understands the project context.`;
+    }
+
+    async generateResponse(systemPrompt, userMessage, context) {
+        try {
+            const prompt = `${systemPrompt}
+
+User Message: ${userMessage}
+
+Respond helpfully and conversationally. If the user is asking about code, commits, PRs, or Linear workflows, provide specific actionable insights. If you need more information, ask clarifying questions.`;
+
+            const result = await this.model.generateContent(prompt);
+            return result.response.text();
+        } catch (error) {
+            console.error('AI generation error:', error);
+            return "I'm having trouble processing that right now. Could you try rephrasing your question?";
+        }
+    }
+}
+
+class WorkflowAutomation {
+    constructor(linearClient, octokit) {
+        this.linear = linearClient;
+        this.github = octokit;
+    }
+
+    async analyzeIssueProgress(issueId) {
+        try {
+            const issue = await this.linear.issue(issueId);
+            const comments = await issue.comments();
+            
+            return {
+                issue: {
+                    title: issue.title,
+                    state: issue.state?.name,
+                    progress: this.calculateProgress(issue, comments.nodes),
+                    blockers: this.identifyBlockers(comments.nodes),
+                    nextSteps: this.suggestNextSteps(issue, comments.nodes)
+                }
+            };
+        } catch (error) {
+            console.error('Error analyzing issue progress:', error);
+            return null;
+        }
+    }
+
+    calculateProgress(issue, comments) {
+        // Simple progress calculation based on state and activity
+        const stateProgress = {
+            'Backlog': 0,
+            'Todo': 10,
+            'In Progress': 50,
+            'In Review': 80,
+            'Done': 100
+        };
+        
+        return stateProgress[issue.state?.name] || 0;
+    }
+
+    identifyBlockers(comments) {
+        const blockerKeywords = ['blocked', 'blocker', 'stuck', 'waiting', 'issue', 'problem'];
+        return comments
+            .filter(comment => 
+                blockerKeywords.some(keyword => 
+                    comment.body?.toLowerCase().includes(keyword)
+                )
+            )
+            .slice(-3); // Last 3 potential blockers
+    }
+
+    suggestNextSteps(issue, comments) {
+        const suggestions = [];
+        
+        if (issue.state?.name === 'Todo') {
+            suggestions.push('Move to In Progress when you start working');
+        }
+        
+        if (issue.state?.name === 'In Progress' && !issue.assignee) {
+            suggestions.push('Assign someone to this issue');
+        }
+        
+        if (!issue.estimate) {
+            suggestions.push('Add story point estimate');
+        }
+        
+        return suggestions;
+    }
+}
+
+// Initialize enhanced components
+const agent = new IntelligentAgent();
+const automation = new WorkflowAutomation(linearClient, octokit);
 
 /**
  * A helper function to parse GitHub PR details from a URL.
