@@ -1,0 +1,24 @@
+# .warp/workflows/codescribe-pr.yaml
+
+# Enhanced PR workflow with comprehensive tracking
+name: CodeScribe - Create/Update PR with Full Tracking
+
+description: |
+  Comprehensive PR workflow that analyzes your code changes, generates intelligent commit messages,
+  creates or updates GitHub PRs with detailed descriptions, generates Mermaid diagrams for complex logic,
+  and updates Linear tickets with progress tracking. Includes automatic code quality analysis and
+  security vulnerability scanning.
+
+author: CodeScribe Team
+
+command: codescribe pr
+
+tags:
+  - pr
+  - github
+  - linear
+  - ai
+  - documentation
+  - mermaid
+  - tracking
+  - code-quality

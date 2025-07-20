@@ -1,0 +1,22 @@
+# .warp/workflows/codescribe-release.yaml
+
+# Release preparation workflow
+name: CodeScribe - Release Preparation & Notes
+
+description: |
+  Automates release preparation including version bumping, changelog generation, release notes
+  creation from commits and PRs, tag creation, and branch management. Ensures consistent
+  and professional release processes.
+
+author: CodeScribe Team
+
+command: codescribe release
+
+tags:
+  - release
+  - changelog
+  - version
+  - tags
+  - release-notes
+  - branch-management
+  - automation

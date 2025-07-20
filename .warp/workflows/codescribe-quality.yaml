@@ -1,0 +1,22 @@
+# .warp/workflows/codescribe-quality.yaml
+
+# Code quality analysis workflow
+name: CodeScribe - Code Quality Analysis & Fixes
+
+description: |
+  Comprehensive code quality analysis including complexity metrics, security vulnerability scanning,
+  performance bottleneck detection, and technical debt identification. Provides actionable
+  suggestions for improvements and can automatically create GitHub issues for identified problems.
+
+author: CodeScribe Team
+
+command: codescribe quality
+
+tags:
+  - code-quality
+  - security
+  - performance
+  - technical-debt
+  - complexity
+  - vulnerabilities
+  - analysis
