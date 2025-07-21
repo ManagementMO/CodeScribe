@@ -92,3 +92,7 @@
 [2025-07-20T15:48:25.922Z] [INFO] Starting CodeScribe execution {"command":"help","options":{},"timestamp":"2025-07-20T15:48:25.920Z"}
 [2025-07-20T16:03:02.268Z] [INFO] Starting CodeScribe execution {"command":"commit","options":{},"timestamp":"2025-07-20T16:03:02.267Z"}
 [2025-07-20T16:03:11.709Z] [INFO] Workflows selected {"workflows":["commit"],"count":1}
+[2025-07-21T22:14:58.755Z] [INFO] Workflows selected {"workflows":["commit"],"count":1}
+[2025-07-21T22:14:59.031Z] [INFO] CodeScribe execution completed successfully {"command":"commit","duration":13824,"workflows":["commit"],"results":["commit"]}
+[2025-07-21T22:17:31.072Z] [INFO] Starting CodeScribe execution {"command":"commit","options":{"all":true},"timestamp":"2025-07-21T22:17:31.065Z"}
+[2025-07-21T22:17:41.679Z] [INFO] Workflows selected {"workflows":["commit"],"count":1}

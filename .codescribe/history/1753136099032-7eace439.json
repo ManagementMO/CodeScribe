@@ -1,0 +1,1310 @@
+{
+  "id": "1753136099032-7eace439",
+  "timestamp": "2025-07-21T22:14:59.033Z",
+  "command": "commit",
+  "options": {
+    "all": true
+  },
+  "context": {
+    "git": {
+      "branch": "feature/COD-24",
+      "diff": "Large diff summary:\n.codescribe/history/1753017562314-07e8a18e.json | 2050 ++++++++++++++\n .codescribe/history/1753020715512-0e6f859a.json |  577 ++++\n .codescribe/history/1753021929109-34a74c29.json |  721 +++++\n .codescribe/history/1753024114919-d7202722.json |  733 +++++\n .codescribe/history/1753024144178-4e424a45.json | 2926 ++++++++++++++++++++\n .codescribe/history/1753025643789-3fa9436b.json |  855 ++++++\n .codescribe/history/1753025788620-c1491888.json |  977 +++++++\n .codescribe/history/1753025831842-93e53326.json | 3270 +++++++++++++++++++++++\n .codescribe/logs/codescribe.log                 |   27 +\n TeamProductivityAnalyzer new.js                 |  256 ++\n TeamProductivityAnalyzer.js                     |  256 ++\n src/experimental/CodeHealthMonitor.js           |  343 +++\n src/experimental/DeveloperMoodTracker.js        |  141 +\n src/experimental/IntelligentCodeReviewer.js     |  811 ++++++\n src/experimental/TeamProductivityAnalyzer.js    |  256 ++\n 15 files changed, 14199 insertions(+)\n\nChanged files:\nA\t.codescribe/history/1753017562314-07e8a18e.json\nA\t.codescribe/history/1753020715512-0e6f859a.json\nA\t.codescribe/history/1753021929109-34a74c29.json\nA\t.codescribe/history/1753024114919-d7202722.json\nA\t.codescribe/history/1753024144178-4e424a45.json\nA\t.codescribe/history/1753025643789-3fa9436b.json\nA\t.codescribe/history/1753025788620-c1491888.json\nA\t.codescribe/history/1753025831842-93e53326.json\nM\t.codescribe/logs/codescribe.log\nA\tTeamProductivityAnalyzer new.js\nA\tTeamProductivityAnalyzer.js\nA\tsrc/experimental/CodeHealthMonitor.js\nA\tsrc/experimental/DeveloperMoodTracker.js\nA\tsrc/experimental/IntelligentCodeReviewer.js\nA\tsrc/experimental/TeamProductivityAnalyzer.js",
+      "diffStats": ".codescribe/history/1753017562314-07e8a18e.json | 2050 ++++++++++++++\n .codescribe/history/1753020715512-0e6f859a.json |  577 ++++\n .codescribe/history/1753021929109-34a74c29.json |  721 +++++\n .codescribe/history/1753024114919-d7202722.json |  733 +++++\n .codescribe/history/1753024144178-4e424a45.json | 2926 ++++++++++++++++++++\n .codescribe/history/1753025643789-3fa9436b.json |  855 ++++++\n .codescribe/history/1753025788620-c1491888.json |  977 +++++++\n .codescribe/history/1753025831842-93e53326.json | 3270 +++++++++++++++++++++++\n .codescribe/logs/codescribe.log                 |   27 +\n TeamProductivityAnalyzer new.js                 |  256 ++\n TeamProductivityAnalyzer.js                     |  256 ++\n src/experimental/CodeHealthMonitor.js           |  343 +++\n src/experimental/DeveloperMoodTracker.js        |  141 +\n src/experimental/IntelligentCodeReviewer.js     |  811 ++++++\n src/experimental/TeamProductivityAnalyzer.js    |  256 ++\n 15 files changed, 14199 insertions(+)",
+      "commits": {},
+      "branchHistory": {
+        "creationPoint": "9f0dbf5052e8203460b947456a980711e46294aa",
+        "creationDate": "2025-07-20 07:56:48 -0400",
+        "commitCount": 9,
+        "mergeCount": 0,
+        "ageInDays": 1,
+        "commits": [
+          {
+            "hash": "35ab031",
+            "message": "feat(experimental): Add Team Productivity Analyzer, Code Health Monitor, and Developer Mood Tracker"
+          },
+          {
+            "hash": "cdb2941",
+            "message": "perf(experimental): Add Team Productivity Analyzer and related modules"
+          },
+          {
+            "hash": "1bdc4b4",
+            "message": "perf: COD-21 - optimize performance and reduce complexity"
+          },
+          {
+            "hash": "cae825b",
+            "message": "feat(experimental): Introduce Developer Mood Tracker and Team Productivity Analyzer for enhanced team insights"
+          },
+          {
+            "hash": "c418d27",
+            "message": "feat(experimental): Introduce Developer Mood Tracker and Team Productivity Analyzer for enhanced team insights"
+          },
+          {
+            "hash": "8eb18bb",
+            "message": "chore(.codescribe): COD-21: Update 2 files (other, config)"
+          },
+          {
+            "hash": "19a2e5a",
+            "message": "feat(TeamProductivityAnalyzer.js): COD-21: Update TeamProductivityAnalyzer.js"
+          },
+          {
+            "hash": "027c0fa",
+            "message": "my work so far!"
+          },
+          {
+            "hash": "8e6791f",
+            "message": "attempt"
+          }
+        ]
+      },
+      "mergeBaseAnalysis": {
+        "mergeBase": "9f0dbf5052e8203460b947456a980711e46294aa",
+        "mainHead": "c4f93b097f8c12f35d1d0d05c6b6968595224d93",
+        "aheadCount": 9,
+        "behindCount": 13,
+        "isUpToDate": false,
+        "needsRebase": true,
+        "commitsToMerge": 9
+      },
+      "conflictDetection": {
+        "hasActiveConflicts": false,
+        "potentialConflicts": [],
+        "conflictCount": 0,
+        "riskLevel": "low"
+      },
+      "commitAnalysis": {
+        "error": "commits is not iterable"
+      },
+      "branchValidation": {
+        "branchName": "feature/COD-24",
+        "isValid": true,
+        "issues": [],
+        "suggestions": [],
+        "conventions": {
+          "hasTicketId": true,
+          "hasType": true,
+          "hasDescription": true,
+          "followsKebabCase": true
+        }
+      },
+      "hasChanges": true,
+      "hasUncommittedChanges": false,
+      "hasUnpushedCommits": false
+    },
+    "code": {
+      "hasChanges": false,
+      "changedFiles": [
+        {
+          "path": ".codescribe/history/1753017562314-07e8a18e.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1753020715512-0e6f859a.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1753021929109-34a74c29.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1753024114919-d7202722.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1753024144178-4e424a45.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1753025643789-3fa9436b.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1753025788620-c1491888.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1753025831842-93e53326.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/logs/codescribe.log",
+          "status": "modified",
+          "extension": "log",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "TeamProductivityAnalyzer new.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "TeamProductivityAnalyzer.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/experimental/CodeHealthMonitor.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/experimental/DeveloperMoodTracker.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/experimental/IntelligentCodeReviewer.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/experimental/TeamProductivityAnalyzer.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        }
+      ],
+      "complexity": {
+        "totalScore": 248,
+        "averageScore": 41.333333333333336,
+        "level": "very_high",
+        "files": [
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "score": 37,
+            "functions": 11,
+            "classes": 1,
+            "conditionals": 21,
+            "loops": 0,
+            "depth": 19,
+            "lines": 256
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "score": 37,
+            "functions": 11,
+            "classes": 1,
+            "conditionals": 21,
+            "loops": 0,
+            "depth": 19,
+            "lines": 256
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "score": 39,
+            "functions": 9,
+            "classes": 1,
+            "conditionals": 24,
+            "loops": 0,
+            "depth": 20,
+            "lines": 343
+          },
+          {
+            "file": "src/experimental/DeveloperMoodTracker.js",
+            "score": 17,
+            "functions": 3,
+            "classes": 1,
+            "conditionals": 9,
+            "loops": 0,
+            "depth": 17,
+            "lines": 141
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "score": 81,
+            "functions": 34,
+            "classes": 1,
+            "conditionals": 39,
+            "loops": 1,
+            "depth": 23,
+            "lines": 811
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "score": 37,
+            "functions": 11,
+            "classes": 1,
+            "conditionals": 21,
+            "loops": 0,
+            "depth": 19,
+            "lines": 256
+          }
+        ],
+        "issues": [
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "type": "high_complexity",
+            "score": 37,
+            "message": "High complexity score: 37"
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "type": "high_complexity",
+            "score": 37,
+            "message": "High complexity score: 37"
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "type": "high_complexity",
+            "score": 39,
+            "message": "High complexity score: 39"
+          },
+          {
+            "file": "src/experimental/DeveloperMoodTracker.js",
+            "type": "high_complexity",
+            "score": 17,
+            "message": "High complexity score: 17"
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "type": "high_complexity",
+            "score": 81,
+            "message": "High complexity score: 81"
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "type": "high_complexity",
+            "score": 37,
+            "message": "High complexity score: 37"
+          }
+        ]
+      },
+      "security": {
+        "vulnerabilities": [
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "type": "code_injection",
+            "severity": "high",
+            "message": "Use of eval() can lead to code injection",
+            "line": 131,
+            "code": "eval("
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "type": "code_injection",
+            "severity": "high",
+            "message": "Use of eval() can lead to code injection",
+            "line": 133,
+            "code": "eval("
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "type": "xss",
+            "severity": "medium",
+            "message": "document.write can lead to XSS",
+            "line": 143,
+            "code": "document.write("
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "type": "weak_random",
+            "severity": "low",
+            "message": "Math.random() is not cryptographically secure",
+            "line": 742,
+            "code": "Math.random()"
+          }
+        ],
+        "warnings": [],
+        "riskLevel": "high",
+        "issues": []
+      },
+      "dependencies": {
+        "added": [],
+        "updated": [],
+        "removed": [],
+        "devDependencies": [],
+        "securityUpdates": [],
+        "breakingChanges": []
+      },
+      "ast": {
+        "totalFiles": 6,
+        "parsedFiles": 6,
+        "functions": [
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 165
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 180
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 183
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 197
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 198
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 200
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 201
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 235
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 247
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 248
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 249
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 165
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 180
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 183
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 197
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 198
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 200
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 201
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 235
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 247
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 248
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 249
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 158
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 164
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 165
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 166
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 167
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 274
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 288
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 289
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 290
+          },
+          {
+            "file": "src/experimental/DeveloperMoodTracker.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 79
+          },
+          {
+            "file": "src/experimental/DeveloperMoodTracker.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 83
+          },
+          {
+            "file": "src/experimental/DeveloperMoodTracker.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 116
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 150
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 151
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 212
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 213
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 268
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 269
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 298
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 301
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 369
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 370
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 398
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 450
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 454
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 470
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 499
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 546
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 574
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 575
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 576
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 603
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 604
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 605
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 615
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 629
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 689
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 694
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 701
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 703
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 773
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 774
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 793
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 794
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 801
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 803
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 165
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 180
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 183
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 197
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 198
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 200
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 201
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 235
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 247
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 248
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 249
+          }
+        ],
+        "classes": [
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "TeamProductivityAnalyzer",
+            "superClass": null,
+            "line": 6
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "TeamProductivityAnalyzer",
+            "superClass": null,
+            "line": 6
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "CodeHealthMonitor",
+            "superClass": null,
+            "line": 6
+          },
+          {
+            "file": "src/experimental/DeveloperMoodTracker.js",
+            "name": "DeveloperMoodTracker",
+            "superClass": null,
+            "line": 6
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "IntelligentCodeReviewer",
+            "superClass": null,
+            "line": 6
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "TeamProductivityAnalyzer",
+            "superClass": null,
+            "line": 6
+          }
+        ],
+        "imports": [],
+        "exports": [],
+        "issues": []
+      },
+      "metrics": {
+        "totalLines": 1,
+        "addedLines": 0,
+        "removedLines": 0,
+        "modifiedFiles": 0,
+        "addedFiles": 0,
+        "removedFiles": 0
+      }
+    },
+    "project": {
+      "structure": {
+        "totalFiles": 80,
+        "directories": [
+          {
+            "path": ".codescribe",
+            "depth": 0
+          },
+          {
+            "path": ".codescribe\\history",
+            "depth": 1
+          },
+          {
+            "path": ".codescribe\\logs",
+            "depth": 1
+          },
+          {
+            "path": ".kiro",
+            "depth": 0
+          },
+          {
+            "path": ".kiro\\specs",
+            "depth": 1
+          },
+          {
+            "path": ".kiro\\specs\\enhanced-codescribe-workflows",
+            "depth": 2
+          },
+          {
+            "path": ".warp",
+            "depth": 0
+          },
+          {
+            "path": ".warp\\workflows",
+            "depth": 1
+          },
+          {
+            "path": "docs",
+            "depth": 0
+          },
+          {
+            "path": "src",
+            "depth": 0
+          },
+          {
+            "path": "src\\ai",
+            "depth": 1
+          },
+          {
+            "path": "src\\config",
+            "depth": 1
+          },
+          {
+            "path": "src\\context",
+            "depth": 1
+          },
+          {
+            "path": "src\\core",
+            "depth": 1
+          },
+          {
+            "path": "src\\experimental",
+            "depth": 1
+          },
+          {
+            "path": "src\\utils",
+            "depth": 1
+          },
+          {
+            "path": "src\\workflows",
+            "depth": 1
+          },
+          {
+            "path": "src\\workflows\\commit",
+            "depth": 2
+          },
+          {
+            "path": "src\\workflows\\documentation",
+            "depth": 2
+          },
+          {
+            "path": "src\\workflows\\github",
+            "depth": 2
+          },
+          {
+            "path": "src\\workflows\\linear",
+            "depth": 2
+          }
+        ],
+        "fileTypes": {
+          ".json": 15,
+          ".log": 1,
+          "": 1,
+          ".md": 17,
+          ".yaml": 11,
+          ".js": 34,
+          ".diff": 1
+        },
+        "testFiles": 0,
+        "documentationFiles": 17,
+        "configFiles": 26,
+        "ciFiles": 0,
+        "sourceFiles": 34,
+        "depth": 3
+      },
+      "configuration": {
+        "packageJson": {
+          "name": "codescribe",
+          "version": "1.0.0",
+          "description": "",
+          "main": "index.js",
+          "bin": {
+            "codescribe": "./codescribe.js"
+          },
+          "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1"
+          },
+          "repository": {
+            "type": "git",
+            "url": "git+https://github.com/ManagementMO/CodeScribe.git"
+          },
+          "keywords": [],
+          "author": "",
+          "license": "ISC",
+          "type": "commonjs",
+          "bugs": {
+            "url": "https://github.com/ManagementMO/CodeScribe/issues"
+          },
+          "homepage": "https://github.com/ManagementMO/CodeScribe#readme",
+          "dependencies": {
+            "@babel/parser": "^7.28.0",
+            "@babel/traverse": "^7.28.0",
+            "@babel/types": "^7.28.1",
+            "@google/generative-ai": "^0.24.1",
+            "@linear/sdk": "^52.0.0",
+            "@octokit/rest": "^22.0.0",
+            "@supabase/supabase-js": "^2.52.0",
+            "acorn": "^8.15.0",
+            "audit-ci": "^7.1.0",
+            "axios": "^1.10.0",
+            "chalk": "^4.1.2",
+            "cli-progress": "^3.12.0",
+            "commander": "^14.0.0",
+            "dotenv": "^17.2.0",
+            "express": "^5.1.0",
+            "inquirer": "^8.2.6",
+            "postgres": "^3.4.7",
+            "semver": "^7.7.2"
+          }
+        },
+        "tsconfig": null,
+        "eslint": null,
+        "prettier": null,
+        "jest": null,
+        "webpack": null,
+        "babel": null,
+        "vite": null,
+        "nextConfig": null,
+        "tailwind": null,
+        "docker": null
+      },
+      "projectType": {
+        "primary": "node-cli",
+        "secondary": [
+          {
+            "type": "express-api",
+            "confidence": 0.26666666666666666,
+            "matches": [
+              "express"
+            ]
+          },
+          {
+            "type": "node-cli",
+            "confidence": 0.4666666666666666,
+            "matches": [
+              "commander",
+              "inquirer"
+            ]
+          }
+        ],
+        "confidence": 0.4666666666666666,
+        "indicators": [
+          "express",
+          "commander",
+          "inquirer"
+        ]
+      },
+      "framework": {
+        "frontend": [],
+        "backend": [
+          "Express"
+        ],
+        "testing": [],
+        "build": [],
+        "styling": [],
+        "database": []
+      },
+      "testCoverage": {
+        "hasTests": false,
+        "testFiles": 0,
+        "coverageReports": [],
+        "testFrameworks": [
+          "npm test"
+        ],
+        "coverageThreshold": null,
+        "lastCoverageRun": null,
+        "summary": null
+      },
+      "buildSystem": {
+        "bundler": null,
+        "taskRunner": null,
+        "packageManager": "npm",
+        "scripts": [
+          "test"
+        ],
+        "buildOutput": null,
+        "hasCI": false
+      },
+      "metadata": {
+        "hasTests": false,
+        "hasDocumentation": true,
+        "hasCI": false,
+        "packageManager": "npm",
+        "nodeVersion": null
+      }
+    },
+    "linear": {
+      "ticketId": "COD-24",
+      "ticketData": null,
+      "projectData": null
+    },
+    "ai": {
+      "title": "feat: Implement experimental productivity and code health tools",
+      "body": "This PR introduces a suite of experimental tools designed to analyze team productivity and code health.  These tools are currently in the experimental phase and may undergo significant changes in the future.\n\nThe following components have been added:\n\n* **Team Productivity Analyzer:** Analyzes team productivity metrics (256 lines added in `TeamProductivityAnalyzer.js` and `TeamProductivityAnalyzer new.js`).\n* **Code Health Monitor:** Monitors code quality and identifies potential issues (343 lines added in `src/experimental/CodeHealthMonitor.js`).\n* **Developer Mood Tracker:** Tracks developer sentiment and identifies potential burnout risks (141 lines added in `src/experimental/DeveloperMoodTracker.js`).\n* **Intelligent Code Reviewer:** Provides automated code review suggestions (811 lines added in `src/experimental/IntelligentCodeReviewer.js`).\n\nThe implementation involved significant additions to the `.codescribe` directory, which logs and tracks the execution and data generated by these experimental tools.  A total of approximately 14,200 lines of code were added across multiple files.\n\n**Further Development:** These tools are experimental and will require further testing and refinement.  Future iterations will focus on improving accuracy, adding new features, and addressing potential performance bottlenecks.\n\n**Note:** This PR also includes the `.codescribe` history logs as they are created by the tool's execution process during development. They should be examined by reviewing the individual `*.json` files in the history subdirectory.",
+      "summary": "This PR introduces four experimental tools for analyzing team productivity and code health, adding approximately 14,200 lines of code."
+    },
+    "commit": {
+      "skipped": true,
+      "reason": "no_changes"
+    }
+  },
+  "workflows": [
+    "commit"
+  ],
+  "results": {
+    "commit": {
+      "skipped": true,
+      "reason": "no_changes"
+    }
+  },
+  "duration": 13824,
+  "success": true,
+  "error": null
+}
