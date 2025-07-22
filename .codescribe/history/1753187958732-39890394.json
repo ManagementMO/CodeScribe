@@ -1,0 +1,3115 @@
+{
+  "id": "1753187958732-39890394",
+  "timestamp": "2025-07-22T12:39:18.733Z",
+  "command": "default",
+  "options": {},
+  "context": {
+    "git": {
+      "branch": "feature/COD-24",
+      "diff": "Large diff summary:\n.codescribe/history/1753017562314-07e8a18e.json | 2050 ++++++++++++++\n .codescribe/history/1753020715512-0e6f859a.json |  577 ++++\n .codescribe/history/1753021929109-34a74c29.json |  721 +++++\n .codescribe/history/1753024114919-d7202722.json |  733 +++++\n .codescribe/history/1753024144178-4e424a45.json | 2926 ++++++++++++++++++++\n .codescribe/history/1753025643789-3fa9436b.json |  855 ++++++\n .codescribe/history/1753025788620-c1491888.json |  977 +++++++\n .codescribe/history/1753025831842-93e53326.json | 3270 +++++++++++++++++++++++\n .codescribe/history/1753136099032-7eace439.json | 1310 +++++++++\n .codescribe/logs/codescribe.log                 |   31 +\n TeamProductivityAnalyzer new.js                 |  256 ++\n TeamProductivityAnalyzer.js                     |  256 ++\n src/experimental/CodeHealthMonitor.js           |  343 +++\n src/experimental/DeveloperMoodTracker.js        |  141 +\n src/experimental/IntelligentCodeReviewer.js     |  811 ++++++\n src/experimental/TeamProductivityAnalyzer.js    |  256 ++\n 16 files changed, 15513 insertions(+)\n\nChanged files:\nA\t.codescribe/history/1753017562314-07e8a18e.json\nA\t.codescribe/history/1753020715512-0e6f859a.json\nA\t.codescribe/history/1753021929109-34a74c29.json\nA\t.codescribe/history/1753024114919-d7202722.json\nA\t.codescribe/history/1753024144178-4e424a45.json\nA\t.codescribe/history/1753025643789-3fa9436b.json\nA\t.codescribe/history/1753025788620-c1491888.json\nA\t.codescribe/history/1753025831842-93e53326.json\nA\t.codescribe/history/1753136099032-7eace439.json\nM\t.codescribe/logs/codescribe.log\nA\tTeamProductivityAnalyzer new.js\nA\tTeamProductivityAnalyzer.js\nA\tsrc/experimental/CodeHealthMonitor.js\nA\tsrc/experimental/DeveloperMoodTracker.js\nA\tsrc/experimental/IntelligentCodeReviewer.js\nA\tsrc/experimental/TeamProductivityAnalyzer.js",
+      "diffStats": ".codescribe/history/1753017562314-07e8a18e.json | 2050 ++++++++++++++\n .codescribe/history/1753020715512-0e6f859a.json |  577 ++++\n .codescribe/history/1753021929109-34a74c29.json |  721 +++++\n .codescribe/history/1753024114919-d7202722.json |  733 +++++\n .codescribe/history/1753024144178-4e424a45.json | 2926 ++++++++++++++++++++\n .codescribe/history/1753025643789-3fa9436b.json |  855 ++++++\n .codescribe/history/1753025788620-c1491888.json |  977 +++++++\n .codescribe/history/1753025831842-93e53326.json | 3270 +++++++++++++++++++++++\n .codescribe/history/1753136099032-7eace439.json | 1310 +++++++++\n .codescribe/logs/codescribe.log                 |   31 +\n TeamProductivityAnalyzer new.js                 |  256 ++\n TeamProductivityAnalyzer.js                     |  256 ++\n src/experimental/CodeHealthMonitor.js           |  343 +++\n src/experimental/DeveloperMoodTracker.js        |  141 +\n src/experimental/IntelligentCodeReviewer.js     |  811 ++++++\n src/experimental/TeamProductivityAnalyzer.js    |  256 ++\n 16 files changed, 15513 insertions(+)",
+      "commits": {},
+      "branchHistory": {
+        "creationPoint": "9f0dbf5052e8203460b947456a980711e46294aa",
+        "creationDate": "2025-07-20 07:56:48 -0400",
+        "commitCount": 10,
+        "mergeCount": 0,
+        "ageInDays": 2,
+        "commits": [
+          {
+            "hash": "c075dce",
+            "message": "security(experimental): Implement Code Health Monitor, Developer Mood Tracker, and Intelligent Code Reviewer with security mitigations"
+          },
+          {
+            "hash": "35ab031",
+            "message": "feat(experimental): Add Team Productivity Analyzer, Code Health Monitor, and Developer Mood Tracker"
+          },
+          {
+            "hash": "cdb2941",
+            "message": "perf(experimental): Add Team Productivity Analyzer and related modules"
+          },
+          {
+            "hash": "1bdc4b4",
+            "message": "perf: COD-21 - optimize performance and reduce complexity"
+          },
+          {
+            "hash": "cae825b",
+            "message": "feat(experimental): Introduce Developer Mood Tracker and Team Productivity Analyzer for enhanced team insights"
+          },
+          {
+            "hash": "c418d27",
+            "message": "feat(experimental): Introduce Developer Mood Tracker and Team Productivity Analyzer for enhanced team insights"
+          },
+          {
+            "hash": "8eb18bb",
+            "message": "chore(.codescribe): COD-21: Update 2 files (other, config)"
+          },
+          {
+            "hash": "19a2e5a",
+            "message": "feat(TeamProductivityAnalyzer.js): COD-21: Update TeamProductivityAnalyzer.js"
+          },
+          {
+            "hash": "027c0fa",
+            "message": "my work so far!"
+          },
+          {
+            "hash": "8e6791f",
+            "message": "attempt"
+          }
+        ]
+      },
+      "mergeBaseAnalysis": {
+        "mergeBase": "9f0dbf5052e8203460b947456a980711e46294aa",
+        "mainHead": "8a482b0e74ed1995048424ac2d47f53d937d030b",
+        "aheadCount": 10,
+        "behindCount": 14,
+        "isUpToDate": false,
+        "needsRebase": true,
+        "commitsToMerge": 10
+      },
+      "conflictDetection": {
+        "hasActiveConflicts": false,
+        "potentialConflicts": [],
+        "conflictCount": 0,
+        "riskLevel": "low"
+      },
+      "commitAnalysis": {
+        "error": "commits is not iterable"
+      },
+      "branchValidation": {
+        "branchName": "feature/COD-24",
+        "isValid": true,
+        "issues": [],
+        "suggestions": [],
+        "conventions": {
+          "hasTicketId": true,
+          "hasType": true,
+          "hasDescription": true,
+          "followsKebabCase": true
+        }
+      },
+      "hasChanges": true,
+      "hasUncommittedChanges": true,
+      "hasUnpushedCommits": false
+    },
+    "code": {
+      "hasChanges": false,
+      "changedFiles": [
+        {
+          "path": ".codescribe/history/1753017562314-07e8a18e.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1753020715512-0e6f859a.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1753021929109-34a74c29.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1753024114919-d7202722.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1753024144178-4e424a45.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1753025643789-3fa9436b.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1753025788620-c1491888.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1753025831842-93e53326.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/history/1753136099032-7eace439.json",
+          "status": "added",
+          "extension": "json",
+          "isJavaScript": false,
+          "isConfig": true,
+          "isTest": false
+        },
+        {
+          "path": ".codescribe/logs/codescribe.log",
+          "status": "modified",
+          "extension": "log",
+          "isJavaScript": false,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "TeamProductivityAnalyzer new.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "TeamProductivityAnalyzer.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/experimental/CodeHealthMonitor.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/experimental/DeveloperMoodTracker.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/experimental/IntelligentCodeReviewer.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        },
+        {
+          "path": "src/experimental/TeamProductivityAnalyzer.js",
+          "status": "added",
+          "extension": "js",
+          "isJavaScript": true,
+          "isConfig": false,
+          "isTest": false
+        }
+      ],
+      "complexity": {
+        "totalScore": 248,
+        "averageScore": 41.333333333333336,
+        "level": "very_high",
+        "files": [
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "score": 37,
+            "functions": 11,
+            "classes": 1,
+            "conditionals": 21,
+            "loops": 0,
+            "depth": 19,
+            "lines": 256
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "score": 37,
+            "functions": 11,
+            "classes": 1,
+            "conditionals": 21,
+            "loops": 0,
+            "depth": 19,
+            "lines": 256
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "score": 39,
+            "functions": 9,
+            "classes": 1,
+            "conditionals": 24,
+            "loops": 0,
+            "depth": 20,
+            "lines": 343
+          },
+          {
+            "file": "src/experimental/DeveloperMoodTracker.js",
+            "score": 17,
+            "functions": 3,
+            "classes": 1,
+            "conditionals": 9,
+            "loops": 0,
+            "depth": 17,
+            "lines": 141
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "score": 81,
+            "functions": 34,
+            "classes": 1,
+            "conditionals": 39,
+            "loops": 1,
+            "depth": 23,
+            "lines": 811
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "score": 37,
+            "functions": 11,
+            "classes": 1,
+            "conditionals": 21,
+            "loops": 0,
+            "depth": 19,
+            "lines": 256
+          }
+        ],
+        "issues": [
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "type": "high_complexity",
+            "score": 37,
+            "message": "High complexity score: 37"
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "type": "high_complexity",
+            "score": 37,
+            "message": "High complexity score: 37"
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "type": "high_complexity",
+            "score": 39,
+            "message": "High complexity score: 39"
+          },
+          {
+            "file": "src/experimental/DeveloperMoodTracker.js",
+            "type": "high_complexity",
+            "score": 17,
+            "message": "High complexity score: 17"
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "type": "high_complexity",
+            "score": 81,
+            "message": "High complexity score: 81"
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "type": "high_complexity",
+            "score": 37,
+            "message": "High complexity score: 37"
+          }
+        ]
+      },
+      "security": {
+        "vulnerabilities": [
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "type": "code_injection",
+            "severity": "high",
+            "message": "Use of eval() can lead to code injection",
+            "line": 131,
+            "code": "eval("
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "type": "code_injection",
+            "severity": "high",
+            "message": "Use of eval() can lead to code injection",
+            "line": 133,
+            "code": "eval("
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "type": "xss",
+            "severity": "medium",
+            "message": "document.write can lead to XSS",
+            "line": 143,
+            "code": "document.write("
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "type": "weak_random",
+            "severity": "low",
+            "message": "Math.random() is not cryptographically secure",
+            "line": 742,
+            "code": "Math.random()"
+          }
+        ],
+        "warnings": [],
+        "riskLevel": "high",
+        "issues": []
+      },
+      "dependencies": {
+        "added": [],
+        "updated": [],
+        "removed": [],
+        "devDependencies": [],
+        "securityUpdates": [],
+        "breakingChanges": []
+      },
+      "ast": {
+        "totalFiles": 6,
+        "parsedFiles": 6,
+        "functions": [
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 165
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 180
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 183
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 197
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 198
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 200
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 201
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 235
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 247
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 248
+          },
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 249
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 165
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 180
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 183
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 197
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 198
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 200
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 201
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 235
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 247
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 248
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 249
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 158
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 164
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 165
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 166
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 167
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 274
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 288
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 289
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 290
+          },
+          {
+            "file": "src/experimental/DeveloperMoodTracker.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 79
+          },
+          {
+            "file": "src/experimental/DeveloperMoodTracker.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 83
+          },
+          {
+            "file": "src/experimental/DeveloperMoodTracker.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 116
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 150
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 151
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 212
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 213
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 268
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 269
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 298
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 301
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 369
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 370
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 398
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 450
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 454
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 470
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 499
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 546
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 574
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 575
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 576
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 603
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 604
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 605
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 615
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 629
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 689
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 694
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 701
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 703
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 773
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 774
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 793
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 794
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 801
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 803
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 165
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 180
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 183
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 197
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 1,
+            "line": 198
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 200
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 201
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 235
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 247
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 248
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "arrow_function",
+            "type": "arrow_function",
+            "async": false,
+            "params": 2,
+            "line": 249
+          }
+        ],
+        "classes": [
+          {
+            "file": "TeamProductivityAnalyzer new.js",
+            "name": "TeamProductivityAnalyzer",
+            "superClass": null,
+            "line": 6
+          },
+          {
+            "file": "TeamProductivityAnalyzer.js",
+            "name": "TeamProductivityAnalyzer",
+            "superClass": null,
+            "line": 6
+          },
+          {
+            "file": "src/experimental/CodeHealthMonitor.js",
+            "name": "CodeHealthMonitor",
+            "superClass": null,
+            "line": 6
+          },
+          {
+            "file": "src/experimental/DeveloperMoodTracker.js",
+            "name": "DeveloperMoodTracker",
+            "superClass": null,
+            "line": 6
+          },
+          {
+            "file": "src/experimental/IntelligentCodeReviewer.js",
+            "name": "IntelligentCodeReviewer",
+            "superClass": null,
+            "line": 6
+          },
+          {
+            "file": "src/experimental/TeamProductivityAnalyzer.js",
+            "name": "TeamProductivityAnalyzer",
+            "superClass": null,
+            "line": 6
+          }
+        ],
+        "imports": [],
+        "exports": [],
+        "issues": []
+      },
+      "metrics": {
+        "totalLines": 1,
+        "addedLines": 0,
+        "removedLines": 0,
+        "modifiedFiles": 0,
+        "addedFiles": 0,
+        "removedFiles": 0
+      }
+    },
+    "project": {
+      "structure": {
+        "totalFiles": 81,
+        "directories": [
+          {
+            "path": ".codescribe",
+            "depth": 0
+          },
+          {
+            "path": ".codescribe\\history",
+            "depth": 1
+          },
+          {
+            "path": ".codescribe\\logs",
+            "depth": 1
+          },
+          {
+            "path": ".kiro",
+            "depth": 0
+          },
+          {
+            "path": ".kiro\\specs",
+            "depth": 1
+          },
+          {
+            "path": ".kiro\\specs\\enhanced-codescribe-workflows",
+            "depth": 2
+          },
+          {
+            "path": ".warp",
+            "depth": 0
+          },
+          {
+            "path": ".warp\\workflows",
+            "depth": 1
+          },
+          {
+            "path": "docs",
+            "depth": 0
+          },
+          {
+            "path": "src",
+            "depth": 0
+          },
+          {
+            "path": "src\\ai",
+            "depth": 1
+          },
+          {
+            "path": "src\\config",
+            "depth": 1
+          },
+          {
+            "path": "src\\context",
+            "depth": 1
+          },
+          {
+            "path": "src\\core",
+            "depth": 1
+          },
+          {
+            "path": "src\\experimental",
+            "depth": 1
+          },
+          {
+            "path": "src\\utils",
+            "depth": 1
+          },
+          {
+            "path": "src\\workflows",
+            "depth": 1
+          },
+          {
+            "path": "src\\workflows\\commit",
+            "depth": 2
+          },
+          {
+            "path": "src\\workflows\\documentation",
+            "depth": 2
+          },
+          {
+            "path": "src\\workflows\\github",
+            "depth": 2
+          },
+          {
+            "path": "src\\workflows\\linear",
+            "depth": 2
+          }
+        ],
+        "fileTypes": {
+          ".json": 16,
+          ".log": 1,
+          "": 1,
+          ".md": 17,
+          ".yaml": 11,
+          ".js": 34,
+          ".diff": 1
+        },
+        "testFiles": 0,
+        "documentationFiles": 17,
+        "configFiles": 27,
+        "ciFiles": 0,
+        "sourceFiles": 34,
+        "depth": 3
+      },
+      "configuration": {
+        "packageJson": {
+          "name": "codescribe",
+          "version": "1.0.0",
+          "description": "",
+          "main": "index.js",
+          "bin": {
+            "codescribe": "./codescribe.js"
+          },
+          "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1"
+          },
+          "repository": {
+            "type": "git",
+            "url": "git+https://github.com/ManagementMO/CodeScribe.git"
+          },
+          "keywords": [],
+          "author": "",
+          "license": "ISC",
+          "type": "commonjs",
+          "bugs": {
+            "url": "https://github.com/ManagementMO/CodeScribe/issues"
+          },
+          "homepage": "https://github.com/ManagementMO/CodeScribe#readme",
+          "dependencies": {
+            "@babel/parser": "^7.28.0",
+            "@babel/traverse": "^7.28.0",
+            "@babel/types": "^7.28.1",
+            "@google/generative-ai": "^0.24.1",
+            "@linear/sdk": "^52.0.0",
+            "@octokit/rest": "^22.0.0",
+            "@supabase/supabase-js": "^2.52.0",
+            "acorn": "^8.15.0",
+            "audit-ci": "^7.1.0",
+            "axios": "^1.10.0",
+            "chalk": "^4.1.2",
+            "cli-progress": "^3.12.0",
+            "commander": "^14.0.0",
+            "dotenv": "^17.2.0",
+            "express": "^5.1.0",
+            "inquirer": "^8.2.6",
+            "postgres": "^3.4.7",
+            "semver": "^7.7.2"
+          }
+        },
+        "tsconfig": null,
+        "eslint": null,
+        "prettier": null,
+        "jest": null,
+        "webpack": null,
+        "babel": null,
+        "vite": null,
+        "nextConfig": null,
+        "tailwind": null,
+        "docker": null
+      },
+      "projectType": {
+        "primary": "node-cli",
+        "secondary": [
+          {
+            "type": "express-api",
+            "confidence": 0.26666666666666666,
+            "matches": [
+              "express"
+            ]
+          },
+          {
+            "type": "node-cli",
+            "confidence": 0.4666666666666666,
+            "matches": [
+              "commander",
+              "inquirer"
+            ]
+          }
+        ],
+        "confidence": 0.4666666666666666,
+        "indicators": [
+          "express",
+          "commander",
+          "inquirer"
+        ]
+      },
+      "framework": {
+        "frontend": [],
+        "backend": [
+          "Express"
+        ],
+        "testing": [],
+        "build": [],
+        "styling": [],
+        "database": []
+      },
+      "testCoverage": {
+        "hasTests": false,
+        "testFiles": 0,
+        "coverageReports": [],
+        "testFrameworks": [
+          "npm test"
+        ],
+        "coverageThreshold": null,
+        "lastCoverageRun": null,
+        "summary": null
+      },
+      "buildSystem": {
+        "bundler": null,
+        "taskRunner": null,
+        "packageManager": "npm",
+        "scripts": [
+          "test"
+        ],
+        "buildOutput": null,
+        "hasCI": false
+      },
+      "metadata": {
+        "hasTests": false,
+        "hasDocumentation": true,
+        "hasCI": false,
+        "packageManager": "npm",
+        "nodeVersion": null
+      }
+    },
+    "linear": {
+      "ticketId": "COD-24",
+      "issueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+      "commentAdded": true,
+      "issue": {
+        "id": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+        "identifier": "COD-24",
+        "title": "Linear Test",
+        "description": null,
+        "priority": 1,
+        "estimate": null,
+        "state": {
+          "id": "2e19dc4d-e23f-41b5-8af6-d692cf583f1f",
+          "name": "Backlog",
+          "type": "backlog"
+        },
+        "assignee": {
+          "id": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+          "name": "Mohammed Elshrief",
+          "email": "elshriefmoh@gmail.com"
+        },
+        "project": null,
+        "team": {
+          "id": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+          "name": "Codescribe"
+        },
+        "labels": {
+          "nodes": [
+            {
+              "id": "b437b7a4-cc1f-4a62-993d-7f6a78281c07",
+              "name": "Bug",
+              "color": "#EB5757"
+            }
+          ]
+        },
+        "comments": {
+          "nodes": [
+            {
+              "id": "aa4a0e1d-2523-46a7-8934-599d7149d0d8",
+              "body": "💾 **New Commit**\n\n**Commit:** `c075dce`\n**Message:** security(experimental): Implement Code Health Monitor, Developer Mood Tracker, and Intelligent Code Reviewer with security mitigations\n**Branch:** feature/COD-24\n**GitHub:** [View Commit](https://github.com/ManagementMO/CodeScribe/commit/c075dce9bbb3ff786ac0bcdf5c7be40affbba79e)\n\n### 📊 **Impact Analysis**\n**Description:** This commit introduces three new experimental features: Code Health Monitor, Developer Mood Tracker, and Intelligent Code Reviewer.  These tools aim to improve code quality, developer well-being, and the code review process.  However, initial implementations contained high-risk security vulnerabilities. This commit addresses those vulnerabilities with specific mitigations.\n**Performance Impact:** low_impact\n**Security Risk:** high\n**Maintainability:** unchanged\n\n**Design Rationale:** The introduction of Code Health Monitor, Developer Mood Tracker, and Intelligent Code Reviewer aims to proactively improve code quality and developer productivity.  The initial versions contained security vulnerabilities (code injection via `eval()`, XSS via `document.write()`, and use of insecure random number generation).  These vulnerabilities were addressed by replacing `eval()` with safer alternatives, sanitizing user inputs to prevent XSS, and utilizing a cryptographically secure random number generator where appropriate. The high complexity of IntelligentCodeReviewer requires further refactoring in subsequent commits to reduce complexity.\n**Change Type:** security\n\n### 📈 **Code Metrics**\n**Lines Added:** 0\n**Lines Removed:** 0\n**Files Modified:** 0\n\n### 🔍 **Code Quality**\n**Complexity Level:** very_high\n**Quality Issues:** 6 detected\n\n### 🔒 **Security Analysis**\n**Risk Level:** high\n**Vulnerabilities Found:** 4\n\n*Committed by CodeScribe Agent with Enhanced Analysis*",
+              "createdAt": "2025-07-21T22:17:47.290Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            }
+          ]
+        },
+        "createdAt": "2025-07-21T22:13:29.867Z",
+        "updatedAt": "2025-07-21T22:17:54.166Z",
+        "startedAt": null,
+        "completedAt": null,
+        "dueDate": null,
+        "cycle": null
+      },
+      "progressAnalysis": {
+        "currentPhase": "in_review",
+        "suggestedActions": [
+          {
+            "type": "status_transition",
+            "action": "Move to In Review",
+            "reason": "Pull request created and ready for review"
+          },
+          {
+            "type": "blocker_notification",
+            "action": "Notify team of blocker",
+            "reason": "High security risk detected in code changes"
+          }
+        ],
+        "timeSpent": null,
+        "complexity": "very_high",
+        "riskLevel": "high",
+        "blockers": [
+          {
+            "type": "high_complexity",
+            "message": "Code complexity score (41.333333333333336) exceeds recommended threshold",
+            "severity": "medium"
+          },
+          {
+            "type": "security_risk",
+            "message": "High security risk detected in code changes",
+            "severity": "high"
+          }
+        ],
+        "milestones": [
+          {
+            "type": "pr_created",
+            "timestamp": "2025-07-22T12:39:18.199Z"
+          }
+        ]
+      },
+      "statusTransition": {
+        "success": true,
+        "fromStatus": "Backlog",
+        "toStatus": "In Review",
+        "reason": "Pull request created for review",
+        "timestamp": "2025-07-22T12:39:18.569Z"
+      },
+      "timeTracking": {
+        "skipped": true,
+        "reason": "Time tracking disabled"
+      },
+      "scopeChange": {
+        "hasChanges": true,
+        "changes": [
+          {
+            "type": "file_count_high",
+            "severity": "low",
+            "message": "High number of files changed (16)",
+            "impact": "May indicate scope creep or complex refactoring"
+          },
+          {
+            "type": "js_file_count_high",
+            "severity": "medium",
+            "message": "High number of JavaScript files changed (6)",
+            "impact": "Increased testing and review requirements"
+          }
+        ],
+        "riskLevel": "low",
+        "recommendations": [
+          {
+            "type": "testing_strategy",
+            "message": "Expand testing strategy due to wide-ranging changes",
+            "action": "Add integration tests and increase test coverage"
+          },
+          {
+            "type": "testing_strategy",
+            "message": "Expand testing strategy due to wide-ranging changes",
+            "action": "Add integration tests and increase test coverage"
+          }
+        ]
+      },
+      "subTickets": {
+        "success": true,
+        "reasons": [
+          "High code complexity (41.333333333333336 > 15)",
+          "High number of changed files (16 > 8)",
+          "High security risk detected"
+        ],
+        "analysis": {
+          "shouldCreateSubTickets": true,
+          "suggestedSubTickets": [
+            {
+              "title": "Implement general functionality",
+              "description": "**Auto-generated sub-ticket from COD-24**\n\nHandle changes to 16 files related to general\n\n**Scope:**\nFiles to modify:\n- .codescribe/history/1753017562314-07e8a18e.json\n- .codescribe/history/1753020715512-0e6f859a.json\n- .codescribe/history/1753021929109-34a74c29.json\n- .codescribe/history/1753024114919-d7202722.json\n- .codescribe/history/1753024144178-4e424a45.json\n- .codescribe/history/1753025643789-3fa9436b.json\n- .codescribe/history/1753025788620-c1491888.json\n- .codescribe/history/1753025831842-93e53326.json\n- .codescribe/history/1753136099032-7eace439.json\n- .codescribe/logs/codescribe.log\n- TeamProductivityAnalyzer new.js\n- TeamProductivityAnalyzer.js\n- src/experimental/CodeHealthMonitor.js\n- src/experimental/DeveloperMoodTracker.js\n- src/experimental/IntelligentCodeReviewer.js\n- src/experimental/TeamProductivityAnalyzer.js\n\n**Complexity:** high\n**Priority:** low\n\n**Parent Ticket:** COD-24 - Linear Test",
+              "priority": 4,
+              "estimate": 8,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "feature"
+              ],
+              "parentIssueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "functionality_group",
+                "files": [
+                  ".codescribe/history/1753017562314-07e8a18e.json",
+                  ".codescribe/history/1753020715512-0e6f859a.json",
+                  ".codescribe/history/1753021929109-34a74c29.json",
+                  ".codescribe/history/1753024114919-d7202722.json",
+                  ".codescribe/history/1753024144178-4e424a45.json",
+                  ".codescribe/history/1753025643789-3fa9436b.json",
+                  ".codescribe/history/1753025788620-c1491888.json",
+                  ".codescribe/history/1753025831842-93e53326.json",
+                  ".codescribe/history/1753136099032-7eace439.json",
+                  ".codescribe/logs/codescribe.log",
+                  "TeamProductivityAnalyzer new.js",
+                  "TeamProductivityAnalyzer.js",
+                  "src/experimental/CodeHealthMonitor.js",
+                  "src/experimental/DeveloperMoodTracker.js",
+                  "src/experimental/IntelligentCodeReviewer.js",
+                  "src/experimental/TeamProductivityAnalyzer.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-24"
+              }
+            },
+            {
+              "title": "Refactor high-complexity file: TeamProductivityAnalyzer new.js",
+              "description": "**Auto-generated sub-ticket from COD-24**\n\nAddress complexity issues in TeamProductivityAnalyzer new.js (score: 37)\n\n**Scope:**\nFiles to modify:\n- TeamProductivityAnalyzer new.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-24 - Linear Test",
+              "priority": 3,
+              "estimate": 9,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "refactor",
+                "technical-debt"
+              ],
+              "parentIssueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "complexity_refactor",
+                "files": [
+                  "TeamProductivityAnalyzer new.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-24"
+              }
+            },
+            {
+              "title": "Refactor high-complexity file: TeamProductivityAnalyzer.js",
+              "description": "**Auto-generated sub-ticket from COD-24**\n\nAddress complexity issues in TeamProductivityAnalyzer.js (score: 37)\n\n**Scope:**\nFiles to modify:\n- TeamProductivityAnalyzer.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-24 - Linear Test",
+              "priority": 3,
+              "estimate": 9,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "refactor",
+                "technical-debt"
+              ],
+              "parentIssueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "complexity_refactor",
+                "files": [
+                  "TeamProductivityAnalyzer.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-24"
+              }
+            },
+            {
+              "title": "Refactor high-complexity file: src/experimental/CodeHealthMonitor.js",
+              "description": "**Auto-generated sub-ticket from COD-24**\n\nAddress complexity issues in src/experimental/CodeHealthMonitor.js (score: 39)\n\n**Scope:**\nFiles to modify:\n- src/experimental/CodeHealthMonitor.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-24 - Linear Test",
+              "priority": 3,
+              "estimate": 9,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "refactor",
+                "technical-debt"
+              ],
+              "parentIssueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "complexity_refactor",
+                "files": [
+                  "src/experimental/CodeHealthMonitor.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-24"
+              }
+            },
+            {
+              "title": "Refactor high-complexity file: src/experimental/DeveloperMoodTracker.js",
+              "description": "**Auto-generated sub-ticket from COD-24**\n\nAddress complexity issues in src/experimental/DeveloperMoodTracker.js (score: 17)\n\n**Scope:**\nFiles to modify:\n- src/experimental/DeveloperMoodTracker.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-24 - Linear Test",
+              "priority": 3,
+              "estimate": 9,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "refactor",
+                "technical-debt"
+              ],
+              "parentIssueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "complexity_refactor",
+                "files": [
+                  "src/experimental/DeveloperMoodTracker.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-24"
+              }
+            },
+            {
+              "title": "Refactor high-complexity file: src/experimental/IntelligentCodeReviewer.js",
+              "description": "**Auto-generated sub-ticket from COD-24**\n\nAddress complexity issues in src/experimental/IntelligentCodeReviewer.js (score: 81)\n\n**Scope:**\nFiles to modify:\n- src/experimental/IntelligentCodeReviewer.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-24 - Linear Test",
+              "priority": 3,
+              "estimate": 9,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "refactor",
+                "technical-debt"
+              ],
+              "parentIssueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "complexity_refactor",
+                "files": [
+                  "src/experimental/IntelligentCodeReviewer.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-24"
+              }
+            },
+            {
+              "title": "Refactor high-complexity file: src/experimental/TeamProductivityAnalyzer.js",
+              "description": "**Auto-generated sub-ticket from COD-24**\n\nAddress complexity issues in src/experimental/TeamProductivityAnalyzer.js (score: 37)\n\n**Scope:**\nFiles to modify:\n- src/experimental/TeamProductivityAnalyzer.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-24 - Linear Test",
+              "priority": 3,
+              "estimate": 9,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "refactor",
+                "technical-debt"
+              ],
+              "parentIssueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "complexity_refactor",
+                "files": [
+                  "src/experimental/TeamProductivityAnalyzer.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-24"
+              }
+            },
+            {
+              "title": "Address security vulnerabilities",
+              "description": "**Auto-generated sub-ticket from COD-24**\n\nFix 2 high-severity security issues\n\n**Scope:**\nFiles to modify:\n- src/experimental/IntelligentCodeReviewer.js\n\n**Complexity:** medium\n**Priority:** high\n\n**Security Considerations:**\nThis task addresses security vulnerabilities. Please ensure:\n- Code review by security team\n- Security testing before deployment\n- Documentation of security fixes\n\n**Parent Ticket:** COD-24 - Linear Test",
+              "priority": 2,
+              "estimate": 3,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "security",
+                "bug",
+                "high-priority"
+              ],
+              "parentIssueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "security_fixes",
+                "files": [
+                  "src/experimental/IntelligentCodeReviewer.js"
+                ],
+                "complexity": "medium",
+                "autoGenerated": true,
+                "parentTicket": "COD-24"
+              }
+            }
+          ],
+          "blockers": [
+            {
+              "type": "security_blocker",
+              "title": "🚨 Security Review Required - COD-24",
+              "description": "Critical security vulnerabilities must be addressed before proceeding with COD-24",
+              "priority": "urgent",
+              "blocking": true,
+              "vulnerabilities": [
+                {
+                  "file": "src/experimental/IntelligentCodeReviewer.js",
+                  "type": "code_injection",
+                  "severity": "high",
+                  "message": "Use of eval() can lead to code injection",
+                  "line": 131,
+                  "code": "eval("
+                },
+                {
+                  "file": "src/experimental/IntelligentCodeReviewer.js",
+                  "type": "code_injection",
+                  "severity": "high",
+                  "message": "Use of eval() can lead to code injection",
+                  "line": 133,
+                  "code": "eval("
+                }
+              ]
+            },
+            {
+              "type": "testing_blocker",
+              "title": "🧪 Test Coverage Required - COD-24",
+              "description": "Complex changes require comprehensive test coverage before deployment",
+              "priority": "high",
+              "blocking": true,
+              "missingTests": [
+                "TeamProductivityAnalyzer new.js",
+                "TeamProductivityAnalyzer.js",
+                "src/experimental/CodeHealthMonitor.js",
+                "src/experimental/DeveloperMoodTracker.js",
+                "src/experimental/IntelligentCodeReviewer.js",
+                "src/experimental/TeamProductivityAnalyzer.js"
+              ]
+            }
+          ],
+          "taskBreakdown": [
+            {
+              "type": "functionality_group",
+              "title": "Implement general functionality",
+              "description": "Handle changes to 16 files related to general",
+              "files": [
+                ".codescribe/history/1753017562314-07e8a18e.json",
+                ".codescribe/history/1753020715512-0e6f859a.json",
+                ".codescribe/history/1753021929109-34a74c29.json",
+                ".codescribe/history/1753024114919-d7202722.json",
+                ".codescribe/history/1753024144178-4e424a45.json",
+                ".codescribe/history/1753025643789-3fa9436b.json",
+                ".codescribe/history/1753025788620-c1491888.json",
+                ".codescribe/history/1753025831842-93e53326.json",
+                ".codescribe/history/1753136099032-7eace439.json",
+                ".codescribe/logs/codescribe.log",
+                "TeamProductivityAnalyzer new.js",
+                "TeamProductivityAnalyzer.js",
+                "src/experimental/CodeHealthMonitor.js",
+                "src/experimental/DeveloperMoodTracker.js",
+                "src/experimental/IntelligentCodeReviewer.js",
+                "src/experimental/TeamProductivityAnalyzer.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "low"
+            },
+            {
+              "type": "complexity_refactor",
+              "title": "Refactor high-complexity file: TeamProductivityAnalyzer new.js",
+              "description": "Address complexity issues in TeamProductivityAnalyzer new.js (score: 37)",
+              "files": [
+                "TeamProductivityAnalyzer new.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "medium"
+            },
+            {
+              "type": "complexity_refactor",
+              "title": "Refactor high-complexity file: TeamProductivityAnalyzer.js",
+              "description": "Address complexity issues in TeamProductivityAnalyzer.js (score: 37)",
+              "files": [
+                "TeamProductivityAnalyzer.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "medium"
+            },
+            {
+              "type": "complexity_refactor",
+              "title": "Refactor high-complexity file: src/experimental/CodeHealthMonitor.js",
+              "description": "Address complexity issues in src/experimental/CodeHealthMonitor.js (score: 39)",
+              "files": [
+                "src/experimental/CodeHealthMonitor.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "medium"
+            },
+            {
+              "type": "complexity_refactor",
+              "title": "Refactor high-complexity file: src/experimental/DeveloperMoodTracker.js",
+              "description": "Address complexity issues in src/experimental/DeveloperMoodTracker.js (score: 17)",
+              "files": [
+                "src/experimental/DeveloperMoodTracker.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "medium"
+            },
+            {
+              "type": "complexity_refactor",
+              "title": "Refactor high-complexity file: src/experimental/IntelligentCodeReviewer.js",
+              "description": "Address complexity issues in src/experimental/IntelligentCodeReviewer.js (score: 81)",
+              "files": [
+                "src/experimental/IntelligentCodeReviewer.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "medium"
+            },
+            {
+              "type": "complexity_refactor",
+              "title": "Refactor high-complexity file: src/experimental/TeamProductivityAnalyzer.js",
+              "description": "Address complexity issues in src/experimental/TeamProductivityAnalyzer.js (score: 37)",
+              "files": [
+                "src/experimental/TeamProductivityAnalyzer.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "medium"
+            },
+            {
+              "type": "security_fixes",
+              "title": "Address security vulnerabilities",
+              "description": "Fix 2 high-severity security issues",
+              "files": [
+                "src/experimental/IntelligentCodeReviewer.js"
+              ],
+              "estimatedComplexity": "medium",
+              "priority": "high"
+            }
+          ]
+        },
+        "createdSubTickets": [],
+        "autoCreated": false
+      }
+    },
+    "ai": {
+      "title": "feat: Implement Team Productivity Analyzer and related experimental features",
+      "body": "This PR introduces a new `TeamProductivityAnalyzer` along with several experimental features designed to improve team efficiency and code quality.  The core component, `TeamProductivityAnalyzer`, is accompanied by supporting modules:\n\n* **CodeHealthMonitor:** Monitors code health metrics.\n* **DeveloperMoodTracker:** Tracks developer sentiment.\n* **IntelligentCodeReviewer:** Provides intelligent code review suggestions.\n\nThe implementation involves significant additions to the `.codescribe` history files, reflecting extensive data logging and analysis.  The experimental features are currently under development and are subject to change.\n\n**Key improvements:**\n\n* Comprehensive team productivity analysis capabilities.\n* Real-time monitoring of code health and developer sentiment.\n* Automated code review suggestions to enhance code quality.\n\n**Future considerations:**\n\n* Integration with existing project management tools.\n* Enhanced reporting and visualization of collected data.\n* More sophisticated algorithms for predictive analysis.",
+      "summary": "This PR implements a new Team Productivity Analyzer and several experimental features to improve team efficiency and code quality, significantly enhancing our development processes."
+    },
+    "documentation": {
+      "diagrams": {
+        "flowcharts": [
+          {
+            "type": "flowchart",
+            "title": "Class Relationships",
+            "mermaid": "flowchart TD\n    C0[TeamProductivityAnalyzer]\n    C1[TeamProductivityAnalyzer]\n    C2[CodeHealthMonitor]\n    C3[DeveloperMoodTracker]\n    C4[IntelligentCodeReviewer]\n    C5[TeamProductivityAnalyzer]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n"
+          }
+        ],
+        "dependencyGraphs": [],
+        "sequenceDiagrams": [],
+        "architectureDiagrams": [
+          {
+            "type": "architecture",
+            "title": "Project Architecture",
+            "mermaid": "graph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n"
+          }
+        ]
+      },
+      "formattedDiagrams": {
+        "github": {
+          "markdown": "## 📊 Code Analysis Diagrams\n\n### Class Relationships\n\n```mermaid\nflowchart TD\n    C0[TeamProductivityAnalyzer]\n    C1[TeamProductivityAnalyzer]\n    C2[CodeHealthMonitor]\n    C3[DeveloperMoodTracker]\n    C4[IntelligentCodeReviewer]\n    C5[TeamProductivityAnalyzer]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n```\n\n### Project Architecture\n\n```mermaid\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n```\n\n",
+          "html": "<div class=\"code-analysis-diagrams\">\n<h2>📊 Code Analysis Diagrams</h2>\n<div class=\"diagram-container\">\n<h3>Class Relationships</h3>\n<div class=\"mermaid\">\nflowchart TD\n    C0[TeamProductivityAnalyzer]\n    C1[TeamProductivityAnalyzer]\n    C2[CodeHealthMonitor]\n    C3[DeveloperMoodTracker]\n    C4[IntelligentCodeReviewer]\n    C5[TeamProductivityAnalyzer]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>Project Architecture</h3>\n<div class=\"mermaid\">\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n</div>\n</div>\n</div>\n"
+        },
+        "linear": {
+          "markdown": "## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• TeamProductivityAnalyzer\n• TeamProductivityAnalyzer\n• CodeHealthMonitor\n• DeveloperMoodTracker\n• IntelligentCodeReviewer\n• TeamProductivityAnalyzer\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n",
+          "text": "📊 CODE ANALYSIS SUMMARY\n========================\n\nGenerated Diagrams:\n• Flowcharts: 1\n• Dependency Graphs: 0\n• Sequence Diagrams: 0\n• Architecture Diagrams: 1\n\n"
+        }
+      },
+      "summary": {
+        "totalDiagrams": 2,
+        "diagramTypes": {
+          "flowcharts": 1,
+          "dependencyGraphs": 0,
+          "sequenceDiagrams": 0,
+          "architectureDiagrams": 1
+        },
+        "analysisContext": {
+          "hasCodeChanges": false,
+          "changedFiles": 16,
+          "complexityLevel": "very_high",
+          "securityRisk": "high"
+        },
+        "recommendations": [
+          {
+            "type": "complexity",
+            "message": "High code complexity detected. Consider breaking down complex functions shown in flowcharts.",
+            "priority": "high"
+          },
+          {
+            "type": "architecture",
+            "message": "Multiple files changed. Consider reviewing architecture diagrams for impact assessment.",
+            "priority": "medium"
+          }
+        ]
+      }
+    },
+    "github": {
+      "pr": {
+        "url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/44",
+        "id": 2685419054,
+        "node_id": "PR_kwDOPPEEec6gED4u",
+        "html_url": "https://github.com/ManagementMO/CodeScribe/pull/44",
+        "diff_url": "https://github.com/ManagementMO/CodeScribe/pull/44.diff",
+        "patch_url": "https://github.com/ManagementMO/CodeScribe/pull/44.patch",
+        "issue_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/44",
+        "number": 44,
+        "state": "open",
+        "locked": false,
+        "title": "feat: Implement Team Productivity Analyzer and related experimental features",
+        "user": {
+          "login": "ManagementMO",
+          "id": 111318013,
+          "node_id": "U_kgDOBqKT_Q",
+          "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ManagementMO",
+          "html_url": "https://github.com/ManagementMO",
+          "followers_url": "https://api.github.com/users/ManagementMO/followers",
+          "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+          "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+          "repos_url": "https://api.github.com/users/ManagementMO/repos",
+          "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "This PR introduces a new `TeamProductivityAnalyzer` along with several experimental features designed to improve team efficiency and code quality.  The core component, `TeamProductivityAnalyzer`, is accompanied by supporting modules:\n\n* **CodeHealthMonitor:** Monitors code health metrics.\n* **DeveloperMoodTracker:** Tracks developer sentiment.\n* **IntelligentCodeReviewer:** Provides intelligent code review suggestions.\n\nThe implementation involves significant additions to the `.codescribe` history files, reflecting extensive data logging and analysis.  The experimental features are currently under development and are subject to change.\n\n**Key improvements:**\n\n* Comprehensive team productivity analysis capabilities.\n* Real-time monitoring of code health and developer sentiment.\n* Automated code review suggestions to enhance code quality.\n\n**Future considerations:**\n\n* Integration with existing project management tools.\n* Enhanced reporting and visualization of collected data.\n* More sophisticated algorithms for predictive analysis.",
+        "created_at": "2025-07-22T12:39:16Z",
+        "updated_at": "2025-07-22T12:39:16Z",
+        "closed_at": null,
+        "merged_at": null,
+        "merge_commit_sha": null,
+        "assignee": null,
+        "assignees": [],
+        "requested_reviewers": [],
+        "requested_teams": [],
+        "labels": [],
+        "milestone": null,
+        "draft": true,
+        "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/44/commits",
+        "review_comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/44/comments",
+        "review_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/comments{/number}",
+        "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/44/comments",
+        "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/c075dce9bbb3ff786ac0bcdf5c7be40affbba79e",
+        "head": {
+          "label": "ManagementMO:feature/COD-24",
+          "ref": "feature/COD-24",
+          "sha": "c075dce9bbb3ff786ac0bcdf5c7be40affbba79e",
+          "user": {
+            "login": "ManagementMO",
+            "id": 111318013,
+            "node_id": "U_kgDOBqKT_Q",
+            "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ManagementMO",
+            "html_url": "https://github.com/ManagementMO",
+            "followers_url": "https://api.github.com/users/ManagementMO/followers",
+            "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+            "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+            "repos_url": "https://api.github.com/users/ManagementMO/repos",
+            "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 1022428281,
+            "node_id": "R_kgDOPPEEeQ",
+            "name": "CodeScribe",
+            "full_name": "ManagementMO/CodeScribe",
+            "private": false,
+            "owner": {
+              "login": "ManagementMO",
+              "id": 111318013,
+              "node_id": "U_kgDOBqKT_Q",
+              "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ManagementMO",
+              "html_url": "https://github.com/ManagementMO",
+              "followers_url": "https://api.github.com/users/ManagementMO/followers",
+              "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+              "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+              "repos_url": "https://api.github.com/users/ManagementMO/repos",
+              "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "html_url": "https://github.com/ManagementMO/CodeScribe",
+            "description": "An AI-powered agent ecosystem that automates the entire development pipeline, from generating initial code drafts to creating fully-packaged pull requests.",
+            "fork": false,
+            "url": "https://api.github.com/repos/ManagementMO/CodeScribe",
+            "forks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/forks",
+            "keys_url": "https://api.github.com/repos/ManagementMO/CodeScribe/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/ManagementMO/CodeScribe/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/ManagementMO/CodeScribe/teams",
+            "hooks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/hooks",
+            "issue_events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/events",
+            "assignees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/ManagementMO/CodeScribe/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/tags",
+            "blobs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/ManagementMO/CodeScribe/languages",
+            "stargazers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/stargazers",
+            "contributors_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contributors",
+            "subscribers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscribers",
+            "subscription_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscription",
+            "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/ManagementMO/CodeScribe/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/ManagementMO/CodeScribe/merges",
+            "archive_url": "https://api.github.com/repos/ManagementMO/CodeScribe/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/ManagementMO/CodeScribe/downloads",
+            "issues_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/ManagementMO/CodeScribe/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/ManagementMO/CodeScribe/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/ManagementMO/CodeScribe/labels{/name}",
+            "releases_url": "https://api.github.com/repos/ManagementMO/CodeScribe/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/deployments",
+            "created_at": "2025-07-19T04:03:17Z",
+            "updated_at": "2025-07-22T00:43:30Z",
+            "pushed_at": "2025-07-22T00:43:27Z",
+            "git_url": "git://github.com/ManagementMO/CodeScribe.git",
+            "ssh_url": "git@github.com:ManagementMO/CodeScribe.git",
+            "clone_url": "https://github.com/ManagementMO/CodeScribe.git",
+            "svn_url": "https://github.com/ManagementMO/CodeScribe",
+            "homepage": "",
+            "size": 7420,
+            "stargazers_count": 1,
+            "watchers_count": 1,
+            "language": "JavaScript",
+            "has_issues": true,
+            "has_projects": true,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "has_discussions": false,
+            "forks_count": 0,
+            "mirror_url": null,
+            "archived": false,
+            "disabled": false,
+            "open_issues_count": 9,
+            "license": null,
+            "allow_forking": true,
+            "is_template": false,
+            "web_commit_signoff_required": false,
+            "topics": [],
+            "visibility": "public",
+            "forks": 0,
+            "open_issues": 9,
+            "watchers": 1,
+            "default_branch": "main"
+          }
+        },
+        "base": {
+          "label": "ManagementMO:main",
+          "ref": "main",
+          "sha": "8a482b0e74ed1995048424ac2d47f53d937d030b",
+          "user": {
+            "login": "ManagementMO",
+            "id": 111318013,
+            "node_id": "U_kgDOBqKT_Q",
+            "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ManagementMO",
+            "html_url": "https://github.com/ManagementMO",
+            "followers_url": "https://api.github.com/users/ManagementMO/followers",
+            "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+            "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+            "repos_url": "https://api.github.com/users/ManagementMO/repos",
+            "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 1022428281,
+            "node_id": "R_kgDOPPEEeQ",
+            "name": "CodeScribe",
+            "full_name": "ManagementMO/CodeScribe",
+            "private": false,
+            "owner": {
+              "login": "ManagementMO",
+              "id": 111318013,
+              "node_id": "U_kgDOBqKT_Q",
+              "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ManagementMO",
+              "html_url": "https://github.com/ManagementMO",
+              "followers_url": "https://api.github.com/users/ManagementMO/followers",
+              "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+              "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+              "repos_url": "https://api.github.com/users/ManagementMO/repos",
+              "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "html_url": "https://github.com/ManagementMO/CodeScribe",
+            "description": "An AI-powered agent ecosystem that automates the entire development pipeline, from generating initial code drafts to creating fully-packaged pull requests.",
+            "fork": false,
+            "url": "https://api.github.com/repos/ManagementMO/CodeScribe",
+            "forks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/forks",
+            "keys_url": "https://api.github.com/repos/ManagementMO/CodeScribe/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/ManagementMO/CodeScribe/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/ManagementMO/CodeScribe/teams",
+            "hooks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/hooks",
+            "issue_events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/events",
+            "assignees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/ManagementMO/CodeScribe/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/tags",
+            "blobs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/ManagementMO/CodeScribe/languages",
+            "stargazers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/stargazers",
+            "contributors_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contributors",
+            "subscribers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscribers",
+            "subscription_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscription",
+            "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/ManagementMO/CodeScribe/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/ManagementMO/CodeScribe/merges",
+            "archive_url": "https://api.github.com/repos/ManagementMO/CodeScribe/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/ManagementMO/CodeScribe/downloads",
+            "issues_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/ManagementMO/CodeScribe/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/ManagementMO/CodeScribe/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/ManagementMO/CodeScribe/labels{/name}",
+            "releases_url": "https://api.github.com/repos/ManagementMO/CodeScribe/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/deployments",
+            "created_at": "2025-07-19T04:03:17Z",
+            "updated_at": "2025-07-22T00:43:30Z",
+            "pushed_at": "2025-07-22T00:43:27Z",
+            "git_url": "git://github.com/ManagementMO/CodeScribe.git",
+            "ssh_url": "git@github.com:ManagementMO/CodeScribe.git",
+            "clone_url": "https://github.com/ManagementMO/CodeScribe.git",
+            "svn_url": "https://github.com/ManagementMO/CodeScribe",
+            "homepage": "",
+            "size": 7420,
+            "stargazers_count": 1,
+            "watchers_count": 1,
+            "language": "JavaScript",
+            "has_issues": true,
+            "has_projects": true,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "has_discussions": false,
+            "forks_count": 0,
+            "mirror_url": null,
+            "archived": false,
+            "disabled": false,
+            "open_issues_count": 9,
+            "license": null,
+            "allow_forking": true,
+            "is_template": false,
+            "web_commit_signoff_required": false,
+            "topics": [],
+            "visibility": "public",
+            "forks": 0,
+            "open_issues": 9,
+            "watchers": 1,
+            "default_branch": "main"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/44"
+          },
+          "html": {
+            "href": "https://github.com/ManagementMO/CodeScribe/pull/44"
+          },
+          "issue": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/44"
+          },
+          "comments": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/44/comments"
+          },
+          "review_comments": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/44/comments"
+          },
+          "review_comment": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/comments{/number}"
+          },
+          "commits": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/44/commits"
+          },
+          "statuses": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/c075dce9bbb3ff786ac0bcdf5c7be40affbba79e"
+          }
+        },
+        "author_association": "OWNER",
+        "auto_merge": null,
+        "active_lock_reason": null,
+        "merged": false,
+        "mergeable": null,
+        "rebaseable": null,
+        "mergeable_state": "unknown",
+        "merged_by": null,
+        "comments": 0,
+        "review_comments": 0,
+        "maintainer_can_modify": false,
+        "commits": 10,
+        "additions": 15513,
+        "deletions": 0,
+        "changed_files": 16,
+        "isUpdate": false
+      },
+      "owner": "ManagementMO",
+      "repo": "CodeScribe",
+      "isUpdate": false
+    }
+  },
+  "workflows": [
+    "documentation",
+    "github",
+    "linear"
+  ],
+  "results": {
+    "documentation": {
+      "diagrams": {
+        "flowcharts": [
+          {
+            "type": "flowchart",
+            "title": "Class Relationships",
+            "mermaid": "flowchart TD\n    C0[TeamProductivityAnalyzer]\n    C1[TeamProductivityAnalyzer]\n    C2[CodeHealthMonitor]\n    C3[DeveloperMoodTracker]\n    C4[IntelligentCodeReviewer]\n    C5[TeamProductivityAnalyzer]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n"
+          }
+        ],
+        "dependencyGraphs": [],
+        "sequenceDiagrams": [],
+        "architectureDiagrams": [
+          {
+            "type": "architecture",
+            "title": "Project Architecture",
+            "mermaid": "graph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n"
+          }
+        ]
+      },
+      "formattedDiagrams": {
+        "github": {
+          "markdown": "## 📊 Code Analysis Diagrams\n\n### Class Relationships\n\n```mermaid\nflowchart TD\n    C0[TeamProductivityAnalyzer]\n    C1[TeamProductivityAnalyzer]\n    C2[CodeHealthMonitor]\n    C3[DeveloperMoodTracker]\n    C4[IntelligentCodeReviewer]\n    C5[TeamProductivityAnalyzer]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n```\n\n### Project Architecture\n\n```mermaid\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n```\n\n",
+          "html": "<div class=\"code-analysis-diagrams\">\n<h2>📊 Code Analysis Diagrams</h2>\n<div class=\"diagram-container\">\n<h3>Class Relationships</h3>\n<div class=\"mermaid\">\nflowchart TD\n    C0[TeamProductivityAnalyzer]\n    C1[TeamProductivityAnalyzer]\n    C2[CodeHealthMonitor]\n    C3[DeveloperMoodTracker]\n    C4[IntelligentCodeReviewer]\n    C5[TeamProductivityAnalyzer]\n\n    classDef default fill:#e3f2fd,stroke:#1976d2,stroke-width:2px\n\n</div>\n</div>\n<div class=\"diagram-container\">\n<h3>Project Architecture</h3>\n<div class=\"mermaid\">\ngraph TB\n    subgraph \"Frontend Layer\"\n        UI[User Interface]\n        COMP[Components]\n    end\n\n    subgraph \"Business Logic Layer\"\n        SERV[Services]\n        WORK[Workflows]\n    end\n\n    subgraph \"Data Layer\"\n        API[API Clients]\n        CACHE[Cache]\n    end\n\n    subgraph \"External Services\"\n        GH[GitHub API]\n        LIN[Linear API]\n        AI[AI Services]\n    end\n\n    UI --> COMP\n    COMP --> SERV\n    SERV --> WORK\n    WORK --> API\n    API --> GH\n    API --> LIN\n    API --> AI\n    SERV --> CACHE\n\n    classDef frontend fill:#e3f2fd,stroke:#1976d2\n    classDef business fill:#f3e5f5,stroke:#7b1fa2\n    classDef data fill:#e8f5e8,stroke:#388e3c\n    classDef external fill:#fff3e0,stroke:#f57c00\n    class UI,COMP frontend\n    class SERV,WORK business\n    class API,CACHE data\n    class GH,LIN,AI external\n\n</div>\n</div>\n</div>\n"
+        },
+        "linear": {
+          "markdown": "## 📊 Code Analysis Summary\n\n### Class Relationships\n\n```\n• TeamProductivityAnalyzer\n• TeamProductivityAnalyzer\n• CodeHealthMonitor\n• DeveloperMoodTracker\n• IntelligentCodeReviewer\n• TeamProductivityAnalyzer\n\n```\n\n### Project Architecture\n\n```\n• User Interface\n• Components\n• Services\n• Workflows\n• API Clients\n• Cache\n• GitHub API\n• Linear API\n• AI Services\nUI → COMP\nCOMP → SERV\nSERV → WORK\nWORK → API\nAPI → GH\nAPI → LIN\nAPI → AI\nSERV → CACHE\n\n```\n\n",
+          "text": "📊 CODE ANALYSIS SUMMARY\n========================\n\nGenerated Diagrams:\n• Flowcharts: 1\n• Dependency Graphs: 0\n• Sequence Diagrams: 0\n• Architecture Diagrams: 1\n\n"
+        }
+      },
+      "summary": {
+        "totalDiagrams": 2,
+        "diagramTypes": {
+          "flowcharts": 1,
+          "dependencyGraphs": 0,
+          "sequenceDiagrams": 0,
+          "architectureDiagrams": 1
+        },
+        "analysisContext": {
+          "hasCodeChanges": false,
+          "changedFiles": 16,
+          "complexityLevel": "very_high",
+          "securityRisk": "high"
+        },
+        "recommendations": [
+          {
+            "type": "complexity",
+            "message": "High code complexity detected. Consider breaking down complex functions shown in flowcharts.",
+            "priority": "high"
+          },
+          {
+            "type": "architecture",
+            "message": "Multiple files changed. Consider reviewing architecture diagrams for impact assessment.",
+            "priority": "medium"
+          }
+        ]
+      }
+    },
+    "github": {
+      "pr": {
+        "url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/44",
+        "id": 2685419054,
+        "node_id": "PR_kwDOPPEEec6gED4u",
+        "html_url": "https://github.com/ManagementMO/CodeScribe/pull/44",
+        "diff_url": "https://github.com/ManagementMO/CodeScribe/pull/44.diff",
+        "patch_url": "https://github.com/ManagementMO/CodeScribe/pull/44.patch",
+        "issue_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/44",
+        "number": 44,
+        "state": "open",
+        "locked": false,
+        "title": "feat: Implement Team Productivity Analyzer and related experimental features",
+        "user": {
+          "login": "ManagementMO",
+          "id": 111318013,
+          "node_id": "U_kgDOBqKT_Q",
+          "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ManagementMO",
+          "html_url": "https://github.com/ManagementMO",
+          "followers_url": "https://api.github.com/users/ManagementMO/followers",
+          "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+          "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+          "repos_url": "https://api.github.com/users/ManagementMO/repos",
+          "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "This PR introduces a new `TeamProductivityAnalyzer` along with several experimental features designed to improve team efficiency and code quality.  The core component, `TeamProductivityAnalyzer`, is accompanied by supporting modules:\n\n* **CodeHealthMonitor:** Monitors code health metrics.\n* **DeveloperMoodTracker:** Tracks developer sentiment.\n* **IntelligentCodeReviewer:** Provides intelligent code review suggestions.\n\nThe implementation involves significant additions to the `.codescribe` history files, reflecting extensive data logging and analysis.  The experimental features are currently under development and are subject to change.\n\n**Key improvements:**\n\n* Comprehensive team productivity analysis capabilities.\n* Real-time monitoring of code health and developer sentiment.\n* Automated code review suggestions to enhance code quality.\n\n**Future considerations:**\n\n* Integration with existing project management tools.\n* Enhanced reporting and visualization of collected data.\n* More sophisticated algorithms for predictive analysis.",
+        "created_at": "2025-07-22T12:39:16Z",
+        "updated_at": "2025-07-22T12:39:16Z",
+        "closed_at": null,
+        "merged_at": null,
+        "merge_commit_sha": null,
+        "assignee": null,
+        "assignees": [],
+        "requested_reviewers": [],
+        "requested_teams": [],
+        "labels": [],
+        "milestone": null,
+        "draft": true,
+        "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/44/commits",
+        "review_comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/44/comments",
+        "review_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/comments{/number}",
+        "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/44/comments",
+        "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/c075dce9bbb3ff786ac0bcdf5c7be40affbba79e",
+        "head": {
+          "label": "ManagementMO:feature/COD-24",
+          "ref": "feature/COD-24",
+          "sha": "c075dce9bbb3ff786ac0bcdf5c7be40affbba79e",
+          "user": {
+            "login": "ManagementMO",
+            "id": 111318013,
+            "node_id": "U_kgDOBqKT_Q",
+            "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ManagementMO",
+            "html_url": "https://github.com/ManagementMO",
+            "followers_url": "https://api.github.com/users/ManagementMO/followers",
+            "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+            "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+            "repos_url": "https://api.github.com/users/ManagementMO/repos",
+            "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 1022428281,
+            "node_id": "R_kgDOPPEEeQ",
+            "name": "CodeScribe",
+            "full_name": "ManagementMO/CodeScribe",
+            "private": false,
+            "owner": {
+              "login": "ManagementMO",
+              "id": 111318013,
+              "node_id": "U_kgDOBqKT_Q",
+              "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ManagementMO",
+              "html_url": "https://github.com/ManagementMO",
+              "followers_url": "https://api.github.com/users/ManagementMO/followers",
+              "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+              "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+              "repos_url": "https://api.github.com/users/ManagementMO/repos",
+              "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "html_url": "https://github.com/ManagementMO/CodeScribe",
+            "description": "An AI-powered agent ecosystem that automates the entire development pipeline, from generating initial code drafts to creating fully-packaged pull requests.",
+            "fork": false,
+            "url": "https://api.github.com/repos/ManagementMO/CodeScribe",
+            "forks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/forks",
+            "keys_url": "https://api.github.com/repos/ManagementMO/CodeScribe/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/ManagementMO/CodeScribe/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/ManagementMO/CodeScribe/teams",
+            "hooks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/hooks",
+            "issue_events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/events",
+            "assignees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/ManagementMO/CodeScribe/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/tags",
+            "blobs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/ManagementMO/CodeScribe/languages",
+            "stargazers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/stargazers",
+            "contributors_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contributors",
+            "subscribers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscribers",
+            "subscription_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscription",
+            "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/ManagementMO/CodeScribe/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/ManagementMO/CodeScribe/merges",
+            "archive_url": "https://api.github.com/repos/ManagementMO/CodeScribe/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/ManagementMO/CodeScribe/downloads",
+            "issues_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/ManagementMO/CodeScribe/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/ManagementMO/CodeScribe/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/ManagementMO/CodeScribe/labels{/name}",
+            "releases_url": "https://api.github.com/repos/ManagementMO/CodeScribe/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/deployments",
+            "created_at": "2025-07-19T04:03:17Z",
+            "updated_at": "2025-07-22T00:43:30Z",
+            "pushed_at": "2025-07-22T00:43:27Z",
+            "git_url": "git://github.com/ManagementMO/CodeScribe.git",
+            "ssh_url": "git@github.com:ManagementMO/CodeScribe.git",
+            "clone_url": "https://github.com/ManagementMO/CodeScribe.git",
+            "svn_url": "https://github.com/ManagementMO/CodeScribe",
+            "homepage": "",
+            "size": 7420,
+            "stargazers_count": 1,
+            "watchers_count": 1,
+            "language": "JavaScript",
+            "has_issues": true,
+            "has_projects": true,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "has_discussions": false,
+            "forks_count": 0,
+            "mirror_url": null,
+            "archived": false,
+            "disabled": false,
+            "open_issues_count": 9,
+            "license": null,
+            "allow_forking": true,
+            "is_template": false,
+            "web_commit_signoff_required": false,
+            "topics": [],
+            "visibility": "public",
+            "forks": 0,
+            "open_issues": 9,
+            "watchers": 1,
+            "default_branch": "main"
+          }
+        },
+        "base": {
+          "label": "ManagementMO:main",
+          "ref": "main",
+          "sha": "8a482b0e74ed1995048424ac2d47f53d937d030b",
+          "user": {
+            "login": "ManagementMO",
+            "id": 111318013,
+            "node_id": "U_kgDOBqKT_Q",
+            "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ManagementMO",
+            "html_url": "https://github.com/ManagementMO",
+            "followers_url": "https://api.github.com/users/ManagementMO/followers",
+            "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+            "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+            "repos_url": "https://api.github.com/users/ManagementMO/repos",
+            "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 1022428281,
+            "node_id": "R_kgDOPPEEeQ",
+            "name": "CodeScribe",
+            "full_name": "ManagementMO/CodeScribe",
+            "private": false,
+            "owner": {
+              "login": "ManagementMO",
+              "id": 111318013,
+              "node_id": "U_kgDOBqKT_Q",
+              "avatar_url": "https://avatars.githubusercontent.com/u/111318013?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ManagementMO",
+              "html_url": "https://github.com/ManagementMO",
+              "followers_url": "https://api.github.com/users/ManagementMO/followers",
+              "following_url": "https://api.github.com/users/ManagementMO/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ManagementMO/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ManagementMO/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ManagementMO/subscriptions",
+              "organizations_url": "https://api.github.com/users/ManagementMO/orgs",
+              "repos_url": "https://api.github.com/users/ManagementMO/repos",
+              "events_url": "https://api.github.com/users/ManagementMO/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ManagementMO/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "html_url": "https://github.com/ManagementMO/CodeScribe",
+            "description": "An AI-powered agent ecosystem that automates the entire development pipeline, from generating initial code drafts to creating fully-packaged pull requests.",
+            "fork": false,
+            "url": "https://api.github.com/repos/ManagementMO/CodeScribe",
+            "forks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/forks",
+            "keys_url": "https://api.github.com/repos/ManagementMO/CodeScribe/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/ManagementMO/CodeScribe/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/ManagementMO/CodeScribe/teams",
+            "hooks_url": "https://api.github.com/repos/ManagementMO/CodeScribe/hooks",
+            "issue_events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/ManagementMO/CodeScribe/events",
+            "assignees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/ManagementMO/CodeScribe/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/tags",
+            "blobs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/ManagementMO/CodeScribe/languages",
+            "stargazers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/stargazers",
+            "contributors_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contributors",
+            "subscribers_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscribers",
+            "subscription_url": "https://api.github.com/repos/ManagementMO/CodeScribe/subscription",
+            "commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/ManagementMO/CodeScribe/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/ManagementMO/CodeScribe/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/ManagementMO/CodeScribe/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/ManagementMO/CodeScribe/merges",
+            "archive_url": "https://api.github.com/repos/ManagementMO/CodeScribe/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/ManagementMO/CodeScribe/downloads",
+            "issues_url": "https://api.github.com/repos/ManagementMO/CodeScribe/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/ManagementMO/CodeScribe/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/ManagementMO/CodeScribe/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/ManagementMO/CodeScribe/labels{/name}",
+            "releases_url": "https://api.github.com/repos/ManagementMO/CodeScribe/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/ManagementMO/CodeScribe/deployments",
+            "created_at": "2025-07-19T04:03:17Z",
+            "updated_at": "2025-07-22T00:43:30Z",
+            "pushed_at": "2025-07-22T00:43:27Z",
+            "git_url": "git://github.com/ManagementMO/CodeScribe.git",
+            "ssh_url": "git@github.com:ManagementMO/CodeScribe.git",
+            "clone_url": "https://github.com/ManagementMO/CodeScribe.git",
+            "svn_url": "https://github.com/ManagementMO/CodeScribe",
+            "homepage": "",
+            "size": 7420,
+            "stargazers_count": 1,
+            "watchers_count": 1,
+            "language": "JavaScript",
+            "has_issues": true,
+            "has_projects": true,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "has_discussions": false,
+            "forks_count": 0,
+            "mirror_url": null,
+            "archived": false,
+            "disabled": false,
+            "open_issues_count": 9,
+            "license": null,
+            "allow_forking": true,
+            "is_template": false,
+            "web_commit_signoff_required": false,
+            "topics": [],
+            "visibility": "public",
+            "forks": 0,
+            "open_issues": 9,
+            "watchers": 1,
+            "default_branch": "main"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/44"
+          },
+          "html": {
+            "href": "https://github.com/ManagementMO/CodeScribe/pull/44"
+          },
+          "issue": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/44"
+          },
+          "comments": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/issues/44/comments"
+          },
+          "review_comments": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/44/comments"
+          },
+          "review_comment": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/comments{/number}"
+          },
+          "commits": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/pulls/44/commits"
+          },
+          "statuses": {
+            "href": "https://api.github.com/repos/ManagementMO/CodeScribe/statuses/c075dce9bbb3ff786ac0bcdf5c7be40affbba79e"
+          }
+        },
+        "author_association": "OWNER",
+        "auto_merge": null,
+        "active_lock_reason": null,
+        "merged": false,
+        "mergeable": null,
+        "rebaseable": null,
+        "mergeable_state": "unknown",
+        "merged_by": null,
+        "comments": 0,
+        "review_comments": 0,
+        "maintainer_can_modify": false,
+        "commits": 10,
+        "additions": 15513,
+        "deletions": 0,
+        "changed_files": 16,
+        "isUpdate": false
+      },
+      "owner": "ManagementMO",
+      "repo": "CodeScribe",
+      "isUpdate": false
+    },
+    "linear": {
+      "ticketId": "COD-24",
+      "issueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+      "commentAdded": true,
+      "issue": {
+        "id": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+        "identifier": "COD-24",
+        "title": "Linear Test",
+        "description": null,
+        "priority": 1,
+        "estimate": null,
+        "state": {
+          "id": "2e19dc4d-e23f-41b5-8af6-d692cf583f1f",
+          "name": "Backlog",
+          "type": "backlog"
+        },
+        "assignee": {
+          "id": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+          "name": "Mohammed Elshrief",
+          "email": "elshriefmoh@gmail.com"
+        },
+        "project": null,
+        "team": {
+          "id": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+          "name": "Codescribe"
+        },
+        "labels": {
+          "nodes": [
+            {
+              "id": "b437b7a4-cc1f-4a62-993d-7f6a78281c07",
+              "name": "Bug",
+              "color": "#EB5757"
+            }
+          ]
+        },
+        "comments": {
+          "nodes": [
+            {
+              "id": "aa4a0e1d-2523-46a7-8934-599d7149d0d8",
+              "body": "💾 **New Commit**\n\n**Commit:** `c075dce`\n**Message:** security(experimental): Implement Code Health Monitor, Developer Mood Tracker, and Intelligent Code Reviewer with security mitigations\n**Branch:** feature/COD-24\n**GitHub:** [View Commit](https://github.com/ManagementMO/CodeScribe/commit/c075dce9bbb3ff786ac0bcdf5c7be40affbba79e)\n\n### 📊 **Impact Analysis**\n**Description:** This commit introduces three new experimental features: Code Health Monitor, Developer Mood Tracker, and Intelligent Code Reviewer.  These tools aim to improve code quality, developer well-being, and the code review process.  However, initial implementations contained high-risk security vulnerabilities. This commit addresses those vulnerabilities with specific mitigations.\n**Performance Impact:** low_impact\n**Security Risk:** high\n**Maintainability:** unchanged\n\n**Design Rationale:** The introduction of Code Health Monitor, Developer Mood Tracker, and Intelligent Code Reviewer aims to proactively improve code quality and developer productivity.  The initial versions contained security vulnerabilities (code injection via `eval()`, XSS via `document.write()`, and use of insecure random number generation).  These vulnerabilities were addressed by replacing `eval()` with safer alternatives, sanitizing user inputs to prevent XSS, and utilizing a cryptographically secure random number generator where appropriate. The high complexity of IntelligentCodeReviewer requires further refactoring in subsequent commits to reduce complexity.\n**Change Type:** security\n\n### 📈 **Code Metrics**\n**Lines Added:** 0\n**Lines Removed:** 0\n**Files Modified:** 0\n\n### 🔍 **Code Quality**\n**Complexity Level:** very_high\n**Quality Issues:** 6 detected\n\n### 🔒 **Security Analysis**\n**Risk Level:** high\n**Vulnerabilities Found:** 4\n\n*Committed by CodeScribe Agent with Enhanced Analysis*",
+              "createdAt": "2025-07-21T22:17:47.290Z",
+              "user": {
+                "name": "Mohammed Elshrief"
+              }
+            }
+          ]
+        },
+        "createdAt": "2025-07-21T22:13:29.867Z",
+        "updatedAt": "2025-07-21T22:17:54.166Z",
+        "startedAt": null,
+        "completedAt": null,
+        "dueDate": null,
+        "cycle": null
+      },
+      "progressAnalysis": {
+        "currentPhase": "in_review",
+        "suggestedActions": [
+          {
+            "type": "status_transition",
+            "action": "Move to In Review",
+            "reason": "Pull request created and ready for review"
+          },
+          {
+            "type": "blocker_notification",
+            "action": "Notify team of blocker",
+            "reason": "High security risk detected in code changes"
+          }
+        ],
+        "timeSpent": null,
+        "complexity": "very_high",
+        "riskLevel": "high",
+        "blockers": [
+          {
+            "type": "high_complexity",
+            "message": "Code complexity score (41.333333333333336) exceeds recommended threshold",
+            "severity": "medium"
+          },
+          {
+            "type": "security_risk",
+            "message": "High security risk detected in code changes",
+            "severity": "high"
+          }
+        ],
+        "milestones": [
+          {
+            "type": "pr_created",
+            "timestamp": "2025-07-22T12:39:18.199Z"
+          }
+        ]
+      },
+      "statusTransition": {
+        "success": true,
+        "fromStatus": "Backlog",
+        "toStatus": "In Review",
+        "reason": "Pull request created for review",
+        "timestamp": "2025-07-22T12:39:18.569Z"
+      },
+      "timeTracking": {
+        "skipped": true,
+        "reason": "Time tracking disabled"
+      },
+      "scopeChange": {
+        "hasChanges": true,
+        "changes": [
+          {
+            "type": "file_count_high",
+            "severity": "low",
+            "message": "High number of files changed (16)",
+            "impact": "May indicate scope creep or complex refactoring"
+          },
+          {
+            "type": "js_file_count_high",
+            "severity": "medium",
+            "message": "High number of JavaScript files changed (6)",
+            "impact": "Increased testing and review requirements"
+          }
+        ],
+        "riskLevel": "low",
+        "recommendations": [
+          {
+            "type": "testing_strategy",
+            "message": "Expand testing strategy due to wide-ranging changes",
+            "action": "Add integration tests and increase test coverage"
+          },
+          {
+            "type": "testing_strategy",
+            "message": "Expand testing strategy due to wide-ranging changes",
+            "action": "Add integration tests and increase test coverage"
+          }
+        ]
+      },
+      "subTickets": {
+        "success": true,
+        "reasons": [
+          "High code complexity (41.333333333333336 > 15)",
+          "High number of changed files (16 > 8)",
+          "High security risk detected"
+        ],
+        "analysis": {
+          "shouldCreateSubTickets": true,
+          "suggestedSubTickets": [
+            {
+              "title": "Implement general functionality",
+              "description": "**Auto-generated sub-ticket from COD-24**\n\nHandle changes to 16 files related to general\n\n**Scope:**\nFiles to modify:\n- .codescribe/history/1753017562314-07e8a18e.json\n- .codescribe/history/1753020715512-0e6f859a.json\n- .codescribe/history/1753021929109-34a74c29.json\n- .codescribe/history/1753024114919-d7202722.json\n- .codescribe/history/1753024144178-4e424a45.json\n- .codescribe/history/1753025643789-3fa9436b.json\n- .codescribe/history/1753025788620-c1491888.json\n- .codescribe/history/1753025831842-93e53326.json\n- .codescribe/history/1753136099032-7eace439.json\n- .codescribe/logs/codescribe.log\n- TeamProductivityAnalyzer new.js\n- TeamProductivityAnalyzer.js\n- src/experimental/CodeHealthMonitor.js\n- src/experimental/DeveloperMoodTracker.js\n- src/experimental/IntelligentCodeReviewer.js\n- src/experimental/TeamProductivityAnalyzer.js\n\n**Complexity:** high\n**Priority:** low\n\n**Parent Ticket:** COD-24 - Linear Test",
+              "priority": 4,
+              "estimate": 8,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "feature"
+              ],
+              "parentIssueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "functionality_group",
+                "files": [
+                  ".codescribe/history/1753017562314-07e8a18e.json",
+                  ".codescribe/history/1753020715512-0e6f859a.json",
+                  ".codescribe/history/1753021929109-34a74c29.json",
+                  ".codescribe/history/1753024114919-d7202722.json",
+                  ".codescribe/history/1753024144178-4e424a45.json",
+                  ".codescribe/history/1753025643789-3fa9436b.json",
+                  ".codescribe/history/1753025788620-c1491888.json",
+                  ".codescribe/history/1753025831842-93e53326.json",
+                  ".codescribe/history/1753136099032-7eace439.json",
+                  ".codescribe/logs/codescribe.log",
+                  "TeamProductivityAnalyzer new.js",
+                  "TeamProductivityAnalyzer.js",
+                  "src/experimental/CodeHealthMonitor.js",
+                  "src/experimental/DeveloperMoodTracker.js",
+                  "src/experimental/IntelligentCodeReviewer.js",
+                  "src/experimental/TeamProductivityAnalyzer.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-24"
+              }
+            },
+            {
+              "title": "Refactor high-complexity file: TeamProductivityAnalyzer new.js",
+              "description": "**Auto-generated sub-ticket from COD-24**\n\nAddress complexity issues in TeamProductivityAnalyzer new.js (score: 37)\n\n**Scope:**\nFiles to modify:\n- TeamProductivityAnalyzer new.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-24 - Linear Test",
+              "priority": 3,
+              "estimate": 9,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "refactor",
+                "technical-debt"
+              ],
+              "parentIssueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "complexity_refactor",
+                "files": [
+                  "TeamProductivityAnalyzer new.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-24"
+              }
+            },
+            {
+              "title": "Refactor high-complexity file: TeamProductivityAnalyzer.js",
+              "description": "**Auto-generated sub-ticket from COD-24**\n\nAddress complexity issues in TeamProductivityAnalyzer.js (score: 37)\n\n**Scope:**\nFiles to modify:\n- TeamProductivityAnalyzer.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-24 - Linear Test",
+              "priority": 3,
+              "estimate": 9,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "refactor",
+                "technical-debt"
+              ],
+              "parentIssueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "complexity_refactor",
+                "files": [
+                  "TeamProductivityAnalyzer.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-24"
+              }
+            },
+            {
+              "title": "Refactor high-complexity file: src/experimental/CodeHealthMonitor.js",
+              "description": "**Auto-generated sub-ticket from COD-24**\n\nAddress complexity issues in src/experimental/CodeHealthMonitor.js (score: 39)\n\n**Scope:**\nFiles to modify:\n- src/experimental/CodeHealthMonitor.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-24 - Linear Test",
+              "priority": 3,
+              "estimate": 9,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "refactor",
+                "technical-debt"
+              ],
+              "parentIssueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "complexity_refactor",
+                "files": [
+                  "src/experimental/CodeHealthMonitor.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-24"
+              }
+            },
+            {
+              "title": "Refactor high-complexity file: src/experimental/DeveloperMoodTracker.js",
+              "description": "**Auto-generated sub-ticket from COD-24**\n\nAddress complexity issues in src/experimental/DeveloperMoodTracker.js (score: 17)\n\n**Scope:**\nFiles to modify:\n- src/experimental/DeveloperMoodTracker.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-24 - Linear Test",
+              "priority": 3,
+              "estimate": 9,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "refactor",
+                "technical-debt"
+              ],
+              "parentIssueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "complexity_refactor",
+                "files": [
+                  "src/experimental/DeveloperMoodTracker.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-24"
+              }
+            },
+            {
+              "title": "Refactor high-complexity file: src/experimental/IntelligentCodeReviewer.js",
+              "description": "**Auto-generated sub-ticket from COD-24**\n\nAddress complexity issues in src/experimental/IntelligentCodeReviewer.js (score: 81)\n\n**Scope:**\nFiles to modify:\n- src/experimental/IntelligentCodeReviewer.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-24 - Linear Test",
+              "priority": 3,
+              "estimate": 9,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "refactor",
+                "technical-debt"
+              ],
+              "parentIssueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "complexity_refactor",
+                "files": [
+                  "src/experimental/IntelligentCodeReviewer.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-24"
+              }
+            },
+            {
+              "title": "Refactor high-complexity file: src/experimental/TeamProductivityAnalyzer.js",
+              "description": "**Auto-generated sub-ticket from COD-24**\n\nAddress complexity issues in src/experimental/TeamProductivityAnalyzer.js (score: 37)\n\n**Scope:**\nFiles to modify:\n- src/experimental/TeamProductivityAnalyzer.js\n\n**Complexity:** high\n**Priority:** medium\n\n**Parent Ticket:** COD-24 - Linear Test",
+              "priority": 3,
+              "estimate": 9,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "refactor",
+                "technical-debt"
+              ],
+              "parentIssueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "complexity_refactor",
+                "files": [
+                  "src/experimental/TeamProductivityAnalyzer.js"
+                ],
+                "complexity": "high",
+                "autoGenerated": true,
+                "parentTicket": "COD-24"
+              }
+            },
+            {
+              "title": "Address security vulnerabilities",
+              "description": "**Auto-generated sub-ticket from COD-24**\n\nFix 2 high-severity security issues\n\n**Scope:**\nFiles to modify:\n- src/experimental/IntelligentCodeReviewer.js\n\n**Complexity:** medium\n**Priority:** high\n\n**Security Considerations:**\nThis task addresses security vulnerabilities. Please ensure:\n- Code review by security team\n- Security testing before deployment\n- Documentation of security fixes\n\n**Parent Ticket:** COD-24 - Linear Test",
+              "priority": 2,
+              "estimate": 3,
+              "labels": [
+                "auto-generated",
+                "sub-task",
+                "security",
+                "bug",
+                "high-priority"
+              ],
+              "parentIssueId": "cabea80e-ef80-4c0f-93f6-8c00f29a5632",
+              "teamId": "e5487a27-0b77-40b3-8f9e-e7b2ccba6875",
+              "assigneeId": "671bd7cf-4218-4ef2-8f35-f3929781363f",
+              "metadata": {
+                "type": "security_fixes",
+                "files": [
+                  "src/experimental/IntelligentCodeReviewer.js"
+                ],
+                "complexity": "medium",
+                "autoGenerated": true,
+                "parentTicket": "COD-24"
+              }
+            }
+          ],
+          "blockers": [
+            {
+              "type": "security_blocker",
+              "title": "🚨 Security Review Required - COD-24",
+              "description": "Critical security vulnerabilities must be addressed before proceeding with COD-24",
+              "priority": "urgent",
+              "blocking": true,
+              "vulnerabilities": [
+                {
+                  "file": "src/experimental/IntelligentCodeReviewer.js",
+                  "type": "code_injection",
+                  "severity": "high",
+                  "message": "Use of eval() can lead to code injection",
+                  "line": 131,
+                  "code": "eval("
+                },
+                {
+                  "file": "src/experimental/IntelligentCodeReviewer.js",
+                  "type": "code_injection",
+                  "severity": "high",
+                  "message": "Use of eval() can lead to code injection",
+                  "line": 133,
+                  "code": "eval("
+                }
+              ]
+            },
+            {
+              "type": "testing_blocker",
+              "title": "🧪 Test Coverage Required - COD-24",
+              "description": "Complex changes require comprehensive test coverage before deployment",
+              "priority": "high",
+              "blocking": true,
+              "missingTests": [
+                "TeamProductivityAnalyzer new.js",
+                "TeamProductivityAnalyzer.js",
+                "src/experimental/CodeHealthMonitor.js",
+                "src/experimental/DeveloperMoodTracker.js",
+                "src/experimental/IntelligentCodeReviewer.js",
+                "src/experimental/TeamProductivityAnalyzer.js"
+              ]
+            }
+          ],
+          "taskBreakdown": [
+            {
+              "type": "functionality_group",
+              "title": "Implement general functionality",
+              "description": "Handle changes to 16 files related to general",
+              "files": [
+                ".codescribe/history/1753017562314-07e8a18e.json",
+                ".codescribe/history/1753020715512-0e6f859a.json",
+                ".codescribe/history/1753021929109-34a74c29.json",
+                ".codescribe/history/1753024114919-d7202722.json",
+                ".codescribe/history/1753024144178-4e424a45.json",
+                ".codescribe/history/1753025643789-3fa9436b.json",
+                ".codescribe/history/1753025788620-c1491888.json",
+                ".codescribe/history/1753025831842-93e53326.json",
+                ".codescribe/history/1753136099032-7eace439.json",
+                ".codescribe/logs/codescribe.log",
+                "TeamProductivityAnalyzer new.js",
+                "TeamProductivityAnalyzer.js",
+                "src/experimental/CodeHealthMonitor.js",
+                "src/experimental/DeveloperMoodTracker.js",
+                "src/experimental/IntelligentCodeReviewer.js",
+                "src/experimental/TeamProductivityAnalyzer.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "low"
+            },
+            {
+              "type": "complexity_refactor",
+              "title": "Refactor high-complexity file: TeamProductivityAnalyzer new.js",
+              "description": "Address complexity issues in TeamProductivityAnalyzer new.js (score: 37)",
+              "files": [
+                "TeamProductivityAnalyzer new.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "medium"
+            },
+            {
+              "type": "complexity_refactor",
+              "title": "Refactor high-complexity file: TeamProductivityAnalyzer.js",
+              "description": "Address complexity issues in TeamProductivityAnalyzer.js (score: 37)",
+              "files": [
+                "TeamProductivityAnalyzer.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "medium"
+            },
+            {
+              "type": "complexity_refactor",
+              "title": "Refactor high-complexity file: src/experimental/CodeHealthMonitor.js",
+              "description": "Address complexity issues in src/experimental/CodeHealthMonitor.js (score: 39)",
+              "files": [
+                "src/experimental/CodeHealthMonitor.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "medium"
+            },
+            {
+              "type": "complexity_refactor",
+              "title": "Refactor high-complexity file: src/experimental/DeveloperMoodTracker.js",
+              "description": "Address complexity issues in src/experimental/DeveloperMoodTracker.js (score: 17)",
+              "files": [
+                "src/experimental/DeveloperMoodTracker.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "medium"
+            },
+            {
+              "type": "complexity_refactor",
+              "title": "Refactor high-complexity file: src/experimental/IntelligentCodeReviewer.js",
+              "description": "Address complexity issues in src/experimental/IntelligentCodeReviewer.js (score: 81)",
+              "files": [
+                "src/experimental/IntelligentCodeReviewer.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "medium"
+            },
+            {
+              "type": "complexity_refactor",
+              "title": "Refactor high-complexity file: src/experimental/TeamProductivityAnalyzer.js",
+              "description": "Address complexity issues in src/experimental/TeamProductivityAnalyzer.js (score: 37)",
+              "files": [
+                "src/experimental/TeamProductivityAnalyzer.js"
+              ],
+              "estimatedComplexity": "high",
+              "priority": "medium"
+            },
+            {
+              "type": "security_fixes",
+              "title": "Address security vulnerabilities",
+              "description": "Fix 2 high-severity security issues",
+              "files": [
+                "src/experimental/IntelligentCodeReviewer.js"
+              ],
+              "estimatedComplexity": "medium",
+              "priority": "high"
+            }
+          ]
+        },
+        "createdSubTickets": [],
+        "autoCreated": false
+      }
+    }
+  },
+  "duration": 11968,
+  "success": true,
+  "error": null
+}
